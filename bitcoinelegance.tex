@@ -1,0 +1,71 @@
+\documentclass[a4paper]{book}
+
+% Basic packages
+\usepackage[polutonikogreek, french]{babel} % language
+\usepackage[utf8]{inputenc}                 % accents
+\usepackage[T1]{fontenc}                    % french characters
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry} % margin: TODO delete custom margins
+\usepackage{setspace}                       % spacing
+\usepackage{graphicx}                       % images
+\usepackage{verbatim}                       % preformatted text
+\usepackage{enumerate}                      % lists
+\usepackage{hyperref}                       % cross-referencing
+\usepackage{enotez}                         % endnotes 
+
+% Custom packages
+\usepackage{newtxtext}                      % Times New Roman font
+\usepackage{eurosym}                        % euro symbol
+\usepackage{amsfonts,amsmath,amssymb,amsthm}    % math
+\usepackage{xcolor}
+
+% Custom settings
+\setlength{\parskip}{1ex}                   % paragraph spacing
+\renewenvironment{quote}{\small\list{}{\topsep=0.5\baselineskip}\item\relax}{\endlist} % quote environment
+
+% Custom commands
+\newcommand{\eng}[1]{{\NoAutoSpaceBeforeFDP\emph{#1}}}  % english
+\newcommand{\wtime}[1]{{\NoAutoSpaceBeforeFDP#1}}       % datetime
+
+\title{L'élégance de Bitcoin (ébauche)}     % title
+\author{Ludovic Lars}                       % author
+\date{\today}                               % date
+
+\hypersetup{ 
+    pdftitle={\csname @title\endcsname},
+    pdfauthor={\csname @author\endcsname}
+}
+
+
+\begin{document}
+
+\maketitle
+
+% \frontmatter
+% 
+% \chapter*{Introduction}
+
+\mainmatter
+
+\part{Pourquoi ?}
+
+\include{chapters/ch01-mythe}
+\include{chapters/ch02-origine}
+\include{chapters/ch03-adversaire}
+
+\part{Quoi ?}
+
+\include{chapters/ch04-propriete}
+\include{chapters/ch05-confirmation}
+\include{chapters/ch06-determination}
+
+\part{Comment ?}
+
+\include{chapters/ch07-programmabilite}
+\include{chapters/ch08-confidentialite}
+\include{chapters/ch09-avenir}
+
+\newpage
+
+\printendnotes*
+
+\end{document}

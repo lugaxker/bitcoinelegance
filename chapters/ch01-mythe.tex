@@ -1,17 +1,428 @@
-\chapter{Une brève histoire de Bitcoin}
+% Copyright (c) 2022 Ludovic Lars
+% This work is licensed under the CC BY-NC-SA 4.0 International License
 
-\section{Une naissance difficile}
+\chapter{Les débuts de Bitcoin}
+% Une brève histoire de Bitcoin
+
+% recoin obscur d'internet~: liste de diffusion
+
+Le 31 octobre 2008, un individu se faisant appeler Satoshi Nakamoto partageait sur internet un court document qui décrivait le fonctionnement technique d'un système novateur de monnaie numérique~: Bitcoin. Ce livre blanc de 9 pages, présenté comme un article scientifique, s'intitulait en anglais \eng{Bitcoin: A Peer-to-Peer Electronic Cash System} -- \emph{Bitcoin~: un système d'argent liquide électronique pair-à-pair}. Dans celui-ci, Satoshi proposait une solution au problème des paiements en ligne, par la mise en œuvre d'un serveur d'horodatage distribué basé sur un algorithme de preuve de travail.
+
+Mais cela allait beaucoup plus loin. Le livre blanc de Bitcoin posait les bases d'une révolution conceptuelle profonde~: une monnaie exclusivement numérique qui ne reposait sur aucun tiers de confiance, ni pour la confirmation des transactions, ni pour l'émission des nouvelles unités. Ce que Satoshi venait d'inventer, c'était bien plus qu'un système de paiement~; c'était un nouveau type de monnaie, quelque chose que nul n'avait su concevoir jusqu'alors, un phénomène économique et social qui rencontrerait un succès inouï au cours des années qui suivraient.
+
+En particulier, l'invention de Satoshi Nakamoto réalisait le vieux rêve d'une monnaie numérique échappant au contrôle de l'État~: un rêve cher aux cypherpunks, dont le mouvement remontant au début des années 1990, prônait l'utilisation proactive de la technologie et de la cryptographie dans le but d'assurer la confidentialité et la liberté des individus dans le cyberespace. Ces cryptographes rebelles avaient en effet désiré et tenté de concevoir un tel argent liquide électronique pendant des années, celui-ci étant un élément constitutif de leur idéal. Malheureusement, cela n'avait pas abouti, du moins jusqu'à l'apparition de Bitcoin.
+
+À partir de cette date fatidique, Bitcoin a été mis en œuvre et a connu un certain nombre d'évènements fondateurs qui l'ont mené où il est aujourd'hui. Ces évènements ont façonné la compréhension que nous en avons, et l'histoire des débuts de Bitcoin constitue donc un récit unique qu'il convient de raconter.
+
+\section{Une naissance difficile} 
+
+Bitcoin a été conçu par un individu\endnote{Certains partent du principe que Satoshi Nakamoto serait un pseudonyme utilisé par un groupe d'individus. Néanmoins, nous supposerons ici qu'il n'y avait qu'une seule personne derrière les messages et le code attribués au créateur de Bitcoin, sans pour autant nier que cette personne a pu se faire aider.} qui utilisait le pseudonyme de Satoshi Nakamoto et et prétendait être un homme japonais de 33 ans. On sait peu de choses sur lui en dehors de ses messages publics et du code informatique qu'il a publié. Satoshi a disparu en 2011, et on ignore s'il est toujours vivant ou non. 
+
+D'après son propre témoignage, Satoshi Nakamoto se met à travailler sur Bitcoin au printemps 2007\endnote{Satoshi a déclaré avoir commencé à travailler sur Bitcoin en 2007 (\url{https://bitcointalk.org/index.php?topic=13.msg46\#msg46}), un an et demi avant la publication du livre blanc (\url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014863.html}).}. Pendant plus d'un an, il garde cela secret, souhaitant être sûr que son modèle fonctionne correctement avant de le présenter au monde. Il affirmera ainsi avoir programmé le prototype avant d'écrire le papier\endnote{«~En fait, j'ai fait ceci un peu à l'envers. J'ai dû écrire tout le code avant de pouvoir me convaincre que je pouvais résoudre tous les problèmes.~» -- Satoshi Nakamoto, \emph{Bitcoin P2P e-cash paper}, \wtime{09/11/2008 01:58:48 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014832.html}.}.
+
+En août 2008, Satoshi a terminé son papier et commence à préparer l'annonce de la sortie de Bitcoin. Le 18 août, il réserve le nom de domaine bitcoin.org via le service anonyme AnonymousSpeech. Le nom de domaine sera utilisé pour héberger le site principal de Bitcoin présentant ses différents aspects.
+
+Quelques jours plus tard, il rentre en contact avec Adam Back\endnote{Adam Back, \eng{Re: Introduce yourself~:)}, \wtime{18/04/2013 11:27:49 UTC}~: \url{https://bitcointalk.org/index.php?topic=15672.msg1873483\#msg1873483}.}, le cryptographe et cypherpunk britannique à l'origine de Hashcash, la technologie utilisée dans Bitcoin pour calculer la preuve de travail. Adam Back le renvoie vers le cryptographe Wei Dai, inventeur en 1998 du concept de b-money\endnote{Wei Dai, \eng{b-money}, 26 novembre 1998~:\url{http://www.weidai.com/bmoney.txt}.}, un concept qui possède des similarités notables avec Bitcoin. Le 22 août, Satoshi envoie donc un courriel à Wei Dai pour lui dire qu'il «~se prépare à publier un document qui étend [ses] idées à un système complètement fonctionnel~» et pour lui demander «~l'année de publication de [sa] page sur la b-money\endnote{Gwern Branwen, \emph{Wei Dai/Satoshi Nakamoto 2009 Bitcoin emails}, 17 mars 2014~: \url{https://www.gwern.net/docs/bitcoin/2008-nakamoto}}~» afin d'y faire référence dans le livre blanc.
+
+Cependant, malgré ces interactions, Adam Back et Wei Dai ne s'intéresseront pas à Bitcoin immédiatement. Ce ne sera que des années plus tard qu'ils reviendront vers l'invention révolutionnaire de ce mystérieux personnage.
+
+% --- Livre blanc ---
+
+À l'automne 2008, Satoshi décide de rendre public son invention. Le 5 octobre, il s'inscrit sur la plateforme de gestion de projets SourceForge, là où le code de Bitcoin sera hébergé et maintenu en source ouverte jusqu'en 2011. Le 31 octobre, il publie le livre blanc sur une liste de diffusion de courrier électronique dédiée à la cryptographie. Cette liste est la \eng{Metzdowd Cryptography Mailing List} gérée par Perry Metzger sur son site web \verb?metzdowd.com? où participent un certain nombre d'anciens cypherpunks\endnote{Les archives de la liste de diffusion de Metzdowd sont disponibles publiquement à l'adresse \url{https://www.metzdowd.com/pipermail/cryptography/}. Les cypherpunks présents en 2008 étaient, entre autres~: John Gilmore, Hal Finney, James A. Donald, Robert Hettinga, Zooko Wilcox-O'Hearn, Len Sassaman.}. Dans son courriel d'introduction, Satoshi Nakamoto écrit~:
+
+\begin{quote}
+«~J'ai travaillé sur un nouveau système d'argent liquide électronique qui est entièrement pair-à-pair, dépourvu de tiers de confiance.\endnote{Satoshi Nakamoto, \emph{Bitcoin P2P e-cash paper}, \wtime{31/10/2008 18:10:00 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2008-October/014810.html}.}~»
+\end{quote}
+
+Le livre blanc est centré sur le problème des paiements en ligne et le but est clairement énoncé dès le début~:
+
+% Une version purement pair-à-pair d'argent liquide électronique permettrait aux paiements en ligne d'être envoyés directement d'une partie à l'autre sans passer par une institution financière. [...]
+\begin{quote}
+«~Le commerce sur internet repose aujourd'hui presque exclusivement sur des institutions financières qui servent de tiers de confiance pour traiter les paiements électroniques. Bien que ce système fonctionne assez bien pour la plupart des transactions, il souffre toujours des faiblesses inhérentes à son modèle basé sur la confiance. [...] Ce dont nous avons besoin, c'est d'un système de paiement électronique basé sur des preuves cryptographiques plutôt que sur la confiance, qui permettrait à deux parties volontaires de réaliser directement des transactions entre elles sans avoir recours à un tiers de confiance.\endnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}~»
+\end{quote}
+
+% Dans les références, il cite des cryptographes comme Ralph Merkle, Stuart Haber et Scott Stornetta, et les cypherpunks Adam Back et Wei Dai.
+
+% --- Description de Bitcoin ---
+
+Il s'agit de mettre en place un registre de transactions distribué sur un réseau pair-à-pair et ouvert d'ordinateurs. Ce registre est composé de blocs de transactions qui sont liés les uns à la suite des autres au cours du temps, formant une «~chaîne de blocs~». Bitcoin constitue ainsi un «~serveur d'horodatage distribué~», qui répertorie l'ordre des transactions de façon à créer un historique cohérent, sans «~double dépense~». Cela permet de gérer l'émission et les échanges d'une unité de compte numérique, qu'on appellera le bitcoin.
+
+La fiabilité du système repose sur des «~preuves de travail~» qui lient les blocs entre eux de façon à rendre difficile la modification de la chaîne. Ces preuves sont produites périodiquement par des membres du réseau qui fournissent de l'énergie pour cela et qui sont rémunérés par une «~incitation~» en bitcoins composée de pièces nouvellement créées et de frais de transaction. Les personnes qui dépensent ainsi leur énergie électrique sont comparés par Satoshi aux «~mineurs d'or qui dépensent des ressources pour ajouter de l'or dans la circulation~», d'où le nom de mineurs qu'ils prendront plus tard.
+
+% --- Retours ---
+
+Suite à l'annonce de Bitcoin et la publication du livre blanc, Satoshi reçoit peu de réponses, et beaucoup de ces réponses sont sceptiques. D'abord, le cypherpunk James A. Donald remet en cause le passage à l'échelle du système en disant qu'«~il ne semble pas pouvoir s'adapter à la taille requise\endnote{«~Nous avons vraiment, vraiment besoin d'un tel système, mais si je comprends bien votre proposition, il ne semble pas pouvoir s'adapter à la taille requise.~», \url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014814.html}.}~». Ensuite, John Levine critique sa sécurité en évoquant la puissance de calcul détenue par les «~fermes de machines zombies\endnote{«~Les méchants contrôlent couramment des fermes de machines zombies de 100 000 unités ou plus. Les personnes que je connais qui gèrent une liste noire de machines zombies émetteuses de spam me disent qu'elles voient souvent un million de nouveaux machines zombies par jour. C'est la même raison pour laquelle le hashcash ne peut pas fonctionner sur l'Internet d'aujourd'hui~: les gentils ont une puissance de calcul nettement inférieure à celle des méchants.~», \url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014817.html}.}~» composées d'ordinateurs contrôlés par des pirates. Enfin, un troisième individu du nom de Ray Dillinger s'interroge sur la valeur de l'unité de compte, car pour lui «~les preuves de travail informatiques n'ont pas valeur intrinsèque\endnote{«~Je pense que le vrai problème avec ce système est le marché des bitcoins. Les preuves de travail informatiques n'ont pas de valeur intrinsèque.~», \url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014822.html}}~».
+
+Cependant, cet accueil sceptique n'est pas partagé par l'intégralité des personnes présentes sur la liste de diffusion. En particulier, Hal Finney, un informaticien et cryptographe américain d'une cinquantaine d'années, est résolument enthousiaste et écrit dans son message du 7 novembre que «~Bitcoin semble être une idée très prometteuse\endnote{Hal Finney, \eng{Re: Bitcoin P2P e-cash paper}, 07/11/2008, \url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014827.html}.}~». Hal Finney n'est pas un individu comme les autres~: il s'agit d'un membre historique du mouvement cypherpunk qui a participé au développement du logiciel de chiffrement PGP dans les années 90 aux côtés de Philip Zimmermann, qui a expérimenté avec les premiers systèmes de monnaie électronique et qui a même tenté de créer son propre système de preuves de travail réutilisables\endnote{Ludovic Lars, Les RPOW de Hal Finney~: un dernier essai avant Bitcoin, 21/06/2020, \url{https://journalducoin.com/analyses/rpow-hal-finney-dernier-essai-avant-bitcoin/}}. 
+
+Malgré son expérience, il reste optimiste et devient ainsi le tout premier soutien de Satoshi dans son projet. Quelques années plus tard, il déclarera à ce sujet que «~les cryptographes grisonnants [...] ont tendance à devenir cyniques~» mais que lui «~était plus idéaliste~» ayant «~toujours aimé la cryptographie, son mystère et son paradoxe\endnote{Hal Finney, \emph{Bitcoin and me}, 19/03/2013, \url{https://bitcointalk.org/index.php?topic=155054.0}}~». 
+
+Par la suite, Satoshi distribue les principaux fichiers du code aux personnes intéressées, dont notamment Hal Finney, Ray Dillinger et James A. Donald\endnote{«~Je t'ai envoyé les fichiers principaux. (disponibles sur demande pour le moment, publication complète bientôt)~» -- Satoshi Nakamoto à James A. Donald, 17/11/2008~: \url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014863.html}.}. Hal et Ray réalisent alors un examen minutieux du code, en se concentrant chacun sur une partie spécifique du système\endnote{Ray Dillinger, \eng{If I'd Known What We Were Starting}, 20 septembre 2017, \url{https://www.linkedin.com/pulse/id-known-what-we-were-starting-ray-dillinger/}.}. Ce code inclut déjà tous les éléments constitutifs de Bitcoin. Le prototype est prêt à être lancé.
 
 \section{Une enfance timide}
 
+% --- Lancement du réseau ---
+
+Deux mois après la publication du livre blanc, le 8 janvier 2009 à 19 heures 27 UTC, Satoshi Nakamoto partage la première version du logiciel sur la liste de diffusion de Metzdowd. Le code en C++ est publié en source ouverte sous licence libre (MIT), de sorte que n'importe qui peut copier, modifier et utiliser le logiciel à sa guise. Celui-ci contient les données du bloc de genèse, le premier bloc de la chaîne à partir duquel celle-ci doit se prolonger. 
+
+Quelques heures plus tard, Satoshi commence à miner. Le deuxième bloc de la chaîne, le bloc 1, est validé par Satoshi le 9 janvier à 2 heures 54 du matin, ce qui marque le lancement effectif du réseau.
+
+Le 10 janvier, Hal tente de faire fonctionner le logiciel. Après avoir échangé avec Satoshi pour faire en sorte que le logiciel fonctionne\endnote{Correspondance entre Satoshi Nakamoto et Hal Finney, 2014, \url{https://online.wsj.com/public/resources/documents/finneynakamotoemails.pdf}.}, il se met à miner et trouve son premier bloc (le bloc 78) à 1 heure du matin (UTC), gagnant de ce fait 50 bitcoins. Deux heures et demie plus tard, il partage son expérience sur Twitter (média social alors naissant) en écrivant «~\eng{Running bitcoin}\endnote{\url{https://twitter.com/halfin/status/1110302988}}~».
+
+Le lendemain, dans la nuit du 11 au 12 janvier, Satoshi envoie 10 bitcoins à Hal par l'intermédiaire de son adresse IP. Il s'agit du premier transfert d'une personne à une autre sur le réseau\endnote{Cette première transaction entre Satoshi et Hal a pour identifiant \verb?f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16? et a été confirmée dans le bloc 170 le 12 janvier à \wtime{3:30}.}.
+
+Hal n'est pas la seule personne à expérimenter sur le réseau à ce moment-là~: c'est également le cas de Dustin Trammell, un chercheur en sécurité informatique américain ayant découvert Bitcoin par la liste de diffusion. Celui-ci communique aussi avec Satoshi par courriel, et reçoit 25 bitcoins de sa part le 15 janvier\endnote{L'archive des conversations entre Satoshi Nakamoto et Dustin Trammell est disponible à l'adresse \url{http://web.archive.org/web/20131204164149/http://www.dustintrammell.com/files/Satoshi_Nakamoto.zip}. L'identifiant de la transaction reçue par Dustin (en P2IP) est \verb?d71fd2f64c0b34465b7518d240c00e83f6a5b10138a7079d1252858fe7e6b577?.}.
+
+% Satoshi envoie plusieurs transactions à d'autres adresses IP (?)
+
+% --- Marketing monétaire ---
+
+Mais les quelques personnes qui font fonctionner le logiciel ne suffisent pas. Dès le début, Satoshi sait bien que peu de gens se sont penchés sérieusement sur son modèle et qu'il va être compliqué d'attirer de nouveaux utilisateurs et contributeurs. C'est pourquoi il essaie de susciter l'enthousiasme en vendant son idée du mieux possible.
+
+% --- 21 milions ---
+
+Le premier élément est le programme d'émission du bitcoin, qui a pour limite 21~millions d'unités. Dans le courriel d'annonce du prototype, Satoshi explicite le rythme d'émission monétaire~:
+
+\begin{quote}
+«~La circulation totale sera de 21~000~000 pièces. Elle sera distribué aux nœuds du réseau lorsqu'ils créeront des blocs, le montant étant divisé par deux tous les 4 ans. [...] Lorsque cela est épuisé, le système peut prendre en charge les frais de transaction si nécessaire.\endnote{Satoshi Nakamoto, \eng{Bitcoin v0.1 released}, \wtime{08/01/2009 19:27:40 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html}.}~»
+\end{quote}
+
+Le bitcoin a donc vocation à devenir une monnaie à offre fixe, déflationniste par nature, et cette particularité crée un enthousiasme. Le 11 janvier, Hal Finney est ainsi le premier à réagir en s'enthousiasmant du fait que «~le système peut être configuré pour n'autoriser qu'un nombre maximum certain de pièces à être générées~». Il estime alors que si «~Bitcoin [réussit] et [devient] le système de paiement dominant utilisé dans le monde entier~», chaque pièce aura alors «~une valeur d'environ 10 millions~» de dollars\endnote{Hal Finney, \eng{Re: Bitcoin v0.1 released}, \wtime{11/01/2009 02:22:01 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2009-January/015004.html}}. L'estimation est contestable mais le raisonnement reste pertinent en raison du fonctionnement de Bitcoin. 
+
+Le 16 janvier, Satoshi reprend cet élément de communication dans un courriel qu'il partage à la liste de diffusions, où il déclare qu'il «~pourrait être judicieux d'en avoir au cas où cela prendrait~» et que «~si suffisamment de gens pensent la même chose, ce deviendra une prophétie autoréalisatrice\endnote{Satoshi Nakamoto, \eng{Bitcoin v0.1 released}, \wtime{16/01/2009 16:03:14 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2009-January/015014.html}}~».
+
+Cet élément est crucial, comme le montre le témoignage de Dustin Trammell qui a confié à Satoshi que le raisonnement de Hal «~était l'une des autres raisons pour lesquelles [il a] démarré un nœud si rapidement~».
+
+% Durant les semaines qui suivent le lancement, quelques personnes comme Nicholas Bohm\endnote{Nicholas Bohm est crédité par Satoshi dans l'annonce du correctif 0.1.5~: \url{https://web.archive.org/web/20150526123851/https://sourceforge.net/p/bitcoin/mailman/message/21500063/}.} ou Jeff Kane testent le logiciel et minent des bitcoins. Cependant, cela n'est pas suffisant, ce qui poussera Satoshi à faire du prosélytisme ailleurs. 
+
+% --- Critique du système bancaire ---
+
+Au-delà de la programme d'émission du bitcoin, Satoshi choisit de communiquer sur les défaillances du système bancaire, ce qui constitue le deuxième élément dans sa stratégie pour attirer l'attention.
+
+En réalité, il le fait dès le bloc de genèse en y incluant le titre de la une du quotidien britannique \emph{The Times} du 3 janvier 2009, qui annonce que le ministre des finances britannique est sur le point de renflouer les banques pour la deuxième fois~:
+
+\begin{verbatim}
+The Times 03/Jan/2009 Chancellor on brink of second
+bailout for banks
+\end{verbatim}
+
+Cette phrase présente dans le premier bloc possède un rôle double~: d'une part, elle empêche l'antidatage en prouvant que la chaîne n'a pas été lancée avant le 3 janvier (Satoshi ne pouvait pas connaître cette une avant)~; d'autre part, elle indique symboliquement ce à quoi Bitcoin s'oppose en faisant référence au contexte monétaire et financier de l'époque.
+
+En janvier 2009, le monde subit en effet de plein fouet les effets de la crise financière amorcée en 2007 par le dégonflement de la bulle immobilière aux États-Unis, c'est-à-dire la crise des subprimes. Les États renflouent les banques pour éviter de nouvelles faillites bancaires après celle de Lehman Brothers survenue le 15 septembre 2008, et les banques centrales procèdent à des assouplissements quantitatifs en injectant des liquidités sur les marchés financiers. Cette utilisation d'argent public, qui est littéralement créé pour l'occasion, choque profondément un certain nombre de citoyens qui voient dans le système bancaire un système de profits privés et de pertes socialisées.
+
+% Plan Paulson ou Troubled Asset Relief Program (septembre 2008)~: initialement, rachat d'actifs toxiques (MBS) par le Département du Trésor des États-Unis pour 700 milliards de dollars~; 
+% Loi initialement proposée par Henry Paulson, Secrétaire au Trésor des États-Unis, et Ben Bernanke, président de la Réserve fédérale des États-Unis.
+% Les États mettent en place des mesures pour sauver les grandes banques d'investissement~: après la faillite de Lehman Brothers le 15 septembre 2008, celles-ci sont en passe de sombrer et d'entraîner l'économie mondiale avec elles. C'est pourquoi cette une est importante~: le 3 janvier 2009, le gouvernement britannique propose d'utiliser l'argent public pour sauver ces banques en faillite une deuxième fois, voire de les nationaliser partiellement.
+
+De par son absence de tiers de confiance, Bitcoin n'est lui pas soumis à l'arbitraire d'une banque centrale. Il contraste ainsi avec les monnaies étatiques, telles que le dollar ou l'euro, dont la quantité peut être modifiée arbitrairement par ceux qui contrôlent la création monétaire, au travers de ce qu'on appelle une politique monétaire. La politique monétaire du bitcoin est programmée, inscrite en dur dans le protocole, pour en théorie ne plus jamais être altérée. C'est ce que met en avant Satoshi.
+
+C'est ce que met en avant Satoshi lorsqu'il intervient sur le forum de la Fondation P2P, une organisation étudiant l'impact de la technologie pair-à-pair sur la société, le 11 février 2009. Dans son message d'introduction à Bitcoin, il écrit~:
+
+\begin{quote}
+«~Le problème fondamental de la monnaie conventionnelle est toute la confiance nécessaire pour la faire fonctionner. Il faut faire confiance à la banque centrale pour qu'elle ne déprécie pas la monnaie, mais l'histoire des monnaies fiat est pleine de violations de cette confiance. Il faut faire confiance aux banques pour détenir notre argent et le transférer par voie électronique, mais elles le prêtent par vagues de bulles de crédit avec à peine une fraction en réserve.\endnote{Satoshi Nakamoto, \eng{Bitcoin open source implementation of P2P currency}, 11 février 2009~: \url{https://p2pfoundation.ning.com/forum/topics/bitcoin-open-source}.}~»
+\end{quote}
+
+De plus, il indique sur son profil être un homme de 33 ans habitant au Japon et donne une date de naissance particulière~: le 5 avril 1975. Cette date, probablement fictive et composite, fait vraisemblablement référence à l'interdiction pour les particuliers de détenir de l'or aux États-Unis. Le jour du 5 avril se rapporte au jour de l'instauration de cette interdiction par l'Ordre exécutif 6102 signé par Franklin Delano Roosevelt le 5 avril 1933, et l'année 1975 correspond à son année d'abrogation lors de l'entrée en vigueur de la \eng{Public Law} 93-373. Ce détail n'est pas anodin, puisque cette prohibition a permis en fin de compte d'instaurer un régime monétaire flottant n'ayant plus aucun lien avec l'or.
+
+Ce n'est pas la seule référence au métal précieux. Satoshi écrit dans les commentaires le 18 février~:
+
+\begin{quote}
+«~Il n'y a personne pour agir en tant que banque centrale ou réserve fédérale afin d'ajuster l'offre monétaire au fur et à mesure que le nombre d'utilisateurs augmente. [...] En ce sens, il a plus les caractéristiques d'un métal précieux. Au lieu que l'offre change pour que la valeur reste la même, l'offre est prédéterminée et la valeur change. Plus le nombre d'utilisateurs augmente, plus la valeur d'une pièce augmente. Il est possible de créer une boucle de rétroaction positive~: plus le nombre d'utilisateurs augmente, plus la valeur augmente, ce qui peut attirer davantage d'utilisateurs pour profiter de la valeur croissante.\endnote{Satoshi Nakamoto, \eng{Re: Bitcoin open source implementation of P2P currency}, 18 février 2009~: \url{https://p2pfoundation.ning.com/forum/topics/bitcoin-open-source?commentId=2003008:Comment:9562}. Eng~: "To Sepp's question, indeed there is nobody to act as central bank or federal reserve to adjust the money supply as the population of users grows. That would have required a trusted party to determine the value, because I don't know a way for software to know the real world value of things. If there was some clever way, or if we wanted to trust someone to actively manage the money supply to peg it to something, the rules could have been programmed for that. In this sense, it's more typical of a precious metal. Instead of the supply changing to keep the value the same, the supply is predetermined and the value changes. As the number of users grows, the value per coin increases. It has the potential for a positive feedback loop; as users increase, the value goes up, which could attract more users to take advantage of the increasing value."}~»
+
+% Il n'y a personne pour agir en tant que banque centrale ou réserve fédérale afin d'ajuster l'offre monétaire au fur et à mesure que le nombre d'utilisateurs augmente. Cela aurait nécessité un tiers de confiance pour déterminer la valeur, car je ne connais pas de moyen pour faire en sorte qu'un logiciel connaisse la valeur réelle des choses. S'il y avait une façon intelligente de le faire, ou si nous voulions faire confiance à quelqu'un pour gérer activement l'offre monétaire afin de l'ancrer à quelque chose, les règles auraient pu être programmées pour cela.
+%
+% En ce sens, il a plus les caractéristiques d'un métal précieux. Au lieu que l'offre change pour que la valeur reste la même, l'offre est prédéterminée et la valeur change. Plus le nombre d'utilisateurs augmente, plus la valeur d'une pièce augmente. Il est possible de créer une boucle de rétroaction positive~: plus le nombre d'utilisateurs augmente, plus la valeur augmente, ce qui peut attirer davantage d'utilisateurs pour profiter de la valeur croissante.
+\end{quote}
+
+Cette méthode communication portera ses fruits au fil du temps.
+
+% --- Questions et aide ---
+
+Même si certaines personnes finissent de se détourner de Bitcoin, à l'instar de Hal Finney, Satoshi continue ainsi de recevoir des messages de la part de personnes intéressées. Le 12 avril 2009, Mike Hearn, un développeur britannique travaillant alors pour Google et s'adonnant au logiciel libre sur son temps libre, lui envoie un courriel posant une série de questions à propos de Bitcoin\endnote{\url{https://plan99.net/\~mike/satoshi-emails/thread1.html}}, en précisant qu'«~il est rare de rencontrer des idées vraiment révolutionnaires~». Hearn s'intéresse aux monnaies numériques, et notamment à Ripple.
+
+Début mai 2009, c'est un jeune étudiant en informatique finlandais qui contacte Satoshi~: il s'agit de Martti Malmi. Celui-ci a découvert Bitcoin début avril, s'est mis à miner et a même rédigé une courte description de Bitcoin sur le forum de Freedomain Radio où il soutenait l'hypothèse anarchiste que la monnaie pair-à-pair pourrait faire disparaître l'État\endnote{Martti Malmi, \eng{P2P Currency could make the government extinct?}, 9 avril 2009 (\wtime{17:49:47 UTC}), \url{https://web.archive.org/web/20150927195115/https://board.freedomainradio.com/topic/17233-p2p-currency-could-make-the-government-extinct/}.}. Dans son courriel à Satoshi, il écrit~:
+
+\begin{quote}
+«~J'ai de bonnes sensations sur les langages Java et C dans les cours de l'école (j'étudie l'informatique) mais je n'ai pas encore beaucoup d'expérience de développement. Je voudrais aider avec Bitcoin, s'il y a quelque chose que je peux faire.\endnote{Nathaniel Popper, \eng{Digital Gold}, 2016.}~»
+\end{quote}
+
+Malgré son manque d'expérience, Martti devient dans les mois qui suivent le principal contributeur à Bitcoin en dehors de Satoshi. Étant étudiant, il a en effet beaucoup de temps à consacrer au projet.
+
+En particulier, Satoshi lui confie la charge du site web. Dès le mois de mai, Martti Malmi rédige une première version de la description sur SourceForge où il présente Bitcoin comme une «~monnaie numérique anonyme basée sur un réseau pair-à-pair~» permettant de «~transférer de l'argent facilement par internet, sans avoir à faire confiance à des tiers~» et d'être «~à l'abri de l'instabilité causée par le système de réserves fractionnaires et par les mauvaises politiques des banques centrales\endnote{\url{https://web.archive.org/web/20090511173000/http://bitcoin.sourceforge.net/}}~». Cette ébauche servira de base pour la présentation de Bitcoin sur le site web.
+
+% --- Minage ---
+
+À l'époque le bitcoin n'a pas de prix. Les gens testent le système se content de lancer le logiciel pour «~générer des pièces~». Les transactions sont peu nombreuses, et consistent le plus souvent en des auto-transferts. Les bitcoins sont alors vus comme des collectionnables réservés aux passionnés d'informatique.
+
+Mais au-delà de la spéculation, les utilisateurs ont l'impression de contribuer à quelque chose. Bitcoin leur rappelle à l'instar des projets de calcul distribué (dits «~@home~») où les gens mettent à dispositions leurs ressources informatiques au service de bonnes causes.
+
+Certains minent en continu cependant. C'est le cas de Hal Finney qui mine entre janvier et mars, de James Howells entre février et avril, de Dustin Trammell qui fait tourner ses serveurs pendant plus d'un an, ou de Martti Malmi qui met son ordinateur portable à profit à partir d'avril. Mais le principal mineur de l'année de 2009 reste Satoshi, qui mine avec une puissance de calcul bien plus grande et qui représente près de la moitié de la production de blocs.\endnote{Ludovic Lars, \eng{Les premiers mineurs de Bitcoin}, 19 juin 2022~: \url{https://journalducoin.com/analyses/premiers-mineurs-bitcoin/}.}
+
+En 2009, la difficulté de minage est de 1, ce qui impose à tous les nœuds du réseau de réaliser environ 4,3 millions de calculs pour miner un bloc, ce qui n'est pas rien pour un processeur. De ce fait, la production est plus lente que prévue~: entre le 3 janvier 2009 et le 3 janvier 2010, seulement 32 880 blocs sont trouvés sur les 52560 attendus, ce qui correspond à une durée moyenne entre chaque bloc à 16 minutes au lieu de 10. En particulier, le mois d'août 2009 constitue le pire mois pour l'activité minière~: seuls 1564 sur 4464 blocs attendus sont trouvés, soit un temps moyen de 28 minutes et 30 secondes~!
+
+% Un forum est mis en place le 13 juin\endnote{\url{https://web.archive.org/web/20150928065040/http://sourceforge.net/p/bitcoin/mailman/bitcoin-list/?viewmonth=200906}} 
+
 \section{Des premiers pas incertains}
+
+Mais Bitcoin survit à l'été et franchit une étape cruciale en octobre~: son unité de compte acquiert un prix. Un individu utilisant le pseudonyme \verb?NewLibertyStandard? (NLS) nouvellement arrivé dans la communauté met en place sur sa page personnelle un service d'échange permettant aux gens de convertir leurs dollars en bitcoins, et inversement. Pour estimer le taux de change, il se base sur le coût énergétique nécessaire pour obtenir un bitcoin, en prenant en compte le coût de l'électricité à son emplacement et la fréquence de sa production personnelle. Les taux de change sont publiés de manière journalière sur son site.\endnote{Capture du site en décembre 2009~: \url{https://web.archive.org/web/20091229132610/http://newlibertystandard.wetpaint.com/page/Exchange+Rate}.}
+
+Le 12 octobre 2009, a ainsi lieu la première vente de bitcoins en dollars entre Martti Malmi et NewLibertyStandard~: Martti cède 5050 bitcoins à NLS pour 5,02~\$ virés sur son compte Paypal, ce qui correspond à un prix d'environ 0,001~\$ par bitcoin\endnote{"\eng{Found the first known bitcoin to USD transaction from my email backups. I sold 5,050 BTC for \$5,02 on 2009-10-12.}" -- Martti Malmi, Twitter, 15/01/2014~: \url{https://twitter.com/marttimalmi/status/423455561703624704}. Identifiant de la transaction~: \verb?7dff938918f07619abd38e4510890396b1cef4fbeca154fb7aafba8843295ea2?}. NLS effectuera par la suite d'autres échanges au cours des mois suivants, constituant la seule passerelle entre le dollar et le bitcoin.
+
+Le 22 novembre marque l'ouverture du nouveau forum, sobrement appelé le \emph{Bitcoin Forum}, qui est hébergé sur Bitcoin.org et qui est géré par Martti Malmi. Ce forum abritera de nombreuses discussions. Il sera renommé en Bitcointalk en août 2011 et hébergé à une nouvelle adresse.
+
+Le 17 décembre 2009, Satoshi annonce la sortie de la version 0.2 du logiciel, version pour laquelle Martti Malmi est grandement crédité, ce qui clôt la première période de développement informatique de Bitcoin\endnote{Satoshi Nakamoto, \eng{Bitcoin 0.2 released!}, \wtime{16/12/2009 22:45:36 UTC}~: \url{https://bitcointalk.org/index.php?topic=16.msg73\#msg73}.}. L'année se termine en beauté lorsque la difficulté augmente enfin, en passant de 1 à 1,18 le 30 décembre.
+
+Au début de l'année 2010, le bitcoin est désigné comme une «~cryptomonnaie~» (\eng{cryptocurrency} en anglais) sur le site web\endnote{\url{https://web.archive.org/web/20100106082749/http://www.bitcoin.org/}}. Le préfixe crypto- est là parce que Bitcoin utilise la cryptographie, mais aussi parce que ce préfixe (qui vient du grec ancien \foreignlanguage{greek}{kruptos}, kruptós) indique ce qui est caché, occulté~: Bitcoin est en effet à ce moment-là présenté comme une «~monnaie numérique anonyme~».
+
+Ce nouveau terme indique le but central de Bitcoin~: devenir une monnaie, c'est-à-dire un intermédiaire dans les échanges. Cela nécessite des personnes qui génèrent des transactions (à travers le commerce) et des personnes qui traitent ces transactions (à travers le minage). C'est donc tout naturellement que le début de l'année 2010 est focalisée sur l'accroissement de ces deux aspects complémentaires.
+
+% Il s'agit également d'une année charnière dans le développement informatique du protocole.
+
+% --- NewLibertyStandard et le commerce ---
+
+Le premier aspect est l'essor commercial dont NewLibertyStandard peut être considéré être le pionnier. Non seulement il est le premier commerçant à accepter le bitcoin comme moyen de paiement par le biais de son service d'échange, mais il est aussi l'un des promoteurs originels de cet effort de construction économique. Dans son premier message sur le forum le 19 janvier 2010, il écrit ainsi~:
+
+\begin{quote}
+«~Des gens m'ont acheté des bitcoins et m'en ont vendu. L'offre et la demande, même si elle sont faibles, existent déjà et c'est tout ce qu'il faut. Proposer d'échanger des bitcoins contre une autre monnaie n'est en fin de compte pas différent de l'échange de bitcoins contre des biens ou des services. Les monnaies sont des biens et le change est un service. [...] Vous pouvez acheter tous mes dollars ou bitcoins aujourd'hui, mais il y en aura toujours plus demain et après-demain. Toutes les personnes qui achètent ou vendent des biens en utilisant des bitcoins, y compris les changeurs, font progresser l'économie de Bitcoin. Que tout le monde fasse sa part. Achetez ou vendez quelque chose en échange de bitcoins~!\endnote{NewLibertyStandard, \eng{Re: New Exchange Service: "BTC 2 PSC"}, \wtime{19/01/2010 08:06:15 UTC}~: \url{https://bitcointalk.org/index.php?topic=15.msg111\#msg111}.}~»
+\end{quote}
+
+% I have had people buy bitcoins from me and sell bitcoins to me. Supply and demand, albeit only a small amount, already exists and is all that is really needed. Offering to exchange bitcoins for another currency is ultimately no different from exchanging bitcoins for goods or services. Currencies are goods and exchanging them is a service. I have been trying to think of something besides USD dollars which I can try to buy or sell using bitcoins, but I can't think of anything. Please let us know about whatever you decide to sell for bitcoins. As for the issue of burning through funds, I have written a daily donation into my budget. You can buy all my USD dollars or bitcoins today, but there will always be more tomorrow and the next day. Each person who buys or sells goods using bitcoins, including exchangers, is increasing the bitcoin economy. Everyone, do your part. Buy or sell something in exchange for bitcoins!
+
+Dans les mois qui suivent, les services de change se développent comme BitcoinFX ou Bitcoin Market. C'est ainsi que NLS propose que le bitcoin (à l'instar des monnaies échangées sur le marché des changes) adopte le sigle boursier BTC et le symbole du baht thaïlandais\endnote{NewLibertyStandard, \eng{Bitcoin Currency Symbol ฿}, \wtime{05/02/2010 01:48:53 UTC}~: \url{https://bitcointalk.org/index.php?topic=41.msg238\#msg238}}. Le sigle BTC devient rapidement utilisé. Quant au symbole, c'est Satoshi Nakamoto qui le conçoit lui-même en s'inspirant de la proposition de NLS à travers la création du premier logo réel de Bitcoin\endnote{Satoshi Nakamoto, \eng{New icon/logo}, \wtime{24/02/2010 21:24:23 PM}~: \url{https://bitcointalk.org/index.php?topic=64.msg504\#msg504}.}.
+
+\textcolor{brown}{bitcoin530.png}
+
+Les vendeurs de biens et de services émergent également. Outre son service d'échange, NLS met en place un magasin en ligne\endnote{Liberty Swap Variety Shop, \url{https://web.archive.org/web/20100414172623/http://newlibertystandard.wetpaint.com/page/Specialty+Shop}.} où il propose à la vente des timbres et des autocollants. D'autres services acceptant le bitcoin apparaissent comme le service de voix sur IP Link2VoIP, l'hébergeur web Vekja.net et le vendeur de noms de domaines Privacy Shark\endnote{\url{https://web.archive.org/web/20100517040312/http://www.bitcoin.org:80/trade}}.
+
+Enfin, en avril 2010, apparaît MyBitcoin, une application web dépositaire permettant un usage facile et serein à Bitcoin. Elle fait en effet en sorte que les utilisateurs n'aient pas besoin de télécharger le logiciel complet pour envoyer et recevoir des transactions, ni de conserver leurs bitcoins eux-mêmes en sauvegardant leurs clés privées. À ce moment-là Satoshi lui-même juge acceptable ce type d'application, même si cela va à l'encontre de la désintermédiation à la base de Bitcoin~:
+
+\begin{quote}
+«~Le seul inconvénient est que vous devez faire confiance au site, mais cela ne pose pas de problème pour la petite monnaie, pour les micropaiements et les dépenses diverses.\endnote{Satoshi Nakamoto, \eng{Re: Ummmm... where did my bitcoins go?}, \wtime{18/05/2010 20:06:46 UTC}~:\url{https://bitcointalk.org/index.php?topic=125.msg1149\#msg1149}.}~»
+\end{quote}
+
+% --- Laszlo Hanyecz, minage et pizza ---
+
+L'année 2010 est également celle de l'essor du minage, qui se manifeste en premier lieu par l'émergence du minage par processeur graphique (GPU). Jusqu'à présent, les mineurs utilisaient leur processeur central (CPU) pour extraire de nouveaux bitcoins~: néanmoins ceux-ci sont peu performants pour effectuer des opérations répétées et les cartes graphiques sont largement plus adaptées à ce type de calcul répétitif. À ce moment-là tout le monde sait que cette évolution est inéluctable, y compris Satoshi qui déclare en décembre 2009 que la communauté doit «~se mettre d'accord pour reporter la course aux armements des GPU aussi longtemps que possible pour le bien du réseau\endnote{Satoshi Nakamoto, \eng{Re: A few suggestions}, \wtime{12/12/2009 17:52:44 UTC}~: \url{https://bitcointalk.org/index.php?topic=12.msg54\#msg54}} ».
+
+La boîte de Pandore est ouverte par Laszlo Hanyecz, un développeur américain d'origine hongroise de 28 ans, qui découvre Bitcoin en avril. Après avoir acheté des bitcoins à NLS\endnote{\url{https://blockchair.com/bitcoin/transaction/faf172f5dc06b0ae03268555dddcd65be47e9a8a8bb44a122b12bfaf735f9a81?o=1}} et essayé le système de transactions, celui-ci programme début mai un logiciel de minage qui s'adapte aux cartes graphiques\endnote{Laszlo Hanyecz, \eng{Generating Bitcoins with your video card (OpenCL/CUDA)}, \wtime{10/05/2010, 14:03:57 UTC}~: \url{https://bitcointalk.org/index.php?topic=133.msg1103\#msg1103}.}. Cela lui permet d'occuper rapidement une place importante dans la production des blocs. Ceci attire l'attention de Satoshi Nakamoto qui le contacte et lui demande de ralentir ses opérations afin que tout le monde puisse participer~:
+
+\begin{quote}
+«~L'un des principaux attraits pour les nouveaux utilisateurs est que toute personne disposant d'un ordinateur peut générer des pièces gratuites. Lorsqu'il y aura 5000 utilisateurs, cette incitation s'estompera peut-être, mais pour l'instant, c'est toujours vrai. Les GPU limiteraient prématurément cette incitation à ceux qui disposent d'un matériel GPU haut de gamme. Il est inévitable que les clusters de calcul GPU finiront par accaparer toutes les pièces générées, mais je ne veux pas faire que ce jour arrive plus tôt que prévu. [...] Je ne veux pas passer pour un socialiste, je me moque de la concentration des richesses, mais pour l'instant, nous obtenons plus de croissance en donnant cet argent à 100~\% des gens qu'en le donnant à 20~\%.\endnote{Satoshi Nakamoto, mai 2010, propos rapportés par Nathaniel Popper~:\url{https://www.reddit.com/r/Bitcoin/comments/36vnmr/heres_what_satoshi_wrote_to_the_man_responsible/}.}~»
+\end{quote}
+
+Laszlo abaisse sa cadence, mais continue à miner avec sa carte graphique. Avec sa méthode, il accumule ainsi des dizaines de milliers de bitcoins.
+
+Toutefois, cela n'est pas entièrement négatif car il finit par réinjecter ses bitcoins dans l'économie de la façon la plus emblématique possible~: en achetant quelque chose avec. Le 18 mai, il écrit une annonce sur le forum pour proposer d'acheter 2 pizzas pour 10~000 bitcoins~:
+
+\begin{quote}
+«~Je paierai 10~000 bitcoins pour deux ou trois pizzas... genre peut-être 2 grandes pour qu'il m'en reste le lendemain. J'aime avoir des restes de pizza à grignoter pour plus tard. Vous pouvez faire la pizza vous-même et l'amener jusqu'à chez moi ou la commander pour moi dans un service de livraison, mais mon objectif c'est de me faire livrer de la nourriture en l'échange de bitcoins que je n'ai pas à commander ou à préparer moi-même. [...] Si vous êtes intéressé, faites-le moi savoir et nous pourrons nous arranger.\endnote{Laszlo Hanyecz, \eng{Pizza for bitcoins?}, \wtime{18/05/2010 00:35:20 UTC}, \url{https://bitcointalk.org/index.php?topic=137.msg1141\#msg1141}.}~»
+\end{quote}
+
+Cette offre trouve preneur au bout de quatre jours. Le 22 mai 2010, un jeune Californien du nom de Jeremy Sturdivant accepte l'échange sur IRC~: il commande deux pizzas de chez Papa John's qui sont livrées chez Laszlo à Jacksonville en Floride, et reçoit en échange 10~000 bitcoins\endnote{L'identifiant de la transaction de la pizza est~ \verb?a1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d?.}, ce qui représente alors environ 44~\$ sur Bitcoin Market. Cela clôt le premier achat d'un bien physique en bitcoins~! Cet évènement sera par la suite commémoré tous les ans à cette date comme le \eng{Bitcoin Pizza Day}.
+
+% --- Gavin Andresen ---
+
+Vers la fin du mois de mai, un développeur américain de 44 ans nommé Gavin Andresen, découvre Bitcoin par le biais d'un article publié sur InfoWorld\endnote{Neil McAllister, \eng{Open source innovation on the cutting edge}, 24 mai 2010~: \url{https://www.infoworld.com/article/2627013/open-source-innovation-on-the-cutting-edge.html?page=3}.}. De retour d'Australie et n'ayant momentanément pas d'emploi, il se met à travailler sur son premier projet~: un robinet à bitcoin (ou \eng{bitcoin faucet} en anglais) qui donne des bitcoins à quiconque en fait la requête. Le 11 juin, Gavin lance son service et le présente sur le forum~:
+
+\begin{quote}
+«~Pour mon premier projet de programmation sur Bitcoin, j'ai décidé de faire quelque chose qui semble vraiment stupide~: j'ai créé un site web qui distribue des bitcoins. [...] Pourquoi~? Parce que je veux que le projet Bitcoin réussisse, et je pense qu'il a plus de chances de réussir si les gens peuvent obtenir une poignée de pièces pour l'essayer.\endnote{Gavin Andresen, \eng{Get 5 free bitcoins from freebitcoins.appspot.com}, \wtime{11/06/2010, 17:38:45 UTC}~: \url{https://bitcointalk.org/index.php?topic=183.msg1488\#msg1488}.}~»
+\end{quote}
+
+Ce \eng{faucet}, qui donne d'abord 5 bitcoins par requête au tout début, est approuvé par Satoshi\endnote{Satoshi Nakamoto, \eng{Re: Get 5 free bitcoins from freebitcoins.appspot.com}, \wtime{18/06/2010, 23:08:34 UTC}~: \url{https://bitcointalk.org/index.php?topic=183.msg1620\#msg1620}.}. Le service sera utilisé par beaucoup de personnes et distribuera plus de 19~700 bitcoins\endnote{\url{https://twitter.com/WatcherGuru/status/1536114360040312832}} jusqu'à sa fermeture en mars 2012\endnote{Gavin Andresen, \eng{Bitcoin Faucet Hacked}, 2 mars 2012~: \url{https://gavintech.blogspot.com/2012/03/bitcoin-faucet-hacked.html}.}.
+
+De plus, Gavin s'implique dans le développement du logiciel et échange beaucoup avec Satoshi par courriel. Il devient rapidement le bras droit de ce dernier grâce à la confiance qu'il inspire.
+
+Malgré cette croissance économique, l'activité reste extrêmement timide sur le réseau. Le 30 juin, sur la liste de diffusion de Bitcoin, James A. Donald déclare ainsi que «~Bitcoin est en quelque sorte mort~» et que «~le problème est que le bitcoin a besoin d'une écologie d'utilisateurs pour être utile\endnote{Voir bitcoin-list. Dans un autre courriel, James A. Donald ajoute~: «~Je ne voulais pas paraître si négatif. Si nous y arrivons, c'est une grande victoire pour la liberté -- mais c'est un long périple, et je suis occupé par un autre projet.~».}~». Toutefois, quelques jours plus tard, un évènement vient lui donner tort.
+
+\section{Slashdotted}
+
+Le 11 juillet, à l'occasion de la sortie de la version 0.3 du logiciel, une courte présentation de Bitcoin rédigée par un utilisateur est publiée sur Slashdot, un site d'actualités très populaire traitant de sujets pour les \eng{nerds} comme l'informatique, les jeux vidéo, la science, internet,~etc. L'argumentaire de vente est le suivant~:
+
+\begin{quote}
+«~Que pensez-vous de cette technologie disruptrice~? Bitcoin est une monnaie numérique basée sur un réseau pair-à-pair, sans banque centrale, et sans frais de transaction. À l'aide d'un concept de preuve de travail, les nœuds brûlent des cycles de processeur pour chercher de paquets de pièces et diffusent leurs résultats sur le réseau. L'analyse de la consommation d'énergie indique que la valeur marchande des bitcoins est déjà supérieure à la valeur de l'énergie nécessaire pour les générer, ce qui indique une demande saine. La communauté a bon espoir que la monnaie restera hors de portée de tout État.\endnote{Teppy, \eng{Bitcoin Releases Version 0.3}, 11 juillet 2010~: \url{https://news.slashdot.org/story/10/07/11/1747245/Bitcoin-Releases-Version-03}.}~»
+\end{quote}
+
+% \wtime{"How's this for a disruptive technology? Bitcoin is a peer-to-peer, network-based digital currency with no central bank, and no transaction fees. Using a proof-of-work concept, nodes burn CPU cycles searching for bundles of coins, broadcasting their findings to the network. Analysis of energy usage indicates that the market value of Bitcoins is already above the value of the energy needed to generate them, indicating healthy demand. The community is hopeful the currency will remain outside the reach of any government."}
+
+Ceci provoque un afflux massif de nouveaux visiteurs sur le site et sur le forum, ainsi qu'une augmentation du nombre d'utilisateurs et de mineurs sur le réseau. Le réseau tient le coup malgré la montée en charge\endnote{Le 14 juillet, Gavin Andresen déclare sur le forum qu'il n'a eu connaissance «~d'AUCUN problème de perte de transactions Bitcoin, ni de panne du réseau en raison de la charge, ni de problème avec les fonctionnalités de base~» (\eng{Re: Scalability}, \wtime{14/7/2010, 04:22:49 UTC}, \url{https://bitcointalk.org/index.php?topic=286.msg2745\#msg2745})}. En conséquence, le prix du bitcoin connaît la première hausse majeure de son histoire, en passant de 0,008~\$ à 0,08~\$ en une semaine, soit une multiplication par 10~!
+
+Parmi les personnes qui découvrent Bitcoin grâce à Slashdot, il y a Jed McCaleb\endnote{The Ripple Blog, \eng{Interview with Jed McCaleb, inventor of the Ripple protocol and co-founder of OpenCoin}, 17 avril 2013~: \url{https://web.archive.org/web/20130428155220/https://ripple.com/blog/interview-with-jed-mccaleb-inventor-of-the-ripple-protocol-and-co-founder-of-opencoin/}.}, un entrepreneur et programmeur américain de 35 ans, connu pour avoir cofondé et développé le logiciel de partage de fichiers en pair à pair eDonkey2000 dans les années 2000. Voyant à quel point il est pénible de se procurer du bitcoin contre des dollars, celui-ci décide de créer une place de marché spécialisée. Pour ce faire, il réutilise un de ses anciens projets mis au point en 2007~: \eng{Magic The Gathering Online eXchange} (MTGOX), un site web qui permettait d'acheter et de vendre des cartes du jeu en ligne \eng{Magic: The Gathering Online}\endnote{Gwern Branwen, 2014 Jed McCaleb MtGox interview, 16 février 2014~: \url{https://www.gwern.net/docs/bitcoin/2014-mccaleb}.}, et reprend le même nom de domaine (\verb?mtgox.com?).
+
+Une semaine plus tard, le 18, la plateforme d'échange Mt. Gox («~Mount Gox~») est lancée et annoncée officiellement sur le forum par Jed\endnote{\url{https://bitcointalk.org/index.php?topic=444.0}}. Grâce à son expertise, il fait en sorte que la plateforme fonctionne comme une place de marché automatisée, à l'instar des bourses en ligne modernes~: elle se distingue de Bitcoin Market par le fait qu'elle est «~toujours en ligne, automatisée~», que «~le site est plus rapide et a un hébergement dédié~» et que «~l'interface est plus agréable\endnote{\url{https://bitcointalk.org/index.php?topic=444.msg3891\#msg3891}}~». Par conséquent, Mt. Gox devient rapidement le moyen principal de se procurer du bitcoin et la référence en ce qui concerne le prix en dollars.
+
+Le minage connaît également une phase ascendante. L'afflux de nouveaux mineurs fait passer le taux de hachage du réseau (le nombre de calculs par seconde) au-dessus du milliard de calculs par seconde (1~GH/s) dès le 13 juillet. Certains mineurs développent leur propre algorithme de minage par GPU. C'est le cas de ArtForz, un développeur allemand, qui se met à miner le 19 juillet et qui développe au cours du temps la première ferme de minage de Bitcoin, qui sera connue sous le nom d'«~ArtFarm~»\endnote{Le 13 août 2010, le ferme de minage d'ArtForz était constituée de 6 cartes graphiques ATI Radeon HD 5770~; à la fin, elle se composait de 24 ATI Radeon HD 5970. -- Tim Swanson, \eng{How ArtForz changed the history of Bitcoin mining}, 20 avril 2014~: \url{https://www.ofnumbers.com/2014/04/20/how-artforz-changed-the-history-of-bitcoin-mining/}.}.
+
+% --- Problèmes techniques ---
+
+Mais cette croissance issue de la présentation sur Slashdot provoque également des problèmes d'ordre technique en mettant le système à l'épreuve. Deux incidents viennent ainsi perturber le projet.
+
+Le premier incident est la découverte d'une vulnérabilité dans le code de Bitcoin qui rend possible la dépense de bitcoins possible à partir de n'importe quelle adresse (cette vulnérabilité sera appelée le «~1 RETURN bug~» en référence au script nécessaire pour réaliser cette dépense). C'est ArtForz qui découvre cette faille à la fin du mois de juillet. Au lieu d'exploiter cette faille et de s'emparer de la richesse présente sur le réseau pour la revendre discrètement, il choisit de prévenir Satoshi et Gavin par courriel. Satoshi s'empresse d'inclure la correction dans la mise à jour 0.3.6 et enjoint tous les utilisateurs à mettre à jour leur logiciel. La vulnérabilité n'est pas exploitée et Bitcoin échappe ainsi au pire.
+
+Le second évènement est le \eng{value overflow incident}. Le 15 août vers 18 heures (UTC), un bloc miné contient une transaction qui crée plus de 184 milliards de bitcoins. Cette création exploite une vulnérabilité de dépassement de mémoire (\eng{overflow}) dans la représentation des quantités dans Bitcoin. Une heure plus tard, le problème est découvert par Jeff Garzik, un ingénieur américain ayant découvert Bitcoin grâce à Slashdot, qui avertit la communauté sur le forum\endnote{\url{https://bitcointalk.org/index.php?topic=822.msg9474\#msg9474}}.
+
+Satoshi réagit vers 21 heures et publie un correctif créant une chaîne alternative ne contenant pas la transaction incriminée. La situation conflictuelle est résolue lorsque la chaîne correcte devient plus longue que l'autre le lendemain à 8 heures 10 du matin\endnote{Satoshi~: «~On dirait qu'on a dépassé la mauvaise chaîne quelque part autour de 74689.~» (\eng{Re: overflow bug SERIOUS}, \wtime{16/8/2010, 12:59:38 UTC}, \url{https://bitcointalk.org/index.php?topic=823.msg9734#msg9734})}. Cet incident perturbe l'activité du réseau pendant 15 heures environ mais est résolu grâce à une réactivité forte de la communauté. Suite à cet incident, Satoshi implémente un système d'alerte dans Bitcoin, lui permettant d'avertir tous les nœuds du réseau en cas de problème technique. 
+
+% Taille limite des blocs~: section guerre des blocs
+
+Au cours de l'automne, la popularisation du minage par processeur graphique rend le minage par CPU quasi-impossible. C'est ce qui provoque l'apparition de la première coopérative de minage le 27 novembre, Bitcoin.cz Mining, une organisation permettant aux petits mineurs de lisser leurs revenus en regroupant leurs puissances de calcul respectives\endnote{Marek Palatinus, \eng{Cooperative mining}, \wtime{27/11/2010, 13:45:41 UTC}~: \url{https://bitcointalk.org/index.php?topic=1976.msg24844#msg24844}.}. Créée par Marek Palatinus (connu sous le pseudonyme de slush), un architecte informatique tchèque, la coopérative sera par la suite renommée en Slush Pool en son hommage. 
+
+De manière générale, le projet Bitcoin a donc pris son envol à la fin de l'année 2010~: l'économie s'est fortifiée, notamment avec les services de change, le minage s'est spécialisé avec l'apparition du minage par GPU et le protocole a été mis à l'épreuve par la découverte de failles dans le logiciel, ce qui montre que les incitations des différents acteurs sont alignées. C'est à ce moment-là que Satoshi décide de disparaître. 
 
 \section{La disparition de Satoshi Nakamoto}
 
-\section{La communauté prend le relai}
+La disparition de Satoshi Nakamoto se fait progressivement à partir de décembre 2010. Satoshi n'explicite pas les raisons qui le poussent à s'éclipser, mais nous pouvons les deviner. Tout d'abord, le projet a pris : il a grossi à tel point qu'il devient difficile de diriger le mouvement\endnote{Pete Rizzo, \eng{The Last Days of Satoshi: What Happened when Bitcoin's Creator Disappeared}, 26 avril 2021~: \url{https://bitcoinmagazine.com/technical/what-happened-when-bitcoin-creator-satoshi-nakamoto-disappeared}.}. 
 
-\section{La financiarisation}
+Mais surtout Satoshi redoute la réaction des agences étatiques. Il exprime cette idée dans un message du 5 juillet 2010 (commentant le brouillon de la présentation de Bitcoin qui sera proposée à Slashdot), où il déclare ne pas vouloir mettre trop en avant l'aspect «~anonyme~» de Bitcoin ou son opposition aux autorités légales qui constituerait une «~provocation\endnote{«~Nous ne voulons pas mettre l'aspect "anonyme" au premier plan. (J'avais l'intention de modifier la page d'accueil) "Les développeurs s'attendent à ce que cela se traduise par une monnaie indexée sur l'énergie et hors de portée de tout État." -- Je ne fais certainement pas ce genre de provocation ou d'affirmation.~» (Satoshi Nakamoto, \eng{Re: Slashdot Submission for 1.0}, \wtime{05/07/2010 21:31:14 UTC}~: \url{https://bitcointalk.org/index.php?topic=234.msg1976\#msg1976})}~».
 
-\section{Le débat sur la scalabilité}
+% La raison principale semble être cette peur des autorités. Il y a aussi le fait que le projet commence à grossir de telle sorte qu'il ne peut pas contenir le mouvement.  
 
-\section{La prise au sérieux}
+L'élément déclencheur est l'affaire WikiLeaks.
+
+WikiLeaks est une organisation non gouvernementale à but non lucratif fondée par le cypherpunk Julian Assange en 2006, dont la raison d'être est de donner une audience aux lanceurs d'alertes et aux fuites d'information, tout en protégeant leurs sources. À partir de 2010, les documents confidentiels révélés de l'ONG commencent à être relayées par les grands médias et à faire du bruit dans l'opinion publique. C'est notamment le cas de l'\eng{Afghan War Diary}, un ensemble de documents et de rapports militaires américains secrets sur la guerre en Afghanistan faisant notamment état de la dissimulation des victimes civiles, qui est publié le 25 juillet 2010 grâce à la contribution de Bradley Manning, un analyste militaire de l'armée des États-Unis. On peut également citer les \eng{Iraq War Logs}, documents secrets sur la guerre en Irak entre 2004 et 2009 publiés le 23 octobre et révélant le nombre de victimes civiles et les actes de torture perpétrés. % Le lendemain, le gouvernement des États-Unis réagit en condamnant fermement cette publication, affirmant qu'elle menace la sécurité des soldats engagés en Afghanistan.
+
+Le financement de WikiLeaks repose essentiellement sur les dons du public. Il s'agit d'une activité sensible pour les firmes réglementées qui craignent les potentielles représailles des autorités. C'est ainsi que la société de paiement en ligne Moneybookers gèle le compte de l'ONG le 14 octobre 2010. À la suite de ces révélations, il est ainsi de plus en plus probable que WikiLeaks s'expose à plus de sanctions.
+
+Le 10 novembre, Amir Taaki, un jeune anglais d'origine iranienne ayant fraîchement découvert Bitcoin, voit dans la situation de WikiLeaks une opportunité de démontrer l'utilité de la résistance à la censure du système. Il écrit ainsi sur le forum~:
+
+\begin{quote}
+«~Je voulais envoyer une lettre à Wikileaks à propos de Bitcoin car, malheureusement, ils ont subi plusieurs incidents où leurs fonds ont été saisis dans le passé. Quelqu'un sait où leur envoyer un message~?\endnote{Amir Taaki, \eng{Wikileaks contact info?}, \wtime{10/11/2010 12:49:16 UTC}~: \url{https://bitcointalk.org/index.php?topic=1735.msg21271\#msg21271}.}~»
+\end{quote}
+
+Les réactions sont mitigées. D'après un utilisateur, «~cela peut être bénéfique pour wikileaks, mais pas nécessairement pour Bitcoin\endnote{ShadowOfHarbringer, \eng{Re: Wikileaks contact info?}, \wtime{10/11/2010 13:28:00 UTC}~: \url{https://bitcointalk.org/index.php?topic=1735.msg21283\#msg21283}.}~».
+
+Un mois plus tard, le 3 décembre, PayPal gèle le compte de WikiLeaks\endnote{\eng{PayPal statement regarding WikiLeaks}, 3 décembre 2010~: \url{https://web.archive.org/web/20101206112350/https://www.thepaypalblog.com/2010/12/paypal-statement-regarding-wikileaks/}.}. Certaines personnes sur le forum suggèrent d'encourager WikiLeaks à accepter le bitcoin~: cela paraît en effet le «~moment idéal pour commencer les dons en bitcoins\endnote{Wladimir van der Laan, \eng{Re: Wikileaks contact info?}, \wtime{04/12/2010 08:57:41 UTC}~: \url{https://bitcointalk.org/index.php?topic=1735.msg26737\#msg26737}.}~».
+
+Cela fait réagir Satoshi le lendemain qui s'oppose à cette évolution et déclare~:
+
+\begin{quote}
+«~Le projet a besoin de grandir progressivement pour que le logiciel puisse se renforcer en cours de route.
+
+J'appelle WikiLeaks à ne pas essayer d'utiliser Bitcoin. Bitcoin est une petite communauté en bêta qui en est à ses débuts. Vous n'obtiendriez pas grand chose et l'ardeur que vous apporteriez nous détruirait probablement à ce stade.\endnote{Satoshi Nakamoto, \eng{Re: Wikileaks contact info?}, \wtime{05/12/2010 09:08:08 UTC}, \url{https://bitcointalk.org/index.php?topic=1735.msg26999\#msg26999}}~»
+\end{quote}
+
+Dans les jours qui suivent, c'est un véritable blocus financier se met en place contre WikiLeaks, auquel participent Mastercard et Visa, mais aussi Western Union, Bank of America et d'autres acteurs, qui met en péril la capacité de l'ONG à survivre financièrement\endnote{Le 24 octobre 2011, un communiqué de WikiLeaks (\eng{Banking Blockade}, \wtime{24 octobre 2011, 13:00 UTC}, \url{https://wikileaks.org/Banking-Blockade.html}) a indiqué que le blocus financier a fait disparaître de ses 95~\% des revenus.}. C'est tout naturellement que certains insistent pour que Bitcoin soit mis à profit.
+
+Le 11 décembre, un article est publié sur PC World pour mettre en avant la possibilité d'un usage de Bitcoin par WikiLeaks\endnote{Keir Thomas, \eng{Could the Wikileaks Scandal Lead to New Virtual Currency?}, \wtime{11 décembre 2010, 00:30}~: \url{https://www.pcworld.com/article/499375/could_wikileaks_scandal_lead_to_new_virtual_currency.html}.}. Cet article est rapidement évoqué sur le forum et la réaction de Satoshi est sans appel. Il écrit~: 
+
+\begin{quote}
+«~Il aurait été bon d'attirer cette attention dans un tout autre contexte. WikiLeaks a donné un coup de pied dans le nid de frelons, et l'essaim se dirige vers nous.\endnote{Satoshi Nakamoto, \eng{Re: PC World Article on Bitcoin}, \wtime{11/12/2010 23:39:16 UTC}, \url{https://bitcointalk.org/index.php?topic=2216.msg29280\#msg29280}.}~»
+\end{quote}
+
+C'est son avant-dernier message public. Le lendemain, il poste son dernier message sur le forum pour annoncer la version 0.3.19 du logiciel\endnote{Satoshi Nakamoto, \eng{Added some DoS limits, removed safe mode (0.3.19)}, \wtime{12/12/2010 18:22:33 UTC}~:\url{https://bitcointalk.org/index.php?topic=2228.msg29479\#msg29479}.}, puis se volatilise. Il transmet les rênes du projet à ses deux bras droits historiques~: Martti Malmi et Gavin Andresen.
+
+Martti Malmi hérite du site web et du forum. Néanmoins, à l'instar de Satoshi, il se détourne progressivement de Bitcoin et délègue la gestion de ces plateformes à d'autres personnes, à qui il cèdera le contrôle entièrement en 2015\endnote{Le contrôle du site a été cédé à un individu utilisant le pseudonyme Cøbra tandis que celui du forum à Michael Marquardt (theymos). Les deux personnes co-gèrent ces deux plateformes.}. Il vendra ses 55~000 bitcoins pour s'acheter un appartement près de Helsinki\endnote{Martti Malmi, Tweet, \wtime{18/12/2020 12:22 UTC}~: \url{https://twitter.com/marttimalmi/status/1339908783187832834}.}.
+
+De son côté, Gavin Andresen hérite de la clé d'alerte, du dépôt SourceForge et de la liste de diffusion. Le 19 décembre, Gavin annonce «~commencer à gérer le projet Bitcoin de manière plus active\endnote{Gavin Andresen, \eng{Development process straw-man}, \wtime{19/12/2010 16:41:39 UTC}~: \url{https://bitcointalk.org/index.php?topic=2367.msg31651\#msg31651}.}~» et crée le dépôt GitHub de Bitcoin, où le projet sera dorénavant développé. Il ignore alors qu'il est devenu le développeur en chef du projet et que le créateur de Bitcoin va disparaître.
+
+Satoshi se volatilise définitivement durant le printemps 2011. Le 23 avril, il adresse un dernier courriel adressé à Mike Hearn, l'ingénieur de Google qui l'avait approché deux ans auparavant et qui était resté en contact avec lui~:
+
+\begin{quote}
+«~Je suis passé à autre chose. [Bitcoin] est entre de bonnes mains avec Gavin et les autres.\endnote{Satoshi Nakamoto, \eng{Re: Holding coins in an unspendable state for a rolling time window}, \wtime{23/04/2011 13:40 UTC}~: \url{https://plan99.net/~mike/satoshi-emails/thread5.html}.}~» % "I've moved on to other things.  It's in good hands with Gavin and everyone."
+\end{quote}
+
+Il fait également ses adieux à Gavin et Martti. En particulier, il demande à Gavin d'éviter de parler de lui comme d'une «~personnalité sombre et mystérieuse~» à la presse\endnote{Allie Jones, \eng{Former Coworker Regrets Helping Reveal Identity of Bitcoin's Founder}, 6 mars 2014~: \url{https://www.theatlantic.com/technology/archive/2014/03/bitcoin-founders-coworker-regrets-doxxing-him/358878/}.}.
+
+Le 27 avril, Gavin annonce qu'il a été invité par la CIA à faire une présentation sur Bitcoin\endnote{\url{https://bitcointalk.org/index.php?topic=6652.0}}. Cette visite se passe le 14 juin\endnote{\url{https://twitter.com/gavinandresen/status/80785477342478336}}. De manière intéressante, c'est également le jour où WikiLeaks se met finalement à accepter les dons en bitcoin\endnote{Tweet~: «~WikiLeaks accepte désormais les dons anonymes en bitcoin sur 1HB5XMLmzFVj8ALj6mfBsbifRoD4miY36v~»\url{https://twitter.com/wikileaks/status/80774521350668288}}. Ces deux évènements confirment ce que Satoshi redoutait.
+
+Satoshi Nakamoto laisse derrière lui une fortune colossale~: 1~122~693 bitcoins selon une estimation de 2020. Cela représente plus de 5 \% de la quantité totale de bitcoins. Ces fonds ne bougeront jamais.\endnote{Ce montant a été retrouvé grâce au Patoshi Pattern, mis en lumière par Sergio Lerner en 2013 dans un article intitulé \eng{The Well Deserved Fortune of Satoshi Nakamoto, Bitcoin creator, Visionary and Genius} (\url{https://bitslog.com/2013/04/17/the-well-deserved-fortune-of-satoshi-nakamoto/}). L'estimation utilisée ici est celle de Whale Alert publiée en 2020~: \url{https://whale-alert.medium.com/the-satoshi-fortune-e49cf73f9a9b}.}
+
+Quelques messages émaneront de ses différents comptes\endnote{Un message niant son association à Dorian Nakamoto a été publié le 7 mars 2014 depuis son compte de la Fondation P2P (\url{https://p2pfoundation.ning.com/forum/topics/bitcoin-open-source?commentId=2003008:Comment:52186}) et un courriel d'opposition à Bitcoin XT a été envoyé le 15 août 2015 à la liste de diffusion de développement depuis son adresse satoshi@vistomail.com (\url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-August/010238.html}).}, mais on supposera qu'ils ont été piratés.
+
+% --- L'anonymat de Satoshi Nakamoto ---
+
+L'identité de Satoshi Nakamoto restera inconnue, celui-ci ayant réussi à conserver son anonymat grâce à l'usage de Tor et de services respectueux de la vie privée. Dans les années qui suivront, sa «~personnalité sombre et mystérieuse~» deviendra un mythe à part entière, suscitant les spéculations les plus diverses. Tout le monde se demandera «~Qui est Satoshi Nakamoto~?~» à l'instar du personnage de John Galt dans \emph{La Grève} d'Ayn Rand. On cherchera à savoir qui il est, quelques pistes seront privilégiées\endnote{Parmi les candidats pour être la figure de Satoshi Nakamoto, ceux qui reviennent le plus souvent sont~: Nick Szabo, Hal Finney, Adam Back, Len Sassaman.}, mais jamais on ne prouvera formellement son identité civile.
+
+En 2013, dans l'un de ses derniers messages sur le forum, Hal Finney partagera une citation énigmatique du film \emph{Man of Steel} tout juste sorti, résumant bien l'aspect mystérieux entourant le créateur de Bitcoin~:
+
+\begin{quote}
+«~Comment retrouver quelqu'un qui a toujours brouillé les pistes~? [...] Pour certains, c'était un ange gardien. Pour d'autres, [une énigme,] un fantôme, toujours un peu à l'écart. [...] Que représente le S~?\endnote{Hal Finney, \eng{Re: Another *Potential* Identifying Piece of Evidence on Satoshi}, 15/06/2013, \url{https://bitcointalk.org/index.php?topic=234330.msg2479328\#msg2479328}}~» % Loïs Lane
+\end{quote} 
+
+En mars 2014, on croira l'avoir trouvé en la personne de Dorian Prentice Satoshi Nakamoto suite à la publication d'un article de Newsweek\endnote{Leah McGrath Goodman, \eng{The Face Behind Bitcoin}, 6 mars 2014~: \url{https://www.newsweek.com/2014/03/14/face-behind-bitcoin-247957.html}.}. Cet ingénieur des télécommunications, citoyen américain naturalisé d'origine japonaise, vivant avec sa mère à Temple City dans la banlieue de Los Angeles, se fera harceler par la presse mais niera en bloc. On découvrira cependant que la famille de Hal Finney a habité dans la même municipalité «~à quelques pâtés de maisons de la maison familiale des Nakamoto~» durant l'adolescence de ce dernier, ce qui attirera quelques soupçons sur lui\endnote{Andy Greenberg, \eng{Nakamoto's Neighbor: My Hunt For Bitcoin's Creator Led To A Paralyzed Crypto Genius}, 25 mars 2014~: \url{https://www.forbes.com/sites/andygreenberg/2014/03/25/satoshi-nakamotos-neighbor-the-bitcoin-ghostwriter-who-wasnt/}.}. 
+
+Hal Finney mourra en 2014 des suites de la maladie de Charcot. En tant que futuriste averti, il fera cryogéniser son corps par la fondation Alcor.
+
+\section{La communauté prend le relais}
+
+Au cours de l'effacement progressif de Satoshi, la popularité de Bitcoin continue de s'accroître. En particulier, le prix du bitcoin évolue de manière favorable~: alors qu'il n'était que de 20~centimes en décembre 2010, il atteint la parité avec le dollar le 9 février 2011 et s'y maintient pendant quelques temps. Cette hausse du prix attise l'enthousiasme de la communauté, et notamment celui de Hal Finney qui déclare avoir «~vraiment de la chance d'être au début d'un nouveau phénomène potentiellement explosif\endnote{Hal Finney, \eng{Re: Parity Party}, \wtime{11/1/2011 21:17:04 UTC}~: \url{https://bitcointalk.org/index.php?topic=2734.msg37307\#msg37307}}~».
+
+% --- Silk Road ---
+
+Cette période coïncide avec l'apparition de Silk Road\endnote{Le nom de la plateforme fait référence à la Route de la Soie, un réseau ancien de routes marchandes qui reliait l'Europe à l'Asie jusqu'au \textsc{xv}\ieme{}~siècle.}, une place de marché du dark web utilisant Tor et Bitcoin pour permettre à ses utilisateurs de d'échanger librement des produits et des services légaux et illégaux. Celle-ci est lancée à la fin du mois de janvier par un jeune texan du nom de Ross Ulbricht, qui en fait mention sur le forum de Bitcoin en feignant d'avoir découvert le site par hasard\endnote{La première mention publique de Silk Road par Ross Ulbricht remonte au 27 janvier 2011 sur le forum de \eng{The Shroomery}, un site consacré aux champignons hallucinogènes, où il écrivait~: "\eng{I came across this website called Silk Road. It's a Tor hidden service that claims to allow you to buy and sell anything online anonymously. I'm thinking of buying off it, but wanted to see if anyone here had heard of it and could recommend it.}" (Ross Ulbricht, \eng{anonymous market online?}, \wtime{27/01/2011 22:28 UTC}~: \url{https://www.shroomery.org/forums/showflat.php/Number/13860995})\\Ross Ubricht a réitéré la chose sur le \eng{Bitcoin Forum} où il écrivait le 29 janvier~: "\eng{Has anyone seen Silk Road yet? It's kind of like an anonymous amazon.com. I don't think they have heroin on there, but they are selling other stuff. They basically use bitcoin and tor to broker anonymous transactions.}" (Ross Ulbricht, \eng{Re: A Heroin Store}, \wtime{29/01/2011 19:44:51 UTC}, \url{https://bitcointalk.org/index.php?topic=175.msg42670\#msg42670})}. 
+
+Ross Ulbricht adhère profondément aux principes du libertarianisme, une philosophie libérale originaire des États-Unis prônant le respect impératif de la liberté individuelle, des droits de propriété et du marché. Silk Road est pour lui une incarnation de cet idéal. De ce fait, la gamme des produits et services qui peuvent être listés sur le site est restreinte et nécessite qu'aucun mal n'a été faire à autrui~: on y retrouve ainsi de la drogue, des médicaments, des pièces de métaux précieux, mais pas de carte bancaire volée, de pédopornographie ou de service de tueur à gages\endnote{Capture du \eng{Seller's Guide} du 18/9/2012 (GX-120)~: "Do not list anything who's purpose is to harm or defraud, such as stolen items or info, stolen credit cards, counterfeit currency, personal info, assassinations, and weapons of any kind. Do not list anything related ot pedophilia.", \url{https://antilop.cc/sr/exhibits/GX-120_Redacted.pdf}.}. De manière générale, le site sert principalement à la vente de drogue illicite (dont surtout de petites quantités de cannabis), chose pour laquelle il deviendra célèbre.
+
+% --- Promotion de Bitcoin ---
+
+La promotion de Bitcoin est plus présente. Le 22 mars, la première vidéo expliquant Bitcoin de manière qualitative apparaît\endnote{WeUseCoins, \eng{What is Bitcoin?}, 22 mars 2011~: \url{https://www.youtube.com/watch?v=Um63OQz3bjo}.}. Cette vidéo, intitulée sobrement «~\eng{What is Bitcoin?}~», est produite par Stefan Thomas grâce à un financement participatif de la communauté. Elle aura un succès retentissant au fil des années en totalisant plusieurs millions de vues sur YouTube. Les vidéos de ce type se multiplieront.
+
+Bitcoin est notamment vanté dans les cercles libertariens, de par son côté libre, anonyme et hors de portée de l'État. Le 16 mars 2011, une partie de l'épisode de FreeTalkLive du jour est consacrée à Bitcoin et à Silk Road\endnote{\url{https://soundcloud.com/freetalklive/ftl2011-03-16}}. Cela attire l'attention de l'entrepreneur et activiste Roger Ver, déjà millionnaire grâce à sa société de revente de composants informatique, Memory Dealers. Il découvre Bitcoin à la fin du mois d'avril en écoutant une rediffusion de l'épisode et se met à lire tout ce qu'il peut sur le sujet, il en achète et commence à accepter le bitcoin avec son entreprise\endnote{\url{https://bitcointalk.org/index.php?topic=4667.msg95746\#msg95746}}. Il deviendra rapidement l'un des promoteurs les plus zélés de Bitcoin, ce qui lui vaudra le surnom de \eng{Bitcoin Jesus} pendant un temps.
+
+L'existence de Silk Road est révélée au grand public le 1\ier{} juin 2011 avec un article d'Adrien Chen sur Gawker\endnote{Adrian Chen, \eng{The Underground Website Where You Can Buy Any Drug Imaginable}, 1\ier{} juin 2011~: \url{https://www.gawker.com/the-underground-website-where-you-can-buy-any-drug-imag-30818160}.}, ce qui a pour effet d'attirer l'attention sur Bitcoin encore un peu plus. Cela incite les consommateurs à se procurer du bitcoin pour passer par l'intermédiaire de la plateforme. % Silk Road montre toute l'utilité de Bitcoin.
+
+% --- Première bulle majeure ---
+
+Par conséquent, on assiste au cours du printemps 2011 à une forte poussée du prix, due à l'augmentation de la demande. Après avoir stagné pendant quelques mois, celui-ci passe ainsi de 1~\$ le 15 avril à plus de 32~\$ le 8 juin.
+
+% 3 février : plateforme Mt. Gox cédée à Mark Karpelès
+
+Cela met la pression sur Mt. Gox, la principale plateforme d'échange de l'époque. Celle-ci a alors été reprise depuis quelques mois par Mark Karpelès, un développeur français de 26 ans vivant au Japon. Celui-ci est néanmoins quelque peu négligent et n'a pas su résoudre tous les problèmes de l'implémentation de son prédécesseur. C'est ainsi qu'un incident malencontreux survient le dimanche 19 juin~: un groupe de pirates accède au compte administrateur de Jed McCaleb.
+
+La limite de retrait journalière étant de 1000~\$, les pirates cherchent à faire baisser le prix afin de retirer un maximum de bitcoins. Ils vendent les bitcoins de Jed McCaleb au marché ce qui provoque un krach éclair sur le cours~: le prix, qui stationne ce jour-là autour des 17~\$, chute à 0,01~\$ en quelques minutes. C'est la panique dans la communauté, et beaucoup d'utilisateurs de Mt. Gox vendent sous le coup de l'émotion afin de conserver ce qui leur reste. La situation est rétablie dans la journée mais 2000 bitcoins manquent à l'appel. Le 23 juin, Mark Karpelès prouve la solvabilité de l'entreprise en déplaçant 424 242 bitcoins d'une adresse à une autre\endnote{L'identifiant de la transaction est \verb?3a1b9e330d32fef1ee42f8e86420d2be978bbe0dc5862f17da9027cf9e11f8c4?.}.
+
+Cet incident entraîne la fin de la folie spéculative sur le bitcoin et le prix se met à descendre doucement. C'est ce moment-là qu'on assiste à l'escroquerie de sortie de MyBitcoin~: le 29 juillet, son fondateur anonyme, Tom Williams, part avec les 154 406 bitcoins présents sur les comptes de ses clients\endnote{\url{https://bitcointalk.org/index.php?topic=32900.msg411251\#msg411251}}. Suite à cet évènement, le prix baissera en flèche jusqu'à atteindre un creux local de 2~\$ en novembre.
+
+% --- Coordination ---
+
+Du 19 au 21 août 2011 a lieu la première conférence sur Bitcoin à New York, qui dure trois jours. Celle-ci est organisée Bruce Wagner, l'animateur du Bitcoin Show, une émission filmée composée d'entretiens avec les acteurs de l'écosystème. La conférence a un caractère amateur (qui représente alors la communauté d'alors) et seules quatre présentations ont lieu~: celle de Bruce Wagner ainsi que les interventions de Gavin Andresen, Jeff Garzik et Stefan Thomas. Cela permet néanmoins aux membres les plus actifs, tels que Roger Ver, Jesse Powell, Jed McCaleb, Mark Karpelès ou Charlie Lee, de se réunir en personne pour la première fois.
+
+Le développement logiciel s'organise aussi. Jusqu'ici, il était centralisé dans les mains de Satoshi, le «~dictateur bienveillant~» du projet. Mais après le départ du créateur de Bitcoin, il s'ouvre à la communauté, sous la supervision de Gavin Andresen. On voit ainsi des contributeurs talentueux commencer à s'impliquer dans l'évolution de Bitcoin comme Nils Schneider, Matt Corallo, Pieter Wuille, Jeff Garzik, Wladimir van der Laan, Luke-Jr ou encore Gregory Maxwell. Des méthodes de coordination sont rapidement mises en place comme la liste de diffusion \verb?bitcoin-development? permettant de discuter formellement des changements à apporter, et le système des propositions d'amélioration de Bitcoin (\eng{Bitcoin Improvement Proposals} ou BIP), qui décrivent publiquement ces changements.
+
+% bitcoin-development~: 12 juin, Jeff Garzik
+% BIP~: 19 août, Amir Taaki
+
+La façon d'utiliser Bitcoin devient plus facile. On assiste à l'apparition de portefeuilles légers permettant d'utiliser Bitcoin sans avoir à télécharger et vérifier l'intégralité de la chaîne. Ces derniers utilisent la vérification de paiement simplifiée décrite par Satoshi Nakamoto dans la section 8 du livre blanc. Celle-ci est mise en œuvre par Mike Hearn au sein de sa bibliothèque logicielle \emph{bitcoinj} programmée en Java, qui permet entre autres une meilleure compatibilité avec les applications sur les téléphones multifonctions fonctionnant sous Android. Le premier portefeuille pour mobile \eng{Bitcoin Wallet for Android}, lancé par Andreas Schildbach en mars 2011\endnote{Andreas Schildbach, \eng{Bitcoin Wallet for Android}, \wtime{11/03/2011 21:25:51 UTC}~: \url{https://bitcointalk.org/index.php?topic=4384.msg64142\#msg64142}.}. Celui-ci montre que l'utilisation directe de Bitcoin dans la vie de tous les jours est possible. Du côté ordinateur, Thomas Voegtlin crée Electrum en novembre 2011\endnote{Thomas Voegtlin, \eng{[Electrum] a brainwallet in twelve words}, \wtime{10/11/2011 01:06:59 UTC}~: \url{https://bitcointalk.org/index.php?topic=51397.msg612674\#msg612674}.}, présenté comme un portefeuille qui permet à l'utilisateur de récupérer ses fonds par le biais d'une phrase mnémotechnique. Cette pratique sera plus tard standardisée et adoptée largement dans l'écosystème.
+
+% --- Bataille pour P2SH ---
+
+Mais ce développement décentralisé amène également des tensions. Sans son fondateur, le projet ne dispose plus d'un meneur incontestable~: certes Gavin Andresen possède le contrôle du dépôt, mais n'a pas l'autorité technique suffisante pour imposer toutes ses vues aux autres développeurs. Les décisions sont prises relativement collectivement, ce qui pose la question de la gouvernance de Bitcoin~: qui décide d'apporter un changement au protocole~?
+
+À la fin de l'année 2011 et au début de l'année 2012, le premier débat technique en l'absence de Satoshi a lieu. Le groupe de développeurs est alors très restreint mais cela suffit pour créer un conflit à propos de l'amélioration de la programmabilité des transactions, notamment pour créer des comptes multisignatures. Ce premier conflit sera appelé la «~bataille pour P2SH\endnote{Voir l'article \eng{The Battle For P2SH: The Untold Story Of The First Bitcoin War} écrit par Pete Rizzo et Aaron Van Wirdum (\url{https://bitcoinmagazine.com/technical/the-battle-for-p2sh-the-untold-story-of-the-first-bitcoin-war}).}~».
+
+De par sa nature informatique, Bitcoin constitue un système de monnaie programmable qui permet à l'utilisateur d'imposer des conditions au blocage et au déblocage des fonds. Il dispose pour cela d'un mécanisme de scripts reposant sur des instructions logiques appelées codes opérations. Cependant, ces scripts sont compliqués à gérer. Il s'agit donc de trouver un moyen simple pour l'utilisateur d'envoyer des fonds à un script défini préalablement par le récipiendaire. C'est l'idée derrière la proposition faite par Nicolas van Saberhagen d'ajouter un nouveau code opération appelé \verb?OP_EVAL?. Cette proposition souffre néanmoins d'un problème de récursivité, ce qui provoque rapidement l'apparition de deux propositions concurrentes~: \eng{Pay to Script Hash} (P2SH) proposé par Gavin Andresen et \verb?OP_CHECKHASHVERIFY? (CHV) proposé par Luke-Jr.
+
+Une tension émerge entre les deux propositions, ce qui crée le débat. Amir Taaki, qui ne soutient ni l'une ni l'autre, appelle à la discussion et déclare le 29 janvier 2012~:
+
+\begin{quote}
+«~Ma crainte c'est qu'un jour Bitcoin soit corrompu. Développeurs : considérez cet examen supplémentaire comme une opportunité de construire une culture d'ouverture.\endnote{Amir Taaki, \eng{The Truth behind BIP 16 and 17 (important read)}, \wtime{29/01/2012 03:54:08 UTC}~: \url{https://bitcointalk.org/index.php?topic=61705.msg719790#msg719790}.}~»
+\end{quote} 
+
+Finalement, c'est P2SH qui est choisi pour être intégré à Bitcoin sur l'ordre de Gavin Andresen. Cette intégration sera réalisée, non sans difficulté, le 1\ier{} avril 2012.
+
+% --- Bitcoin Magazine et SatoshiDICE ---
+
+À côté de cela, la popularisation de Bitcoin se poursuit. Le 28 février, un russo-canadien du nom de Vitalik Buterin, âgé de seulement 18 ans, co-fonde le \emph{Bitcoin Magazine} avec Mihai Alisie, un développeur roumain. Ce média est d'abord disponible en version web, avant d'être distribué en édition papier à partir de mai. Le jeune Vitalik y écrit de nombreux articles documentant l'actualité de l'époque. Par la suite, de nombreux sites d'information spécialisés verront le jour comme CoinDesk ou CoinTelegraph.
+
+Le 24 avril 2012, un jeu de hasard en ligne nommé SatoshiDICE est lancé par l'entrepreneur américain Erik Voorhees\endnote{Erik Voorhees, \eng{SatoshiDICE.com - The World's Most Popular Bitcoin Game}, \wtime{24/04/2012 02:17:31 UTC}~: \url{https://bitcointalk.org/index.php?topic=77870.msg865877\#msg865877}}. Le site repose sur un fonctionnement très simple~: le joueur envoie des bitcoins à une adresse spécifique et il a une probabilité prédéfinie de recevoir une récompense qui correspond à un multiple du montant envoyé (il a par exemple une chance sur deux de recevoir un peu moins de deux fois sa mise). Le procédé est instantané (pas besoin de confirmation par les mineurs) et aisément vérifiable (grâce à des graines générées quotidiennement et publiées quelques jours plus tard). 
+
+% Cet usage parachève la vision de Bitcoin utilisé pour le jeu d'argent. Satoshi avait même intégré dans les premières versions du code. 
+
+En tant que libertarien convaincu vivant dans le New Hampshire, Erik Voorhees voit en SatoshiDICE une manière d'échapper à la réglementation. Le 20 août, il réalise même une IPO pour son entreprise sur la plateforme roumaine MPEx\endnote{Erik Voorhees, \eng{S.DICE - SatoshiDICE 100\% Dividend-Paying Asset on MPEx}, \wtime{20/08/2012 04:14:43 UTC}~: \url{https://web.archive.org/web/20121024050433/https://bitcointalk.org/index.php?topic=101902.0}.}. Il revendra la plateforme le 17 juillet 2013 pour 126,315 bitcoins, soit 12,4 millions de dollars au moment de l'acquisition\endnote{Erik Voorhees, \eng{SatoshiDice Sold for \$12.4 Million}, 28 juillet 2012~: \url{https://bitcoinmagazine.com/markets/satoshidice-sold-12-4-million}.}.
+
+SatoshiDICE provoque une augmentation significative du nombre de transactions sur la chaîne, qui triple en quelques mois. Cette activité provenant du site est remarquée et dérange certains développeurs qui la qualifient de «~spam\endnote{Matt Corallo, \eng{Huge increase in satoshidice spam over the past day}, \wtime{13/06/2012 23:21:47 UTC}~: \url{https://bitcointalk.org/index.php?topic=87444.msg961132#msg961132}.}~».
+
+À la moitié de l'année 2012, Bitcoin est donc complètement lancé pour être découvert par un public plus large.
+
+\section{L'amorçage organique de Bitcoin}
+
+Les premières années de Bitcoin ont été déterminantes pour son succès. Il a en effet pu grandir dans l'ombre, où il a connu une croissance organique à l'abri de la malveillance et de la propagande qui habitent notre monde.
+
+Bitcoin a été proposé en 2008 par Satoshi Nakamoto, qui l'a mis en œuvre en janvier 2009. Les débuts ont été difficiles, à tel point que le bitcoin n'a acquis un prix qu'au bout de 9 mois d'existence~! Satoshi s'est dévoué pleinement à son œuvre sans jamais profiter personnellement de sa fortune accumulée. En disparaissant en 2011, il a finalement laissé la communauté s'approprier le projet.
+
+Bitcoin a été façonné par des cypherpunks, des anarchistes, des libertariens et d'autres amoureux de la liberté. Il s'est construit en opposition au système étatico-bancaire traditionnel, fait de censure et de renflouements publics. C'est pourquoi le message était clair dès le début.
+
+Entre 2010 et 2012, les premiers cas d'utilisation de Bitcoin ont émergé. Financement de projets politiquement sensibles, jeu d'argent en ligne, achat de drogues à distance, envois de fonds à l'étranger~: il s'agissait des usages à la limite de légalité, voire complètement illégaux. Et en effet c'était là l'utilité centrale d'une monnaie incensurable et relativement anonyme comme le bitcoin.
+
+Mais cette tendance s'est rapidement inversée comme on a pu le constater durant les années qui ont suivi.
+
+\printendnotes

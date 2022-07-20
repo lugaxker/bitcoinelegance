@@ -1,10 +1,13 @@
-\documentclass[a4paper]{book}
+% Copyright (c) 2022 Ludovic Lars
+% This work is licensed under the CC BY-NC-SA 4.0 International License
+
+\documentclass[a5paper]{book}
 
 % Basic packages
 \usepackage[polutonikogreek, french]{babel} % language
 \usepackage[utf8]{inputenc}                 % accents
 \usepackage[T1]{fontenc}                    % french characters
-\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry} % margin: TODO delete custom margins
+\usepackage[margin=2cm]{geometry}           % margin 
 \usepackage{setspace}                       % spacing
 \usepackage{graphicx}                       % images
 \usepackage{verbatim}                       % preformatted text
@@ -17,6 +20,8 @@
 \usepackage{eurosym}                        % euro symbol
 \usepackage{amsfonts,amsmath,amssymb,amsthm}    % math
 \usepackage{xcolor}
+
+\usepackage[type={CC}, modifier={by-nc-sa}, version={4.0}]{doclicense} % license
 
 % Custom settings
 \setlength{\parskip}{1ex}                   % paragraph spacing
@@ -38,7 +43,13 @@
 
 \begin{document}
 
+\setenotez{list-name=Notes, backref=true, totoc=section, reset=true}
+
 \maketitle
+
+
+\thispagestyle{empty} 
+\doclicenseThis
 
 % \frontmatter
 % 
@@ -46,26 +57,36 @@
 
 \mainmatter
 
-\part{Pourquoi ?}
+% \part{Pourquoi ?}
 
 \include{chapters/ch01-mythe}
-\include{chapters/ch02-origine}
-\include{chapters/ch03-adversaire}
+% \include{chapters/ch02-conflits}
+% \include{chapters/ch03-origine}
+% \include{chapters/ch04-adversaire}
+% 
+% % \part{Quoi ?}
+% 
+% \include{chapters/ch05-propriete}
+% \include{chapters/ch06-confirmation}
+% \include{chapters/ch07-determination}
+% 
+% % \part{Comment ?}
+% 
+% \include{chapters/ch08-programmabilite}
+% \include{chapters/ch09-confidentialite}
+% \include{chapters/ch10-scalabilite}
+% \include{chapters/ch11-adoption}
 
-\part{Quoi ?}
-
-\include{chapters/ch04-propriete}
-\include{chapters/ch05-confirmation}
-\include{chapters/ch06-determination}
-
-\part{Comment ?}
-
-\include{chapters/ch07-programmabilite}
-\include{chapters/ch08-confidentialite}
-\include{chapters/ch09-avenir}
-
-\newpage
-
-\printendnotes*
+% \newpage
+% 
+% Code couleur :
+% 
+% \begin{itemize}
+% \item[$\bullet$] \textcolor{gray}{Gris} Copie d'articles existants
+% \item[$\bullet$] \textcolor{red}{Rouge} Modification à réaliser
+% \item[$\bullet$] \textcolor{blue}{Bleu} Amélioration possible
+% \item[$\bullet$] \textcolor{magenta}{Rose} Données à mettre à jour
+% \item[$\bullet$] \textcolor{green}{Vert} Remarques générales
+% \end{itemize}
 
 \end{document}

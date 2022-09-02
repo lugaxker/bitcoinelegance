@@ -459,14 +459,14 @@ La dérivation des clés se fait grâce à la fonction HMAC-SHA512. Tout d'abord
 
 Ces deux informations permettent de réaliser toutes les dérivation suivantes. Le code de chaîne intervient dans la chaîne de dérivation des clés, de sorte qu'il soit impossible de procéder à la dérivation sans lui.
 
-Plutôt que de gérer ces deux informations indépendemment, on préfère faire appel aux clés privées étendues (\eng{extended private keys}), qui incluent la clé privée et le code de chaîne, ainsi que d'autres informations comme la profondeur et l'indice de la clé enfant. La clé privée étendue est encodée en Base58Check avec un préfixe spécial, faisant que le résultat commence toujours par \verb?xprv?. Dans notre cas, clé privée étendue issue de la clé privée maîtresse et du code de chaîne maître est~:
+Plutôt que de gérer ces deux informations indépendemment, on préfère faire appel aux clés privées étendues (\eng{extended private keys}), qui incluent la clé privée et le code de chaîne, ainsi que d'autres informations comme la profondeur et l'indice de la clé enfant. La clé privée étendue est encodée en Base58Check avec un préfixe spécial qui dépend du type d'adresse dérivé, faisant que le résultat commence par \verb?xprv? (adresses traditionnelles), par \verb?yprv? (adresses SegWit imbriquées) ou par \verb?zprv? (adresses SegWit natives). Dans notre cas, clé privée étendue issue de la clé privée maîtresse et du code de chaîne maître est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 xprv9s21ZrQH143K3KSN1mSK8myNuDcXNvNoCDcU4KBxMTuj1Wo83zNnjaj8dKFT81GttcgP
 ftdB4XhAzzQLXJEGDtFp35yssYnxDV3yVDEqv1b
 \end{Verbatim}
 
-De même, la clé publique étendue (\eng{extended private key}) regroupe la clé publique et le code de chaîne correspondant à la clé privée dont elle dérive. En Base58Check, cette clé commence toujours par \verb?xpub?. La clé publique étendue correspondant à la clé privée maîtresse est~:  
+De même, la clé publique étendue (\eng{extended private key}) regroupe la clé publique et le code de chaîne correspondant à la clé privée dont elle dérive. En Base58Check, cette clé commence toujours par \verb?xpub?, \verb?ypub? ou \verb?zpub?. La clé publique étendue correspondant à la clé privée maîtresse est~:  
 
 \begin{Verbatim}[fontsize=\footnotesize]
 xpub661MyMwAqRbcFoWq7nyKVuv7TFT1nP6eZSY4rhbZuoShtK8GbXh3HP3cUapsPsqEd52T

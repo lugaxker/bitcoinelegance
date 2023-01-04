@@ -1,4 +1,4 @@
-L'élégance de Bitcoin
+L'Élégance de Bitcoin
 =====================
 
 Un livre sur Bitcoin.

@@ -15,7 +15,8 @@ Puisque le but de Bitcoin est précisément de ne pas reposer sur un tiers de co
 
 % Le minage, en plus d'être la manière dont sont distribués les nouvelles unités (d'où son nom), est le moyen par lequel le réseau arrive à un consensus.
 
-\section{Le problèmes des généraux byzantins} % Le consensus distribué
+\section*{Le problèmes des généraux byzantins} % Le consensus distribué
+\addcontentsline{toc}{section}{Le problèmes des généraux byzantins}
 
 L'enjeu du consensus est illustré par le problème des généraux byzantins, qui est un problème d'informatique distribuée formalisé en 1982 par Leslie Lamport, Robert Shostak et Marshall Pease\sendnote{Leslie Lamport, Robert Shostak, Marshall Pease, \eng{The Byzantine Generals Problem}, 1982~: \url{https://lamport.azurewebsites.net/pubs/byz.pdf}.}. Ce problème traite de la remise en cause de la fiabilité des transmissions et de l'intégrité des participants dans les systèmes distribués et s'applique dans les cas où les composants d'un système informatique ont besoin d'être en accord.
 
@@ -66,7 +67,8 @@ La spécificité géniale de cet algorithme est qu'il résout le problème de ma
 
 % La solution est moins efficace mais plus robuste. 
 
-\section{La preuve de travail}
+\section*{La preuve de travail}
+\addcontentsline{toc}{section}{La preuve de travail}
 
 La preuve de travail, de l'anglais \eng{proof-of-work}, est un procédé permettant à un appareil informatique de démontrer de manière objective et quantifiable qu'il a dépensé de l'énergie. Ce moyen est utilisé pour sélectionner les ordinateurs dans le cadre de l'accès à un service ou à un privilège.
 
@@ -119,7 +121,8 @@ Secondement, la preuve de travail a pour objectif de garantir le consensus sur l
 
 Une preuve de travail est calculée pour chaque bloc de la chaîne, de sorte que cette dernière forme un historique de tout le travail effectué depuis le début.
 
-\section{La chaîne de blocs}
+\section*{La chaîne de blocs}
+\addcontentsline{toc}{section}{La chaîne de blocs}
 
 La chaîne de blocs, ou \eng{blockchain} en anglais, est la structure de données regroupant l'ensemble des transactions réalisées depuis le lancement du système. Cette structure est une suite de blocs de transactions, liés les uns aux autres par un procédé appelé l'horodatage.
 
@@ -145,11 +148,11 @@ Cette chaîne a rapidement été qualifiée de chaîne de blocs par les premièr
 
 La particularité de Bitcoin est d'avoir combiné l'horodatage d'informations et la preuve de travail produite par Hashcash. Puisque ces deux procédés se basent tous les deux sur une fonction de hachage, il est en effet possible de les fusionner en un seul. La chaîne de blocs est donc à la fois une chaîne temporelle d'horodatages et une chaîne de preuves de travail.
 
-\section{La structure d'un bloc} % partie technique
+\section*{La structure d'un bloc} % partie technique
+\addcontentsline{toc}{section}{La structure d'un bloc}
 
-% Exemple de bloc contenant 6 transactions
+% Exemple : bloc 751005
 % 000000000000000000065aebf106c8824f4b565d54d6d6df32498b2b041cfd07
-% 751 005
 
 La meilleure façon de comprendre comment est organisée la chaîne de blocs, c'est de l'examiner en détails et en particulier étudier comment un bloc se structure. Prenons pour exemple un bloc de la version principale de Bitcoin (BTC)~: le bloc de hauteur 751~005 miné le 25 août 2022 et contenant 6 transactions.
 
@@ -267,7 +270,8 @@ Dans notre cas, si on compare l'identifiant et la valeur cible, on obtient bien 
 
 \textcolor{brown}{schéma d'un bloc de Bitcoin} % bitcoin-block-segwit.png
 
-\section{Le revenu du minage} % Le minage, un procédé économique
+\section*{Le revenu du minage} % Le minage, un procédé économique
+\addcontentsline{toc}{section}{Le revenu du minage}
 
 % --- Présentation du minage ---
 
@@ -384,7 +388,8 @@ L'émission de queue est mise en place dans la variante Monero. Depuis le 9 juin
 % Demeurage
 La deuxième méthode de financement proposée est le demeurage\sendnote{jtimon, \eng{Freicoin: bitcoin with demurrage}, \wtime{24/02/2011 11:56:03 UTC}~: \url{https://bitcointalk.org/index.php?topic=3816.msg54170\#msg54170}.}, ou coût de détention, qui consiste à prélèvement la monnaie demeurée immobile depuis un temps donné. Les bitcoins de Satoshi, qui représentent une manne financière importante, sont notamment concernés. Toutefois, il s'agirait d'une atteinte au système de propriété de Bitcoin et il y a donc peu de chances que cette méthode rencontre le succès.
 
-\section{La chaîne la plus longue}
+\section*{La chaîne la plus longue}
+\addcontentsline{toc}{section}{La chaîne la plus longue}
 
 Venons-en maintenant au sujet central de ce chapitre~: l'atteinte du consensus par le minage. Comme on l'a dit, le minage est le procédé permettant aux mineurs d'ajouter des blocs à la chaîne, chose pour laquelle ils sont rémunérés. Mais nous n'avons pas expliqué en quoi il permet d'arriver à un accord dans un contexte antagoniste, en présence d'acteurs malveillants ou byzantins.
 
@@ -448,7 +453,8 @@ Ensuite, il permet la participation ouverte au consensus~: le minage est anonyme
 % Robustesse
 Enfin, cet algorithme par preuve de travail permet d'assurer la robustesse du réseau~: un mineur n'a pas à connaître tous les autres participants, ce qui autorise le réseau à être composé de dizaines (voire de centaines) de milliers de nœuds.
 
-\section{La résistance à la double dépense}
+\section*{La résistance à la double dépense}
+\addcontentsline{toc}{section}{La résistance à la double dépense}
 
 Le double dépense est le fait pour un acteur de successivement faire accepter deux transactions au réseau dans le but de modifier l'état du système et d'en bénéficier d'une manière ou d'une autre. La deuxième transaction peut constituer une annulation de la première, lorsque l'acteur réalise un transfert vers lui-même.
 
@@ -510,7 +516,8 @@ Il est ainsi arrivé que des agrégats de mineurs rassemblent plus de 51~\% de l
 
 Ainsi de nombreuses attaques de ce type ont déjà eu lieu sur certaines variantes de Bitcoin au fil des années, réduisant leur réputation au passage, mais sans qu'elles ne soient pour autant anéanties. On peut notamment citer Ethereum Classic qui a subi plusieurs recoordinations agressives entre 2019 et 2020\sendnote{Plus précisément~: le 7 janvier 2019, le 31 juillet 2020, le 6 août 2020 et le 29 août 2020.}.
 
-\section{L'industrie minière}
+\section*{L'industrie minière}
+\addcontentsline{toc}{section}{L'industrie minière}
 
 Le minage est une activité économique à part entière. La récompense de minage sert à rémunérer le service apporté par le mineur. Elle paie pour le coût de l'électricité, de l'infrastructure matérielle et de la maintenance logicielle. Elle compense le risque de production de blocs orphelins. Elle rémunère la confirmation des transactions censurées. Et enfin elle récompense la renonciation temporaire à la liquidité (intérêt originaire du prêteur) et le risque économique général (profit de l'entrepreneur).
 
@@ -578,7 +585,8 @@ Deuxièmement, il existe le protocole Stratum V2\sendnote{Braiins, \eng{Stratum 
 
 Cependant, même si ces propositions d'amélioration sont louables, elles ne suppriment pas l'avantage économique qu'il existe à fonctionner de manière centralisée, qui se retrouve par ailleurs dans l'économie générale. La décentralisation a un coût, et celui-ci ne sera justifié que lorsquele bénéfice apporté le surpassera, c'est-à-dire le jour où le réseau sera sous attaque.
 
-\section{Un algorithme de consensus robuste}
+\section*{Un algorithme de consensus robuste}
+\addcontentsline{toc}{section}{Un algorithme de consensus robuste}
 
 Pour fonctionner en tant que système distribué de monnaie numérique, Bitcoin se base sur un mécanisme de consensus novateur. Celui-ci met en jeu une chaîne de blocs construite par les mineurs, qui sont rémunérés pour leur travail. Chaque bloc est un ensemble horodatés de transactions contenant une preuve de travail quantifiant l'énergie dépensée. Le consensus est atteint par la sélection de la plus longue chaîne.
 

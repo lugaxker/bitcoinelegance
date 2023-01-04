@@ -7,7 +7,8 @@ La propriété est le fait de disposer pleinement et exclusivement d'une chose. 
 
 Dans ce chapitre, nous allons étudier comment la propriété est mise en place dans Bitcoin. Nous verrons comment l'information est exprimée, comment Bitcoin utilise la cryptographie, le fonctionnement de la signature numérique, ce qu'est le hachage, la génération des clés et des adresses, ce que sont les portefeuilles et comment ils se structurent. Puis nous regarderons les conséquences impliquées par cette propriété, à commencer par la responsabilité conférée au gardien des clés.
 
-\section{Qu'est-ce que l'information ?}
+\section*{Qu'est-ce que l'information~?}
+\addcontentsline{toc}{section}{Qu'est-ce que l'information~?}
 
 % --- Information. Bits. Système binaire. ---
 
@@ -71,7 +72,8 @@ Dans BTC, les trois encodages qui mettent en œuvre ce type de somme de contrôl
 
 Le format Bech32 est également utilisé pour encoder les demandes de paiement sur le réseau Lightning.
 
-\section{La cryptographie et Bitcoin}
+\section*{La cryptographie et Bitcoin}
+\addcontentsline{toc}{section}{La cryptographie et Bitcoin}
 
 La mot cryptographie vient du grec ancien kruptós (« caché ») et gráphô (« écrire »). La cryptographie est une discipline ayant pour but la sécurisation de la communication en présence de tiers malveillants. Elle peut assurer la confidentialité (chiffrement), l'authenticité (signature) et l'intégrité (hachage) de l'information transmise.
 
@@ -103,7 +105,8 @@ Dans le contexte de Bitcoin, le chiffrement peut être utile pour protéger les 
 
 Néanmoins, contrairement à ce qu'on imagine parfois, aucun chiffrement n'est impliqué directement dans le protocole de Bitcoin~: toutes les données sont publiques en raison du fonctionnement ouvert et sans permission du système. Si le bitcoin est désigné comme une «~cryptomonnaie~», ce n'est parce que les communications sont chiffrées (elles en le sont pas), mais parce qu'il repose sur les deux autres fonctions de la cryptographie~: l'authentification grâce à la signature numérique et la vérification des données avec le hachage. La signature numérique permet d'authentifier la personne à l'origine d'une transaction pour assurer au réseau qu'il s'agit du propriétaire des bitcoins dépensés. Le hachage intervient lui dans la dérivation des clés et des adresses et dans la garantie du bon fonctionnement du minage.
 
-\section{La signature numérique}
+\section*{La signature numérique}
+\addcontentsline{toc}{section}{La signature numérique}
 
 La signature numérique forme la seconde partie de la cryptographie asymétrique. Elle permet d'authentifier l'auteur d'un message. Tout comme le chiffrement asymétrique, elle se base sur deux clés distinctes~: une clé privée, secrète, et une clé publique, visible par tous. Mais à la différence du chiffrement, les rôles sont différents~: c'est le propriétaire de la clé privée qui \emph{signe} un message et l'envoie à son interlocuteur, qui peut vérifier son authenticité en utilisant la clé publique. 
 
@@ -217,7 +220,8 @@ Un exemple de signature correspondant à notre clé publique\sendnote{Il s'agit 
 
 Notez que l'algorithme présenté ici n'est pas le seul qui existe. En novembre 2021, BTC a intégré un autre algorithme, le schéma de signature numérique de Schnorr, qui est basé sur la même courbe elliptique mais qui apporte des bénéfices majeurs. Certaines autres variantes de Bitcoin comme Monero utilisent EdDSA, un algorithme de signature basée sur une courbe d'Edwards tordue.
 
-\section{Le hachage} % l'intégrité de l'information
+\section*{Le hachage} % l'intégrité de l'information
+\addcontentsline{toc}{section}{Le hachage}
 
 Le hachage est un procédé cryptographique permettant de garantir l'intégrité d'une information numérique. On nomme ce procédé en analogie avec la cuisine, où des aliments peuvent être coupés en petits morceaux et regroupés dans un hachis. Il est mis en œuvre par une fonction de hachage qui transforme un \emph{message} de taille variable en une \emph{empreinte} de taille fixe. Cette empreinte est aussi appelé condensat ou \eng{hash}.
 
@@ -257,7 +261,8 @@ La composée de RIPEMD-160 et de SHA-256 est utilisée pour la calcul des adress
 
 Enfin, SHA-512 intervient dans l'algorithme de dérivation des clés mis en place dans les portefeuilles.
 
-\section{Les clés privées}
+\section*{Les clés privées}
+\addcontentsline{toc}{section}{Les clés privées}
 
 Comme on l'a dit, la clé privée est une information numérique, c'est-à-dire un nombre. Plus précisément, il s'agit d'un très grand nombre compris entre $1$ et $n-1$, où $n$ est l'ordre du point $G$ et approche $2^{256}$ soit $1,1579 \times 10^{77}$. L'intervalle est considérablement grand, si bien qu'il est statistiquement impossible de tomber sur une même clé privée en la choisissant au hasard. À titre de comparaison, le nombre d'atomes dans l'univers est estimé est proche de $10^{80}$. 
 
@@ -302,7 +307,8 @@ Dans le cas «~non compressé~» (de moins en moins utilisé), la clé commence 
 5JywJHwyuD4YSsErniGJkrDNi87kggSZNADCEkhRyRScqfMMTEt
 \end{Verbatim}
 
-\section{Les adresses}
+\section*{Les adresses}
+\addcontentsline{toc}{section}{Les adresses}
 
 Dans Bitcoin, une adresse constitue en quelque sorte un numéro de compte servant à recevoir des fonds. Ce numéro de compte est disponible publiquement sur la chaîne de bloc et n'importe qui peut en vérifier le solde. Néanmoins, un utilisateur peut générer autant d'adresses qu'il le désire afin de ne pas compromettre son activité.
 
@@ -364,8 +370,8 @@ Au-delà de BTC, les autres cryptomonnaies ont leur encodage propre pour les adr
 
 Bitcoin Cash possède également son propre format d'adresse, appelée CashAddr, qui s'inspire fortement du format Bech32. Ce format a été introduit pour différencier les adresses BTC des adresses BCH. Une adresse BCH est simplement une représentation alternative du format P2PKH~: l'adresse \longstring{1FjBKPQ7MTiPSDkJ2ZwPgAXUKQ8yoGbVJX} devient \longstring{bitcoincash:qzsch4l5rdpv0nrwh7jduslxkceys5mwhs03g7e6dq}.
 
-
-\section{Les portefeuilles}
+\section*{Les portefeuilles}
+\addcontentsline{toc}{section}{Les portefeuilles}
 
 % --- Portefeuille ---
 
@@ -409,7 +415,8 @@ Tous les portefeuilles impliquent une certaine confiance~: vous devez vous fier 
 
 De manière générale, chaque type de portefeuille possède une utilité~: c'est donc à l'utilisateur de déterminer quel portefeuille conviendra mieux à ses besoins.
 
-\section{La dérivation des clés}
+\section*{La dérivation des clés}
+\addcontentsline{toc}{section}{La dérivation des clés}
 
 % --- Phrase de récupération ---
 
@@ -521,7 +528,8 @@ De cette manière, la clé \verb?m/44'/0'/0'/0/0? correspond à la première adr
 
 Toutes les adresses d'un portefeuille restent valides même si elles ont été utilisées. Même si l'on peut générer des adresses à l'infini, le portefeuille balaie usuellement 20 adresses à partir de la dernière adresse active.
 
-\section{La propriété dans Bitcoin} % Bitcoin : clés privées et propriété
+\section*{La propriété dans Bitcoin}
+\addcontentsline{toc}{section}{La propriété dans Bitcoin}
 
 La propriété est le contrôle absolu exercé sur un bien par une personne à l'exclusion de toutes les autres. Bien souvent, la propriété s'exerce par l'intermédiaire d'un droit de propriété qui établit \eng{de jure} le rapport de force. Le bien possédé peut être un livre, une voiture ou un terrain. % usus, fructus, abusus
 
@@ -569,7 +577,8 @@ En effet, rien ne force en soi une plateforme à distribuer ce type de cryptomon
 
 De la même manière, une plateforme peut refuser de distribuer les largages de jetons (\eng{token airdrops}). Certains projets (notamment sur Ethereum) effectuent ces opérations pour attirer l'attention. Cela a notamment été le cas de HEX, une pyramide de Ponzi ouverte, dont la genèse a été déterminée en partie par la possession de bitcoins~: chaque détenteur de bitcoin pouvait prétendre à un montant de HEX proportionnel en publiant une signature numérique prouvant la possession de ses bitcoins. Il semble que quasiment aucune plateforme d'échange n'a distribué le jeton HEX. Ici aussi, on ne peut pas imposer à une plateforme de supporter tous les largages. 
 
-\section{Propriété et responsabilité}
+\section*{Propriété et responsabilité}
+\addcontentsline{toc}{section}{Propriété et responsabilité}
 
 Si Bitcoin permet à l'utilisateur de posséder son argent de manière souveraine, cette propriété s'accompagne d'une responsabilité. Cet utilisateur doit comprendre comment le système fonctionne, au moins de manière rudimentaire. Il doit choisir quels logiciels et quel matériel utiliser. Il doit manipuler les fonds, vérifier les adresses, rester vigilant à tout instant. Dans le cas d'une scission sans protection contre la rediffusion des transactions, il doit procéder vous-même à la séparation des pièces d'un côté et de l'autre. Il est seul face au chaos, et surtout, face à lui-même. Cette responsabilité est le prix de la liberté.
 
@@ -615,7 +624,8 @@ De même, on ne doit jamais supprimer la sauvegarde d'un portefeuille, même si 
 
 Enfin, l'utilisateur doit se souvenir qu'il va mourir. À moins qu'il ne veuille emporter ses possessions numériques dans sa tombe, il doit mettre en place un plan de succession pour ses bitcoins à destination de ses héritiers. Il existe de multiples manières de faire, mais le modèle le plus réputé est celui présenté par Pamela Morgan dans son \eng{Cryptoasset Inheritance Planning}\sendnote{Pamela Morgan, \eng{Cryptoasset Inheritance Planning}, 2018.} Celui-ci consiste à écrire une lettre dans laquelle on inclut les coordonnées de gens de confiance à contacter pour les aider (nos proches ne sont \emph{a priori} pas autant à l'aise que nous avec la manipulation de bitcoins) ainsi que l'inventaire de ses avoirs (dans le but de récupérer les sauvegardes et de restaurer les portefeuilles). La lettre sera scellée et placée dans un lieu sûr, comme un coffre-fort personnel, un coffre en banque ou chez un notaire.
 
-\section{Bitcoin et l'information}
+\section*{Bitcoin et l'information}
+\addcontentsline{toc}{section}{Bitcoin et l'information}
 
 Bitcoin permet donc pour la première fois dans l'histoire d'être propriétaire d'un bien numérique rival. Cette propriété s'exerce par la connaissance exclusive d'une information. Grâce à la signature numérique c'est en effetla connaissance d'une clé privée qui permet de signer des transactions et de dépenser des bitcoins.
 

@@ -560,7 +560,7 @@ Un autre défaut inhérent du minage est la latence liée à l'annonce des blocs
 
 Pour tenter d'atténuer les effets de ce défaut, les mineurs ont mis en place des relais de communication permettant de s'envoyer des blocs mutuellement de manière plus efficace en supprimant les protections contre le déni de service nécessaires sur le réseau pair-à-pair ouvert.
 
-Le premier relai a été créé par Matt Corallo sous le nom de \eng{Bitcoin Relay Network}/ Il a été lancé en 2013\sendnote{\url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2013-November/003596.html}} et est devenu pleinement fonctionnel en 2015\sendnote{\url{https://web.archive.org/web/20150628233706/https://bitcoinrelaynetwork.org/}}. Le réseau était composé de plusieurs nœuds spécialisés hébergés sur l'infrastructure Amazon Web Services. Un concurrent était le réseau Falcon, géré par une équipe de l'université Cornell dirigée par Emin Gün Sirer\sendnote{\url{https://web.archive.org/web/20160609081540/https://www.falcon-net.org/}}.
+Le premier relai a été créé par Matt Corallo sous le nom de \eng{Bitcoin Relay Network}. Il a été lancé en 2013\sendnote{\url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2013-November/003596.html}} et est devenu pleinement fonctionnel en 2015\sendnote{\url{https://web.archive.org/web/20150628233706/https://bitcoinrelaynetwork.org/}}. Le réseau était composé de plusieurs nœuds spécialisés hébergés sur l'infrastructure Amazon Web Services. Un concurrent était le réseau Falcon, géré par une équipe de l'université Cornell dirigée par Emin Gün Sirer\sendnote{\url{https://web.archive.org/web/20160609081540/https://www.falcon-net.org/}}.
 
 Le Bitcoin Relay Network a été remplacé en 2016 par le réseau FIBRE\sendnote{Matt Corallo, \eng{The Future of The Bitcoin Relay Network(s)}, 7 juillet 2016~: \url{https://bluematt.bitcoin.ninja/2016/07/07/relay-networks/}.} (pour \eng{Fast Internet Bitcoin Relay Engine}), un réseau basé sur UDP implémentant l'optimisation \verb?cmpctblock?, toujours géré par Matt Corallo. C'est ce réseau qui est utilisé par la plupart des mineurs aujourd'hui.
 
@@ -570,7 +570,7 @@ Cette industrialisation du minage a mené à la centralisation de l'activité mi
 
 Certaines améliorations ont été proposées dans le minage pour corriger ce problème.
 
-Premièrement, il y a le protocole P2Pool est un protocole de minage coopératif basé sur un réseau pair-à-pair de mineurs\sendnote{\url{http://p2pool.in/}}. Celui-ci met en communication les hacheurs en se basant sur une chaîne latérale -- la «~chaîne de partage~» -- dont la difficulté est plus faible et qui regroupe les différentes contributions des participants.
+Premièrement, il y a le protocole P2Pool qui est un protocole de minage coopératif basé sur un réseau pair-à-pair de mineurs\sendnote{\url{http://p2pool.in/}}. Celui-ci met en communication les hacheurs en se basant sur une chaîne latérale -- la «~chaîne de partage~» -- dont la difficulté est plus faible et qui regroupe les différentes contributions des participants.
 
 Le développement de P2Pool sur la version principale de Bitcoin semble avoir été mis en suspens en 2017. Cependant, le procédé est mis en œuvre sur Monero depuis octobre 2021 au travers d'une coopérative du même nom\sendnote{\url{https://p2pool.io/}}.
 

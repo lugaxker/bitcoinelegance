@@ -2,6 +2,7 @@
 % This work is licensed under the CC BY-NC-SA 4.0 International License
 
 \chapter{Le consensus par le minage}
+\label{ch:confirmation}
 
 Une monnaie est un accord concernant un intermédiaire mutuellement acceptable dans le commerce. L'émergence d'Internet a permis le développement de l'informatique distribuée et en particulier des réseaux pair-à-pair d'ordinateurs. Bitcoin réunit ces deux aspects en constituant un modèle distribué de monnaie numérique~: un \emph{système d'argent liquide électronique pair-à-pair}.
 
@@ -394,7 +395,7 @@ La deuxième méthode de financement proposée est le demeurage\sendnote{Jorge T
 Venons-en maintenant au sujet central de ce chapitre~: l'atteinte du consensus par le minage. Comme on l'a dit, le minage est le procédé permettant aux mineurs d'ajouter des blocs à la chaîne, chose pour laquelle ils sont rémunérés. Mais nous n'avons pas expliqué en quoi il permet d'arriver à un accord dans un contexte antagoniste, en présence d'acteurs malveillants ou byzantins.
 
 % Communication
-Les nœuds suivent un protocole composé des règles de réseau, qui leur permettent de rentrer en communication, et des règles de consensus, qui concernent la forme des transactions et des blocs\sendnote{\textcolor{blue}{Voir chapitre~: détermination du protocole.}}. Les nœuds qui enfreignent ces règles voient leurs connexions être fermées par leurs pairs et sont mis sur liste noire si nécessaire. Il est donc impossible de faire accepter une transaction ou un bloc au réseau qui ne soit valide selon les règles de consensus.
+Les nœuds suivent un protocole composé des règles de réseau, qui leur permettent de rentrer en communication, et des règles de consensus, qui concernent la forme des transactions et des blocs\sendnote{Pour plus de détail sur ce protocole, voir le chapitre~\ref{ch:determination}.}. Les nœuds qui enfreignent ces règles voient leurs connexions être fermées par leurs pairs et sont mis sur liste noire si nécessaire. Il est donc impossible de faire accepter une transaction ou un bloc au réseau qui ne soit valide selon les règles de consensus.
 
 Néanmoins, il est possible de semer la discorde dans le respect des règles de consensus, en produisant des blocs concurrents. En effet, rien n'empêche a priori un attaquant de produire des blocs de transactions qui soient valides mais qui ne soient pas rattachés à la branche principale et de les soumettre au réseau.
 
@@ -493,7 +494,7 @@ Comme la transaction légitime dépense les mêmes fonds que la transaction frau
 
 Il s'agit d'une attaque opportuniste~: elle est motivée par un gain, composé du bien économique obtenu et des bitcoins récupérés, qui doit être supérieur au coût (matériel, électrique et logiciel) nécessaire pour y procéder. Sur le réseau Bitcoin principal, ce coût se chiffre aujourd'hui en milliards de dollars\sendnote{Braiins, \eng{How Much Would it Cost to 51\% Attack Bitcoin?}, 11 janvier 2021~: \url{https://braiins.com/blog/how-much-would-it-cost-to-51-attack-bitcoin}.}.
 
-Cette attaque doit être distinguée de la censure\sendnote{\textcolor{blue}{Voir chapitre : résistance à la censure.}}, qui consiste à refuser de confirmer des transactions selon un critère arbitraire, et qui repose sur des incitations \emph{extérieures} à l'économie de Bitcoin.
+Cette attaque doit être distinguée de la censure\sendnote{La résistance à la censure est décrite dans le chapitre~\ref{ch:incensurabilite}.}, qui consiste à refuser de confirmer des transactions selon un critère arbitraire, et qui repose sur des incitations \emph{extérieures} à l'économie de Bitcoin.
 
 % --- Incitation ---
 

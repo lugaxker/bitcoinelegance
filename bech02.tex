@@ -7,14 +7,14 @@
 \usepackage[polutonikogreek, french]{babel} % language
 \usepackage[utf8]{inputenc}                 % accents
 \usepackage[T1]{fontenc}                    % french characters
-\usepackage[margin=2cm]{geometry}           % margin 
+\usepackage[margin=2cm]{geometry}           % margin
 \usepackage{setspace}                       % spacing
 \usepackage{graphicx}                       % images
 \usepackage{verbatim}                       % preformatted text
 \usepackage{enumerate}                      % lists
 \usepackage{hyperref}                       % cross-referencing
 \usepackage{xurl}
-\usepackage{enotez}                         % endnotes 
+\usepackage{enotez}                         % endnotes
 
 % Custom packages
 \usepackage{newtxtext}                      % Times New Roman font
@@ -37,11 +37,11 @@
 \newcommand{\longstring}[1]{{\NoAutoSpaceBeforeFDP\seqsplit{#1}}}
 \newcommand{\sendnote}{\,\endnote}
 
-\title{L'Élégance de Bitcoin (ébauche)}     % title
+\title{L'Élégance de Bitcoin (chapitre 2)}     % title
 \author{Ludovic Lars}                       % author
 \date{\today}                               % date
 
-\hypersetup{ 
+\hypersetup{
     pdftitle={\csname @title\endcsname},
     pdfauthor={\csname @author\endcsname}
 }
@@ -53,50 +53,12 @@
 
 \maketitle
 
-
-\thispagestyle{empty} 
+\thispagestyle{empty}
 \doclicenseThis
-
-% \frontmatter
-% 
-% \chapter*{Introduction}
 
 \mainmatter
 
-% \part{Pourquoi ?}
-
-\include{chapters/ch01-mythe}
+\setcounter{chapter}{1}
 \include{chapters/ch02-clivages}
-\include{chapters/ch03-origine}
-% \include{chapters/ch04-adversaire}
-% \include{chapters/ch05-cypherpunks}
-
-% \part{Quoi ?}
-
-\setcounter{chapter}{5}
-\include{chapters/ch06-propriete}
-\include{chapters/ch07-confirmation}
-% \include{chapters/ch08-incensurabilite}
-% \include{chapters/ch09-determination}
-%
-% % \part{Comment ?}
-%
-% \include{chapters/ch10-programmabilite}
-% \include{chapters/ch11-confidentialite}
-% \include{chapters/ch12-scalabilite}
-% \include{chapters/ch13-adoption}
-%
-% \newpage
-%
-% Code couleur :
-%
-% \begin{itemize}
-% \item[$\bullet$] \textcolor{gray}{Gris} Copie d'articles existants
-% \item[$\bullet$] \textcolor{red}{Rouge} Modification à réaliser
-% \item[$\bullet$] \textcolor{blue}{Bleu} Amélioration possible
-% \item[$\bullet$] \textcolor{brown}{Marron} Images à inclure
-% \item[$\bullet$] \textcolor{darkgray}{Gris foncé} Données à mettre à jour
-% \item[$\bullet$] \textcolor{green}{Vert} Remarques générales
-% \end{itemize}
 
 \end{document}

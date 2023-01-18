@@ -56,12 +56,12 @@ Progression
 | Chapitre | Titre actuel                       | Progression                           |
 |----------|------------------------------------|---------------------------------------|
 |        1 | Les débuts de Bitcoin              | Première relecture &#x2705; &#x2705;  |
-|        2 | Une croissance conflictuelle       | Première version &#x2705;             |
-|        3 | Les racines économiques de Bitcoin | Première version &#x2705;             |
+|        2 | Une croissance conflictuelle       | Première ébauche &#x2705;             |
+|        3 | Les racines économiques de Bitcoin | Première ébauche &#x2705;             |
 |        4 | La nécessité de décentralisation   | En cours d'écriture &#x270D;&#x1F3FB; |
 |        5 | Une guerre technologique           | En cours d'écriture &#x270D;&#x1F3FB; |
-|        6 | La valeur de l'information         | Première version &#x2705;             |
-|        7 | Le consensus par le minage         | Première version &#x2705;             |
+|        6 | La valeur de l'information         | Première ébauche &#x2705;             |
+|        7 | Le consensus par le minage         | Première ébauche &#x2705;             |
 |        8 | La résistance à la censure         | En cours d'écriture &#x270D;&#x1F3FB; |
 |        9 | La détermination du protocole      | En cours d'écriture &#x270D;&#x1F3FB; |
 |       10 | Les rouages de la machine          | Planifié &#x1F6A7;                    |

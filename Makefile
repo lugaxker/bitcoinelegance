@@ -18,9 +18,9 @@ bech02.pdf: bech02.tex chapters/ch02-clivages.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech03.pdf: bech03.tex chapters/ch03-origine.tex
-# 	pdflatex $(MODE) $<
-# 	pdflatex $(MODE) $<
+bech03.pdf: bech03.tex chapters/ch03-origine.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
 #
 # bech04.pdf: bech04.tex chapters/ch04-adversaire.tex
 # 	pdflatex $(MODE) $<

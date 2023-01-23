@@ -34,10 +34,10 @@ bech06.pdf: bech06.tex chapters/ch06-propriete.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech07.pdf: bech07.tex chapters/ch07-confirmation.tex
-# 	pdflatex $(MODE) $<
-# 	pdflatex $(MODE) $<
-#
+bech07.pdf: bech07.tex chapters/ch07-confirmation.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
+
 # bech08.pdf: bech08.tex chapters/ch08-incensurabilite.tex
 # 	pdflatex $(MODE) $<
 # 	pdflatex $(MODE) $<

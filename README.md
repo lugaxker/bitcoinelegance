@@ -56,7 +56,7 @@ Progression
 | Chapitre | Titre actuel                       | Progression                           |
 |----------|------------------------------------|---------------------------------------|
 |        1 | Les débuts de Bitcoin              | Première relecture &#x2705; &#x2705;  |
-|        2 | Une croissance conflictuelle       | Première ébauche &#x2705;             |
+|        2 | Une croissance conflictuelle       | Première relecture &#x2705; &#x2705;  |
 |        3 | Les racines économiques de Bitcoin | Première ébauche &#x2705;             |
 |        4 | La nécessité de décentralisation   | En cours d'écriture &#x270D;&#x1F3FB; |
 |        5 | Une guerre technologique           | En cours d'écriture &#x270D;&#x1F3FB; |

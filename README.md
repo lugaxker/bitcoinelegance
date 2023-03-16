@@ -62,7 +62,7 @@ Progression
 |        5 | Une guerre technologique           | En cours d'écriture &#x270D;&#x1F3FB; |
 |        6 | La valeur de l'information         | Première ébauche &#x2705;             |
 |        7 | Le consensus par le minage         | Première ébauche &#x2705;             |
-|        8 | La résistance à la censure         | En cours d'écriture &#x270D;&#x1F3FB; |
+|        8 | La résistance à la censure         | Première ébauche &#x2705;             |
 |        9 | La détermination du protocole      | En cours d'écriture &#x270D;&#x1F3FB; |
 |       10 | Les rouages de la machine          | Planifié &#x1F6A7;                    |
 |       11 | L'avenir de Bitcoin (conclusion)   | Planifié &#x1F6A7;                    |

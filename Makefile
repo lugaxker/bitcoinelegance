@@ -38,10 +38,10 @@ bech07.pdf: bech07.tex chapters/ch07-confirmation.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech08.pdf: bech08.tex chapters/ch08-censure.tex
-# 	pdflatex $(MODE) $<
-# 	pdflatex $(MODE) $<
-#
+bech08.pdf: bech08.tex chapters/ch08-censure.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
+
 # bech09.pdf: bech09.tex chapters/ch09-determination.tex
 # 	pdflatex $(MODE) $<
 # 	pdflatex $(MODE) $<

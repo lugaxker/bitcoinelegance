@@ -22,10 +22,10 @@ bech03.pdf: bech03.tex chapters/ch03-origine.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech04.pdf: bech04.tex chapters/ch04-adversaire.tex
-# 	pdflatex $(MODE) $<
-# 	pdflatex $(MODE) $<
-#
+bech04.pdf: bech04.tex chapters/ch04-adversaire.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
+
 # bech05.pdf: bech05.tex chapters/ch05-cypherpunks.tex
 # 	pdflatex $(MODE) $<
 # 	pdflatex $(MODE) $<

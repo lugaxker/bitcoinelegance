@@ -3,7 +3,7 @@ L'Élégance de Bitcoin
 
 Un livre sur Bitcoin.
 
-Plan actualisé (janvier 2023)
+Plan actualisé (avril 2023)
 -----------------------------
 
 #### 1 - Les débuts de Bitcoin (2009 -- 2012)
@@ -20,7 +20,7 @@ Plan actualisé (janvier 2023)
 
 #### 4 - La nécessité de décentralisation
 
-*Présentation de l'antithèse de Bitcoin : État, prélèvement, monopole monétaire, inflation, centralisation et accroissement du pouvoir.*
+*Présentation de l'antithèse de Bitcoin : État, prélèvement, impôt, seigneriage, inflation, banques, MNBC, impérialisme, échec des systèmes alternatifs centralisés.*
 
 #### 5 - Une guerre technologique
 
@@ -36,15 +36,15 @@ Plan actualisé (janvier 2023)
 
 #### 8 - La résistance à la censure
 
-*Description du mécanisme de résistance à la censure de Bitcoin : censure financière, MNBC [?], résistance économique de Bitcoin, confidentialité, propagande, alternatives à la preuve de travail.*
+*Description du mécanisme de résistance à la censure de Bitcoin : censure financière, MNBC, résistance économique de Bitcoin, confidentialité, propagande, alternatives à la preuve de travail.*
 
 #### 9 - La détermination du protocole
 
-*Description de l'évolution du protocole et des principes qui la sous-tendent : mises à niveau, scissions, résistance à l'inflation.*
+*Description de l'évolution du protocole et des principes qui la sous-tendent : protocole, implémentations, améliorations, vérification des règles de consensus, mises à niveau (forks), pouvoir et influence sur le protocole, résistance à l'inflation.*
 
-#### 10 - Les rouages de la machine [?]
+#### 10 - Les rouages de la machine
 
-*Explications techniques sur le fonctionnement interne de Bitcoin : UTXO, programmabilité, confidentialité, scalabilité.*
+*Exploration technique du fonctionnement interne de Bitcoin : UTXO, machine virtuelle, programmabilité, confidentialité, scalabilité.*
 
 #### 11 - Conclusion : l'avenir de Bitcoin [?]
 

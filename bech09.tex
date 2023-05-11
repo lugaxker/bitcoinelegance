@@ -7,14 +7,14 @@
 \usepackage[polutonikogreek, french]{babel} % language
 \usepackage[utf8]{inputenc}                 % accents
 \usepackage[T1]{fontenc}                    % french characters
-\usepackage[margin=2cm]{geometry}           % margin 
+\usepackage[margin=2cm]{geometry}           % margin
 \usepackage{setspace}                       % spacing
 \usepackage{graphicx}                       % images
 \usepackage{verbatim}                       % preformatted text
 \usepackage{enumerate}                      % lists
 \usepackage{hyperref}                       % cross-referencing
 \usepackage{xurl}
-\usepackage{enotez}                         % endnotes 
+\usepackage{enotez}                         % endnotes
 
 % Custom packages
 \usepackage{newtxtext}                      % Times New Roman font
@@ -37,11 +37,11 @@
 \newcommand{\longstring}[1]{{\NoAutoSpaceBeforeFDP\seqsplit{#1}}}
 \newcommand{\sendnote}{\,\endnote}
 
-\title{L'Élégance de Bitcoin (ébauche)}     % title
+\title{L'Élégance de Bitcoin (chapitre 9)}     % title
 \author{Ludovic Lars}                       % author
 \date{\today}                               % date
 
-\hypersetup{ 
+\hypersetup{
     pdftitle={\csname @title\endcsname},
     pdfauthor={\csname @author\endcsname}
 }
@@ -53,35 +53,12 @@
 
 \maketitle
 
-
-\thispagestyle{empty} 
+\thispagestyle{empty}
 \doclicenseThis
-
-% \frontmatter
-% 
-% \chapter*{Introduction}
 
 \mainmatter
 
-% \part{Pourquoi ?}
-
-\include{chapters/ch01-mythe}
-\include{chapters/ch02-clivages}
-\include{chapters/ch03-origine}
-\include{chapters/ch04-adversaire}
-% \include{chapters/ch05-cypherpunks}
-
-% \part{Quoi ?}
-
-\setcounter{chapter}{5}
-\include{chapters/ch06-propriete}
-\include{chapters/ch07-confirmation}
-\include{chapters/ch08-censure}
+\setcounter{chapter}{8}
 \include{chapters/ch09-determination}
-
-% % \part{Comment ?}
-%
-% \include{chapters/ch10-rouages}
-% \include{chapters/ch11-avenir}
 
 \end{document}

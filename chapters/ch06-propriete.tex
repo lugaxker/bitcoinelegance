@@ -25,7 +25,7 @@ Tout d'abord, comme on l'a dit, les ordinateurs sont basés sur un système bina
 42 = 32 + 8 + 2 = 1 \times 2^5 + 0 \times 2^3 + 1 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 0 \times 2^0 = \mathtt{0b101010}
 \]
 
-Le préfixe \verb?0b? est usuellement placé avant le nombre pour indiquer qu'on utilise cette base.
+Le préfixe \texttt{0b} est usuellement placé avant le nombre pour indiquer qu'on utilise cette base.
 
 % --- Système hexadécimal. Octets. ---
 
@@ -43,13 +43,13 @@ Le système hexadécimal permet de condenser la représentation des données. En
 2008 = 1792 + 208 + 8 = 7 \times 16^2 + 13 \times 16^1 + 8 \times 16^0 = \mathtt{0x7d8}
 \]
 
-On place usuellement le préfixe \verb?0x? avant le nombre pour indiquer qu'on utilise le système hexadécimal.
+On place usuellement le préfixe \texttt{0x} avant le nombre pour indiquer qu'on utilise le système hexadécimal.
 
 % --- Base 58. ---
 
 Dans Bitcoin, deux bases de numération particulières interviennent, notamment pour représenter certaines informations capitales, comme les clés privées et les adresses.
 
-La première est la base 58. Dans ce système à 58 chiffres, les nombres sont écrits en utilisant tous les caractères alphanumériques (chiffres arabes, lettres latines minuscules, lettres latines majuscules) à l'exception des caractères \verb?0? (zéro), \verb?O? (o majuscule), \verb?l? (L minuscule) et \verb?I? (i majuscule), qui peuvent être confondus entre eux et constituer une source d'erreur. Les chiffres de cette base sont donc, dans l'ordre~:
+La première est la base 58. Dans ce système à 58 chiffres, les nombres sont écrits en utilisant tous les caractères alphanumériques (chiffres arabes, lettres latines minuscules, lettres latines majuscules) à l'exception des caractères \texttt{0} (zéro), \texttt{O} (o majuscule), \texttt{l} (L minuscule) et \texttt{I} (i majuscule), qui peuvent être confondus entre eux et constituer une source d'erreur. Les chiffres de cette base sont donc, dans l'ordre~:
 
 \begin{verbatim}
 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
@@ -57,7 +57,7 @@ La première est la base 58. Dans ce système à 58 chiffres, les nombres sont �
 
 % --- Base 32. ---
 
-Le seconde est la base 32, moins compacte mais plus adaptée pour les codes QR. Les symboles utilisés dans cette base sont les chiffres arabes et les lettres latines minuscules, auxquels on retranche le \verb?1?, le \verb?b?, le \verb?i? et le \verb?o? pour éviter les confusions, à savoir les caractères suivants~: 
+Le seconde est la base 32, moins compacte mais plus adaptée pour les codes QR. Les symboles utilisés dans cette base sont les chiffres arabes et les lettres latines minuscules, auxquels on retranche le \texttt{1}, le \texttt{b}, le \texttt{i} et le \texttt{o} pour éviter les confusions, à savoir les caractères suivants~:
 
 \begin{verbatim}
 qpzry9x8gf2tvdw0s3jn54khce6mua7l
@@ -167,14 +167,14 @@ K = &~(~\mathtt{0xf6a6c7c39c88b767bfac4ac687c3ff32372e76c9fb633e2278e54472e300b3
 \end{align*}
 }
 
-Dans Bitcoin, cette clé publique est représentée de manière sérialisée. Elle peut l'être sous forme non compressée, auquel cas elle est précédée par le préfixe \verb?0x04?. Dans notre cas~: 
+Dans Bitcoin, cette clé publique est représentée de manière sérialisée. Elle peut l'être sous forme non compressée, auquel cas elle est précédée par le préfixe \texttt{0x04}. Dans notre cas~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 04 f6a6c7c39c88b767bfac4ac687c3ff32372e76c9fb633e2278e54472e300b3bd
 5822f24e0fdb4e568f97a7fff246c07ba486c1756f82971765cc9cf8e45ff5e6
 \end{Verbatim}
 
-Il existe également une représentation compressée de la clé publique. Celle-ci est rendu possible par la symétrie de la courbe par rapport à l'axe des abscisses~: si le point $(x, y)$ est sur la courbe, alors le point $(x, - y)$ l'est aussi. Pour compresser l'information, il suffit ainsi de donner l'abcisse $x$ et un préfixe qui vaut \verb?0x02? si $y$ est pair ou \verb?0x03? si $y$ est impair\sendnote{Dans le corps fini $\mathbb{F}_p$, prendre l'opposé d'un élément non nul $y$ inverse sa polarité. En effet, si $y \in [\![ 1, p - 1 ]\!]$, alors $-y + p \in [\![ 1, p - 1 ]\!]$.}. On peut ensuite retrouver grâce à l'équation de la courbe. Dans note cas, le clé publique compressée est~:
+Il existe également une représentation compressée de la clé publique. Celle-ci est rendu possible par la symétrie de la courbe par rapport à l'axe des abscisses~: si le point $(x, y)$ est sur la courbe, alors le point $(x, - y)$ l'est aussi. Pour compresser l'information, il suffit ainsi de donner l'abcisse $x$ et un préfixe qui vaut \texttt{0x02} si $y$ est pair ou \texttt{0x03} si $y$ est impair\sendnote{Dans le corps fini $\mathbb{F}_p$, prendre l'opposé d'un élément non nul $y$ inverse sa polarité. En effet, si $y \in [\![ 1, p - 1 ]\!]$, alors $-y + p \in [\![ 1, p - 1 ]\!]$.}. On peut ensuite retrouver grâce à l'équation de la courbe. Dans note cas, le clé publique compressée est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 02 f6a6c7c39c88b767bfac4ac687c3ff32372e76c9fb633e2278e54472e300b3bd
@@ -243,9 +243,9 @@ Par exemple, si on considère le message «~Bitcoin~», le fait de l'orthographi
 \begin{center}
    \begin{tabular}{| c | c | }
      \hline Message & Empreinte (SHA-256) \\
-     \hline Bitcoin & \footnotesize \verb?b4056df6691f8dc72e56302ddad345d65fead3ead9299609a826e2344eb63aa4? \\
-     \hline bitcoin & \footnotesize \verb?6b88c087247aa2f07ee1c5956b8e1a9f4c7f892a70e324f1bb3d161e05ca107b? \\
-     \hline Bitcoin. & \footnotesize \verb?a9adf3c04d168153b296083f05015f587d7df6e0b85305b6c7beb2a69e3f4e75? \\
+     \hline Bitcoin & \footnotesize \longstring{b4056df6691f8dc72e56302ddad345d65fead3ead9299609a826e2344eb63aa4} \\
+     \hline bitcoin & \footnotesize \longstring{6b88c087247aa2f07ee1c5956b8e1a9f4c7f892a70e324f1bb3d161e05ca107b} \\
+     \hline Bitcoin. & \footnotesize \longstring{a9adf3c04d168153b296083f05015f587d7df6e0b85305b6c7beb2a69e3f4e75} \\
      \hline
    \end{tabular}
  \end{center}
@@ -281,7 +281,7 @@ Début août 2013, une vulnérabilité au sein la fonction SecureRandom (CVE-201
 
 Une fois générées, les clés privées doivent être encodées, afin de pouvoir être transmises pour l'import ou l'export dans un portefeuilles. Dans Bitcoin, les clés privées sont représentées grâce à l'encodage Base58Check. Dans ce cas, on parle de \eng{Wallet Import Format} (WIF).
 
-L'encodage d'une clé suit une série d'étapes simples. Tout d'abord, la clé est préfixée par l'octet de version \verb?0x80? qui indique qu'il s'agit d'une clé privée. Puis, un suffixe \verb?0x01? est ajouté (ou non) pour indiquer si l'on souhaite en dériver une clé publique compressée (ou non compressée). Dans le cas de notre clé-exemple, on obtient les octets suivants~:
+L'encodage d'une clé suit une série d'étapes simples. Tout d'abord, la clé est préfixée par l'octet de version \texttt{0x80} qui indique qu'il s'agit d'une clé privée. Puis, un suffixe \texttt{0x01} est ajouté (ou non) pour indiquer si l'on souhaite en dériver une clé publique compressée (ou non compressée). Dans le cas de notre clé-exemple, on obtient les octets suivants~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 80 999bb87eea489b2fc6219226e7b95d9083a3b627246ea852e85567ac4d72444f 01
@@ -335,7 +335,7 @@ a18bd7f41b42c7cc6ebfa4de43e6b63248536ebc
 
 On peut dériver trois adresses de type différent de cette empreinte~: une adresse traditionnelle, une adresse SegWit native et une adresse SegWit imbriquée. Dans les 3 cas, le principe est le même, bien que l'usage spécifique de l'empreinte dans le protocole diffère.
 
-L'adresse traditionnelle est obtenue grâce un encodage de l'empreinte en Base58Check avec l'octet de version \verb?0x00?. À cause de cet octet de version, les adresses traditionnelles simples commencent toujours par un 1, qui est purement symbolique car il vaut 0 en base 58. Notre adresse est~:
+L'adresse traditionnelle est obtenue grâce un encodage de l'empreinte en Base58Check avec l'octet de version \texttt{0x00}. À cause de cet octet de version, les adresses traditionnelles simples commencent toujours par un 1, qui est purement symbolique car il vaut 0 en base 58. Notre adresse est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 1FjBKPQ7MTiPSDkJ2ZwPgAXUKQ8yoGbVJX
@@ -343,7 +343,7 @@ L'adresse traditionnelle est obtenue grâce un encodage de l'empreinte en Base58
 
 Ce type d'adresse est appelé P2PKH (\eng{Pay to Public Key Hash}) et a été le premier type d'adresse dans Bitcoin.
 
-L'adresse SegWit native est encodée grâce au format Bech32. Celui-ci inclut un préfixe indiquant le réseau (\verb?bc? pour BTC) et un séparateur (\verb?1?). De manière similaire à l'encodage des adresses traditonnelles, il s'agit de prendre l'information brute, de la préfixer avec l'octet de version (\verb?0x00?), de calculer une somme de contrôle et d'exprimer le tout dans la base appropriée, à savoir la base 32. L'adresse résultante commencera toujours par \verb?bc1q?. Pour notre empreinte de clé publique, on obtient~: 
+L'adresse SegWit native est encodée grâce au format Bech32. Celui-ci inclut un préfixe indiquant le réseau (\texttt{bc} pour BTC) et un séparateur (\texttt{1}). De manière similaire à l'encodage des adresses traditonnelles, il s'agit de prendre l'information brute, de la préfixer avec l'octet de version (\texttt{0x00}), de calculer une somme de contrôle et d'exprimer le tout dans la base appropriée, à savoir la base 32. L'adresse résultante commencera toujours par \texttt{bc1q}. Pour notre empreinte de clé publique, on obtient~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 bc1q5x9a0aqmgtrucm4l5n0y8e4kxfy9xm4udhygr2
@@ -351,7 +351,7 @@ bc1q5x9a0aqmgtrucm4l5n0y8e4kxfy9xm4udhygr2
 
 Ce type d'adresse est appelé P2WPKH (\eng{Pay to Witness Public Key Hash}).
 
-Enfin, on peut également inclure cette donnée sous la forme d'un script dans une adresse P2SH, créant une adresse SegWit dite «~imbriquée~». Le script, composé de l'octet de version de SegWit (\verb?0x00?) et de l'empreinte, est haché pour constituer la nouvelle adresse. Comme dans le cas de toutes les adresses P2SH, l'empreinte résultante est encodée en Base58Check avec l'octet de version \verb?0x05?. Cet octet de version a pour conséquence de faire commencer l'adresse par un 3. Notre empreinte devient ici~:
+Enfin, on peut également inclure cette donnée sous la forme d'un script dans une adresse P2SH, créant une adresse SegWit dite «~imbriquée~». Le script, composé de l'octet de version de SegWit (\texttt{0x00}) et de l'empreinte, est haché pour constituer la nouvelle adresse. Comme dans le cas de toutes les adresses P2SH, l'empreinte résultante est encodée en Base58Check avec l'octet de version \texttt{0x05}. Cet octet de version a pour conséquence de faire commencer l'adresse par un 3. Notre empreinte devient ici~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 3JqPHkGuvW7nsUJDgm5CPSNUb47WczCC5e
@@ -421,7 +421,7 @@ De manière générale, chaque type de portefeuille possède une utilité~: c'es
 
 % --- Phrase de récupération ---
 
-Initialement, les clés privées étaient générées aléatoirement par le logiciel à chaque utilisation. Il s'ensuivait que les clés étaient conservées dans un fichier, appelé \verb?wallet.dat?, stocké sur le disque dur de l'ordinateur. Cela rendait la perte des clés plus probable.
+Initialement, les clés privées étaient générées aléatoirement par le logiciel à chaque utilisation. Il s'ensuivait que les clés étaient conservées dans un fichier, appelé \texttt{wallet.dat}, stocké sur le disque dur de l'ordinateur. Cela rendait la perte des clés plus probable.
 
 Néanmoins, les portefeuilles modernes ne fonctionnent plus comme cela. Les clés et les adresses sont dérivées de manière déterministe d'une seule information générée aléatoirement, qui se présente sous la forme d'une phrase mnémotechnique allant de 12 à 24 mots. Ces mots peuvent être des mots anglais, des mots français ou dans une autre langue.
 
@@ -450,7 +450,7 @@ Divers procédés cryptographiques sont ensuite utilisés pour dériver les clé
 
 Le premier est le code d'authentification de message HMAC-SHA512 (HMAC pour \eng{Hash-Based Message Authentication Code}) qui calcule une empreinte en utilisant la fonction de hachage SHA-512 en combinaison avec une clé secrète. Le second est la fonction de dérivation de clé PBKDF2 (\eng{Password-Based Key Derivation Function 2}) qui applique de manière répétée une fonction choisie par l'utilisateur à un message de taille arbitraire avec un sel cryptographique. 
 
-Dans Bitcoin, PBKDF2 est utilisée pour dériver une graine à partir de la phrase mnénmotechnique, en appliquant la fonction HMAC-SHA512 à 2048 reprises. L'intérêt est de nécessiter une quantité de calcul importante pour éviter un cassage par force brute de la graine. Le sel cryptographique est le terme \verb?mnemonic? auquel on peut ajouter une phrase de passe (\eng{passphrase}) pour renforcer la sécurité du procédé.
+Dans Bitcoin, PBKDF2 est utilisée pour dériver une graine à partir de la phrase mnénmotechnique, en appliquant la fonction HMAC-SHA512 à 2048 reprises. L'intérêt est de nécessiter une quantité de calcul importante pour éviter un cassage par force brute de la graine. Le sel cryptographique est le terme \texttt{mnemonic} auquel on peut ajouter une phrase de passe (\eng{passphrase}) pour renforcer la sécurité du procédé.
 
 % seed 219e07742e36087ff031070a3d843c9babb559bdbdbd55f6311ccec3c200ffce6e277eb858b656636b4e809c23f524fd4a21944d6841ee202caad8fda48508cb
 \textcolor{brown}{Schéma : de la phrase à la graine}
@@ -459,7 +459,7 @@ La graine résultante est une information de 512 bits (64 octets), à partir de 
 
 % --- Dérivation des clés maîtresses ---
 
-La dérivation des clés se fait grâce à la fonction HMAC-SHA512. Tout d'abord, on procède à une première dérivation à partir de la graîne. On applique le HMAC à la graine et au sel cryptographique \verb?Bitcoin seed?, ce qui nous donne une clé maîtresse (premiers 256 bits du résultat) et un code de chaîne maître (derniers 256 bits du résultat). 
+La dérivation des clés se fait grâce à la fonction HMAC-SHA512. Tout d'abord, on procède à une première dérivation à partir de la graîne. On applique le HMAC à la graine et au sel cryptographique \texttt{Bitcoin seed}, ce qui nous donne une clé maîtresse (premiers 256 bits du résultat) et un code de chaîne maître (derniers 256 bits du résultat).
 
 \textcolor{brown}{Schéma : de la graine à la clé maîtresse}
 
@@ -467,14 +467,14 @@ La dérivation des clés se fait grâce à la fonction HMAC-SHA512. Tout d'abord
 
 Ces deux informations permettent de réaliser toutes les dérivation suivantes. Le code de chaîne intervient dans la chaîne de dérivation des clés, de sorte qu'il soit impossible de procéder à la dérivation sans lui.
 
-Plutôt que de gérer ces deux informations indépendemment, on préfère faire appel aux clés privées étendues (\eng{extended private keys}), qui incluent la clé privée et le code de chaîne, ainsi que d'autres informations comme la profondeur et l'indice de la clé enfant. La clé privée étendue est encodée en Base58Check avec un préfixe spécial qui dépend du type d'adresse dérivé, faisant que le résultat commence par \verb?xprv? (adresses traditionnelles), par \verb?yprv? (adresses SegWit imbriquées) ou par \verb?zprv? (adresses SegWit natives). Dans notre cas, clé privée étendue issue de la clé privée maîtresse et du code de chaîne maître est~:
+Plutôt que de gérer ces deux informations indépendemment, on préfère faire appel aux clés privées étendues (\eng{extended private keys}), qui incluent la clé privée et le code de chaîne, ainsi que d'autres informations comme la profondeur et l'indice de la clé enfant. La clé privée étendue est encodée en Base58Check avec un préfixe spécial qui dépend du type d'adresse dérivé, faisant que le résultat commence par \texttt{xprv} (adresses traditionnelles), par \texttt{yprv} (adresses SegWit imbriquées) ou par \texttt{zprv} (adresses SegWit natives). Dans notre cas, clé privée étendue issue de la clé privée maîtresse et du code de chaîne maître est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 xprv9s21ZrQH143K3KSN1mSK8myNuDcXNvNoCDcU4KBxMTuj1Wo83zNnjaj8dKFT81GttcgP
 ftdB4XhAzzQLXJEGDtFp35yssYnxDV3yVDEqv1b
 \end{Verbatim}
 
-De même, la clé publique étendue (\eng{extended private key}) regroupe la clé publique et le code de chaîne correspondant à la clé privée dont elle dérive. En Base58Check, cette clé commence toujours par \verb?xpub?, \verb?ypub? ou \verb?zpub?. La clé publique étendue correspondant à la clé privée maîtresse est~:  
+De même, la clé publique étendue (\eng{extended private key}) regroupe la clé publique et le code de chaîne correspondant à la clé privée dont elle dérive. En Base58Check, cette clé commence toujours par \texttt{xpub}, \texttt{ypub} ou \texttt{zpub}. La clé publique étendue correspondant à la clé privée maîtresse est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 xpub661MyMwAqRbcFoWq7nyKVuv7TFT1nP6eZSY4rhbZuoShtK8GbXh3HP3cUapsPsqEd52T
@@ -501,13 +501,13 @@ C'est pour cela qu'il existe un deuxième type de dérivation, la dérivation en
 
 Chaque dérivation fait intervenir un indice, encodé sur 32 bits comme un entier signé, dont le bit de signe indique si elle doit être endurcie ou non et dont la valeur indique le numéro de la clé enfant. Ainsi, on peut produire 2~147~483~648 (de $0$ à $2^{31} - 1$) clés enfants normales et 2~147~483~648 clés enfants endurcies (de $-0$ à $- 2^{31} + 1$) à partir d'une même clé parent.
 
-L'usage veut qu'on utilise une apostrophe pour désigner ce signe. L'indice \verb?2? indique qu'il s'agit de la troisième clé enfant normale. L'indice \verb?44'? indique qu'il s'agit de la 45\ieme{} clé enfant endurcie.
+L'usage veut qu'on utilise une apostrophe pour désigner ce signe. L'indice \texttt{2} indique qu'il s'agit de la troisième clé enfant normale. L'indice \texttt{44'} indique qu'il s'agit de la 45\ieme{} clé enfant endurcie.
 
 % --- Chemins de dérivation ---
 
-Les dérivations successives permettent de créer des arbres de dérivation, dont la position de chaque clé peut être retrouvée grâce à une chemin, le chemin de dérivation. Ce chemin est composé des indices successifs des clés, qui sont séparés par des barres obliques (\verb?/?). On le fait généralement commencer par la lettre \verb?m? pour indiquer qu'on part de la clé privée maîtresse. Un exemple de chemin de dérivation est \verb?m/84'/0'/0'/1/17?.
+Les dérivations successives permettent de créer des arbres de dérivation, dont la position de chaque clé peut être retrouvée grâce à une chemin, le chemin de dérivation. Ce chemin est composé des indices successifs des clés, qui sont séparés par des barres obliques (\texttt{/}). On le fait généralement commencer par la lettre \texttt{m} pour indiquer qu'on part de la clé privée maîtresse. Un exemple de chemin de dérivation est \texttt{m/84'/0'/0'/1/17}.
 
-Chaque portefeuille peut utiliser son propre chemin de dérivation. Néanmoins, un standard a émergé, le BIP-44. Celui-ci simplifie la construcion de portefeuilles à usages multiples, supportant plusieurs cryptomonnaies et donnant la possibilité de créer plusieurs comptes pour chacune d'entre elles.\sendnote{Tous les portefeuilles ne respectent néanmoins pas ce standard. Le BRD wallet (ex Bread Wallet) utilise ainsi le chemin \verb?m/0'? pour dériver le compte principal, conformément aux recommandations initiales du BIP-32.}
+Chaque portefeuille peut utiliser son propre chemin de dérivation. Néanmoins, un standard a émergé, le BIP-44. Celui-ci simplifie la construcion de portefeuilles à usages multiples, supportant plusieurs cryptomonnaies et donnant la possibilité de créer plusieurs comptes pour chacune d'entre elles.\sendnote{Tous les portefeuilles ne respectent néanmoins pas ce standard. Le BRD wallet (ex Bread Wallet) utilise ainsi le chemin \texttt{m/0'} pour dériver le compte principal, conformément aux recommandations initiales du BIP-32.}
 
 Dans ce standard, on procède à trois dérivations endurcies puis à deux dérivation normales pour arriver à une clé privée et à l'adresse correspondante. Chaque dérivation apporte une information~:
 
@@ -525,7 +525,7 @@ De ce fait, le chemin de dérivation ressemble à cela~:
 m / but' / protocole' / compte' / rôle_adresse / indice_adresse
 \end{Verbatim}
 
-De cette manière, la clé \verb?m/44'/0'/0'/0/0? correspond à la première adresse de réception d'un compte Bitcoin utilisant les adresses traditionnelles. De même, la clé \verb?m/84'/0'/0'/1/17? correspond à la 18\ieme{} adresse de reste du premier compte Bitcoin utilisant les adresses SegWit natives.
+De cette manière, la clé \texttt{m/44'/0'/0'/0/0} correspond à la première adresse de réception d'un compte Bitcoin utilisant les adresses traditionnelles. De même, la clé \texttt{m/84'/0'/0'/1/17} correspond à la 18\ieme{} adresse de reste du premier compte Bitcoin utilisant les adresses SegWit natives.
 
 Toutes les adresses d'un portefeuille restent valides même si elles ont été utilisées. Même si l'on peut générer des adresses à l'infini, le portefeuille balaie usuellement 20 adresses à partir de la dernière adresse active.
 

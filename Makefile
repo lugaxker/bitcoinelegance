@@ -46,10 +46,10 @@ bech09.pdf: bech09.tex chapters/ch09-determination.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech10.pdf: bech10.tex chapters/ch10-rouages.tex
-# 	pdflatex $(MODE) $<
-# 	pdflatex $(MODE) $<
-#
+bech10.pdf: bech10.tex chapters/ch10-rouages.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
+
 # bech11.pdf: bech11.tex chapters/ch11-avenir.tex
 # 	pdflatex $(MODE) $<
 # 	pdflatex $(MODE) $<

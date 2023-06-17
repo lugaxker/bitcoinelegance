@@ -10,7 +10,8 @@ De par sa nature ouverte et libre, le code informatique de Bitcoin peut être co
 
 Cette évolution est un mécanisme économique, conformément à la nature essentiellement monétaire de Bitcoin. Les règles qui garantissent le bon fonctionnement du système résultent donc du choix réalisé par les agents économiques. En particulier, la résistance à l'inflation, ou la difficulté à créer plus de bitcoins, n'émerge pas de l'établissement de la politique monétaire arbitraire par Satoshi Nakamoto, mais de la dynamique économique opposée à l'altération de cette politique monétaire.
 
-\section{La résistance à l'inflation}
+\section*{La résistance à l'inflation}
+\addcontentsline{toc}{section}{La résistance à l'inflation}
 
 % Propriété de résistance à l'inflation
 L'une des deux grandes promesses de Bitcoin est de résister à l'inflation monétaire, c'est-à-dire de rendre difficile la création supplémentaire d'unités par rapport à ce qui est accepté par le marché. Cette promesse est énorme~: comme on l'a vu dans le chapitre~\ref{ch:adversaire}, l'État fait tout ce qu'il peut pour profiter de la création monétaire, phénomène qu'on appelle le seigneuriage. De prime abord, il paraît ainsi étonnant qu'un objet numérique puisse posséder une telle propriété.
@@ -30,7 +31,8 @@ Toutefois, cette conception est au mieux une approximation maladroite. Il ne suf
 % Question de la gouvernance
 Il existe au sujet de la politique monétaire fixe du bitcoin une certaine confusion. Il faut dire que Satoshi Nakamoto n'a jamais explicité comment elle pouvait être protégée. Plusieurs théories ont été proposées, allant de l'intervention des mineurs à l'exigence d'unanimité communautaire\sendnote{River Financial, \eng{Can Bitcoin's Hard Cap of 21 Million Be Changed?}~: \url{https://river.com/learn/can-bitcoins-hard-cap-of-21-million-be-changed}.}, en passant par le caractère juridique du décret\sendnote{\url{https://craigwright.net/blog/law-regulation/forking-and-passing-off/}}. Dans tous les cas, il s'agissait de traiter la question de la gouvernance\sendnote{Pierre Rochard, \eng{Bitcoin Governance}, 9 juillet 2018~: \url{https://pierre-rochard.medium.com/bitcoin-governance-37e86299470f}.} ou du consensus social\sendnote{Arthur Breitman parlait de \eng{social consensus} dès août 2014 dans la première description formelle de Tezos. -- Arthur Breitman, \eng{Tezos: A Self-Amending Crypto-Ledger}, 3 août 2014~: \url{https://tezos.com/position-paper.pdf}.}, c'est-à-dire de la façon dont les règles sont décidées dans Bitcoin. Cette problématique, nous l'appelons ici la détermination du protocole.
 
-\section{Le protocole}
+\section*{Le protocole}
+\addcontentsline{toc}{section}{Le protocole}
 
 % Nature protocolaire de Bitcoin
 Bitcoin est par essence un protocole de communication informatique, c'est-à-dire un ensemble de règles permettant à différentes parties d'un réseau d'échanger des informations. Ce protocole permet aux nœuds du réseau pair-à-pair de s'échanger des transactions et des blocs et de se mettre d'accord sur le registre de propriété à considérer comme correct. Il crée par conséquent un système monétaire.
@@ -68,7 +70,8 @@ Les règles de consensus sont nombreuses. Certaines d'entre elles sont largement
 
 Les règles de consensus sont trop nombreuses pour être toutes explicitées. Quand elles ne le sont pas, ces règles sont implicitement définies dans l'implémentation logicielle de référence, qui est Bitcoin Core dans le cas de BTC.
 
-\section{Les implémentations logicielles}
+\section*{Les implémentations logicielles}
+\addcontentsline{toc}{section}{Les implémentations logicielles}
 
 % --- Les implémentations logicielles ---
 
@@ -107,7 +110,8 @@ Les mainteneurs sont nommés par le mainteneur principal qui est la personne en 
 
 Pour faciliter le développement, les contributeurs communiquent par différents moyens, mais les deux principaux sont le canal IRC bitcoin-core-dev où ont lieu la plupart des discussions et la liste de diffusion bitcoin-dev\sendnote{The bitcoin-dev Archives~: \url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/}}. Les empreintes PGP des mainteneurs sont disponibles publiquement sur le dépôt.
 
-\section{Les propositions d'amélioration de Bitcoin}
+\section*{Les propositions d'amélioration de Bitcoin}
+\addcontentsline{toc}{section}{Les propositions d'amélioration de Bitcoin}
 
 % Modification des logiciels
 Les implémentations peuvent être mises à jour par leurs développeurs, auquel cas elles ont chacune leur modèle de décision. Dans Bitcoin Core, comme on l'a dit, tout le monde peut proposer une modification du code mais le dernier mot est laissé aux développeurs. De même, les changements internes liés aux portefeuilles sont gérés par leurs développeurs.
@@ -133,7 +137,8 @@ Notez que ces documents sont utilisés pour BTC mais également pour d'autres pr
 % Autres systèmes de propositions
 Les autres protocole cryptoéconomiques disposent même parfois de leurs propres systèmes de proposition. Ethereum utilise les EIP (\eng{Ethereum Improvement Proposals}), Bitcoin Cash les CHIP\sendnote{\url{https://bch.info/en/chips}} (\eng{Cash Improvement Proposals}), Litecoin les LIP\sendnote{\url{https://github.com/litecoin-project/lips}}, etc.
 
-\section{La vérification des règles de consensus}
+\section*{La vérification des règles de consensus}
+\addcontentsline{toc}{section}{La vérification des règles de consensus}
 
 Bitcoin se base sur un réseau public d'ordinateurs accessible librement sur Internet. Ce réseau suit un modèle pair-à-pair, c'est-à-dire un modèle dans lequel tous les membres du réseau, appelés des nœuds, possèdent les mêmes privilèges. Ce sont ces nœuds qui s'assurent que les règles de consensus sont respectées. Si un bloc est invalide (en contenant une transaction invalide par exemple), alors il est rejeté par les nœuds appliquant les règles.
 
@@ -194,7 +199,8 @@ En cela, il se trompait. La vérification des règles de consensus a besoin d'ê
 % Utilité systémique de cette vérification
 C'est donc au niveau du nœud complet que se joue cette vérification, Cette réalité est parfois retranscrite par l'adage «~pas ton nœud, pas tes règles\sendnote{L'adage «~\eng{not your node, not your rules}~» a été naturellement calqué sur l'adage «~\eng{not your keys, not your coins}~» (voir par exemple ce tweet de Udi Wertheimer~: \url{https://twitter.com/udiWertheimer/status/936215582487261184}). Il a été popularisé par le panel du même nom lors de la conférence Understanding Bitcoin, le 5 avril 2019~: \url{https://www.youtube.com/watch?v=jwaKVIEm-rI}. Le projet RaspiBlitz en a fait son slogan en 2020~: \url{https://github.com/rootzoll/raspiblitz/blob/bbeb5b21a982eeeb93306537e0aca2474bd23e03/README.md}.}~». Ne faites pas confiance, vérifiez~! Tout comme une langue résulte des choix que font ses locuteurs (n'en déplaise à l'Académie Française), un protocole informatique résulte des règles appliquées par les nœuds complets. Cette vérification joue donc un rôle crucial dans la détermination du protocole.
 
-\section{Les hard forks}
+\section*{Les hard forks}
+\addcontentsline{toc}{section}{Les hard forks}
 
 Avant de voir comment est spécifiquement déterminé le protocole, intéressons-nous aux modifications des règles de consensus et comment elles se manifestent. Les modifications des règles de consensus peuvent être rangées dans deux catégories~: les \eng{hard forks}, mises à niveau brutes et incompatibles, et les soft forks, qui présentent une certaine rétrocompatibilité.
 
@@ -265,7 +271,8 @@ Le second exemple de hard fork contentieux est celui qui a mené à la création
 % Ajustement de la difficulté
 Notez qu'un tel hard fork peut devoir avoir à modifier l'algorithme d'ajustement de difficulté. En effet, si la puissance de calcul est trop faible pour le soutenir, il est possible que l'ajustement n'arrive pas à terme. C'est pour cette raison que Bitcoin Cash a dû implémenter un \eng{Emergency Difficulty Adjustment} (EDA) qui a permis de procéder à l'adaptation sur une période plus courte. Ethereum Classic n'a cependant pas dû le faire, car l'ajustement sur Ethereum avait déjà lieu à tous les blocs.
 
-\section{Les soft forks}
+\section*{Les soft forks}
+\addcontentsline{toc}{section}{Les soft forks}
 
 % Définition
 Le soft fork est une restriction des règles de consensus. Il consiste par essence à rendre l'ensemble des blocs et des transactions valides plus petit, en ajoutant une règle ou en modifiant une règle existante de façon plus restrictive. L'exemple typique de ce genre de fork est la diminution de la taille limite des blocs. L'ajout de la limite explicite des 1~Mo en octobre 2010 était ainsi un soft fork.
@@ -357,8 +364,8 @@ Mais cet avantage majeur se fait au prix d'un sacrifice~: celui de la clarté du
 
 Ainsi, même s'ils sont supérieurs dans la plupart des cas, les soft forks ne doivent pas nécessairement être privilégiés dans toutes les situations.
 
-\section{Le pouvoir sur le protocole}
-% Le rôle central des commerçants
+\section*{Le pouvoir sur le protocole} % Le rôle central des commerçants
+\addcontentsline{toc}{section}{Le pouvoir sur le protocole}
 
 La détermination du protocole est un aspect majeur de Bitcoin. En effet, l'absence d'autorité centrale pose la question de la prise de décision~: puisqu'il n'y a personne pour ordonner quoi que ce soit, comment le protocole peut-il être choisi et modifié~? Il est donc nécessaire de repenser notre conception de la chose pour pouvoir la comprendre.
 
@@ -418,7 +425,8 @@ Ainsi, ce sont les commerçants qui déterminent le protocole en choisissant les
 
 % Un nœud qui vérifie l'ensemble des règles sans héberger d'activité économique n'a aucun impact sur la sécurité commerciale de la chaîne ; et un commerçant ne faisant pas fonctionner un nœud délègue son pouvoir à l'intermédiaire auquel il se fie.
 
-\section{L'effet de réseau et l'effet de substitution}
+\section*{L'effet de réseau et l'effet de substitution}
+\addcontentsline{toc}{section}{L'effet de réseau et l'effet de substitution}
 
 Le pouvoir direct d'un commerçant n'est pas purement individuel. En effet, Bitcoin étant une monnaie il est soumis à des effets économiques, dont les deux principaux sont l'effet de réseau et l'effet de substitution, qui sont radicalement opposés.
 
@@ -469,7 +477,8 @@ Ainsi, l'effet de substitution joue un rôle important dans Bitcoin et dans les 
 % Pluralisme cryptomonétaire
 La présence de l'effet de substitution explique la tendance vers un pluralisme cryptomonétaire poussé à l'extrême, dont les partisans prétendent que n'importe quelle technologie légèrement supérieure pourrait détrôner le premier protocole du marché. Mais en cela, ils négligent lourdement l'effet de réseau et commettent ainsi l'erreur opposée à celle des maximalistes.
 
-\section{Les influences intérieures}
+\section*{Les influences intérieures}
+\addcontentsline{toc}{section}{Les influences intérieures}
 
 % Pouvoir et influence
 Pour comprendre plus finement comment le protocole en arrive à être ce qu'il est, il faut différencier le pouvoir de l'influence. Dans le monde réel, le pouvoir est la capacité de faire quelque chose sans un consentement tiers, ce qui se traduit en dernier lieu par l'intervention de la force physique. L'influence est quant à elle la capacité à influer sur le choix de ceux qui détiennent le pouvoir, typiquement les forces religieuses.
@@ -570,7 +579,8 @@ Toutefois, cette conception ne tient que dans la phase précoce de Bitcoin, où 
 
 Ainsi, l'influence générale des acteurs internes sur les commerçants est non négligeable et joue un rôle dans la détermination du protocole.
 
-\section{Les influences extérieures}
+\section*{Les influences extérieures}
+\addcontentsline{toc}{section}{Les influences extérieures}
 
 L'influence sur le protocole ne provient pas que des acteurs qui participent à Bitcoin, mais également des entités extérieures qui interviennent de manière diffuse sur l'ensemble du système. Il est impossible d'établir une liste exhaustive de ces influences extérieures, mais on peut en esquisser les rouages généraux. En particulier, ces influences s'exercent de trois manières -- par le discours, par l'argent et par la force -- qui se rapportent à trois catégories d'acteurs~: les relais idéologiques, les puissances financières et les forces étatiques.
 
@@ -621,7 +631,8 @@ Enfin la dernière méthode d'influencer les commerçants et donc le protocole, 
 
 \textcolor{brown}{schéma d'un modèle de gouvernance de Bitcoin~: développeurs, mineurs, clients / détenteurs, idéologues, finance, État}
 
-\section{L'attaque de l'État contre le protocole} % influence étatique
+\section*{L'attaque de l'État contre le protocole} % influence étatique
+\addcontentsline{toc}{section}{L'attaque de l'État contre le protocole}
 
 % Adversaire
 Comme nous l'avons vu dans le chapitre~\ref{ch:adversaire}, l'État est l'entité à laquelle Bitcoin s'oppose. Il est l'incarnation de la violence et en particulier du transfert de richesse non consenti, qui est facilité par le contrôle sur la monnaie. En particulier, c'est par la maîtrise de la détermination du support monétaire que l'État a pu prélever un seigneuriage au cours de l'histoire.
@@ -666,7 +677,8 @@ Ce scénario, bien qu'hypothétique, est la conséquence logique de l'influence 
 
 À un certain moment, une scission aurait lieu~: soit que la version étatique serait minoritaire (scénario optimiste), soit que la version clandestine soit contrainte de procéder à un hard fork pour se séparer du marché blanc (scénario pessimiste). La reconstruction de Bitcoin se produirait alors à partir de la chaîne libre, au sujet de laquelle il n'y aurait aucune ambiguïté au niveau du protocole. Cette chaîne pourrait cependant être attaquée du point de vue minier.
 
-\section{Deux niveaux de sécurité}
+\section*{Deux niveaux de sécurité}
+\addcontentsline{toc}{section}{Deux niveaux de sécurité}
 
 Bitcoin est un concept de monnaie numérique résistante à la censure et résistante à l'inflation. Ces deux propriétés fondamentales sont complémentaires, mais elles nécessitent des sécurités différentes. La résistance à la censure repose sur la sécurité minière~; la résistance à l'inflation sur la sécurité commerciale.
 

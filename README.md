@@ -64,7 +64,7 @@ Progression
 |        7 | Le consensus par le minage         | Première ébauche &#x2705;             |
 |        8 | La résistance à la censure         | Première ébauche &#x2705;             |
 |        9 | La détermination du protocole      | Première ébauche &#x2705;             |
-|       10 | Les rouages de la machine          | En cours d'écriture &#x270D;&#x1F3FB; |
+|       10 | Les rouages de la machine          | Première ébauche &#x2705;             |
 |       11 | L'avenir de Bitcoin (conclusion)   | Planifié &#x1F6A7;                    |
 
 Plan initial (mars 2022)

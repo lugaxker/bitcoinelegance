@@ -29,28 +29,32 @@ bech04.pdf: bech04.tex chapters/ch04-adversaire.tex
 # bech05.pdf: bech05.tex chapters/ch05-cypherpunks.tex
 # 	pdflatex $(MODE) $<
 # 	pdflatex $(MODE) $<
+#
+# bech06.pdf: bech06.tex chapters/ch06-cybermonnaie.tex
+# 	pdflatex $(MODE) $<
+# 	pdflatex $(MODE) $<
 
-bech06.pdf: bech06.tex chapters/ch06-propriete.tex
-	pdflatex $(MODE) $<
-	pdflatex $(MODE) $<
-
-bech07.pdf: bech07.tex chapters/ch07-confirmation.tex
-	pdflatex $(MODE) $<
-	pdflatex $(MODE) $<
-
-bech08.pdf: bech08.tex chapters/ch08-censure.tex
+bech07.pdf: bech07.tex chapters/ch07-propriete.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-bech09.pdf: bech09.tex chapters/ch09-determination.tex
+bech08.pdf: bech08.tex chapters/ch08-confirmation.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-bech10.pdf: bech10.tex chapters/ch10-rouages.tex
+bech09.pdf: bech09.tex chapters/ch09-censure.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech11.pdf: bech11.tex chapters/ch11-avenir.tex
+bech10.pdf: bech10.tex chapters/ch10-determination.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
+
+bech11.pdf: bech11.tex chapters/ch11-rouages.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
+
+# bech12.pdf: bech12.tex chapters/ch12-avenir.tex
 # 	pdflatex $(MODE) $<
 # 	pdflatex $(MODE) $<
 #

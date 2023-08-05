@@ -24,7 +24,7 @@ Plan actualisé (juillet 2023)
 
 #### 5 - Une guerre technologique
 
-*Présentation de l'évolution technique qui a mené à Bitcoin : cryptographie, ordinateur, Internet, cypherpunks, extropiens.*
+*Présentation de l'évolution technique qui a mené à Bitcoin : cryptographie, ordinateur, Internet, libristes, extropiens, cypherpunks.*
 
 #### 6 - La cybermonnaie
 
@@ -63,7 +63,7 @@ Progression
 |        2 | Une croissance conflictuelle       | Première relecture &#x2705; &#x2705;  |
 |        3 | Les racines économiques de Bitcoin | Première ébauche &#x2705;             |
 |        4 | La nécessité de décentralisation   | Première ébauche &#x2705;             |
-|        5 | Une guerre technologique           | En cours d'écriture &#x270D;&#x1F3FB; |
+|        5 | Une guerre technologique           | Première ébauche &#x2705;             |
 |        6 | La cybermonnaie                    | En cours d'écriture &#x270D;&#x1F3FB; |
 |        7 | La valeur de l'information         | Première ébauche &#x2705;             |
 |        8 | Le consensus par le minage         | Première ébauche &#x2705;             |

@@ -26,10 +26,10 @@ bech04.pdf: bech04.tex chapters/ch04-adversaire.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech05.pdf: bech05.tex chapters/ch05-cypherpunks.tex
-# 	pdflatex $(MODE) $<
-# 	pdflatex $(MODE) $<
-#
+bech05.pdf: bech05.tex chapters/ch05-cypherpunks.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
+
 # bech06.pdf: bech06.tex chapters/ch06-cybermonnaie.tex
 # 	pdflatex $(MODE) $<
 # 	pdflatex $(MODE) $<

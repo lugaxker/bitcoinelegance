@@ -30,9 +30,9 @@ bech05.pdf: bech05.tex chapters/ch05-cypherpunks.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech06.pdf: bech06.tex chapters/ch06-cybermonnaie.tex
-# 	pdflatex $(MODE) $<
-# 	pdflatex $(MODE) $<
+bech06.pdf: bech06.tex chapters/ch06-cybermonnaie.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
 
 bech07.pdf: bech07.tex chapters/ch07-propriete.tex
 	pdflatex $(MODE) $<

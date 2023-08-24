@@ -64,7 +64,7 @@ Progression
 |        3 | Les racines économiques de Bitcoin | Première ébauche &#x2705;             |
 |        4 | La nécessité de décentralisation   | Première ébauche &#x2705;             |
 |        5 | Une guerre technologique           | Première ébauche &#x2705;             |
-|        6 | La cybermonnaie                    | En cours d'écriture &#x270D;&#x1F3FB; |
+|        6 | La cybermonnaie                    | Première ébauche &#x2705;             |
 |        7 | La valeur de l'information         | Première ébauche &#x2705;             |
 |        8 | Le consensus par le minage         | Première ébauche &#x2705;             |
 |        9 | La résistance à la censure         | Première ébauche &#x2705;             |

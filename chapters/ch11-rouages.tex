@@ -647,19 +647,8 @@ La révélation de la clé de révocation à chaque étape de mise à jour rend 
 
 \textcolor{brown}{(?) schéma des transactions d'ouverture, d'engagement et de fermeture (coopérative et non coopérative)}
 
-% Fonctionnement de Lightning
-Le fonctionnement du réseau Lightning consiste à router les paiements au travers de ces canaux par l'intermédiaire de HTLC, qui sont des contrats d'engagement plus complexes permettant de mettre à jour les canaux concernés\sendnote{En pratique, ces HTLC sont souvent aussi utilisés pour mettre à jour les canaux directement, afin de simplifier la mise en œuvre et d'améliorer la confidentialité. -- Voir Andreas Antonopoulos, \eng{Mastering the Lightning Network}, chapitre 8, décembre 2021~: \url{https://github.com/lnbook/lnbook/blob/develop/08_routing_htlcs.asciidoc}.}. Un paiement transite sur ce réseau moyennant des frais minimes qui vont aux nœuds qui le relayant. Lightning est donc semblable à un boulier, dont les tiges sont des canaux et dont les boules sont les satoshis qui transitent d'un côté ou de l'autre des canaux.
-
-\textcolor{brown}{schéma Lightning boulier}
-
-% Avantages de Lightning
-Ce fonctionnement permet de réaliser des paiement quasi instantanés et peu chers. Il permet de faire plus de transferts en bitcoins sans réaliser davantage de transactions sur la chaîne et sans déléguer la gestion des fonds à un tiers, et constitue en cela une amélioration de la scalabilité du système. De plus, il conserve toute la programmabilité de Bitcoin et ouvre le champ des possibles quant à l'utilisation monétaire sur Internet.
-
-% Inconvénients de Lightning
-Toutefois, son apport est à nuancer car il n'est pas exempt de défauts. D'abord, les contraintes liées à la capacité et au routage créent nécessairement une tendance à la centralisation, notamment par l'émergence de ce qu'on appelle les \eng{Lightning Service Providers}, ce qui pourrait mener à l'installation d'une certaine censure. Ensuite, contrairement aux idées reçues, la confidentialité sur Lightning est faible, les paiements se faisant entre des clés publiques identifiées et transitant par des intermédiaires. Enfin, le réseau est soumis au niveau des frais sur la chaîne principale, ces derniers étant nécessaires au règlement des contrats, de sorte que la scalabilité supplémentaire apportée par Lightning est limitée.
-
 % Défauts dûs au mécanisme de punition
-Certains de ces défauts sont également dûs au type de canal utilisé. En effet, le mécanisme de sécurité des canaux de Poon-Dryja est très punitif~: la diffusion accidentelle d'une transaction d'engagement antérieure mène à la récupération des fonds par l'autre partie. Il impose donc de conserver l'ensemble des états du canal et de surveiller le réseau en conséquence, il oblige les participants à choisir les frais des transactions à l'avance et il allourdit considérablement toute innovation.
+Toutefois, le mécanisme de sécurité des canaux de Poon-Dryja est très punitif~: la diffusion accidentelle d'une transaction d'engagement antérieure mène à la récupération des fonds par l'autre partie. Il impose donc de conserver l'ensemble des états du canal et de surveiller le réseau en conséquence. De plus, il oblige les participants à choisir les frais des transactions à l'avance et il allourdit considérablement toute innovation au sein du réseau Lightning.
 
 % --- Canaux de paiement de Decker-Russell-Osuntokun ---
 

@@ -76,35 +76,17 @@ Les deux autres ont vu le jour en 2017 et en 2021 (respectivement). Ils font int
 \section*{La cryptographie et Bitcoin}
 \addcontentsline{toc}{section}{La cryptographie et Bitcoin}
 
-La mot cryptographie vient du grec ancien \foreignlanguage{greek}{kruptós}, kruptós («~caché~») et \foreignlanguage{greek}{gráfw}, gráphô («~écrire~»). La cryptographie est une discipline ayant pour but la sécurisation de la communication en présence de tiers malveillants. Elle peut assurer la confidentialité (chiffrement), l'authenticité (signature) et l'intégrité (hachage) de l'information transmise.
+% Définition cryptographie
+La cryptographie est la discipline mathématique qui a pour but la sécurisation de la communication en présence de tiers malveillants. Comme indiqué dans le chapitre~\ref{ch:cypherpunks}, elle avait pour rôle initial de dissimuler de l'information grâce au chiffrement, mais s'est par la suite étendue à l'authentification de l'auteur d'un message (grâce à la cryptographie asymétrique) et à la vérification de données (grâce aux fonctions à sens unique). Aujourd'hui, la cryptographie permet donc d'assurer la confidentialité (chiffrement), l'authenticité (signature) et l'intégrité (hachage) de l'information transmise.
 
-% --- Le chiffrement ---
+% Bitcoin et cryptographie
+Bitcoin est un produit cryptographique. D'un point de vue technique, il repose sur des techniques développées dans les dernières décennies du \textsc{xx}\ieme{}~siècle, comme les arbres de Merkle ou la preuve de travail. D'un point de vue idéologique, il est issu du mouvement cypherpunk, qui préconisait une utilisation proactive de la cryptographie pour sauvegarder la confidentialité et la liberté des individus sur Internet. C'est dans ce double sens qu'on le désigne comme une cryptomonnaie.
 
-La cryptographie c'est tout d'abord le chiffrement. Le chiffrement est un procédé par lequel on rend la compréhension d'un message impossible pour les personnes qui ne disposent pas d'une information spécifique, appelée une clé. Il s'agit de transmettre un message sans qu'un adversaire ne puisse prendre connaissance de son contenu.
+% Chiffrement dans le contexte de Bitcoin
+Dans le contexte de Bitcoin, le chiffrement peut être utile pour protéger les clés privées ou pour envoyer des messages à d'autres utilisateurs. Dans de nombreux portefeuilles, il est courant que les clés privées soient chiffrées à l'aide d'un mot de passe pour éviter qu'une personne malveillante ayant accès à l'appareil puisse dépenser les fonds. Dans Electrum par exemple, les clés privées sont chiffrées à l'aide d'un mot de passe (la clé secrète) par le biais de l'algorithme symétrique AES-256-CBC\sendnote{Electrum Documentation, \eng{Frequently Asked Questions}, 3 octobre 2021~: \url{https://electrum.readthedocs.io/en/latest/faq.html\#how-is-the-wallet-encrypted}.}.
 
-% --- Chiffrement symétrique ---
-
-% Chiffrement à clé secrète
-Le chiffrement peut être symétrique, auquel cas le clé de chiffrement et de déchiffrement sont les mêmes. Le chiffrement symétrique, repose sur la nécessité d'avoir connaissance de la même clé secrète. 
-
-L'exemple typique d'une méthode symétrique est le code de César, ou chiffrement par décalage, qui est l'une des méthodes les plus simples et les plus connues pour chiffrer un texte. Le texte chiffré s'obtient en remplaçant chaque lettre du texte clair original par une lettre à distance fixe, toujours du même côté, dans l'ordre de l'alphabet. La clé est alors le nombre correspondant au décalage. Par exemple, un décalage de 21 lettres transforme le mot «~bitcoin~» en «~wdoxjdi~». Cette méthode tient son nom du fait que Jules César l'utilisait dans ses correspondances secrètes.
-
-Le chiffrement symétrique pose néanmoins un problème logistique. La clé doit en effet être transmise entre les deux parties qui communiquent et peut donc être interceptée. C'est pour cela que le chiffrement asymétrique, apparu plus tard, est privilégié.
-
-% --- Chiffrement asymétrique ---
-
-% Chiffrement à clé publique
-Le chiffrement peut également être asymétrique, auquel cas deux clés différentes interviennent~: une clé privée et une clé publique. La clé de chiffrement est la clé publique, qui peut être connue de tous. La clé de déchiffrement est la clé privée, qui doit rester secrète. Le destinataire génère une paire de clés, garde la clé privée pour lui et partage la clé publique à son interlocuteur pour qu'il lui envoie des messages. La clé privée ne peut pas être retrouvée à partir de la clé publique, ce qui garantit la sécurité du procédé.
-
-La méthode asymétrique la plus connue est le chiffrement RSA, créé en 1977 par Ronald Rivest, Adi Shamir et Leonard Adleman. Celui-ci se base sur des opérations algébriques permettant de chiffrer et déchiffrer un message. Sa sécurité provient de la difficulté à factoriser de très grands nombres en nombres premiers. Cet algorithme est utilisé très largement sur Internet, et en particulier dans le commerce électronique.
-
-À aucun moment, la clé privée n'est révélée ce qui permet de minimiser le risque de fuite par rapport au chiffrement symétrique. Le chiffrement à clé publique constitue la première partie de la cryptographie asymétrique, l'autre partie étant la signature numérique.
-
-% --- Chiffrement et Bitcoin ---
-
-Dans le contexte de Bitcoin, le chiffrement peut être utile pour protéger les clés privées ou pour envoyer des messages à d'autres utilisateurs. Dans de nombreux portefeuilles, il est courant que les clés privées soient chiffrées à l'aide d'un mot de passe pour éviter qu'une personne malveillante ayant accès à l'appareil puisse dépenser les fonds. Dans Electrum par exemple, les clés privées sont chiffrées à l'aide d'un mot de passe (la clé secrète) par le biais de l'algorithme symétrique AES-256-CBC\sendnote{Electrum Documentation, \eng{Frequently Asked Questions}, 3 octobre 2021~: \url{https://electrum.readthedocs.io/en/latest/faq.html#how-is-the-wallet-encrypted}.}.
-
-Néanmoins, contrairement à ce qu'on imagine parfois, aucun chiffrement n'est impliqué directement dans le protocole de Bitcoin~: toutes les données sont publiques en raison du fonctionnement ouvert et sans permission du système. Si le bitcoin est désigné comme une «~cryptomonnaie~», ce n'est parce que les communications sont chiffrées (elles en le sont pas), mais parce qu'il repose sur les deux autres fonctions de la cryptographie~: l'authentification grâce à la signature numérique et la vérification des données avec le hachage. La signature numérique permet d'authentifier la personne à l'origine d'une transaction pour assurer au réseau qu'il s'agit du propriétaire des bitcoins dépensés. Le hachage intervient lui dans la dérivation des clés et des adresses et dans la garantie du bon fonctionnement du minage.
+% Pas de chiffrement dans Bitcoin
+Néanmoins, contrairement à ce qu'on imagine parfois, aucun chiffrement n'est impliqué directement dans le protocole de Bitcoin~: toutes les données sont publiques en raison du fonctionnement ouvert et sans autorisation du système. Bitcoin n'est pas un produit cryptographique parce que les transactions seraient chiffrées (elles en le sont pas), mais parce qu'il repose sur les deux autres fonctions de la cryptographie~: l'authentification grâce à la signature numérique et la vérification des données avec le hachage. La signature numérique permet d'authentifier la personne à l'origine d'une transaction pour assurer au réseau qu'il s'agit du propriétaire des bitcoins dépensés. Le hachage intervient lui dans la dérivation des clés et des adresses, dans la construction des blocs et dans le fonctionnement du minage.
 
 \section*{La signature numérique}
 \addcontentsline{toc}{section}{La signature numérique}

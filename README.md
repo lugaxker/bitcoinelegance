@@ -3,7 +3,7 @@ L'Élégance de Bitcoin
 
 Un livre sur Bitcoin.
 
-Plan actualisé (juillet 2023)
+Plan actualisé (août 2023)
 -----------------------------
 
 #### 1 - Les débuts de Bitcoin (2009 -- 2012)
@@ -48,9 +48,13 @@ Plan actualisé (juillet 2023)
 
 #### 11 - Les rouages de la machine
 
-*Exploration technique du fonctionnement interne de Bitcoin : UTXO, machine virtuelle, programmabilité, confidentialité, scalabilité.*
+*Exploration technique du fonctionnement interne de Bitcoin : UTXO, machine virtuelle, programmabilité, confidentialité.*
 
-#### 12 - Conclusion : l'avenir de Bitcoin [?]
+#### 12 - Le passage à l'échelle
+
+*Présentation des diverses manière de traiter plus de transactions : taille des blocs, optimisation, banques, surcouches, substitution.*
+
+#### 13 - L'avenir de Bitcoin
 
 *Réflexions sur l'avenir technique, économique et culturel de Bitcoin.*
 
@@ -70,7 +74,8 @@ Progression
 |        9 | La résistance à la censure         | Première ébauche &#x2705;             |
 |       10 | La détermination du protocole      | Première ébauche &#x2705;             |
 |       11 | Les rouages de la machine          | Première ébauche &#x2705;             |
-|       12 | L'avenir de Bitcoin (conclusion)   | Planifié &#x1F6A7;                    |
+|       12 | Le passage à l'échelle             | En cours d'écriture &#x270D;&#x1F3FB; |
+|       13 | L'avenir de Bitcoin                | Planifié &#x1F6A7;                    |
 
 Plan initial (mars 2022)
 ------------------------

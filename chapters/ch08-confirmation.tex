@@ -296,13 +296,13 @@ Le minage est ainsi l'activité économique consistant à rassembler les transac
 % Déroulement du minage d'un bloc
 Le minage se déroule de manière cyclique. Tout d'abord, le mineur sélectionne des transactions à partir de la réserve des transactions (appelée \eng{mempool}) de son nœud. Puis, il construit un bloc candidat en imposant un entête, en assemblant les transactions et en prenant soin de construire une transaction de récompense qui le rémunère. Il fait ensuite varier le nonce et d'autres éléments du bloc candidat afin de calculer la preuve de travail. Enfin, dans le cas où il trouve une solution, il diffuse le bloc sur le réseau le plus rapidement possible pour que les autres nœuds l'acceptent comme le nouveau bloc de la chaîne. Dans le cas contraire, si un bloc est trouvé entretemps par le reste du réseau, le mineur l'accepte. Dans les deux cas, il itère la procédure en recommençant du début.
 
-% Transaction de récompense
-La récompense de minage est ainsi récupérée par le mineur \emph{via} l'inclusion d'une transaction de récompense au sein du bloc. Celle-ci doit être, par convention, la première transaction du bloc. L'entrée unique de cette transaction est appelée la base de pièce ou \eng{coinbase}, car c'est d'elle que proviennent les nouveaux bitcoins. Le mineur envoie ces bitcoins vers une adresse qu'il contrôle, de sorte qu'il est récompensé seulement si son bloc est valide aux yeux du réseau.
+% Transaction de récompense (coinbase)
+La récompense de minage est ainsi récupérée par le mineur \emph{via} l'inclusion d'une transaction de récompense au sein du bloc. Celle-ci doit être, par convention, la première transaction du bloc. Elle possède une entrée unique spécifique ne faisant référence à aucun transaction existant. La transaction de récompense est aussi appelée la base de pièce ou \eng{coinbase}, car c'est à partir d'elle que sont formés les nouveaux bitcoins. Le mineur dirige cette transaction vers une adresse qu'il contrôle, de sorte qu'il est récompensé seulement si son bloc est valide aux yeux du réseau.
 
 La récompense que le mineur peut se verser doit être inférieure à la somme de la création monétaire et des frais de transactions. Le mineur peut ainsi se rémunérer moins que ce qui est prévu par le protocole, même si cela n'a aucun sens économique direct\sendnote{En décembre 2017, le mineur du 164~246 s'est ainsi rémunéré de la coquette somme de 0~BTC~!}.
 
 % Période de maturation
-La transaction de récompense nécessite 101 confirmations\sendnote{\url{https://github.com/bitcoin/bitcoin/blob/23.x/src/consensus/consensus.h#L18-L19}} pour que la récompense puisse être dépensée, soit 16 heures et 50 minutes environ. On appelle ce délai la maturité de la base de pièce (\eng{coinbase maturity}) et il est mis en place pour rendre impossible la mauvaise utilisation des fonds due à une recoordination peu profonde.
+La transaction de récompense nécessite 101 confirmations\sendnote{\url{https://github.com/bitcoin/bitcoin/blob/23.x/src/consensus/consensus.h\#L18-L19}} pour que la récompense puisse être dépensée, soit 16 heures et 50 minutes environ. On appelle ce délai la maturité de la base de pièce (\eng{coinbase maturity}) et il est mis en place pour rendre impossible la mauvaise utilisation des fonds due à une recoordination peu profonde.
 
 % --- Création monétaire ---
 

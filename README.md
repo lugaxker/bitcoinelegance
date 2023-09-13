@@ -74,8 +74,8 @@ Progression
 |        9 | La résistance à la censure         | Première ébauche &#x2705;             |
 |       10 | La détermination du protocole      | Première ébauche &#x2705;             |
 |       11 | Les rouages de la machine          | Première ébauche &#x2705;             |
-|       12 | Le passage à l'échelle             | En cours d'écriture &#x270D;&#x1F3FB; |
-|       13 | L'avenir de Bitcoin                | Planifié &#x1F6A7;                    |
+|       12 | Le passage à l'échelle             | Première ébauche &#x2705;             |
+|       13 | L'avenir de Bitcoin                | En cours d'écriture &#x270D;&#x1F3FB; |
 
 Plan initial (mars 2022)
 ------------------------

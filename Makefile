@@ -54,11 +54,15 @@ bech11.pdf: bech11.tex chapters/ch11-rouages.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-bech12.pdf: bech12.tex chapters/ch12-scalabilite.tex
+bech12.pdf: bech12.tex chapters/ch12-contrats.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech13.pdf: bech13.tex chapters/ch13-avenir.tex
+bech13.pdf: bech13.tex chapters/ch13-scalabilite.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
+
+# bech14.pdf: bech14.tex chapters/ch14-avenir.tex
 # 	pdflatex $(MODE) $<
 # 	pdflatex $(MODE) $<
 #

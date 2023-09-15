@@ -7,14 +7,14 @@
 \usepackage[polutonikogreek, french]{babel} % language
 \usepackage[utf8]{inputenc}                 % accents
 \usepackage[T1]{fontenc}                    % french characters
-\usepackage[margin=2cm]{geometry}           % margin 
+\usepackage[margin=2cm]{geometry}           % margin
 \usepackage{setspace}                       % spacing
 \usepackage{graphicx}                       % images
 \usepackage{verbatim}                       % preformatted text
 \usepackage{enumerate}                      % lists
 \usepackage{hyperref}                       % cross-referencing
 \usepackage{xurl}
-\usepackage{enotez}                         % endnotes 
+\usepackage{enotez}                         % endnotes
 
 % Custom packages
 \usepackage{newtxtext}                      % Times New Roman font
@@ -37,11 +37,11 @@
 \newcommand{\longstring}[1]{\texttt{\NoAutoSpaceBeforeFDP\seqsplit{#1}}}
 \newcommand{\sendnote}{\,\endnote}
 
-\title{L'Élégance de Bitcoin (ébauche)}     % title
+\title{L'Élégance de Bitcoin (chapitre 13)}     % title
 \author{Ludovic Lars}                       % author
 \date{\today}                               % date
 
-\hypersetup{ 
+\hypersetup{
     pdftitle={\csname @title\endcsname},
     pdfauthor={\csname @author\endcsname}
 }
@@ -53,37 +53,12 @@
 
 \maketitle
 
-
-\thispagestyle{empty} 
+\thispagestyle{empty}
 \doclicenseThis
-
-% \frontmatter
-% 
-% \chapter*{Introduction}
 
 \mainmatter
 
-% \part{Pourquoi ?}
-
-\include{chapters/ch01-mythe}
-\include{chapters/ch02-clivages}
-\include{chapters/ch03-origine}
-\include{chapters/ch04-adversaire}
-\include{chapters/ch05-cypherpunks}
-\include{chapters/ch06-cybermonnaie}
-
-% \part{Quoi ?}
-
-\include{chapters/ch07-propriete}
-\include{chapters/ch08-confirmation}
-\include{chapters/ch09-censure}
-\include{chapters/ch10-determination}
-
-% \part{Comment ?}
-
-\include{chapters/ch11-rouages}
-\include{chapters/ch12-contrats}
+\setcounter{chapter}{12}
 \include{chapters/ch13-scalabilite}
-% \include{chapters/ch14-avenir}
 
 \end{document}

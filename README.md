@@ -3,7 +3,7 @@ L'Élégance de Bitcoin
 
 Un livre sur Bitcoin.
 
-Plan actualisé (août 2023)
+Plan actualisé (septembre 2023)
 -----------------------------
 
 #### 1 - Les débuts de Bitcoin (2009 -- 2012)
@@ -48,13 +48,17 @@ Plan actualisé (août 2023)
 
 #### 11 - Les rouages de la machine
 
-*Exploration technique du fonctionnement interne de Bitcoin : UTXO, machine virtuelle, programmabilité, confidentialité.*
+*Exploration technique du fonctionnement interne de Bitcoin : UTXO, confidentialité, machine virtuelle.*
 
-#### 12 - Le passage à l'échelle
+#### 12 - Les contrats autonomes
+
+*Description des contrats autonomes et des inscriptions sur Bitcoin : exemples de contrats, inscriptions, métaprotocoles, Taproot, RGB.*
+
+#### 13 - Le passage à l'échelle
 
 *Présentation des diverses manière de traiter plus de transactions : taille des blocs, optimisation, banques, surcouches, substitution.*
 
-#### 13 - L'avenir de Bitcoin
+#### 14 - L'avenir de Bitcoin
 
 *Réflexions sur l'avenir technique, économique et culturel de Bitcoin.*
 
@@ -74,8 +78,9 @@ Progression
 |        9 | La résistance à la censure         | Première ébauche &#x2705;             |
 |       10 | La détermination du protocole      | Première ébauche &#x2705;             |
 |       11 | Les rouages de la machine          | Première ébauche &#x2705;             |
-|       12 | Le passage à l'échelle             | Première ébauche &#x2705;             |
-|       13 | L'avenir de Bitcoin                | En cours d'écriture &#x270D;&#x1F3FB; |
+|       12 | Les contrats autonomes             | Première ébauche &#x2705;             |
+|       13 | Le passage à l'échelle             | Première ébauche &#x2705;             |
+|       14 | L'avenir de Bitcoin                | En cours d'écriture &#x270D;&#x1F3FB; |
 
 Plan initial (mars 2022)
 ------------------------

@@ -50,7 +50,7 @@ Avant Bitcoin, le problème était résolu par des algorithmes dits «~classique
 
 Bien avant Bitcoin, Wei Dai\sendnote{Wei Dai, \eng{b-money}, 1998~: \url{http://www.weidai.com/bmoney.txt}.} et Nick Szabo\sendnote{Nick Szabo, \eng{Bit Gold: Towards Trust-Independent Digital Money}, 1999~: \url{https://web.archive.org/web/20140406003811/http://szabo.best.vwh.net/bitgold.html}.} envisageaient d'utiliser ce type d'algorithme pour leurs systèmes de monnaie électronique. De même, de nombreux systèmes cryptoéconomiques font encore aujourd'hui usage de cette classe d'algorithmes, à l'instar d'Ethereum dont le consensus est basé sur l'algorithme Casper FFG. Le choix est généralement fait pour une raison de performance.
 
-Cependant, ces algorithmes impliquent des contraintes fortes~: les nœuds doivent connaître l'ensemble des autres nœuds et ils doivent communiquer avec tous les autres. De ce fait, il faut sélectionner les nœuds ayant le droit de participer au consensus avant de lancer l'algorithme, ce qui se fait généralement par preuve d'autorité (\eng{proof-of-authority}), via une liste blanche de nœuds, ou par preuve d'enjeu (\eng{proof-of-stake}), via un montant de jetons possédés ou délégués. Cela implique une moins bonne robustesse du système, car les validateurs sont alors connus de tous et donc soumis aux aléas de la réalité. 
+Cependant, ces algorithmes impliquent des contraintes fortes~: les nœuds doivent connaître l'ensemble des autres nœuds et ils doivent communiquer avec tous les autres. De ce fait, il faut sélectionner les nœuds ayant le droit de participer au consensus avant de lancer l'algorithme, ce qui se fait généralement par preuve d'autorité (\eng{proof of authority}), via une liste blanche de nœuds, ou par preuve d'enjeu (\eng{proof of stake}), via un montant de jetons possédés ou délégués. Cela implique une moins bonne robustesse du système, car les validateurs sont alors connus de tous et donc soumis aux aléas de la réalité.
 
 % La communication entre les nœuds du réseau doit être quadratique (chaque nœud doit communiquer avec tous les autres), ce qui fait qu'il est difficile de dépasser les 10 000 nœuds.
 
@@ -71,7 +71,7 @@ La spécificité géniale de cet algorithme est qu'il résout le problème de ma
 \section*{La preuve de travail}
 \addcontentsline{toc}{section}{La preuve de travail}
 
-La preuve de travail, de l'anglais \eng{proof-of-work}, est un procédé permettant à un appareil informatique de démontrer de manière objective et quantifiable qu'il a dépensé de l'énergie. Ce moyen est utilisé pour sélectionner les ordinateurs dans le cadre de l'accès à un service ou à un privilège.
+La preuve de travail, de l'anglais \eng{proof of work}, est un procédé permettant à un appareil informatique de démontrer de manière objective et quantifiable qu'il a dépensé de l'énergie. Ce moyen est utilisé pour sélectionner les ordinateurs dans le cadre de l'accès à un service ou à un privilège.
 
 La preuve de travail est un mécanisme de résistance aux attaques Sybil, qui empêche un acteur de multiplier les identités à l'excès pour prendre le contrôle du réseau, ici la confirmation des transactions. Une attaque Sybil est une attaque intervenant au sein d'un réseau ouvert basé sur un système de réputation qui consiste à se dupliquer à moindre coût pour en altérer le fonctionnement. C'est un problème particulièrement présent sur les médias sociaux par exemple, où les comptes de robots sont utilisés en masse pour augmenter la visibilité d'un contenu donné.
 

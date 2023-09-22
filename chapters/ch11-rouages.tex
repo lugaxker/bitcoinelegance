@@ -82,56 +82,6 @@ Nous voyons ainsi que les transactions ne sont pas des transferts bruts d'une ad
 %
 % Satoshi Nakamoto utilisait une pièce de 50~BTC, minée précédemment, pour créer une pièce de 10~BTC à l'adresse de Hal. Il se rendait la monnaie à la même adresse.
 
-\section*{Le mélange de pièces}
-\addcontentsline{toc}{section}{Le mélange de pièces}
-
-% Analyse de chaîne
-Le fait que les transactions soient publiées sur la chaîne amène à de la surveillance. Comme on l'a vu, il est possible de faire des suppositions pour deviner ce qui se passe réellement sur la chaîne, en supposant que l'utilisateur cherche à minimiser ses frais de transaction. Ces heuristiques (telles que l'heuristique de co-dépense, l'heuristique de la sortie complémentaire ou encore l'heuristique de l'empreinte du portefeuille) forment la base d'une discipline appelée l'analyse de chaîne qui consiste à recouper ces observations avec l'identification d'acteurs réels afin d'en tirer des conclusions. C'est dans ce sens qu'on parle de «~transparence~» de la chaîne. % Analyse de chaîne : identification, observation, conclusion
-
-% Modèle de confidentialité de Bitcoin
-Cependant, cette transparence est toute relative, car les données sur la chaîne ne donnent pas l'identité des personnes~: le système est pseudonyme, dans le sens où on peut observer les mouvements entre des adresses, mais pas entre des personnes. Le modèle de confidentialité de Bitcoin, décrit par Satoshi Nakamoto dans le livre blanc en 2008, consiste ainsi à garder secret le lien qui existe entre l'identité d'une personne et ses adresses\sendnote{«~Le modèle bancaire traditionnel atteint un certain niveau de confidentialité en limitant l'accès aux informations aux parties concernées et au tiers de confiance. La nécessité d'annoncer publiquement toutes les transactions exclut cette méthode, mais la confidentialité peut toujours être préservée en interrompant le flux d'informations à un autre endroit~: en gardant les clés publiques anonymes. Le public peut voir que quelqu'un envoie un montant à quelqu'un d'autre, mais ne dispose pas d'informations reliant la transaction à qui que ce soit.~» -- Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=0.55]{img/white-paper-privacy-model-fr.eps}
-  \caption{Modèle de confidentialité présenté dans le livre blanc de Bitcoin.}
-\end{figure}
-
-% Fuites d'information
-Toutefois, des fuites d'information peuvent avoir lieu~: l'identité de l'utilisateur peut être dévoilée, que ce soit du fait de sa propre erreur ou de la divulgation (volontaire ou involontaire) de son interlocuteur dans l'échange. Par conséquent, nul ne peut prétendre être à l'abri de telles fuites\sendnote{Les premiers utilisateurs de Bitcoin ont ainsi été bien imprudents, à l'instar de Hal Finney qui a révélé des informations entre 2013 et 2014 permettant de déduire qu'il possédait plus de 10~000~bitcoins en 2011. -- Hal Finney, \emph{Bitcoin and me}, \wtime{19/03/2013 20:40:02 UTC}~: \url{https://bitcointalk.org/index.php?topic=155054.msg1643833\#msg1643833}~; Andy Greenberg, \eng{Nakamoto's Neighbor: My Hunt For Bitcoin's Creator Led To A Paralyzed Crypto Genius}, 25 mars 2014~: \url{https://www.forbes.com/sites/andygreenberg/2014/03/25/satoshi-nakamotos-neighbor-the-bitcoin-ghostwriter-who-wasnt/}.}. C'est pourquoi il existe des méthodes permettant de limiter leur effet et de retrouver la confidentialité en toute sérénité.
-
-% Usage unique des adresses
-La première mesure est l'usage unique des adresses. Elle consiste à générer une nouvelle clé privée et une nouvelle adresse lors de chaque paiement entrant et sortant. L'apport est de réduire l'impact de la révélation du lien avec l'identité sur la confidentialité générale~: tant que l'adresse n'est pas liée à d'autres par l'observation d'une action sur la chaîne (co-dépense par exemple), la fuite d'information se limite à cette seule adresse. Cette bonne pratique était citée dans le livre blanc\sendnote{«~Comme pare-feu supplémentaire, une nouvelle paire de clés devrait être utilisée pour chaque transaction afin de les empêcher d'être liées à un propriétaire commun. Certains liens sont toujours inévitables avec les transactions à entrées multiples, qui révèlent nécessairement que leurs entrées appartiennent au même propriétaire. Le risque est que si le propriétaire d'une clé est révélé, la liaison pourrait révéler d'autres transactions qui lui appartiennent.~» -- Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.} et est aujourd'hui implémentée dans tous les portefeuilles.
-
-% Mélange de pièces
-On peut également corriger les erreurs. Une des méthodes la plus connue pour procéder à ce type de correction est le mélange de pièces, qui permet de combiner ses UTXO avec d'autres utilisateurs afin de briser le lien déterministe qui existe.
-
-% Tumblers
-Le mélange de bitcoins était originellement pris en charge par des services de mixage centralisés, appelés \eng{mixers} ou \eng{tumblers}, qui recevaient les bitcoins des utilisateurs, les fusionnaient et leur renvoyaient des bitcoins communs au bout d'un certain temps, préférablement sous la forme de plusieurs transactions. Le premier mélangeur de ce type était BitLaundry, qui a été lancé en septembre 2010 par Peter Vessenes\sendnote{Peter Vessenes, \eng{Announcing: BitLaundry -- decorrelated payment service}, \wtime{01/09/2010 05:52:25 UTC}~: \url{https://bitcointalk.org/index.php?topic=963.msg11823\#msg11823}.}. Ces services permettaient d'obscurcir la provenance des bitcoins pour un observateur extérieur, mais pas pour le gérant du service, qui pouvait également voler les bitcoins au passage.  % Bitcoin Fog (2011), Silk Road
-
-% CoinJoin
-Une technique pour procéder à ce type de mélange sans devoir passer par un intermédiaire a par la suite été développée. C'était CoinJoin, dont la description formelle a été faite en août 2013 par Gregory Maxwell\sendnote{Gregory Maxwell, \eng{CoinJoin: Bitcoin privacy for the real world}, \wtime{22/08/2013 02:32:31 UTC}~: \url{https://bitcointalk.org/index.php?topic=279249.msg2983902\#msg2983902}.}. Il s'agit d'impliquer les pièces dans une transaction jointe collaborative qui brise la correspondance entre les entrées et une partie des sorties. La transaction classique que l'on se représente est celle de plusieurs utilisateurs qui signent chacun une entrée, dont la même nombre de sorties possèdent un montant égal, et dont le reste des sorties forment les sorties complémentaires. Dans ce cas, les sorties complémentaires sont toujours liées aux entrées, contrairement aux sorties principales qui sont indiscernables les unes des autres.
-
-\textcolor{brown}{schéma transaction CoinJoin à 5 utilisateurs}
-
-% Ensemble d'anonymat
-Ces mélanges reposent sur la notion d'«~ensemble d'anonymat~» (\eng{anonymity set}) qui permet de mesurer la difficulté à faire le lien entre l'entrée et le sortie à un moment donné. On peut ainsi obtenir un score prospectif qui est le nombre de possibilités de pièces en sorties auxquelles peuvent correspondre un pièce en entrée. Dans notre exemple ci-dessus, le score prospectif de la sortie au moment de la transaction est de 5. Si la pièce avait subi un nouveau mélange (comme c'est fait dans Whirlpool), alors elle aurait eu un score prospectif de 9. On peut aussi, même si c'est plus rare, calculer un score rétrospectif qui correspond au nombre de potentielles pièces en entrée auxquelles peut être liée une sortie particulière, qui est également de 5 dans le cas de notre transaction simple, mais qui peut être largement supérieur en cas de remélanges fréquents. \sendnote{Loïc Morel, \emph{Comprendre et utiliser le CoinJoin sur Bitcoin}, 19 juillet 2022~: \url{https://www.pandul.fr/post/comprendre-et-utiliser-le-coinjoin-sur-bitcoin}.}
-
-% Coordinateur
-Pour gérer le tout, le système fait utilise généralement un protocole qui permet aux participants d'être mis en relation anonymement par le biais d'un coordinateur sans risque de fuite d'information ou de vol des fonds. Le plus connu est ZeroLink, développé par Adam Ficsor (\texttt{nopara73}) et \texttt{TDevD} en août 2017, qui est un protocole qui utilise le procédé de signature aveugle de David Chaum\sendnote{nopara73, TDevD, \eng{ZeroLink: The Bitcoin Fungibility Framework}, 14 août 2017~: \url{https://github.com/nopara73/ZeroLink/tree/32ad53927a343383534bea28fffb098af65fe62a}.}. C'est dans ce sens qu'on parle parfois de CoinJoin chaumien (\eng{Chaumian CoinJoin}). Une implémentation classique de cette idée a été réalisée par Whirlpool et par Wasabi 1.0. Des variantes (CoinShuffle, CoinShuffle++, CashShuffle, CashFusion) ont été implémentées sur des variantes de Bitcoin comme Decred ou Bitcoin Cash. Plus récemment le portefeuille Wasabi a intégré Wabisabi qui permet de réaliser des mélanges avec des valeurs arbitraires en sortie, ce qui complique l'estimation de la confidentialité apportée mais mais évite d'avoir à gérer les sorties complémentaires d'une manière séparée.
-
-% PayJoin
-Mais les transactions collaboratives ne se limitent pas au CoinJoin. Il existe par exemple une autre méthode, appelée PayJoin, qui permet au commerçant de réaliser un mélange avec le client au moment du paiement, en impliquant une pièce en entrée. Cela a pour effet de fausser l'analyse de chaîne en faisant croire à l'observateur extérieur qu'un seul utilisateur a réuni ses pièces en entrée.
-
-Reprenons notre exemple d'Alice qui paie 7~mBTC à Bob en réunissant deux pièces de 6 et 1~mBTC afin d'atteindre un montant suffisant en entrée. Dans ce cas, les deux entrées sont supposément liées entre elles (heuristique de co-dépense) ainsi qu'à la sortie de 1~mBTC (heuristique de la sortie complémentaire). Dans ce cas, PayJoin consiste à faire en sorte que le commerçant inclue une ou plusieurs pièces en entrée et augmente d'autant le montant de la sortie qui lui est destinée.
-
-\textcolor{brown}{schéma transaction à 3 entrées et 2 sorties}
-
-Cette technique a été conceptualisée en 2018 sous la forme du protocole Bustapay proposé dans le BIP-79, qui n'a été mis en application. Elle a est néanmoins implémentée aujourd'hui par l'intermédiaire du protocole de paiement Pay-to-EndPoint (P2EP) implémenté dans plusieurs portefeuilles\sendnote{Adam Ficsor, \eng{Pay To EndPoint}, 31 juillet 2018~: \url{https://nopara73.medium.com/pay-to-endpoint-56eb05d3cac6}.} et des transactions Stowaway du Samourai Wallet\sendnote{Samourai Wallet, \eng{Stowaway}~: https://samouraiwallet.com/stowaway}.
-
-% CoinSwap
-Enfin une dernière méthode est Coinswap, qui est un procédé développé par Chris Belcher, qui permet à deux utilisateurs ou plus d'échanger leurs pièces sans qu'ils aient besoin de se faire confiance et sans que cette opération laisse une trace particulière sur la chaîne\sendnote{Chris Belcher, \eng{Design for a CoinSwap Implementation for Massively Improving Bitcoin Privacy and Fungibility}, 25 mai 2020~: \url{https://gist.github.com/chris-belcher/9144bd57a91c194e332fb5ca371d0964}.}.
-
 \section*{La machine virtuelle}
 \addcontentsline{toc}{section}{La machine virtuelle}
 
@@ -492,11 +442,148 @@ La clé publique en question mesure 32 octets. La version et la clé publique co
 
 SegWit a donc modifié en profondeur le protocole. La forme de cette mise à niveau ne peut être comprise que dans le contexte dans lequel elle a émergé. C'est pourquoi elle présente tout de même quelques défauts comme la dette technique alourdissant le coût de maintien et d'amélioration du code, ou l'affaiblissement de la confidentialité générale due à l'apparition de nouveaux types d'adresses partiellement adoptés.
 
+\section*{Le mélange de pièces}
+\addcontentsline{toc}{section}{Le mélange de pièces}
+
+% Analyse de chaîne
+Le fait que les transactions soient publiées sur la chaîne amène à de la surveillance. Comme on l'a vu, il est possible de faire des suppositions pour deviner ce qui se passe réellement sur la chaîne, en supposant que l'utilisateur cherche à minimiser ses frais de transaction. Ces heuristiques (telles que l'heuristique de co-dépense, l'heuristique de la sortie complémentaire ou encore l'heuristique de l'empreinte du portefeuille) forment la base d'une discipline appelée l'analyse de chaîne qui consiste à recouper ces observations avec l'identification d'acteurs réels afin d'en tirer des conclusions. C'est dans ce sens qu'on parle de «~transparence~» de la chaîne. % Analyse de chaîne : identification, observation, conclusion
+
+% Modèle de confidentialité de Bitcoin
+Cependant, cette transparence est toute relative, car les données sur la chaîne ne donnent pas l'identité des personnes~: le système est pseudonyme, dans le sens où on peut observer les mouvements entre des adresses, mais pas entre des personnes. Le modèle de confidentialité de Bitcoin, décrit par Satoshi Nakamoto dans le livre blanc en 2008, consiste ainsi à garder secret le lien qui existe entre l'identité d'une personne et ses adresses\sendnote{«~Le modèle bancaire traditionnel atteint un certain niveau de confidentialité en limitant l'accès aux informations aux parties concernées et au tiers de confiance. La nécessité d'annoncer publiquement toutes les transactions exclut cette méthode, mais la confidentialité peut toujours être préservée en interrompant le flux d'informations à un autre endroit~: en gardant les clés publiques anonymes. Le public peut voir que quelqu'un envoie un montant à quelqu'un d'autre, mais ne dispose pas d'informations reliant la transaction à qui que ce soit.~» -- Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.55]{img/white-paper-privacy-model-fr.eps}
+  \caption{Modèle de confidentialité présenté dans le livre blanc de Bitcoin.}
+\end{figure}
+
+% Fuites d'information
+Toutefois, des fuites d'information peuvent avoir lieu~: l'identité de l'utilisateur peut être dévoilée, que ce soit du fait de sa propre erreur ou de la divulgation (volontaire ou involontaire) de son interlocuteur dans l'échange. Par conséquent, nul ne peut prétendre être à l'abri de telles fuites\sendnote{Les premiers utilisateurs de Bitcoin ont ainsi été bien imprudents, à l'instar de Hal Finney qui a révélé des informations entre 2013 et 2014 permettant de déduire qu'il possédait plus de 10~000~bitcoins en 2011. -- Hal Finney, \emph{Bitcoin and me}, \wtime{19/03/2013 20:40:02 UTC}~: \url{https://bitcointalk.org/index.php?topic=155054.msg1643833\#msg1643833}~; Andy Greenberg, \eng{Nakamoto's Neighbor: My Hunt For Bitcoin's Creator Led To A Paralyzed Crypto Genius}, 25 mars 2014~: \url{https://www.forbes.com/sites/andygreenberg/2014/03/25/satoshi-nakamotos-neighbor-the-bitcoin-ghostwriter-who-wasnt/}.}. C'est pourquoi il existe des méthodes permettant de limiter leur effet et de retrouver la confidentialité en toute sérénité.
+
+% Usage unique des adresses
+La première mesure est l'usage unique des adresses. Elle consiste à générer une nouvelle clé privée et une nouvelle adresse lors de chaque paiement entrant et sortant. L'apport est de réduire l'impact de la révélation du lien avec l'identité sur la confidentialité générale~: tant que l'adresse n'est pas liée à d'autres par l'observation d'une action sur la chaîne (co-dépense par exemple), la fuite d'information se limite à cette seule adresse. Cette bonne pratique était citée dans le livre blanc\sendnote{«~Comme pare-feu supplémentaire, une nouvelle paire de clés devrait être utilisée pour chaque transaction afin de les empêcher d'être liées à un propriétaire commun. Certains liens sont toujours inévitables avec les transactions à entrées multiples, qui révèlent nécessairement que leurs entrées appartiennent au même propriétaire. Le risque est que si le propriétaire d'une clé est révélé, la liaison pourrait révéler d'autres transactions qui lui appartiennent.~» -- Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.} et est aujourd'hui implémentée dans tous les portefeuilles.
+
+% Mélange de pièces
+On peut également corriger les erreurs. Une des méthodes la plus connue pour procéder à ce type de correction est le mélange de pièces, qui permet de combiner ses UTXO avec d'autres utilisateurs afin de briser le lien déterministe qui existe.
+
+% Tumblers
+Le mélange de bitcoins était originellement pris en charge par des services de mixage centralisés, appelés \eng{mixers} ou \eng{tumblers}, qui recevaient les bitcoins des utilisateurs, les fusionnaient et leur renvoyaient des bitcoins communs au bout d'un certain temps, préférablement sous la forme de plusieurs transactions. Le premier mélangeur de ce type était BitLaundry, qui a été lancé en septembre 2010 par Peter Vessenes\sendnote{Peter Vessenes, \eng{Announcing: BitLaundry -- decorrelated payment service}, \wtime{01/09/2010 05:52:25 UTC}~: \url{https://bitcointalk.org/index.php?topic=963.msg11823\#msg11823}.}. Ces services permettaient d'obscurcir la provenance des bitcoins pour un observateur extérieur, mais pas pour le gérant du service, qui pouvait également voler les bitcoins au passage.  % Bitcoin Fog (2011), Silk Road
+
+% CoinJoin
+Une technique pour procéder à ce type de mélange sans devoir passer par un intermédiaire a par la suite été développée. C'était CoinJoin, dont la description formelle a été faite en août 2013 par Gregory Maxwell\sendnote{Gregory Maxwell, \eng{CoinJoin: Bitcoin privacy for the real world}, \wtime{22/08/2013 02:32:31 UTC}~: \url{https://bitcointalk.org/index.php?topic=279249.msg2983902\#msg2983902}.}. Il s'agit d'impliquer les pièces dans une transaction jointe collaborative qui brise la correspondance entre les entrées et une partie des sorties. La transaction classique que l'on se représente est celle de plusieurs utilisateurs qui signent chacun une entrée, dont la même nombre de sorties possèdent un montant égal, et dont le reste des sorties forment les sorties complémentaires. Dans ce cas, les sorties complémentaires sont toujours liées aux entrées, contrairement aux sorties principales qui sont indiscernables les unes des autres.
+
+\textcolor{brown}{schéma transaction CoinJoin à 5 utilisateurs}
+
+% Ensemble d'anonymat
+Ces mélanges reposent sur la notion d'«~ensemble d'anonymat~» (\eng{anonymity set}) qui permet de mesurer la difficulté à faire le lien entre l'entrée et le sortie à un moment donné. On peut ainsi obtenir un score prospectif qui est le nombre de possibilités de pièces en sorties auxquelles peuvent correspondre un pièce en entrée. Dans notre exemple ci-dessus, le score prospectif de la sortie au moment de la transaction est de 5. Si la pièce avait subi un nouveau mélange (comme c'est fait dans Whirlpool), alors elle aurait eu un score prospectif de 9. On peut aussi, même si c'est plus rare, calculer un score rétrospectif qui correspond au nombre de potentielles pièces en entrée auxquelles peut être liée une sortie particulière, qui est également de 5 dans le cas de notre transaction simple, mais qui peut être largement supérieur en cas de remélanges fréquents. \sendnote{Loïc Morel, \emph{Comprendre et utiliser le CoinJoin sur Bitcoin}, 19 juillet 2022~: \url{https://www.pandul.fr/post/comprendre-et-utiliser-le-coinjoin-sur-bitcoin}.}
+
+% Coordinateur
+Pour gérer le tout, le système fait utilise généralement un protocole qui permet aux participants d'être mis en relation anonymement par le biais d'un coordinateur sans risque de fuite d'information ou de vol des fonds. Le plus connu est ZeroLink, développé par Adam Ficsor (\texttt{nopara73}) et \texttt{TDevD} en août 2017, qui est un protocole qui utilise le procédé de signature aveugle de David Chaum\sendnote{nopara73, TDevD, \eng{ZeroLink: The Bitcoin Fungibility Framework}, 14 août 2017~: \url{https://github.com/nopara73/ZeroLink/tree/32ad53927a343383534bea28fffb098af65fe62a}.}. C'est dans ce sens qu'on parle parfois de CoinJoin chaumien (\eng{Chaumian CoinJoin}). Une implémentation classique de cette idée a été réalisée par Whirlpool et par Wasabi 1.0. Des variantes (CoinShuffle, CoinShuffle++, CashShuffle, CashFusion) ont été implémentées sur des variantes de Bitcoin comme Decred ou Bitcoin Cash. Plus récemment le portefeuille Wasabi a intégré Wabisabi qui permet de réaliser des mélanges avec des valeurs arbitraires en sortie, ce qui complique l'estimation de la confidentialité apportée mais mais évite d'avoir à gérer les sorties complémentaires d'une manière séparée.
+
+% PayJoin
+Mais les transactions collaboratives ne se limitent pas au CoinJoin. Il existe par exemple une autre méthode, appelée PayJoin, qui permet au commerçant de réaliser un mélange avec le client au moment du paiement, en impliquant une pièce en entrée. Cela a pour effet de fausser l'analyse de chaîne en faisant croire à l'observateur extérieur qu'un seul utilisateur a réuni ses pièces en entrée.
+
+Reprenons notre exemple d'Alice qui paie 7~mBTC à Bob en réunissant deux pièces de 6 et 1~mBTC afin d'atteindre un montant suffisant en entrée. Dans ce cas, les deux entrées sont supposément liées entre elles (heuristique de co-dépense) ainsi qu'à la sortie de 1~mBTC (heuristique de la sortie complémentaire). Dans ce cas, PayJoin consiste à faire en sorte que le commerçant inclue une ou plusieurs pièces en entrée et augmente d'autant le montant de la sortie qui lui est destinée.
+
+\textcolor{brown}{schéma transaction à 3 entrées et 2 sorties}
+
+Cette technique a été conceptualisée en 2018 sous la forme du protocole Bustapay proposé dans le BIP-79, qui n'a été mis en application. Elle a est néanmoins implémentée aujourd'hui par l'intermédiaire du protocole de paiement Pay-to-EndPoint (P2EP) implémenté dans plusieurs portefeuilles\sendnote{Adam Ficsor, \eng{Pay To EndPoint}, 31 juillet 2018~: \url{https://nopara73.medium.com/pay-to-endpoint-56eb05d3cac6}.} et des transactions Stowaway du Samourai Wallet\sendnote{Samourai Wallet, \eng{Stowaway}~: https://samouraiwallet.com/stowaway}.
+
+% CoinSwap
+Enfin une dernière méthode est Coinswap, qui est un procédé développé par Chris Belcher, qui permet à deux utilisateurs ou plus d'échanger leurs pièces sans qu'ils aient besoin de se faire confiance et sans que cette opération laisse une trace particulière sur la chaîne\sendnote{Chris Belcher, \eng{Design for a CoinSwap Implementation for Massively Improving Bitcoin Privacy and Fungibility}, 25 mai 2020~: \url{https://gist.github.com/chris-belcher/9144bd57a91c194e332fb5ca371d0964}.}.
+
+\section*{D'autres techniques de confidentialité}
+\addcontentsline{toc}{section}{D'autres techniques de confidentialité}
+
+% Dandelion. Dandelion++.
+
+% Autres techniques
+Outre le mélange de pièces simple consistant à brouiller les pistes qu'un observateur externe pourrait suivre, il existe un certain nombre de techniques qui permettent d'améliorer la confidentialité de Bitcoin. Celles-ci requièrent souvent la modification du protocole de base et font des compromis, raison pour laquelle elles ne sont pas forcément mises en œuvre.
+
+% Satoshi et l'innovation
+Ces techniques ont été développées dans les années qui ont suivi l'apparition de Bitcoin, notamment sur le forum Bitcointalk. N'étant pas un cryptographe universitaire, Satoshi Nakamoto s'est surtout focalisé sur la robustesse du système lorsqu'il l'a conçu et n'a pas cherché à y inclure des techniques avancées. Cependant, il était preneur de tout ce qui pourrait permettre de lancer une «~mise en œuvre de Bitcoin bien meilleure, plus facile et plus pratique\sendnote{Satoshi Nakamoto, \eng{Re: Not a suggestion}, \wtime{11/08/2010 00:14:22 UTC}~: \url{https://bitcointalk.org/index.php?topic=770.msg8637\#msg8637}.}~».
+
+% Discussion entre Red et Satoshi sur des façons d'améliorer le protocole : https://bitcointalk.org/index.php?topic=770.0
+
+% --- Signatures de cercle ---
+
+La première technique de cet ordre est le procédé de signature de cercle (\eng{ring signature}) a été formalisé en 2001 par Ronald Rivest, Adi Shamir et Yael Tauman\sendnote{Ronald L. Rivest, Adi Shamir, Yael Tauman, \eng{How to Leak a Secret}, 2001~: \url{https://people.csail.mit.edu/rivest/pubs/RST01.pdf}.}. Celui-ci se base sur le procédé de signature de groupe, introduite par David Chaum et Eugène van Heyst en 1991, qui permettait à chaque membre d'un groupe de signer un message au nom du groupe sans que ce membre puisse être identifié par un vérificateur externe, mais qui reposait sur un gestionnaire central. La signature de cercle innovait par le fait qu'elle ne requérait pas de gestionnaire central, pas de procédure d'installation et pas de coordination, et qu'elle ne permettait pas à un membre de révoquer son anonymat.
+
+% Application
+Au sein de la cryptomonnaie, le principe est le suivant~: pour chaque pièce en entrée de la transaction, le signataire rassemble plusieurs autres pièces disponibles sur la chaîne (appelées sorties leurres ou \eng{decoy outputs}), utilise leurs clés publiques et signe avec sa clé privée. Il fournit également une image de clé (correspondant à la pièce) qui est écrite sur la chaîne et qui permet de garantir que la même pièce n'est pas dépensée deux fois. Plus le cercle implique de sorties, plus l'ensemble d'anonymat est grand. L'utilisation des sorties comme des leurres les nœuds à conserver l'ensemble des sorties transactionnelles, puisqu'on ne peut pas savoir quelle sortie a été réellement dépensée.
+
+% Satoshi "group signature": https://bitcointalk.org/index.php?topic=770.msg9074#msg9074
+
+% --- Adresses furtives ---
+
+% Stealth Addresses, 2011-2014
+La deuxième technique est le procédé des adresses furtives, qui a été décrit en 2011 par Nicolas van Saberhagen et qui a été formalisé en 2014 par Peter Todd dans le cadre de Bitcoin\sendnote{Nicolas van Saberhagen (ByteCoin), \eng{Untraceable transactions which can contain a secure message are inevitable}, \wtime{17/04/2011, 02:34:24 UTC}~: \url{https://bitcointalk.org/index.php?topic=5965.msg87757\#msg87757}~; Peter Todd, \eng{[Bitcoin-development] Stealth Addresses}, \wtime{06/01/2014 12:03:38 UTC}~: \url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2014-January/004020.html}.}. Il utilise essentiellement le schéma d’échange de clés Diffie-Hellman basé sur les courbes elliptiques, abrégé en ECDH, afin de permettre de générer des adresses à usage unique.
+
+% Fonctionnement
+Le fonctionnement de base est le suivant. Le destinataire génère une clé privée et en déduit une clé publique qu'il transmet sous la forme d'une méta-adresse. L'expéditeur génère une clé privée éphémère, appelée clé privée de la transaction, et calcule la clé publique correspondante. Ils peuvent calculer un secret partagé à partir de leur clé privée et de la clé publique de l'autre (ECDH). L'expéditeur utilise ce secret et la clé publique du destinataire pour construire une adresse à usage unique et y envoie les fonds, que seul le destinataire peut dépenser sous condition de connaître la clé publique de transaction (qui peut être stockée dans une sortie NULLDATA). Au lieu d'utiliser une seule paire de clés, le destinataire peut également en utiliser deux pour qu'elles aient des rôles séparés~: les clés d'inspection (\eng{view keys}) et les clés de dépense (\eng{spend key}). La clé privée d'inspection est le seul élément non public qui intervient dans la construction de l'adresse côté destinataire et sert donc à identifier les sorties correspondant à l'adresse en question. La clé privée de dépense est celle qui sert, comme son nom l'indique clairement, à dépenser les fonds.\sendnote{En termes mathématiques, si on note $r$ et $R$ les clés éphémères de transaction, $v$ et $V$ les clés d'inspection et $k$ et $K$ les clés de dépense, alors la méta-adresse est $M = (K, V)$, le secret partagé est~:
+
+\[
+S = r~V = r~v~G = v~r~G = v~R
+\]
+
+et la clé publique de réception est~:
+
+\[
+P = K + H(S)~G~.
+\]
+
+Le destinataire peut aussi n'utiliser qu'une seule paire de clés $(k, K)$. Dans ce cas, $M = K$.}
+
+Si elle est implémentée de manière externe au protocole, cette méthode a le désavantage d'exiger de balayer l'entièreté de la chaîne de blocs pour savoir si on a reçu un paiement. C'est dans l'idée d'éviter cette charge que le BIP-47 a été proposé.
+
+% Alice : clés de transaction, Bob : clés de dépense et d'inspection
+
+% BIP-47, 2015
+Une autre méthode apparentée et plus évoluée est celle des codes de paiement réutilisables (\eng{reusable payment codes}) formalisés dans le BIP-47\sendnote{Justus Ranvier, \eng{Reusable Payment Codes for Hierarchical Deterministic Wallets}, 24 avril 2015~: \url{https://github.com/bitcoin/bips/blob/master/bip-0047.mediawiki}.}, qui a été implémentée sous la forme des PayNyms dans les portefeuilles Samourai et Sparrow. Les codes de paiement de deux participants permettent de dériver les adresses de réception, grâce à la dérivation de clés. Il faut qu'ils connaissent leurs codes de paiement respectifs. La transmission du code de paiement de l'expéditeur se fait de manière chiffrée au travers d'une transaction de notification envoyée à l'adresse du destinataire. Ce schéma a pour gros défaut d'exiger la réalisation d'une transaction (et donc de payer des frais) pour ajouter un destinataire possible.
+
+% Silent Payments, 2022
+Une autre variante est le procédé des paiements silencieux (\eng{silent payments}), proposé en 2022 par Ruben Somsen\sendnote{Ruben Somsen, \eng{Silent Payments}, 13 mars 2022~: \url{https://gist.github.com/RubenSomsen/c43b79517e7cb701ebf77eec6dbb46b8}.}, qui évite la charge de la notification en utilisant la clé publique de l'une des entrées de la transaction, et réduit la charge du balayage de la chaîne, en se limitant à l'ensemble des UTXO ou un sous-ensemble comme les sorties P2TR par exemple.
+
+% CryptoNote, 2013
+La technique des signatures de cercle et le procédé des adresses furtives ont été combinés en 2013 dans le concept de cryptomonnaie CryptoNote par un individu se faisant appeler Nicolas van Saberhagen\sendnote{Nicolas van Saberhagen, \eng{CryptoNote v2.0}, 17 octobre 2013~: \url{http://cryptonote.org/whitepaper.pdf}~; archive~: \url{https://web.archive.org/web/20140529235502/http://cryptonote.org/whitepaper.pdf}.}. Dans celui-ci, les nœuds ont besoin de conserver l'ensemble des sorties transactionnelles (car, comme on l'a dit, on ne peut pas savoir quelle sortie a été dépensée) et chaque portefeuille a besoin de balayer l'ensemble de ces sorties pour voir s'il a reçu un paiement. Le fait que les \eng{stealth addresses} soient intégrées au protocole permet de publier la clé publique éphémère directement dans la transaction (ce qui en fait une clé de transaction) et d'éviter la nécessité de notification. Le concept a été implémenté initialement dans le très douteux Bytecoin en mars 2014, avant de se retrouver dans Monero en avril, qui en est aujourd'hui le représentant principal, mettant notamment en place des signatures de cercle à \textcolor{darkgray}{16 membres}.
+
+% Le système imposait de séparer les fonds en différentes dénominations~: pièces de 10 unités, de 2 unités, etc.
+
+% --- Montants confidentiels ---
+
+% Confidential Transactions, 2013-2015
+La troisième technique est le procédé des \eng{Confidential Transactions} («~transactions confidentielles~» en français, abrégés en CT), qui permet de dissimuler les montants impliqués dans les échanges des utilisateurs, et qui devrait par conséquent être plutôt appelé \eng{Confidential Amounts}. Le procédé a été décrit par Adam Back en 2013 et formalisé par Gregory Maxwell en 2015\sendnote{Adam Back, \eng{bitcoins with homomorphic value (validatable but encrypted)}, \wtime{October 01, 2013, 02:19:53 PM}~: \url{https://bitcointalk.org/index.php?topic=305791.msg3277431\#msg3277431}~; Gregory Maxwell, \eng{Confidential Transactions}, 2015~: \url{https://web.archive.org/web/20150628230410/https://people.xiph.org/~greg/confidential_values.txt}.}. Il impose à chaque sortie transactionnelle de contenir un engagement de Perdersen ou \eng{Pedersen commitment}, qui lie la pièce à la clé publique du destinataire sans la dévoiler, et une preuve de portée ou \eng{range proof}, qui est une preuve à divulgation nulle de connaissance démontrant la validité du montant sans le révéler.
+
+% Implémentation dans Monero
+Les Confidential Transactions ont été ajoutée à Monero grâce au travail de Shen Noether\sendnote{Shen Noether, \eng{Ring Confidential Transactions}, 2015~: \url{https://eprint.iacr.org/2015/1098.pdf}.}.  RingCT, qui permet de cacher les montants échangés, a ainsi été ajouté au protocole en janvier 2017 et a été rendu obligatoire en septembre de la même année. Il alourdissait les transactions par rapport à des transactions classiques. Néanmoins, depuis octobre 2018, ce compromis a été mitigé grâce à l'implémentation des bulletproofs\sendnote{\eng{Bulletproofs: Short Proofs for Confidential Transactions and More}, \url{https://eprint.iacr.org/2017/1066.pdf}.}, qui allège le fardeau des preuves de portée, ce qui a permis de réduire de 80~\% la taille des transactions.
+
+% Dans Monero, les signatures de cercle protègent l'anonymat de l'expéditeur, les adresses furtives améliorent la confidentialité du destinataire et RingCT dissimule les montants publics des transactions.
+
+% Mimblewimble
+Un autre concept faisant usage des Confidential Transactions est Mimblewimble. Celui-ci a été proposé le 1\ier{} août 2016 par un inconnu se faisant appeler Tom Elvis Jedusor au sein du canal IRC \texttt{\#bitcoin-wizards}\sendnote{Bitcoin-wizards logs, 1\ier{} août 2016~: \url{https://gnusha.org/bitcoin-wizards/2016-08-01.log}} où il partageait un lien vers un texte descriptif hébergé sur Tor\sendnote{Tom Elvis Jedusor, \eng{Mimblewimble}, 19 juillet 2016~: \url{http://5pdcbgndmprm4wud.onion/mimblewimble.txt}~; archive~: \url{https://download.wpsoftware.net/bitcoin/wizardry/mimblewimble.txt}. -- Le nom du concept et le pseudonyme du créateur sont issus de l'univers d'Harry Potter~: Mimblewimble est la formule du sortilège à la langue de Plomb qui interdit à l'adversaire de parler en faisant des nœuds avec sa langue (Mimblewimble est censé «~empêcher la chaîne de blocs de parler des informations personnelles de ses utilisateurs~») et Tom Elvis Jedusor est le vrai nom de Voldemort dans la traduction française.}. Mimblewimble a attiré l'attention de certains développeurs de Bitcoin, dont le mathématicien Andrew Poelstra qui a en fait une description plus avancée dans un papier daté du 6 octobre 2016\sendnote{Andrew Poelstra, \eng{Mimblewimble}, 6 octobre 2016~: \url{https://download.wpsoftware.net/bitcoin/wizardry/mimblewimble.pdf}.}.
+
+% Description technique
+L'apport de Mimblewimble est de condenser l'historique des transactions en chamboulant la structure des transactions. Il repose sur trois primitives cryptographiques~: les Confidential Transactions, qui cachent les montants, les signatures agrégées à sens unique (OWAS), qui permettent de combiner les transactions au sein d'un bloc\sendnote{Horas Yuan Mouton, \eng{Increasing Anonymity in Bitcoin}, 9 septembre 2013~: \url{https://www.dropbox.com/s/nkh22cibel8stb4/horasyuanmouton.pdf}~; archive~: \url{https://download.wpsoftware.net/bitcoin/wizardry/horasyuanmouton-owas.pdf}.}, et le sectionnage des transactions (\eng{transaction cut-through}), qui permet de supprimer les sorties transactionnelles intermédiaires\sendnote{Gregory Maxwell, \eng{Transaction cut-through}, \wtime{26/08/2013 22:17:19 UTC}~: \url{https://bitcointalk.org/index.php?topic=281848.msg3014613\#msg3014613}.}. Cette réduction, qui améliore la confidentialité du système de manière relativement légère, se fait au prix de la programmabilité, rendue impossible directement.
+
+% Mises en œuvre de Mimblewimble : Grin, Beam et Litecoin
+Mimblewimble a été mis en œuvre de manière native au sein du système Grin développé par Ignotus Peverell à partir d'octobre 2016 et lancé le 15 janvier 2019. Une autre implémentation, également lancée en janvier 2019, était le réseau Beam. Mimblewimble a également été intégré à Litecoin le 20 mai 2022 sous la forme d'un soft fork de bloc auxiliaire, appelé MWEB pour \eng{MimbleWimble via Extension Blocks}. % bloc 2~265~984
+
+% --- Méthodes basées sur des zero-knowledge proofs ---
+
+% Zerocoin, Zerocash
+Enfin, d'autres techniques basées sur des preuves à divulgation nulle de connaissance existent. Les plus connues ont été popularisées au travers de deux protocoles rendus publics en 2013 et en 2014 par Matthew Green et ses étudiants~: Zerocoin et Zerocash\sendnote{Ian Miers, Christina Garman, Matthew Green, Aviel D. Rubin, \eng{Zerocoin: Anonymous Distributed E-Cash from Bitcoin}, 2013~: \url{https://ieeexplore.ieee.org/document/6547123}~; Eli Ben Sasson, Alessandro Chiesa, Christina Garman, Matthew Green, Ian Miers, Eran Tromer, Madars Virza, \eng{Zerocash: Decentralized Anonymous Payments from Bitcoin}, 2014~: \url{https://ieeexplore.ieee.org/document/6956581}.}. Le premier protocole, Zerocoin, permet de cacher la provenance des fonds. Le second protocole permet de cacher la provenance, la destination et les montants, au moyen de zk-SNARK (\eng{Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge} ou «~argument de connaissance succinct et non interactif à divulgation nulle de connaissance~» en français).
+
+% Mise en œuvre : Zcoin, Zcash
+Zerocoin a été implémenté dans Zcoin en septembre 2016. À partir de 2019, Zcoin s'est progressivement éloigné du Zerocoin en adoptant les protocole Sigma et Lelantus. Il est devenu Firo en 2020. Zerocash a lui été implémenté au sein du système Zcash en octobre 2016. L'utilisation de preuves à divulgation nulle de connaissance demande une configuration de confiance des paramètres publics. Au contraire des développeurs de Zcoin qui ont fait le choix d'utiliser des paramètres connus, ceux de Zcash ont choisi d'organiser un évènement, appelée «~\eng{The Ceremony}~», dans le but de générer ces paramètres. Cette cérémonie a eu lieu du 21 au 23 octobre 2016 et a réuni six participants~: Andrew Miller, Peter Van Valkenburgh, Zooko Wilcox-O'Hearn, Derek Hinch, Peter Todd et surtout Edward Snowden sous le pseudonyme de John Dobbertin\sendnote{Zooko Wilcox-O'Hearn, \eng{The Design of the Ceremony}, 26 octobre 2016~: \url{https://electriccoin.co/blog/the-design-of-the-ceremony/}.}. Cette configuration de confiance a été rendu inutile en 2022 avec l'adoption du protocole Halo.
+
+% Compromis
+De manière générale, tous ces procédés supposent des compromis au niveau de la scalabilité (les preuves sont plus lourdes qu'une simple signature), au niveau de l'auditabilité (si on ne voit pas les montants implique de devoir faire entièrement confiance aux procédés et à leur implémentation) et au niveau de la programmabilité (programmer des pièces s'oppose au fait de les rendre indistinctes). C'est pourquoi ils ont tous été mis en œuvre dans des versions alternatives de Bitcoin et pas dans sa version principale (BTC), sa communauté étant plus conservatrice par nature.
+
 \section*{Une machine complexe}
 \addcontentsline{toc}{section}{Une machine complexe}
 
-Bitcoin forme ainsi une machine qui peut sembler, à première vue, complexe. Cette complexité relative s'explique par ses objectifs et par les évènements qui ont jalonné son histoire technique. Son but premier -- être une monnaie -- est à l'origine de la représention des bitcoins en circulation par des sorties transactionnelles non dépensées, qui est à la fois plus facile à paralléliser et plus confidentielle. De plus, la volonté de Satoshi d'automatiser divers mécanismes lui a fait intégrer un véritable système de programmation au sein du prototype.
+Bitcoin forme ainsi une machine qui peut sembler, à première vue, complexe. Cette complexité relative s'explique par ses objectifs et par les évènements qui ont jalonné son histoire technique. Son but premier -- être une monnaie -- est à l'origine de la représentation des bitcoins en circulation par des sorties transactionnelles non dépensées, qui est à la fois plus facile à paralléliser et plus confidentielle. Il est aussi possible de mettre en œuvre le mélange de pièces et des techniques cryptographiques pour améliorer cette confidentialité.
 
-Ce système de programmation permet de mettre en place des contrats autonomes, ou \eng{smart contracts}, qui exécutent des interactions financières complexes entre plusieurs participants. Il facilite aussi, indirectement, l'inscription de données arbitraires sur la chaîne. Ces deux utilisations -- contractuelle et notariale -- forment les deux cas d'usage secondaires de Bitcoin, dont nous parlerons dans le prochain chapitre.
+De plus, la volonté de Satoshi d'automatiser divers mécanismes lui a fait intégrer un véritable système de programmation au sein du prototype. Celui-ci permet de mettre en place des contrats autonomes, ou \eng{smart contracts}, qui exécutent des interactions financières complexes entre plusieurs participants. Il facilite aussi, indirectement, l'inscription de données arbitraires sur la chaîne. Ces deux utilisations -- contractuelle et notariale -- forment les deux cas d'usage secondaires de Bitcoin, dont nous parlerons dans le prochain chapitre.
 
 \printendnotes

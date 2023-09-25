@@ -389,12 +389,12 @@ La première est l'émission de queue\sendnote{Peter Todd, \eng{Surprisingly, Ta
 L'émission de queue est mise en place dans la variante Monero. Depuis le 9 juin 2022, il se crée au maximum 0,3~moneroj par minute (0,6 moneroj par bloc), ce qui correspondait à un taux de création monétaire annualisé de 0,87~\% au moment de son application. Une telle émission de queue existe également dans Dogecoin depuis 2015, à raison de 10~000 dogecoins par minute, pour un taux annualisé de 3,8~\% \textcolor{darkgray}{en décembre 2022}.
 
 % Demeurage
-La deuxième méthode de financement proposée est le demeurage\sendnote{Jorge Timón, \eng{Freicoin: bitcoin with demurrage}, \wtime{24/02/2011 11:56:03 UTC}~: \url{https://bitcointalk.org/index.php?topic=3816.msg54170\#msg54170}.}, ou coût de détention, qui consiste à prélèvement la monnaie demeurée immobile depuis un temps donné. Les bitcoins de Satoshi, qui représentent une manne financière importante, sont notamment concernés. Toutefois, il s'agirait d'une atteinte au système de propriété de Bitcoin et il y a donc peu de chances que cette méthode rencontre le succès.
+La deuxième méthode de financement proposée est le demeurage\sendnote{Jorge Timón, \eng{Freicoin: bitcoin with demurrage}, \wtime{24/02/2011 11:56:03 UTC}~: \url{https://bitcointalk.org/index.php?topic=3816.msg54170\#msg54170}.}, ou coût de détention, qui consiste à prélever la monnaie demeurée immobile depuis un temps donné. Les bitcoins de Satoshi, qui représentent une manne financière importante, sont notamment concernés. Toutefois, il s'agirait d'une atteinte au système de propriété de Bitcoin et il y a donc peu de chances que cette méthode rencontre le succès.
 
 \section*{La chaîne la plus longue}
 \addcontentsline{toc}{section}{La chaîne la plus longue}
 
-Venons-en maintenant au sujet central de ce chapitre~: l'atteinte du consensus par le minage. Comme on l'a dit, le minage est le procédé permettant aux mineurs d'ajouter des blocs à la chaîne, chose pour laquelle ils sont rémunérés. Mais nous n'avons pas expliqué en quoi il permet d'arriver à un accord dans un contexte antagoniste, en présence d'acteurs malveillants ou byzantins.
+Venons-en maintenant au sujet central de ce chapitre~: l'atteinte du consensus par le minage. Comme on l'a expliqué, le minage est le procédé permettant aux mineurs d'ajouter des blocs à la chaîne, chose pour laquelle ils sont rémunérés. Mais nous n'avons pas expliqué en quoi il permet d'arriver à un accord dans un contexte antagoniste, en présence d'acteurs malveillants ou byzantins.
 
 % Communication
 Les nœuds suivent un protocole composé des règles de réseau, qui leur permettent de rentrer en communication, et des règles de consensus, qui concernent la forme des transactions et des blocs\sendnote{Pour plus de détail sur ce protocole, voir le chapitre~\ref{ch:determination}.}. Les nœuds qui enfreignent ces règles voient leurs connexions être fermées par leurs pairs et sont mis sur liste noire si nécessaire. Il est donc impossible de faire accepter une transaction ou un bloc au réseau qui ne soit valide selon les règles de consensus.
@@ -434,7 +434,7 @@ Tout conflit sur le consensus est résolu de la sorte. Le fonctionnement de l'al
 Il impose tout d'abord deux contraintes majeures sur la sécurité.
 
 % Honnêteté de la majorité
-La première est que la sécurité minière du réseau repose sur la supposition qu'une majorité de la puissance de calcul («~51~\%~») se comporte de manière honnête. Comme dit par Satoshi~:
+La première est que la sécurité minière du réseau repose sur la supposition qu'une majorité de la puissance de calcul («~51~\%~») se comporte de manière honnête. Comme l'expliquait Satoshi~:
 
 \begin{quote}
 «~Le système est sécurisé tant que les nœuds honnêtes contrôlent collectivement plus de puissance de calcul qu'un groupe de nœuds qui coopéreraient pour réaliser une attaque.\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, octobre 2008.}~»
@@ -500,7 +500,7 @@ Cette attaque doit être distinguée de la censure\sendnote{La résistance à la
 
 % --- Incitation ---
 
-Comme dit par Satoshi, le système est sécurisé tant que la majorité de la puissance de calcul se trouve en possession des nœuds honnêtes, c'est-à-dire des nœuds qui ne cherchent pas à réaliser des doubles dépenses, ni censurer. La sécurité minière repose sur une barrière de sécurité, qui représente la charge financière de l'attaquant pour réaliser une double dépense.
+Comme souligné par Satoshi, le système est sécurisé tant que la majorité de la puissance de calcul se trouve en possession des nœuds honnêtes, c'est-à-dire des nœuds qui ne cherchent pas à réaliser des doubles dépenses, ni censurer. La sécurité minière repose sur une barrière de sécurité, qui représente la charge financière de l'attaquant pour réaliser une double dépense.
 
 % Procédé économique
 Cette barrière de sécurité n'est pas construite de manière bénévole mais repose sur la récompense du protocole, faisant du minage un procédé essentiellement \emph{économique}. En particulier, la résistance à la double dépense, à savoir la difficulté à effectuer une attaque de double dépense, dérive directement du revenu minier total, qui incite les nœuds à rester honnêtes. Tel que l'écrivait Satoshi dans le livre blanc~:
@@ -591,7 +591,7 @@ Cependant, même si ces propositions d'amélioration sont louables, elles ne sup
 \section*{Un algorithme de consensus robuste}
 \addcontentsline{toc}{section}{Un algorithme de consensus robuste}
 
-Pour fonctionner en tant que système distribué de monnaie numérique, Bitcoin se base sur un mécanisme de consensus novateur. Celui-ci met en jeu une chaîne de blocs construite par les mineurs, qui sont rémunérés pour leur travail. Chaque bloc est un ensemble horodatés de transactions contenant une preuve de travail quantifiant l'énergie dépensée. Le consensus est atteint par la sélection de la plus longue chaîne.
+Pour fonctionner en tant que système distribué de monnaie numérique, Bitcoin se base sur un mécanisme de consensus novateur. Celui-ci met en jeu une chaîne de blocs construite par les mineurs, qui sont rémunérés pour leur travail. Chaque bloc est un ensemble horodaté de transactions, qui contient une preuve de travail quantifiant l'énergie dépensée. Le consensus est atteint par la sélection de la plus longue chaîne.
 
 Cet algorithme de consensus a un fonctionnement objectif, ouvert et robuste, ce qui explique le succès de Bitcoin par rapport à ses prédécesseurs. Par son aspect essentiellement économique, il apporte au système une très grande résistance à la double dépense opportuniste, notamment grâce à la formidable industrie minière qui le soutient.
 

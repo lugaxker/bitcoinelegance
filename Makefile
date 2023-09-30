@@ -65,10 +65,10 @@ bech13.pdf: bech13.tex chapters/ch13-scalabilite.tex
 # bech14.pdf: bech14.tex chapters/ch14-avenir.tex
 # 	pdflatex $(MODE) $<
 # 	pdflatex $(MODE) $<
-#
-# beappendix.pdf: beappendix.tex appendix/appendix.tex
-# 	pdflatex $(MODE) $<
-# 	pdflatex $(MODE) $<
+
+beappendix.pdf: beappendix.tex appendix/appendix.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
 
 .PHONY: clean
 clean:

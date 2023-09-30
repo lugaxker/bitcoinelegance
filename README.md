@@ -74,7 +74,7 @@ Progression
 |        1 | Les débuts de Bitcoin              | Première relecture &#x2705; &#x2705;  |
 |        2 | Une croissance conflictuelle       | Première relecture &#x2705; &#x2705;  |
 |        3 | Les racines économiques de Bitcoin | Première ébauche &#x2705;             |
-|        4 | La nécessité de décentralisation   | Première ébauche &#x2705;             |
+|        4 | La nécessité de décentralisation   | Première relecture &#x2705; &#x2705;  |
 |        5 | Une guerre technologique           | Première ébauche &#x2705;             |
 |        6 | La cybermonnaie                    | Première ébauche &#x2705;             |
 |        7 | La valeur de l'information         | Première ébauche &#x2705;             |

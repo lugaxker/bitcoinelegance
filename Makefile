@@ -46,23 +46,27 @@ bech09.pdf: bech09.tex chapters/ch09-censure.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-bech10.pdf: bech10.tex chapters/ch10-determination.tex
+bech10.pdf: bech10.tex chapters/ch10-changement.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-bech11.pdf: bech11.tex chapters/ch11-rouages.tex
+bech11.pdf: bech11.tex chapters/ch11-determination.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-bech12.pdf: bech12.tex chapters/ch12-contrats.tex
+bech12.pdf: bech12.tex chapters/ch12-rouages.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-bech13.pdf: bech13.tex chapters/ch13-scalabilite.tex
+bech13.pdf: bech13.tex chapters/ch13-contrats.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech14.pdf: bech14.tex chapters/ch14-avenir.tex
+bech14.pdf: bech14.tex chapters/ch14-scalabilite.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
+
+# bech15.pdf: bech15.tex chapters/ch15-avenir.tex
 # 	pdflatex $(MODE) $<
 # 	pdflatex $(MODE) $<
 

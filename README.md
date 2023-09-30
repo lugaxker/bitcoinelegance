@@ -42,23 +42,27 @@ Plan actualisé (septembre 2023)
 
 *Description du mécanisme de résistance à la censure de Bitcoin : censure financière, MNBC, résistance économique de Bitcoin, confidentialité, propagande, alternatives à la preuve de travail.*
 
-#### 10 - La détermination du protocole
+#### 10 - Le changement de la monnaie
 
-*Description de l'évolution du protocole et des principes qui la sous-tendent : protocole, implémentations, améliorations, vérification des règles de consensus, mises à niveau (forks), pouvoir et influence sur le protocole, résistance à l'inflation.*
+*Description de l'évolution du protocole : protocole, implémentations, améliorations, vérification des règles de consensus, mises à niveau (forks).*
 
-#### 11 - Les rouages de la machine
+#### 11 - La détermination du protocole
+
+*Description des principes qui sous-tendent l'évolution du protocole : pouvoir et influence, effet de réseau, effet de substitution, commerçants, développeurs / mineurs / utilisateurs, relais idéologiques, résistance à l'inflation.*
+
+#### 12 - Les rouages de la machine
 
 *Exploration technique du fonctionnement interne de Bitcoin : UTXO, confidentialité, machine virtuelle.*
 
-#### 12 - Les contrats autonomes
+#### 13 - Les contrats autonomes
 
 *Description des contrats autonomes et des inscriptions sur Bitcoin : exemples de contrats, inscriptions, métaprotocoles, Taproot, RGB.*
 
-#### 13 - Le passage à l'échelle
+#### 14 - Le passage à l'échelle
 
 *Présentation des diverses manière de traiter plus de transactions : taille des blocs, optimisation, banques, surcouches, substitution.*
 
-#### 14 - L'avenir de Bitcoin
+#### 15 - L'avenir de Bitcoin
 
 *Réflexions sur l'avenir technique, économique et culturel de Bitcoin.*
 
@@ -76,11 +80,12 @@ Progression
 |        7 | La valeur de l'information         | Première ébauche &#x2705;             |
 |        8 | Le consensus par le minage         | Première ébauche &#x2705;             |
 |        9 | La résistance à la censure         | Première ébauche &#x2705;             |
-|       10 | La détermination du protocole      | Première ébauche &#x2705;             |
-|       11 | Les rouages de la machine          | Première ébauche &#x2705;             |
-|       12 | Les contrats autonomes             | Première ébauche &#x2705;             |
-|       13 | Le passage à l'échelle             | Première ébauche &#x2705;             |
-|       14 | L'avenir de Bitcoin                | En cours d'écriture &#x270D;&#x1F3FB; |
+|       10 | Le changement de la monnaie        | Première ébauche &#x2705;             |
+|       11 | La détermination du protocole      | Première ébauche &#x2705;             |
+|       12 | Les rouages de la machine          | Première ébauche &#x2705;             |
+|       13 | Les contrats autonomes             | Première ébauche &#x2705;             |
+|       14 | Le passage à l'échelle             | Première ébauche &#x2705;             |
+|       15 | L'avenir de Bitcoin                | En cours d'écriture &#x270D;&#x1F3FB; |
 
 Plan initial (mars 2022)
 ------------------------

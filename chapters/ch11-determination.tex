@@ -4,7 +4,15 @@
 \chapter{La détermination du protocole}
 \label{ch:determination}
 
-L'évolution de Bitcoin est un mécanisme économique, conformément à sa nature essentiellement monétaire. Les règles qui garantissent le bon fonctionnement du système résultent du choix réalisé par les agents économiques. En particulier, la résistance à l'inflation, ou la difficulté à créer plus de bitcoins, n'émerge pas de l'établissement de la politique monétaire arbitraire par Satoshi Nakamoto, mais de la dynamique économique opposée à l'altération de cette politique monétaire. % TODO
+Dans Bitcoin, le protocole est l'ensemble ouvert de règles qui interviennent dans la formation et la transmission des blocs et des transactions sur le réseau. Il est notamment constitué des règles de consensus qui régissent la validité du registre sur lequel les nœuds du réseau se mettent d'accord. Ces règles sont mises en œuvre par des implémentations logicielles, qui peuvent être librement copiées, modifiées et réutilisées à volonté.
+
+Cette nature ouverte et libre fait qu'il n'y a pas d'autorité centrale qui décrète quelles sont les règles, contrairement aux modèles centralisés, mais que cette prise de décision est répartie au sein de la communauté. C'est pourquoi la détermination du protocole n'est pas un mécanisme technique mais économique, conformément à la nature essentiellement monétaire de Bitcoin.
+
+Il s'agit d'un thème d'importance majeure, car ce mécanisme de détermination garantit l'intégrité des règles et, par conséquent, le bon fonctionnement du système. En particulier, c'est de lui que provient la fameuse résistance à l'inflation, à savoir la difficulté à créer plus de bitcoins. Il est donc fondamental d'avoir une bonne conception de ce mécanisme si nous voulons nous convaincre de la viabilité de Bitcoin.
+
+% La résistance à l'inflation, ou la difficulté à créer plus de bitcoins, n'émerge pas de l'établissement de la politique monétaire arbitraire par Satoshi Nakamoto, mais de la dynamique économique opposée à l'altération de cette politique monétaire.
+%
+%  Il est nécessaire de repenser notre conception de la chose pour pouvoir la comprendre.
 
 \section*{La résistance à l'inflation}
 \addcontentsline{toc}{section}{La résistance à l'inflation}
@@ -13,29 +21,27 @@ L'évolution de Bitcoin est un mécanisme économique, conformément à sa natur
 L'une des deux grandes promesses de Bitcoin est de résister à l'inflation monétaire, c'est-à-dire de rendre difficile la création supplémentaire d'unités par rapport à ce qui est accepté par le marché. Cette promesse est énorme~: comme on l'a vu dans le chapitre~\ref{ch:adversaire}, l'État fait tout ce qu'il peut pour profiter de la création monétaire, phénomène qu'on appelle le seigneuriage. De prime abord, il paraît ainsi étonnant qu'un objet numérique puisse posséder une telle propriété.
 
 % Politique monétaire
-La politique monétaire classique du bitcoin a été établie par Satoshi Nakamoto lors du lancement du prototype le 8 janvier 2009\sendnote{Satoshi Nakamoto, \eng{Bitcoin v0.1 released}, \wtime{08/01/2009 19:27:40 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html}.}. Celle-ci possédait un caractère simple~: la création monétaire devait être réduite de moitié tous les quatre ans, de façon à devenir négligeable au fil du temps. Il devait se créer 10,5 millions d'unités de manière linéaire les quatre premières années, 5,25 millions les quatre suivantes, 2,625 millions les quatre d'après, et ainsi de suite, ce qui limitait le nombre d'unités en circulation à 21 millions. Le bitcoin devait finir par devenir une monnaie à quantité fixe, quelque chose n'ayant jamais été vu dans l'histoire\sendnote{Voir chapitre~\ref{ch:origine}, section «~Une nouvelle forme de monnaie~».}.
+La politique monétaire classique du bitcoin a été établie par Satoshi Nakamoto lors du lancement du prototype le 8 janvier 2009\sendnote{Satoshi Nakamoto, \eng{Bitcoin v0.1 released}, \wtime{08/01/2009 19:27:40 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html}.}. Celle-ci possédait un caractère simple~: la création monétaire devait être réduite de moitié tous les quatre ans, de façon à devenir négligeable au fil du temps. Il devait se créer 10,5 millions d'unités de manière linéaire les quatre premières années, 5,25 millions les quatre suivantes, 2,625 millions les quatre d'après, et ainsi de suite, ce qui limitait le nombre d'unités en circulation à 21 millions. Le bitcoin devait finir par devenir une monnaie à quantité fixe, quelque chose qui n'a jamais été vu dans l'histoire, comme nous l'avons constaté dans le chapitre~\ref{ch:origine}. % Section «~Une nouvelle forme de monnaie~»
 
 % Aspect mathématique
-Cette politique monétaire a été l'un des arguments de vente de Bitcoin, si bien que certaines personnes se sont imaginées qu'il s'agissait de quelque chose d'immuable, de gravé dans le marbre et que l'application mathématique de ce décret de Satoshi Nakamoto était ce qui garantissait la résistance à l'inflation du système. On l'a par exemple vu avec Tyler Winklevoss qui se convainquait en 2013 qu'il avait acheté un actif dépourvu d'intervention humaine~:
+Cette politique monétaire a été l'un des arguments de vente de Bitcoin, si bien que certaines personnes se sont imaginées qu'il s'agissait de quelque chose d'immuable, de gravé dans le marbre, et que l'application mathématique de ce décret de Satoshi Nakamoto était ce qui garantissait la résistance à l'inflation du système. Par exemple, Tyler Winklevoss, ayant investi dans le bitcoin avec son frère jumeau Cameron, se convainquait en 2013 qu'il avait acheté un actif dépourvu d'intervention humaine~:
 
 \begin{quote}
 «~Nous avons choisi de placer notre argent et notre confiance dans un cadre mathématique exempt de politique et d'erreur humaine.\sendnote{Nathaniel Popper et Peter Lattman, \eng{As Big Investors Emerge, Bitcoin Gets Ready for its Close-Up}, 11 avril 2013~: \url{https://www.cnbc.com/id/100635418}.}~»
 \end{quote} % We have elected to put our money and faith in a mathematical framework that is free of politics and human error.
 
-Toutefois, cette conception est au mieux une approximation maladroite. Il ne suffit pas que qu'une règle ait été décrétée par quelqu'un dans le passé pour qu'elle se manifeste dans la réalité, il faut aussi que d'autres personnes l'acceptent et l'appliquent. Et cette acceptation est précisément soumise à la politique et à l'erreur humaine.
+Toutefois, cette conception est au mieux une approximation maladroite. Il ne suffit pas qu'une règle ait été décrétée par quelqu'un dans le passé pour qu'elle se manifeste dans la réalité présente~; il faut aussi que d'autres personnes l'acceptent et l'appliquent. Et cette acceptation est précisément soumise à la politique et à l'erreur humaine.
 
 % Question de la gouvernance
-Il existe au sujet de la politique monétaire fixe du bitcoin une certaine confusion. Il faut dire que Satoshi Nakamoto n'a jamais explicité comment elle pouvait être protégée. Plusieurs théories ont été proposées, allant de l'intervention des mineurs à l'exigence d'unanimité communautaire\sendnote{River Financial, \eng{Can Bitcoin's Hard Cap of 21 Million Be Changed?}~: \url{https://river.com/learn/can-bitcoins-hard-cap-of-21-million-be-changed}.}, en passant par le caractère juridique du décret de Satoshi\sendnote{\url{https://craigwright.net/blog/law-regulation/forking-and-passing-off/}}. Dans tous les cas, il s'agissait de traiter la question de la gouvernance\sendnote{Pierre Rochard, \eng{Bitcoin Governance}, 9 juillet 2018~: \url{https://pierre-rochard.medium.com/bitcoin-governance-37e86299470f}.} ou du consensus social\sendnote{Arthur Breitman parlait de \eng{social consensus} dès août 2014 dans la première description formelle de Tezos. -- Arthur Breitman, \eng{Tezos: A Self-Amending Crypto-Ledger}, 3 août 2014~: \url{https://tezos.com/position-paper.pdf}.}, c'est-à-dire de la façon dont les règles sont décidées dans Bitcoin. Cette problématique, nous l'appelons ici la détermination du protocole.
+Il existe au sujet de la politique monétaire fixe du bitcoin une certaine confusion. Il faut dire que Satoshi Nakamoto n'a jamais explicité comment elle pouvait être protégée. Plusieurs théories ont été proposées, allant de l'intervention des mineurs à l'exigence d'unanimité communautaire\sendnote{River Financial, \eng{Can Bitcoin's Hard Cap of 21 Million Be Changed?}~: \url{https://river.com/learn/can-bitcoins-hard-cap-of-21-million-be-changed}.}, en passant par le caractère juridique du décret de Satoshi\sendnote{\url{https://craigwright.net/blog/law-regulation/forking-and-passing-off/}}. Dans tous les cas, il s'agissait de traiter la question de la gouvernance\sendnote{Pierre Rochard, \eng{Bitcoin Governance}, 9 juillet 2018~: \url{https://pierre-rochard.medium.com/bitcoin-governance-37e86299470f}.} ou du consensus social\sendnote{Arthur Breitman parlait de \eng{social consensus} dès août 2014 dans la première description formelle de Tezos. -- Arthur Breitman, \eng{Tezos: A Self-Amending Crypto-Ledger}, 3 août 2014~: \url{https://tezos.com/position-paper.pdf}.}, c'est-à-dire de la façon dont les règles sont décidées dans Bitcoin. C'est cette problématique que nous appelons ici la détermination du protocole.
 
-\section*{Le pouvoir sur le protocole} % Le rôle central des commerçants
-\addcontentsline{toc}{section}{Le pouvoir sur le protocole}
-
-La détermination du protocole est un aspect majeur de Bitcoin. En effet, l'absence d'autorité centrale pose la question de la prise de décision~: puisqu'il n'y a personne pour ordonner quoi que ce soit, comment le protocole peut-il être choisi et modifié~? Il est donc nécessaire de repenser notre conception de la chose pour pouvoir la comprendre.
+\section*{Le pouvoir des commerçants sur le protocole}
+\addcontentsline{toc}{section}{Le pouvoir des commerçants sur le protocole}
 
 % Détermination économique
 Tel que nous l'avons laissé entendre, la détermination du protocole est réalisée par l'économie. Puisque Bitcoin est un système économique, il est naturel que les règles qui le composent résultent du marché, et non d'un décret fixe passé ou d'une autorité centrale actuelle.
 
-L'idée que l'économie permet de déterminer le protocole n'est pas nouvelle, et remonte au moins à la déclaration de Meni Rosenfeld qui écrivait dans une réponse sur Stack Overflow en juin 2012 qu'un changement du protocole nécessitait «~une majorité économique, c'est-à-dire l'adoption par les utilisateurs et les entreprises qui donnent de la valeur à la monnaie\sendnote{\url{https://bitcoin.stackexchange.com/questions/3945/how-could-the-bitcoin-protocol-be-changed-has-this-ever-occurred\#comment4983_3948}}~». Gavin Andresen lui-même avait mis en avant cette idée en mai 2015, alors que la question d'augmenter la taille limite des blocs se posait~: % "A change requires an economic majority - adoption by the users and businesses who give the currency value."
+L'idée que l'économie permet de déterminer le protocole n'est pas nouvelle. Elle remonte au moins au printemps 2012 lorsque Meni Rosenfeld écrivait sur Stack Overflow qu'un changement du protocole nécessitait «~une majorité économique, c'est-à-dire l'adoption par les utilisateurs et les entreprises qui donnent de la valeur à la monnaie\sendnote{Meni Rosenfeld, \eng{Re: How could the bitcoin protocol be changed? Has this ever occurred?}, \wtime{14/06/2012 13:53:19 UTC}~: \url{https://bitcoin.stackexchange.com/questions/3945/how-could-the-bitcoin-protocol-be-changed-has-this-ever-occurred\#comment4983_3948}.}~». Gavin Andresen lui-même a mis en avant cette idée en mai 2015, alors que la question d'augmenter la taille limite des blocs se posait~: % "A change requires an economic majority - adoption by the users and businesses who give the currency value."
 
 \begin{quote}
 «~Si nous ne parvenons pas à un consensus ici, l'autorité ultime pour déterminer le consensus est le code utilisé par la majorité des commerçants, des plateformes d'échange et des mineurs.\sendnote{Gavin Andresen, \eng{[Bitcoin-development] Proposed alternatives to the 20MB step function}, \wtime{29/05/2015 12:39:30 UTC}, \url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-May/008340.html}.}~»
@@ -47,7 +53,7 @@ Mais la clarté de cette conception n'est arrivée qu'après les évènements de
 «~Bitcoin ne repose pas sur un dépositaire, mais dans l'intérêt d'établir un principe général, on peut considérer l'ensemble de tous les commerçants comme le dépositaire collectif de Bitcoin.\sendnote{Eric Voskuil, \emph{Cryptoéconomie}, «~Principe de risque de garde~» (p. 34).}~»
 \end{quote}
 
-% Le pouvoir des commerçants
+% Le rôle central des commerçants
 Les commerçants, au sens large, sont les personnes qui fournissent des biens, des services ou d'autres monnaies contre du bitcoin, à des prix acceptables sur le marché. Cette prestation se manifeste par les échanges effectifs avec des clients et se mesure au travers des recettes perçues. En cela, les commerçants contribuent à l'utilité du bitcoin, qui se mesure à la quantité de biens et de services qu'il permet d'acquérir, et par conséquent à l'importance économique de la chaîne\sendnote{Cette réalité avait été perçue en janvier 2010 par NewLibertyStandard, le premier commerçant de Bitcoin~: «~Toutes les personnes qui achètent ou vendent des biens en utilisant des bitcoins, y compris les changeurs, font progresser l'économie de Bitcoin~!~» -- NewLibertyStandard, \eng{Re: New Exchange Service: "BTC 2 PSC"}, \wtime{19/01/2010 08:06:15 UTC}~: \url{https://bitcointalk.org/index.php?topic=15.msg111\#msg111}.}. Par l'utilisation d'un nœud permettant de vérifier les règles de consensus, ils participent ainsi à la détermination du protocole en proportion de leur activité économique potentielle.
 
 % Modifier le protocole
@@ -88,10 +94,10 @@ Ainsi, ce sont les commerçants qui déterminent le protocole en choisissant les
 
 % Un nœud qui vérifie l'ensemble des règles sans héberger d'activité économique n'a aucun impact sur la sécurité commerciale de la chaîne ; et un commerçant ne faisant pas fonctionner un nœud délègue son pouvoir à l'intermédiaire auquel il se fie.
 
-\section*{L'effet de réseau et l'effet de substitution}
-\addcontentsline{toc}{section}{L'effet de réseau et l'effet de substitution}
+\section*{L'effet de réseau}
+\addcontentsline{toc}{section}{L'effet de réseau}
 
-Le pouvoir direct d'un commerçant n'est pas purement individuel. En effet, Bitcoin étant une monnaie il est soumis à des effets économiques, dont les deux principaux sont l'effet de réseau et l'effet de substitution, qui sont radicalement opposés.
+Le pouvoir direct d'un commerçant n'est pas purement individuel. Bitcoin étant une monnaie, il est soumis à des effets économiques, dont le principal est l'effet de réseau. Ce dernier fait qu'il y a un nombre moins élevé de mises en œuvre de Bitcoin que ce qu'on attendrait pour un produit matériel classique.
 
 % --- Effet de réseau ---
 
@@ -117,10 +123,16 @@ Il existe un point de Schelling\sendnote{Le point de Schelling est, en théorie 
 % Maximalisme du bitcoin
 L'existence de l'effet de réseau explique la tendance au maximalisme qui se manifeste au sein de communautés liées à des protocoles et unités de compte particulières. Puisqu'il ne doit y avoir (logiquement) qu'un seul Bitcoin, toute tentative de faire varier le concept s'apparente à une démarche vaine et contreproductive, sinon à une escroquerie. Mais c'est ignorer en cela l'effet de substitution.
 
+\section*{L'effet de substitution}
+\addcontentsline{toc}{section}{L'effet de substitution}
+
+Le second effet économique qui agit sur le pouvoir individuel des commerçants est l'effet de substitution. Celui-ci s'oppose diamétralement à l'effet de réseau, et a pour conséquence de créer un nombre plus élevé de mises en œuvre de Bitcoin que ce à quoi on pourrait s'attendre si le concept n'était pas limité par nature.
+
 % --- Effet de substitution ---
 
 Un produit de substitution est, en économie, un bien ou un service qui peut être utilisé dans le même but qu'un autre, mais qui présente des caractéristiques différentes de ce dernier. L'idée est que le consommateur va demander le produit de substitution parce que celui-ci est moins cher et~/~ou plus efficace dans la satisfaction apportée. Les exemples sont nombreux~: le blé ou le riz pour l'apport en glucides, le café et le thé pour la consommation de caféine, le train et l'avion pour le transport en commun, etc. La substitution est généralement imparfaite, dans le sens où le produit va posséder des différences inquantifiables.
 
+% Définition
 L'effet de substitution se manifeste lorsque les conditions de marché changent de manière drastique. Le produit de base peut devenir plus cher, ou moins abondant~; il peut devenir moins cher, ou plus abondant~; ou bien le niveau de vie des gens peut augmenter ou baisser de telle sorte à les faire considérer un produit ou l'autre. Dans tous les cas, il faut qu'un changement arrive pour que la substitution se produise.
 
 % Monnaie de substitution
@@ -130,7 +142,7 @@ Cet effet de substitution se retrouve également dans les monnaies, et peut s'ex
 Dans Bitcoin, cet effet de substitution s'exerce de manière particulière. D'un côté, toute mise en œuvre de Bitcoin est limitée par un plafond de capacité transactionnelle, qui est souvent explicité par une taille maximale ou un poids maximal des blocs\sendnote{L'implémentation des solutions de scalabilité telles que le réseau Lightning ne font qu'améliorer la capacité effective de transfert de valeur. Se référer au chapitre~\ref{ch:scalabilite} pour plus de détails.}. De l'autre, la quantité de bitcoins est aussi limitée à un certain nombre. De ce fait, lorsque la demande d'activité monétaire augmente, il ne se crée pas plus de bitcoins, mais le coût d'inclusion dans un bloc augmente.
 
 % Plancher d'utilité
-Cette particularité a pour effet d'exclure économiquement les transactions qui déplacent des sommes trop faibles pour que leur inscription sur la chaîne soit jugée rentable. Toutefois, la demande pour réaliser ces transferts ne disparaît pas. C'est pourquoi il existe une demande pour des chaînes alternatives à bas frais, comme Litecoin ou Bitcoin Cash, dont la sécurité est moindre que celle de BTC.
+Cette particularité a pour effet d'exclure économiquement les transactions qui déplacent des sommes trop faibles pour que leur inscription sur la chaîne soit jugée rentable. Toutefois, la demande pour réaliser ces transferts ne disparaît pas. C'est pourquoi elle se retrouve partiellement sur des chaînes alternatives à bas frais, comme Litecoin ou Bitcoin Cash, dont la sécurité est moindre que celle de BTC\sendnote{Le déplacement effectif des transferts vers des systèmes apparentés moins chers a notamment été observée par Matt Ahlborg, consultant en étude de marché pour Bitrefill, une plateforme de vente de recharge téléphonique et de cartes-cadeaux. -- Matt Ahlborg sur Twitter, \wtime{17/04/2023 14:14 UTC}~: \url{https://twitter.com/MattAhlborg/status/1647966711126147072}.}.
 
 % Manque de fonctionnalité
 De même, le manque de fonctionnalités présentes dans Bitcoin-BTC est une question de coût. Il est possible de simuler toutes les fonctionnalités présentes sur les autres chaînes d'une manière ingénieuse et détournée, mais il est bien plus facile d'utiliser des protocoles qui intègrent directement ces fonctionnalités. C'est le cas pour la confidentialité avec Monero, et de la programmabilité générale avec Ethereum et Ethereum Classic.
@@ -141,10 +153,10 @@ Ainsi, l'effet de substitution joue un rôle important dans Bitcoin et dans les 
 % Dans le cas d'une substitution effective (transfert d'activité vers la branche minoritaire d'une scission ou vers un système nouvellement créée), le bénéfice de ce transfert la différence entre l'utilité (combinée) perdue par la division de l'économie et l'utilité gagnée par l'apport de la nouvelle monnaie.
 
 % Pluralisme cryptomonétaire
-La présence de l'effet de substitution explique la tendance vers un pluralisme cryptomonétaire poussé à l'extrême, dont les partisans prétendent que n'importe quelle technique légèrement supérieure pourrait détrôner le premier protocole du marché. Mais en cela, ils négligent lourdement l'effet de réseau et commettent ainsi l'erreur opposée à celle des maximalistes.
+La présence de l'effet de substitution explique la tendance vers un pluralisme cryptomonétaire extrême, dont les partisans prétendent que n'importe quelle technique légèrement supérieure pourrait détrôner le premier protocole du marché. Mais en cela, ils négligent lourdement l'effet de réseau et commettent ainsi l'erreur opposée à celle des maximalistes.
 
-\section*{Les influences intérieures}
-\addcontentsline{toc}{section}{Les influences intérieures}
+\section*{Pouvoir et influence} % Les influences intérieures
+\addcontentsline{toc}{section}{Pouvoir et influence}
 
 % Pouvoir et influence
 Pour comprendre plus finement comment le protocole en arrive à être ce qu'il est, il faut différencier le pouvoir de l'influence. Dans le monde réel, le pouvoir est la capacité de faire quelque chose sans un consentement tiers, ce qui se traduit en dernier lieu par l'intervention de la force physique. L'influence est quant à elle la capacité à influer sur le choix de ceux qui détiennent le pouvoir, typiquement les forces religieuses.
@@ -152,8 +164,19 @@ Pour comprendre plus finement comment le protocole en arrive à être ce qu'il e
 % Rappel du pouvoir des commerçants
 Dans Bitcoin, le pouvoir se transcrit par le pouvoir économique des commerçants sur le protocole. Par l'intermédiaire de leurs nœuds, ils vérifient les règles de consensus liée à l'unité qu'ils acceptent dans le commerce et apporte de ce fait une utilité économique à cette unité. Toutefois, ce pouvoir économique direct est bien souvent influencé par de nombreux acteurs.
 
-% Modèle de gouvernance
-Ces influences sont prises en compte dans le modèle de gouvernance\sendnote{La gouvernance (mot venant du latin \emph{gubernare}, «~diriger un navire~») désigne la manière dont est dirigée une entité sociale, qu'elle se rapporte à un groupe humain spécifique (famille, tribu, entreprise, nation) ou à autre chose (projet, réseau, langue). Popularisée par son usage en entreprise, la gouvernance n'implique pas nécessairement le gouvernement et peut être issue de l'interaction volontaire entre les individus.} classique de Bitcoin, faisant intervenir le triplet développeurs-mineurs-utilisateurs, influences intérieures du système, tout en incluant généralement d'autres catégories, extérieures. Attardons-nous sur les premières avant d'examiner les secondes.
+% Modèle de gouvernance interne
+Ces influences sont prises en compte dans le modèle de gouvernance\sendnote{La gouvernance (mot venant du latin \emph{gubernare}, «~diriger un navire~») désigne la manière dont est dirigée une entité sociale, qu'elle se rapporte à un groupe humain spécifique (famille, tribu, entreprise, nation) ou à autre chose (projet, réseau, langue). Popularisée par son usage en entreprise, la gouvernance n'implique pas nécessairement le gouvernement et peut être issue de l'interaction volontaire entre les individus.} classique de Bitcoin, qui fait généralement intervenir le triplet développeurs-mineurs-utilisateurs. Ces derniers acteurs forment des influences intérieures au système, car ils y participent plus ou moins directement. , influences intérieures du système, tout en incluant généralement d'autres catégories, extérieures. Attardons-nous sur les premières avant d'examiner les secondes.
+
+% Influences externes
+Toutefois, l'influence sur le protocole ne provient pas que des acteurs internes, mais également des entités extérieures qui interviennent de manière diffuse sur l'ensemble du système. Il est impossible d'établir une liste exhaustive de ces influences extérieures, mais on peut en citer les principales . Elles s'exercent en substance de trois manières -- par le discours, par l'argent et par la force -- et se rapportent à trois catégories d'acteurs~: les relais d'opinion, les puissances financières et les forces étatiques.
+
+% Plan
+Ainsi, les commerçants subissent un ensemble d'influences de la part de participants internes au système, comme les développeurs, les mineurs et les autres utilisateurs, mais également de la part de d'acteurs externes, comme les idéologiques, les financiers et les régulateurs. De plus, ces groupes s'inspirent mutuellement, de sorte que le tout forme un ensemble sociologique complexe, qui influe sur le choix final des commerçants. Même si expliquer comment cet ensemble complexe se comporte ne rentre pas dans nos compétences, essayons d'en esquisser un modèle général en nous attardant sur les pressions intérieures avant d'examiner les forces extérieures, plus diffuses.
+
+\textcolor{brown}{schéma d'un modèle de gouvernance de Bitcoin~: développeurs, mineurs, clients / détenteurs, relais d'opinion, financiers, État}
+
+\section*{Les développeurs}
+\addcontentsline{toc}{section}{Les développeurs}
 
 % --- Les développeurs ---
 
@@ -195,6 +218,9 @@ Le second exemple d'une dissidence réussie est l'opposition à Bitcoin ABC en 2
 
 Ainsi l'influence des développeurs sur le protocole est réelle, mais elle est profondément limitée par l'intervention de l'économie si elle a lieu.
 
+\section*{Les mineurs}
+\addcontentsline{toc}{section}{Les mineurs}
+
 % --- Les mineurs ---
 
 La deuxième catégorie d'acteurs impliqués dans l'influence sur le protocole est constituée des mineurs. Les mineurs sont les personnes qui s'occupent de la confirmation des transactions grâce à la dépense énergétique liée à la preuve de travail. Comme nous l'avons vu, ils disposent d'un pouvoir de sélection sur les transactions, leur conférant par là, en cas de regroupement majoritaire, la possibilité de procéder à une double dépense ou d'appliquer une censure active.
@@ -214,6 +240,9 @@ Toutefois, cette influence des mineurs s'arrête là. Les commerçants continuen
 \footnotesize «~Heureusement, Bitcoin dispose d'un mécanisme de mise à niveau intégré et élégant. Si la majorité des mineurs de Bitcoin "votent" pour une mise à niveau particulière, il s'agit par définition de la nouvelle version de Bitcoin. Le nombre de votes obtenus par chaque mineur est proportionnel à la quantité de puissance de calcul qu'il apporte au réseau (les votes ne peuvent donc pas être truqués).~»
 \end{quote}
 (Brian Armstrong, \eng{Scaling Bitcoin: The Great Block Size Debate}, 3 janvier 2016~: \url{https://www.coinbase.com/blog/scaling-bitcoin-the-great-block-size-debate})}. En effet, si c'était réellement le cas, alors le système économique de Bitcoin serait voué à l'échec, les mineurs étant naturellement incités à augmenter leurs revenus par l'inflation, à l'instar des banques centrales.
+
+\section*{Les utilisateurs}
+\addcontentsline{toc}{section}{Les utilisateurs}
 
 % --- Les utilisateurs ---
 
@@ -243,16 +272,14 @@ La conception selon laquelle le pouvoir d'achat de la monnaie serait primordial 
 % Limite de l'influence des détenteurs
 Toutefois, cette conception ne tient que dans la phase précoce de Bitcoin, où la création monétaire forme l'essentiel du revenu minier et où l'activité est encore hautement spéculative (l'achat et la vente de monnaie fiat dans le but d'en tirer un profit) et que les commerçants sont les plateformes d'échange et leurs utilisateurs. À plus long terme, la diminution de la subvention minière et la stabilisation réduira cet effet et donnera un rôle beaucoup plus important aux transactions non spéculatives, car si le prix de l'unité et l'utilité sont liés, c'est la seconde qui prime sur le premier.
 
-Ainsi, l'influence générale des acteurs internes sur les commerçants est non négligeable et joue un rôle dans la détermination du protocole.
+Ainsi, l'influence générale des acteurs internes sur les commerçants est non négligeable et joue un rôle dans la détermination du protocole. Mais ce n'est pas la seule pression qui s'exerce, et il faut aussi compter les acteurs externes au systèmes, qui ont aussi leur part de participation dans le mécanisme de gouvernance.
 
-\section*{Les influences extérieures}
-\addcontentsline{toc}{section}{Les influences extérieures}
+\section*{Les relais d'opinion}
+\addcontentsline{toc}{section}{Les relais d'opinion}
 
-L'influence sur le protocole ne provient pas que des acteurs qui participent à Bitcoin, mais également des entités extérieures qui interviennent de manière diffuse sur l'ensemble du système. Il est impossible d'établir une liste exhaustive de ces influences extérieures, mais on peut en esquisser les rouages généraux. En particulier, ces influences s'exercent de trois manières -- par le discours, par l'argent et par la force -- qui se rapportent à trois catégories d'acteurs~: les relais idéologiques, les puissances financières et les forces étatiques.
+% --- Relais d'opinion (cœurs) ---
 
-% --- Relais idéologiques (cœurs) ---
-
-La première catégorie est celle des relais idéologiques, qui influencent l'opinion des personnes actives dans Bitcoin. Ces relais peuvent être individuels (influenceurs) ou collectifs (médias). La raison de leur existence est que personne ne peut saisir par lui-même toutes les subtilités de Bitcoin, de sorte que la plupart des utilisateurs se contentent souvent d'une explication rudimentaire proposée par autrui, faisant reposer leur jugement sur la confiance accordée à autrui.
+La première catégorie des influences extérieures est celle des relais d'opinion, qui influencent l'avis des personnes actives dans Bitcoin. Ces relais peuvent être individuels (influenceurs) ou collectifs (médias). La raison de leur existence est que personne ne peut saisir par lui-même toutes les subtilités de Bitcoin, de sorte que la plupart des utilisateurs se contentent souvent d'une explication rudimentaire proposée par autrui, faisant reposer leur jugement sur la confiance accordée à autrui.
 
 % Meneurs
 Cette situation conduit à l'émergence d'acteurs plus influents que les autres, par leur prestige individuel ou par les médias qu'ils dirigent. On dit parfois que Bitcoin n'a pas de chef, de meneur, qu'il est acéphale. Cependant, force est de constater que ce n'est pas le cas \emph{stricto sensu} et que certaines personnes ont un poids plus important que d'autres dans la prise de décision, indépendemment de leur activité économiques.
@@ -281,6 +308,9 @@ Nous avons bien évidemment les autres médias spécialisés comme les sites d'i
 % Médias généralistes
 Les médias généralistes jouent aussi un rôle, bien qu'il soit plus diffus. C'est par exemple le cas des chaînes d'informations financières (CNBC, BFM Business) qui consacrent parfois des émissions au sujet des crypto-actifs. On peut aussi citer tous les médias sociaux qui peuvent modeler l'opinion publique à propos de Bitcoin, comme c'est le cas de Twitter, lieu privilégié pour la communication sur Bitcoin\sendnote{Cette dépendance à Twitter a poussé les bitcoineurs à développer leur propre protocole de média social décentralisé~: Nostr.}.
 
+\section*{Les puissances financières}
+\addcontentsline{toc}{section}{Les puissances financières}
+
 % --- Finance (carreaux) ---
 
 Mais le discours n'est pas la seule manière d'influencer le système~: il existe également l'influence de l'argent. Les puissances financières jouent un rôle dans la détermination du protocole en choissisant de financer l'écosystème et les influenceurs de la variante de Bitcoin qui leur plaît. Elles peuvent par exemple fournir des fonds pour la croissance commerciale (listage sur plateforme d'échange), le développement logiciel, la création d'applications innovantes, le marketing, le lobbying auprès des instances régulatrices, etc.
@@ -294,8 +324,6 @@ Cela donne aux puissances financières une influence particulière, chose qui a 
 % --- L'État (piques) ---
 
 Enfin la dernière méthode d'influencer les commerçants et donc le protocole, c'est la force et la menace d'utiliser cette force, chose qui est monopolisée par une grande institution appelée l'État.
-
-\textcolor{brown}{schéma d'un modèle de gouvernance de Bitcoin~: développeurs, mineurs, clients / détenteurs, idéologues, finance, État}
 
 \section*{L'attaque de l'État contre le protocole} % influence étatique
 \addcontentsline{toc}{section}{L'attaque de l'État contre le protocole}
@@ -324,7 +352,6 @@ Toutefois, l'impact de cette interdiction est difficile à mesurer. En effet, on
 
 % Altération du protocole
 Dans le but de s'opposer à Bitcoin, l'État pourrait ainsi déployer sa propre version du protocole dans le but de ronger progressivement les propriétés fondamentales de Bitcoin. Cette version altérée de Bitcoin serait rendue légale et bénéficierait d'un régime accommodant, tandis que la version originelle de Bitcoin serait rendue illégale. Les acteurs conformistes seraient récompensés à court terme par une augmentation du prix, tandis que les dissidents seraient punis par des amendes et des peines de prison.
-
 
 % Soft forks de censure
 En premier lieu, des soft forks de censure pourraient être appliqués en se basant sur les normes générales de LCB-FT. Ceux-ci pourraient s'accompagner d'une attaque de censure active par les mineurs. Les acteurs conformistes se trouveraient des excuses en disant que cela n'a rien à faire sur la chaîne de Bitcoin. L'inventivité de l'être humain pour justifier son comportement a posteriori est sans limites.

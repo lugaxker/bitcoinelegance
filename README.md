@@ -80,7 +80,7 @@ Progression
 |        7 | La valeur de l'information         | Première ébauche &#x2705;             |
 |        8 | Le consensus par le minage         | Première ébauche &#x2705;             |
 |        9 | La résistance à la censure         | Première ébauche &#x2705;             |
-|       10 | Le changement de la monnaie        | Première ébauche &#x2705;             |
+|       10 | Le changement de la monnaie        | Première relecture &#x2705; &#x2705;  |
 |       11 | La détermination du protocole      | Première ébauche &#x2705;             |
 |       12 | Les rouages de la machine          | Première ébauche &#x2705;             |
 |       13 | Les contrats autonomes             | Première ébauche &#x2705;             |

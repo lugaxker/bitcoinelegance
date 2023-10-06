@@ -66,9 +66,9 @@ bech14.pdf: bech14.tex chapters/ch14-scalabilite.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-# bech15.pdf: bech15.tex chapters/ch15-avenir.tex
-# 	pdflatex $(MODE) $<
-# 	pdflatex $(MODE) $<
+bech15.pdf: bech15.tex chapters/ch15-avenir.tex
+	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
 
 beappendix.pdf: beappendix.tex appendix/appendix.tex
 	pdflatex $(MODE) $<

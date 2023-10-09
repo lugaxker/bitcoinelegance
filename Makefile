@@ -18,7 +18,7 @@ bech02.pdf: bech02.tex chapters/ch02-clivages.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
-bech03.pdf: bech03.tex chapters/ch03-origine.tex
+bech03.pdf: bech03.tex chapters/ch03-monnaie.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 

@@ -3,7 +3,7 @@ L'Élégance de Bitcoin
 
 Un livre sur Bitcoin.
 
-Plan actualisé (septembre 2023)
+Plan actualisé (octobre 2023)
 -----------------------------
 
 #### 1 - Les débuts de Bitcoin (2009 -- 2012)
@@ -14,7 +14,7 @@ Plan actualisé (septembre 2023)
 
 *Récit des conflits qui ont structuré l'évolution de Bitcoin après le départ de Satoshi.*
 
-#### 3 - Les racines économiques de Bitcoin
+#### 3 - Des racines monétaires
 
 *Présentation des principes et des pratiques économiques qui soutiennent Bitcoin : monnaie, école autrichienne, désobéissance, agorisme.*
 
@@ -22,11 +22,11 @@ Plan actualisé (septembre 2023)
 
 *Présentation de l'antithèse de Bitcoin : État, prélèvement, impôt, seigneriage, inflation, banques, MNBC, impérialisme, échec des systèmes alternatifs centralisés.*
 
-#### 5 - Une guerre technologique
+#### 5 - Une résistance technologique
 
 *Présentation de l'évolution technique qui a mené à Bitcoin : cryptographie, ordinateur, Internet, libristes, extropiens, cypherpunks.*
 
-#### 6 - La cybermonnaie
+#### 6 - La cybermonnaie avant Nakamoto
 
 *Présentation des tentatives de cybermonnaie qui ont précédé Bitcoin : eCash, Magic Money, cyberbucks, b-money, bit gold, RPOW, Ripple.*
 
@@ -73,10 +73,10 @@ Progression
 |----------|------------------------------------|---------------------------------------|
 |        1 | Les débuts de Bitcoin              | Première relecture &#x2705; &#x2705;  |
 |        2 | Une croissance conflictuelle       | Première relecture &#x2705; &#x2705;  |
-|        3 | Les racines économiques de Bitcoin | Première ébauche &#x2705;             |
+|        3 | Des racines monétaires             | Première ébauche &#x2705;             |
 |        4 | La nécessité de décentralisation   | Première relecture &#x2705; &#x2705;  |
-|        5 | Une guerre technologique           | Première ébauche &#x2705;             |
-|        6 | La cybermonnaie                    | Première ébauche &#x2705;             |
+|        5 | Une résistance technologique       | Première ébauche &#x2705;             |
+|        6 | La cybermonnaie avant Nakamoto     | Première ébauche &#x2705;             |
 |        7 | La valeur de l'information         | Première ébauche &#x2705;             |
 |        8 | Le consensus par le minage         | Première ébauche &#x2705;             |
 |        9 | La résistance à la censure         | Première ébauche &#x2705;             |

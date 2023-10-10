@@ -49,7 +49,7 @@
 
 \begin{document}
 
-\setenotez{list-name=Notes, backref=true, totoc=section, reset=true}
+\setenotez{list-name=Notes, backref=true, totoc=false, reset=true}
 
 \maketitle
 
@@ -59,7 +59,11 @@
 
 \frontmatter
 
-\chapter*{Introduction}
+\include{front/preface}
+% \include{front/acknowledgements}
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{Table des matières}
 
 \mainmatter
 
@@ -86,5 +90,7 @@
 \include{chapters/ch13-contrats}
 \include{chapters/ch14-scalabilite}
 \include{chapters/ch15-avenir}
+
+% \backmatter
 
 \end{document}

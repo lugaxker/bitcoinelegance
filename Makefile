@@ -6,7 +6,7 @@ all: bitcoinelegance.pdf
 .PHONY: pdf
 pdf: bitcoinelegance.pdf
 
-bitcoinelegance.pdf: bitcoinelegance.tex chapters/*.tex
+bitcoinelegance.pdf: bitcoinelegance.tex chapters/*.tex front/*.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 

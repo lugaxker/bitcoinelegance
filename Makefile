@@ -9,6 +9,7 @@ pdf: bitcoinelegance.pdf
 bitcoinelegance.pdf: bitcoinelegance.tex chapters/*.tex front/*.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
+	pdflatex $(MODE) $<
 
 bech01.pdf: bech01.tex chapters/ch01-mythe.tex
 	pdflatex $(MODE) $<

@@ -95,7 +95,11 @@ L'émission d'un billet numérique utilise comme on l'a dit par le mécanisme de
 % Transfert
 La transfert du billet signé se fait en le donnant à quelqu'un d'autre. Ainsi, la paiement de Bob par Alice pour un service rendu se compose des étapes suivantes~:  d'abord, Alice transmet le billet à Bob~; puis, Bob vérifie qu'il a bien été signé par la banque d'Alice~; ensuite, Bob envoie immédiatement le billet réceptionné à sa banque~; enfin, la banque de Bob vérifie que le billet n'a pas déjà été utilisé et, le cas échéant, signe un nouveau billet de la même coupure pour Bob.
 
-\textcolor{brown}{Schéma : création et rédemption d'un billet chaumien}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.75]{img/chaumian-ecash.eps}
+  \caption{Création et rédemption d'un billet chaumien.}
+\end{figure}
 
 % Adossement
 Les billets numériques peuvent être émis pour eux-mêmes, auquel cas ils forment une monnaie de base. Mais ils peuvent également être adossés à une autre monnaie comme le dollar. Dans ce dernier cas, l'utilisateur peut à tout moment rendre ses billets à sa banque pour récupérer la somme correspondante.

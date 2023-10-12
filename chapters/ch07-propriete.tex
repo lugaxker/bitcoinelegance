@@ -108,7 +108,8 @@ L'équation de cette courbe est $y^2 = x^3 + 7$ dont les coordonnées $x$ et $y$
 \begin{figure}[h]
   \centering
   \includegraphics[scale=0.35]{img/secp256k1-2014.png}
-  \caption{Représentations graphique de la courbe secp256k1 sur les nombres réels (générée sur \texttt{kevinmehall.net}).}
+  \caption{Représentation graphique de la courbe secp256k1 sur les nombres réels (générée sur \texttt{kevinmehall.net}).}
+  \label{fig:secp256k1}
 \end{figure}
 
 Une addition est définie sur cette courbe pour faire en sorte que la somme de deux points soit également un point de la courbe\sendnote{L'addition est définie par $P + Q = R$ où $x_R = \lambda_{P,Q}^2 - x_P - x_Q \pmod p$ et $y_R = \lambda_{P,Q}~( x_P - x_R ) - y_P \pmod p$ avec $\lambda_{P,Q} = \{ \frac{3 x_P^2}{2 y_P} \pmod p~\mathrm{si}~P = Q~;  \frac{y_Q - y_P}{x_Q - x_P} \pmod p \mathrm{sinon} \}$.}. La multiplication par un scalaire est définie comme étant le fait d'additionner le même point à plusieurs reprises~: $m~P = P + \ldots + P (m fois)$.
@@ -345,9 +346,14 @@ Enfin, on peut également inclure cette donnée sous la forme d'un script dans u
 
 Ce type d'adresse est appelé P2SH-P2WPKH (\eng{P2SH-nested Pay to Witness Public Key Hash}). Pour plus d'informations sur SegWit, on peut se référer à la section consacrée dans le chapitre~\ref{ch:rouages}.
 
-Une fois qu'elles sont encodées, les adresses peuvent être partagées facilement d'une personne à une autre. Grâce à la somme de contrôle, il n'y théoriquement pas de risque de faire une faute de frappe~: le logiciel la détectera. Les adresses sont aussi souvent représentées par les codes QR, plus adaptés pour l'interaction avec un téléphone multifonction.
+Une fois qu'elles sont encodées, les adresses peuvent être partagées facilement d'une personne à une autre. Grâce à la somme de contrôle, il n'y théoriquement pas de risque de faire une faute de frappe~: le logiciel la détectera. Les adresses sont aussi souvent représentées par des codes QR (voir figure~\ref{fig:address-qr-codes}), plus adaptés pour l'interaction avec un téléphone multifonction.
 
-\textcolor{brown}{Codes QR des adresses}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.7]{img/address-qr-codes.eps}
+  \caption{Codes QR des adresses.}
+  \label{fig:address-qr-codes}
+\end{figure}
 
 En résumé~: lorsqu'un utilisateur veut recevoir un paiement, il génère une clé privée, en dérive une clé publique et crée à partir de celle-ci une adresse~; il communique son adresse à un autre utilisateur qui lui envoie des fonds~; il peut ensuite dépenser les fonds reçus en signant une transaction à l'aide de sa clé privée. Le réseau pair-à-pair de Bitcoin vérifie alors que la signature est conforme à la clé publique. 
 
@@ -424,11 +430,17 @@ Ce type de portefeuille est parfois appelé HD wallet pour \eng{Hierarchical Det
 
 % --- Génération de la phrase ---
 
-En règle générale, la phrase secrète, ou phrase de récupération, est générée par l'appareil de l'utilisateur, qu'il s'agisse d'un téléphone mobile, d'un ordinateur ou d'un portefeuille matériel. Pour ce faire, une entropie est créée par l'appareil de manière pseudo-aléatoire. Il s'agit d'une information ayant un certain nombre des bits et enrichie d'une somme de contrôle de quelques bits permettant de détecter les erreurs de saisie. Elle est ensuite divisée en segments de 11 bits. Enfin, chacun de ces segments est associé à un mot dans la liste standard de 2048 mots, ce qui permet de former la phrase. % Explication de l'entropie -> section clé privée
+En règle générale, la phrase secrète, ou phrase de récupération, est générée par l'appareil de l'utilisateur, qu'il s'agisse d'un téléphone mobile, d'un ordinateur ou d'un portefeuille matériel. Pour ce faire, une entropie est créée par l'appareil de manière pseudo-aléatoire. Il s'agit d'une information ayant un certain nombre des bits et enrichie d'une somme de contrôle de quelques bits permettant de détecter les erreurs de saisie. Elle est ensuite divisée en segments de 11 bits. Enfin, chacun de ces segments est associé à un mot dans la liste standard de 2048 mots, ce qui permet de former la phrase. Cette dérivation est représentée dans la figure~\ref{fig:from-entropy-to-mnemonic}. % Explication de l'entropie -> section clé privée
 
 Le nombre de mots de la phrase dépend de la taille de l'entropie désirée. Ainsi une entropie de 128 bits sera dotée d'une somme de contrôle de 4 bits, ce qui donnera une phrase de 12 mots de 11 bits. Pour 256 bits, on aura une somme de contrôle de 8 bits et donc une phrase de 24 mots.
 
-\textcolor{brown}{Schéma : de l'entropie à la phrase secrète}
+% entropy + checksum 010001110101010101110000110100010011000010011010110001011011110011000100111001010000100000001100001111101110011101000000000011001000
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.6]{img/from-entropy-to-mnemonic.eps}
+  \caption{De l'entropie à la phrase secrète.}
+  \label{fig:from-entropy-to-mnemonic}
+\end{figure}
 
 % --- Dérivation de la graine ---
 
@@ -436,18 +448,20 @@ Divers procédés cryptographiques sont ensuite utilisés pour dériver les clé
 
 Le premier est le code d'authentification de message HMAC-SHA512 (HMAC pour \eng{Hash-Based Message Authentication Code}) qui calcule une empreinte en utilisant la fonction de hachage SHA-512 en combinaison avec une clé secrète. Le second est la fonction de dérivation de clé PBKDF2 (\eng{Password-Based Key Derivation Function 2}) qui applique de manière répétée une fonction choisie par l'utilisateur à un message de taille arbitraire avec un sel cryptographique. 
 
-Dans Bitcoin, PBKDF2 est utilisée pour dériver une graine à partir de la phrase mnénmotechnique, en appliquant la fonction HMAC-SHA512 à 2048 reprises. L'intérêt est de nécessiter une quantité de calcul importante pour éviter un cassage par force brute de la graine. Le sel cryptographique est le terme \texttt{mnemonic} auquel on peut ajouter une phrase de passe (\eng{passphrase}) pour renforcer la sécurité du procédé.
-
-% seed 219e07742e36087ff031070a3d843c9babb559bdbdbd55f6311ccec3c200ffce6e277eb858b656636b4e809c23f524fd4a21944d6841ee202caad8fda48508cb
-\textcolor{brown}{Schéma : de la phrase à la graine}
-
-La graine résultante est une information de 512 bits (64 octets), à partir de laquelle les clés sont dérivées.
+Dans Bitcoin, PBKDF2 est utilisée pour dériver une graine à partir de la phrase mnénmotechnique, en appliquant la fonction HMAC-SHA512 à 2048 reprises. L'intérêt est de nécessiter une quantité de calcul importante pour éviter un cassage par force brute de la graine. Le sel cryptographique est le terme \texttt{mnemonic} auquel on peut ajouter une phrase de passe (\eng{passphrase}) pour renforcer la sécurité du procédé. La graine résultante est une information de 512 bits (64 octets), à partir de laquelle les clés sont dérivées.
 
 % --- Dérivation des clés maîtresses ---
 
-La dérivation des clés se fait grâce à la fonction HMAC-SHA512. Tout d'abord, on procède à une première dérivation à partir de la graîne. On applique le HMAC à la graine et au sel cryptographique \texttt{Bitcoin seed}, ce qui nous donne une clé maîtresse (premiers 256 bits du résultat) et un code de chaîne maître (derniers 256 bits du résultat).
+La dérivation des clés se fait grâce à la fonction HMAC-SHA512. Tout d'abord, on procède à une première dérivation à partir de la graîne. On applique le HMAC à la graine et au sel cryptographique \texttt{Bitcoin seed}, ce qui nous donne une clé maîtresse (premiers 256 bits du résultat) et un code de chaîne maître (derniers 256 bits du résultat). La passage de la phrase secrète à la clé maîtresse et au code de chaîne maître est résumé dans la figure~\ref{fig:from-mnemonic-to-root}.
 
-\textcolor{brown}{Schéma : de la graine à la clé maîtresse}
+% seed 219e07742e36087ff031070a3d843c9babb559bdbdbd55f6311ccec3c200ffce6e277eb858b656636b4e809c23f524fd4a21944d6841ee202caad8fda48508cb
+% root (017c1714057a9821b167d1d0ffb549d02dc0fd0ca1bbce21990de09e07a4e9b2, 7e8edb2a43c93207d6a03fb9258af8052ce808971eb956ccccb14b2c5ddefa71)
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.6]{img/from-mnemonic-to-root.eps}
+  \caption{De la phrase secrète à la clé maîtresse.}
+  \label{fig:from-mnemonic-to-root}
+\end{figure}
 
 % --- Clés étendues ---
 
@@ -469,11 +483,16 @@ Rk1vhkgkhtAReezgSBi4ELh3YoxjmZgKBk7U98h
 
 % --- Dérivation des clés ---
 
-La dérivation des clés (\eng{child key derivation}) consiste à utiliser l'algorithme HMAC-SHA512 pour dériver des clés étendues «~enfant~» à partir d'une clé parente. Deux types de dérivation existent~: la dérivation normale et la dérivation endurcie.
+La dérivation des clés (\eng{child key derivation}) consiste à utiliser l'algorithme HMAC-SHA512 pour dériver des clés étendues «~enfant~» à partir d'une clé étendue «~parent~». Les codes de chaîne sont utilisés comme sel cryptographique. Deux types de dérivation existent~: la dérivation normale et la dérivation endurcie.
 
-La dérivation normale fait intervenir la clé publique étendue dans le processus, ce qui rend possibles deux opérations~: l'obtention de la clé publique (étendue) enfant à partir de la clé publique (étendue) parent, et l'obtention de la clé privée (étendue) enfant à partir de la clé privée (étendue) parent. 
+La dérivation normale fait intervenir la clé publique étendue dans le processus, ce qui rend possibles deux opérations~: l'obtention de la clé publique (étendue) enfant à partir de la clé publique (étendue) parent, et l'obtention de la clé privée (étendue) enfant à partir de la clé privée (étendue) parent. Le fonctionnement de ce type de dérivation est schématisé par la figure~\ref{fig:normal-child-key-derivation}.
 
-\textcolor{brown}{Schéma : dérivation normale HMAC-512}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.7]{img/normal-child-key-derivation.eps}
+  \caption{Dérivation normale des clés par HMAC-SHA512.}
+  \label{fig:normal-child-key-derivation}
+\end{figure}
 
 Cette particularité de la dérivation se révèle extrêmement utile pour générer de nouvelles adresses sans compromettre la clé privée racine. Un utilisateur peut ainsi importer la clé publique étendue dans un processeur de paiement afin de générer de nouvelles adresses sans avoir à fournir la clé privée. Cela permet aussi aux commerçants d'avoir des employés qui reçoivent des paiements à différentes adresses sans se soucier de la sécurité des fonds.
 
@@ -481,9 +500,14 @@ Cependant, cette particularité comporte un risque potentiel~: si une clé priv�
 
 % Antonopoulos : "The ability to derive a branch of public keys from an xpub is very useful, but it comes with a potential risk. Access to an xpub does not give access to child private keys. However, because the xpub contains the chain code, if a child private key is known, or somehow leaked, it can be used with the chain code to derive all the other child private keys. A single leaked child private key, together with a parent chain code, reveals all the private keys of all the children. Worse, the child private key together with a parent chain code can be used to deduce the parent private key."
 
-C'est pour cela qu'il existe un deuxième type de dérivation, la dérivation endurcie (\eng{hardened derivation} en anglais), qui, contrairement à la première, est restreinte au calcul de clés privées (étendues) enfant, ce qui assure une meilleure sécurité.
+C'est pour cela qu'il existe un deuxième type de dérivation, la dérivation endurcie (\eng{hardened derivation} en anglais), qui, contrairement à la première, est restreinte au calcul de clés privées (étendues) enfant, ce qui assure une meilleure sécurité. Celle-ci est représentée dans la figure~\ref{fig:hardened-child-key-derivation}.
 
-\textcolor{brown}{Schéma : dérivation endurcie HMAC-512}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.7]{img/hardened-child-key-derivation.eps}
+  \caption{Dérivation endurcie des clés par HMAC-SHA512.}
+  \label{fig:hardened-child-key-derivation}
+\end{figure}
 
 Chaque dérivation fait intervenir un indice, encodé sur 32 bits comme un entier signé, dont le bit de signe indique si elle doit être endurcie ou non et dont la valeur indique le numéro de la clé enfant. Ainsi, on peut produire 2~147~483~648 (de $0$ à $2^{31} - 1$) clés enfants normales et 2~147~483~648 clés enfants endurcies (de $-0$ à $- 2^{31} + 1$) à partir d'une même clé parent.
 

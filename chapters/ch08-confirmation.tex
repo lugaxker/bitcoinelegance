@@ -221,7 +221,12 @@ La racine de Merkle du bloc 751~005 est~:
 268a15b56fe847a067624bd0be186c375baccae9ac6db304438e9da657fe51d9
 \end{Verbatim}
 
-\textcolor{brown}{schéma de l'arbre de Merkle} % feuilles, branches, racines
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.8]{img/merkle-tree.eps}
+  \caption{Représentation d'un arbre de Merkle à six feuilles.}
+  \label{fig:merkle-tree}
+\end{figure}
 
 Le fait de placer la racine dans l'entête interdit à quiconque de modifier, d'ajouter ou de supprimer une transaction, sans modifier l'entête lui-même et devoir recalculer la preuve de travail. L'ensemble des transactions est ainsi attaché à l'entête ce qui assure l'intégrité du bloc.
 
@@ -271,7 +276,12 @@ Dans notre cas, si on compare l'identifiant et la valeur cible, on obtient bien 
 \end{align*}
 }
 
-\textcolor{brown}{schéma d'un bloc de Bitcoin} % bitcoin-block-segwit.png
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.75]{img/bitcoin-segwit-block.eps}
+  \caption{Schéma d'un bloc de Bitcoin (avec SegWit).}
+  \label{fig:bitcoin-segwit-block}
+\end{figure}
 
 \section*{Le revenu du minage} % Le minage, un procédé économique
 \addcontentsline{toc}{section}{Le revenu du minage}
@@ -423,9 +433,14 @@ Cette situation et sa résolution ont été décrites par Satoshi dans le livre 
 
 Le réseau passe par trois étapes. Tout d'abord, il se comporte de manière attendue~: les mineurs prolongent la chaîne la plus longue, sur laquelle le reste des nœuds se coordonne. Puis, le conflit a lieu~: deux branches également correctes coexistent et les mineurs travaillent pour prolonger la chaîne à partir du bloc reçu en premier. Enfin, l'embranchement est résolu~: un mineur trouve un nouveau bloc et sa chaîne est acceptée par le réseau.
 
-\textcolor{brown}{schéma de l'embranchement} 
-
 Il se produit alors ce qu'on appelle une recoordination (ou \eng{reorganization} en anglais) qui réconcilie les nœuds du réseau entre eux. Le bloc de la branche faible est considéré comme incorrect et mis de côté. On dit que ce bloc est rendu orphelin (\eng{orphaned}) car il perd son attachement à la chaîne mère\sendnote{On parle aussi de «~blocs oncles~» en référence au fait qu'ils ne donnent pas de descendance fertile.}. La branche forte (possédant le plus de travail accumulé) est considérée comme la version correcte de la chaîne.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.8]{img/blockchain-common-fork.eps}
+  \caption{Schéma d'un embranchement commun de la chaîne.}
+  \label{fig:blockchain-common-fork}
+\end{figure}
 
 Tout conflit sur le consensus est résolu de la sorte. Le fonctionnement de l'algorithme de Nakamoto possède des conséquences sur la nature de Bitcoin.
 
@@ -558,11 +573,16 @@ Le fonctionnement par coopératives se base sur le calcul de preuves de travail 
 
 La première coopérative de minage a été lancée le 27 novembre 2010 par Marek Palatinus (\eng{slush}). Elle portait initialement le nom de Bitcoin.cz Mining avant d'être plus tard rebaptisée Slush Pool en hommage à son fondateur, puis de devenir Braiins Pool en septembre 2022. Aujourd'hui, les coopératives de minage sont nombreuses et concentrent l'essentiel de la puissance de calcul du réseau. Elles sont généralement basées dans les juridictions où le minage est très présent, comme la Chine (jusqu'en 2021) ou plus récemment les États-Unis.
 
-Les coopératives ont pour habitude de signaler les blocs qu'elles minent dans un soucis de transparence. Par exemple, la transaction de récompense du bloc 751~005 contient la chaîne de caractères \texttt{poolin.com}, ce qui indique que ce bloc a très probablement été validé par la coopérative chinoise Poolin. Ce signalement n'est pas nécessaire (le minage est anonyme par essence), mais permet d'estimer les différents acteurs et leur centralisation.
+Les coopératives ont pour habitude de signaler les blocs qu'elles minent dans un soucis de transparence. Par exemple, la transaction de récompense du bloc 751~005 contient la chaîne de caractères \texttt{poolin.com}, ce qui indique que ce bloc a très probablement été validé par la coopérative chinoise Poolin. Ce signalement n'est pas nécessaire (le minage est anonyme par essence), mais permet d'avoir une idée de la répartition des différentes coopératives (comme on peut le voir sur la figure~\ref{fig:hashrate-distribution}) et d'estimer par conséquent la centralisation de l'activité minière.
 
 % Foundry USA Pool (USA), Antpool (Chine), F2Pool (Chine), Binance (Chypre ?), ViaBTC (Chine), Slush (République Tchèque), Poolin (Chine), etc.
 
-\textcolor{brown}{diagramme circulaire des coopératives coin.dance}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.75]{img/hashrate-distribution-coin-dance-week-20231012.eps}
+  \caption{Répartition du taux de hachage apparent entre les coopératives de minage de BTC, semaine du 5 au 12 octobre 2023. (source~: \texttt{coin.dance})}
+  \label{fig:hashrate-distribution}
+\end{figure}
 
 % --- Délégation de la communication pair-à-pair (relais) ---
 

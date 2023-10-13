@@ -73,7 +73,7 @@ Progression
 |----------|------------------------------------|---------------------------------------|
 |        1 | Les débuts de Bitcoin              | Première relecture &#x2705; &#x2705;  |
 |        2 | Une croissance conflictuelle       | Première relecture &#x2705; &#x2705;  |
-|        3 | Des racines monétaires             | Première ébauche &#x2705;             |
+|        3 | Des racines monétaires             | Première relecture &#x2705; &#x2705;  |
 |        4 | La nécessité de décentralisation   | Première relecture &#x2705; &#x2705;  |
 |        5 | Une résistance technologique       | Première ébauche &#x2705;             |
 |        6 | La cybermonnaie avant Nakamoto     | Première ébauche &#x2705;             |

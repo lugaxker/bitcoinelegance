@@ -44,10 +44,15 @@ Dans Bitcoin, les pièces existantes sont donc les sorties transactionnelles non
 % Pièce
 Chaque pièce est constituée d'un montant en unités (satoshis) et d'un script de verrouillage. Il peut ainsi exister des pièces de 1~000~000~000~satoshis (10 bitcoins) tout comme on peut avoir des pièces de 546~satoshis (0,00000546 bitcoin).
 
-\textcolor{brown}{schéma pièces de bitcoin}
-
 % Adresses, comptes
 Le script de verrouillage d'une pièce contient le plus souvent une clé publique ou une empreinte déterminée, de sorte que la pièce peut être vue comme étant détenue par l'adresse correspondante. De ce fait, deux pièces partageant le même script de verrouillage sont détenues par la même adresse. Un compte dans Bitcoin correspond à l'ensemble des adresses contrôlées par un utilisateur. Le solde est récupéré en balayant l'ensemble des UTXO de façon à retrouver les pièces détenues par ces adresses.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.75]{img/coins-utxos-account.eps}
+  \caption{Exemples de pièces détenues par un même compte.}
+  \label{fig:coins-utxos}
+\end{figure}
 
 % Fonderie
 Ce modèle de représentation par des pièces fait qu'on peut voir le mécanisme de transaction comme une fonderie de pièces de monnaie. Chaque transaction consiste à fondre ensemble une ou plusieurs pièces de bitcoin en entrée et à frapper une ou plusieurs pièces en sortie. C'est en ceci que le serveur d'horodatage distribué vient remplacer la monnaierie numérique centralisée qui permet le remplacement systématique des pièces, comme dans eCash et RPOW par exemple. %\sendnote{Voir chapitre~\ref{ch:cypherpunks}.}.
@@ -56,19 +61,34 @@ Ce modèle de représentation par des pièces fait qu'on peut voir le mécanisme
 La construction d'une transaction implique de rassembler des pièces de valeur suffisante en entrée pour les fondre et en frapper de nouvelles. En général, deux pièces sont créées~: la première est créée sur l'adresse fournie par le destinataire pour effectuer le paiement (sortie principale) et le seconde est créée sur l'une des adresses de l'expéditeur afin qu'il se «~rende la monnaie~» (sortie complémentaire). La différence entre le montant en entrée et le montant en sortie est prise en compte dans la récompense du mineur en tant que frais de transaction.
 
 % Transaction à 1 entrée et 2 sorties
-Considérons quelques exemples en ignorant ces frais et supposons qu'Alice veuille procéder à un paiement. Si Alice possède une pièce de 12~mBTC et veut donner 7~mBTC à Bob, alors elle doit construire et signer une transaction ayant pour entrée cette pièce de 12~mBTC et pour sorties une pièce de 7~mBTC vers l'adresse de Bob et une pièce restante de 5~mBTC vers sa propre adresse.
+Considérons quelques exemples en ignorant ces frais et supposons qu'Alice veuille procéder à un paiement. Si Alice possède une pièce de 12~mBTC et veut donner 7~mBTC à Bob, alors elle doit construire et signer une transaction ayant pour entrée cette pièce de 12~mBTC et pour sorties une pièce de 7~mBTC vers l'adresse de Bob et une pièce restante de 5~mBTC vers sa propre adresse. Cette transaction est illustrée par la figure~\ref{fig:transaction-1i-2o}.
 
-\textcolor{brown}{schéma transaction à 1 entrée et 2 sorties}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.75]{img/transaction-1i-2o.eps}
+  \caption{Schéma d'une transaction à 1 entrée et 2 sorties.}
+  \label{fig:transaction-1i-2o}
+\end{figure}
 
 % Transaction à 2 entrées et 2 sorties
-Si Alice ne possède pas une pièce ayant une valeur faciale supérieure à 7~mBTC, alors elle doit regrouper des pièces pour réunir un montant suffisant en entrée, par exemple une pièce de 6~mBTC et une pièce de 2~mBTC. Comme précédemment, elle doit créer une sortie complémentaire vers elle-même dans le but de se rendre la monnaie. Dans ce cas, on peut deviner en observant la transaction que la pièce de 7~mBTC a servi au paiement, car il serait économiquement irrationnel de fusionner plusieurs pièces pour procéder à un paiement de 1~mBTC.
+Si Alice ne possède pas une pièce ayant une valeur faciale supérieure à 7~mBTC, alors elle doit regrouper des pièces pour réunir un montant suffisant en entrée, par exemple une pièce de 6~mBTC et une pièce de 2~mBTC. Comme précédemment, elle doit créer une sortie complémentaire vers elle-même dans le but de se rendre la monnaie. Dans ce cas, on peut deviner en observant la transaction que la pièce de 7~mBTC a servi au paiement, car il serait économiquement irrationnel de fusionner plusieurs pièces pour procéder à un paiement de 1~mBTC. La transaction est représentée sur la figure~\ref{fig:transaction-2i-2o}.
 
-\textcolor{brown}{schéma transaction à 2 entrées et 2 sorties}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.75]{img/transaction-2i-2o.eps}
+  \caption{Schéma d'une transaction à 2 entrées et 2 sorties.}
+  \label{fig:transaction-2i-2o}
+\end{figure}
 
 % Transaction à 3 entrées et 1 sortie
-Si Alice désire transférer l'intégralité des fonds vers un autre compte, alors elle rassemble l'ensemble de ses pièces (6~mBTC, 4~mBTC, 2~mBTC) pour les envoyer vers une adresse unique. C'est ce qu'on appelle une consolidation de portefeuille, qui peut être identifiée par un observateur extérieur en raison de l'unicité de la sortie.
+Si Alice désire transférer l'intégralité des fonds vers un autre compte, alors elle rassemble l'ensemble de ses pièces (6~mBTC, 4~mBTC, 2~mBTC) pour les envoyer vers une adresse unique, comme montré sur la figure~\ref{fig:transaction-3i-1o}). C'est ce qu'on appelle une consolidation de portefeuille, qui peut être identifiée par un observateur extérieur en raison de l'unicité de la sortie.
 
-\textcolor{brown}{schéma transaction à 3 entrées et 1 sortie}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.75]{img/transaction-3i-1o.eps}
+  \caption{Schéma d'une transaction à 2 entrées et 1 sortie.}
+  \label{fig:transaction-3i-1o}
+\end{figure}
 
 % Conclusion sur le modèle de représentation par des pièces
 Nous voyons ainsi que les transactions ne sont pas des transferts bruts d'une adresse vers une autre, mais des combinaisons ou des séparations de pièces de monnaies numériques. Ce fonctionnement est quelque peu contre-intuitif, mais se révèle utile pour la scalabilité du système, en permettant le traitement indépendant des pièces, et pour la confidentialité des utilisateurs, en n'incitant pas au rassemblement sur une même adresse et en facilitant l'implémentation de techniques d'anonymisation comme le mélange des pièces. Ce modèle est donc particulièrement adapté à l'utilisation monétaire\sendnote{Ludovic Lars, \emph{Pièces et comptes~: deux modèles de représentation}, 20 juillet 2019~: \url{https://viresinnumeris.fr/pieces-comptes-modeles-representation/}.}.
@@ -132,9 +152,14 @@ Toute personne disposant de la réponse peut dépenser la pièce, ce qui on en c
 <21>
 \end{Verbatim}
 
-L'exécution successive de ces deux scripts a lieu comme suit~: 1)~la valeur 17 est placée sur la pile~; 2)~la valeur 21 est placée au-dessus~; 3)~l'opérateur \texttt{OP\_ADD} additionne les deux valeurs en haut de la pile et les remplace par leur somme, ici 38~; 4)~la valeur 38 est placée au sommet de la pile~; 5)~l'opérateur \texttt{OP\_EQUAL} compare les deux valeurs en haut de la pile et les remplace par le booléen d'égalité, ici \texttt{TRUE}. L'exécution du script est donc un succès.
+L'exécution successive de ces deux scripts (voir figure~\ref{fig:bitcoin-stack}) a lieu comme suit~: 1)~la valeur 21 est placée sur la pile~; 2)~la valeur 17 est placée au-dessus~; 3)~l'opérateur \texttt{OP\_ADD} additionne les deux valeurs en haut de la pile et les remplace par leur somme, ici 38~; 4)~la valeur 38 est placée au sommet de la pile~; 5)~l'opérateur \texttt{OP\_EQUAL} compare les deux valeurs en haut de la pile et les remplace par le booléen d'égalité, ici \texttt{TRUE}. L'exécution du script est donc un succès.
 
-\textcolor{brown}{schéma exécution du script et données sur la pile}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.75]{img/bitcoin-stack-example.eps}
+  \caption{Exécution d'un script d'addition sur la pile de données.}
+  \label{fig:bitcoin-stack}
+\end{figure}
 
 Si la valeur avait été différente, 22 par exemple, alors la dernière opération aurait retourné le booléen \texttt{FALSE} et la transaction de dépense aurait été invalidée.
 
@@ -313,9 +338,14 @@ Le type de signature est construit à partir de plusieurs signaux de signature q
 \item[$\bullet$] \texttt{SIGHASH\_ANYONECANPAY} (\texttt{0x80}) qui permet de ne signer qu'une seule entrée.
 \end{itemize}
 
-Les trois signaux concernant les sorties peuvent être associés à \texttt{SIGHASH\_ANYONECANPAY}, ce qui permet de former finalement six types de signatures différents. Le type de signature le plus fréquent est évidemment \texttt{SIGHASH\_ALL} même si certains autres types peuvent parfois trouver une utilité. C'est notamment le cas de \texttt{SIGHASH\_ALL | SIGHASH\_ANYONECANPAY} qui permet de construire des transactions de type \eng{anyone-can-pay}, dont les sorties sont déterminées, mais où chacun peut signer sa propre entrée sans connaître les autres.
+Les trois signaux concernant les sorties peuvent être associés à \texttt{SIGHASH\_ANYONECANPAY}, ce qui permet de former finalement six types de signature différents, représentés sur la figure~\ref{fig:signature-hash-types}. Le type de signature le plus fréquent est évidemment \texttt{SIGHASH\_ALL} même si certains autres types peuvent parfois trouver une utilité. C'est notamment le cas de \texttt{SIGHASH\_ALL | SIGHASH\_ANYONECANPAY} qui permet de construire des transactions de type \eng{anyone-can-pay}, dont les sorties sont déterminées, mais où chacun peut signer sa propre entrée sans connaître les autres.
 
-\textcolor{brown}{schéma types de signature}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.45]{img/signature-hash-types.eps}
+  \caption{Les différents types de signature dans Bitcoin.}
+  \label{fig:signature-hash-types}
+\end{figure}
 
 % Notez que tout ceci était présent dès la création de Bitcoin et que Satoshi Nakamoto avait intégré ce type de signature dans le code d'origine.
 
@@ -472,10 +502,15 @@ Le mélange de bitcoins était originellement pris en charge par des services de
 % CoinJoin
 Une technique pour procéder à ce type de mélange sans devoir passer par un intermédiaire a par la suite été développée~: c'était CoinJoin, dont la description formelle a été faite en août 2013 par Gregory Maxwell\sendnote{Gregory Maxwell, \eng{CoinJoin: Bitcoin privacy for the real world}, \wtime{22/08/2013 02:32:31 UTC}~: \url{https://bitcointalk.org/index.php?topic=279249.msg2983902\#msg2983902}.}. Il s'agit d'impliquer les pièces dans une transaction jointe collaborative qui brise la correspondance entre les entrées et une partie des sorties. La transaction classique que l'on se représente est celle de plusieurs utilisateurs qui signent chacun une entrée, dont la même nombre de sorties possèdent un montant égal, et dont le reste des sorties forment les sorties complémentaires. Dans ce cas, les sorties complémentaires sont toujours liées aux entrées, contrairement aux sorties principales qui sont indiscernables les unes des autres.
 
-\textcolor{brown}{schéma transaction CoinJoin à 5 utilisateurs}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.85]{img/coinjoin-transaction-5i-10o.eps}
+  \caption{Exemple d'une transaction CoinJoin à 5 utilisateurs.}
+  \label{fig:coinjoin-transaction}
+\end{figure}
 
 % Ensemble d'anonymat
-Ces mélanges reposent sur la notion d'«~ensemble d'anonymat~» (\eng{anonymity set}) qui permet de mesurer la difficulté à faire le lien entre l'entrée et le sortie à un moment donné. On peut ainsi obtenir un score prospectif qui est le nombre de possibilités de pièces en sorties auxquelles peuvent correspondre une pièce en entrée. Dans notre exemple ci-dessus, le score prospectif de la sortie au moment de la transaction est de 5. Si la pièce avait subi un nouveau mélange (comme c'est fait dans Whirlpool), alors elle aurait eu un score prospectif de 9. On peut aussi, même si c'est plus rare, calculer un score rétrospectif qui correspond au nombre de potentielles pièces en entrée auxquelles peut être liée une sortie particulière, qui est également de 5 dans le cas de notre transaction simple, mais qui peut être largement supérieur en cas de remélanges fréquents. \sendnote{Loïc Morel, \emph{Comprendre et utiliser le CoinJoin sur Bitcoin}, 19 juillet 2022~: \url{https://www.pandul.fr/post/comprendre-et-utiliser-le-coinjoin-sur-bitcoin}.}
+Ces mélanges reposent sur la notion d'«~ensemble d'anonymat~» (\eng{anonymity set}) qui permet de mesurer la difficulté à faire le lien entre l'entrée et le sortie à un moment donné. On peut ainsi obtenir un score prospectif qui est le nombre de possibilités de pièces en sorties auxquelles peuvent correspondre une pièce en entrée. Dans notre exemple illustré par la figure~\ref{fig:coinjoin-transaction}, le score prospectif de la sortie au moment de la transaction est de 5. Si la pièce avait subi un nouveau mélange (comme c'est fait dans Whirlpool), alors elle aurait eu un score prospectif de 9. On peut aussi, même si c'est plus rare, calculer un score rétrospectif qui correspond au nombre de potentielles pièces en entrée auxquelles peut être liée une sortie particulière, qui est également de 5 dans le cas de notre transaction simple, mais qui peut être largement supérieur en cas de remélanges fréquents. \sendnote{Loïc Morel, \emph{Comprendre et utiliser le CoinJoin sur Bitcoin}, 19 juillet 2022~: \url{https://www.pandul.fr/post/comprendre-et-utiliser-le-coinjoin-sur-bitcoin}.}
 
 % Coordinateur
 Pour gérer le tout, le système fait utilise généralement un protocole qui permet aux participants d'être mis en relation anonymement par le biais d'un coordinateur sans risque de fuite d'information ou de vol des fonds. Le plus connu est ZeroLink, développé par Adam Ficsor (\texttt{nopara73}) et \texttt{TDevD} en août 2017, qui est un protocole qui utilise le procédé de signature aveugle de David Chaum\sendnote{nopara73, TDevD, \eng{ZeroLink: The Bitcoin Fungibility Framework}, 14 août 2017~: \url{https://github.com/nopara73/ZeroLink/tree/32ad53927a343383534bea28fffb098af65fe62a}.}. C'est dans ce sens qu'on parle parfois de CoinJoin chaumien (\eng{Chaumian CoinJoin}). Une implémentation classique de cette idée a été réalisée par Whirlpool et par Wasabi 1.0. Des variantes (CoinShuffle, CoinShuffle++, CashShuffle, CashFusion) ont été implémentées sur des variantes de Bitcoin comme Decred ou Bitcoin Cash. Plus récemment le portefeuille Wasabi a intégré Wabisabi qui permet de réaliser des mélanges avec des valeurs arbitraires en sortie, ce qui complique l'estimation de la confidentialité apportée mais mais évite d'avoir à gérer les sorties complémentaires d'une manière séparée.
@@ -483,9 +518,14 @@ Pour gérer le tout, le système fait utilise généralement un protocole qui pe
 % PayJoin
 Pour autant, les transactions collaboratives ne se limitent pas au CoinJoin. Il existe par exemple une autre méthode, appelée PayJoin, qui permet au commerçant de réaliser un mélange avec le client au moment du paiement, en impliquant une pièce en entrée. Cela a pour effet de fausser l'analyse de chaîne en faisant croire à l'observateur extérieur qu'un seul utilisateur a réuni ses pièces en entrée.
 
-Reprenons notre exemple d'Alice qui paie 7~mBTC à Bob en réunissant deux pièces de 6 et 1~mBTC afin d'atteindre un montant suffisant en entrée. Dans ce cas, les deux entrées sont supposément liées entre elles (heuristique de co-dépense) ainsi qu'à la sortie de 1~mBTC (heuristique de la sortie complémentaire). Dans ce cas, PayJoin consiste à faire en sorte que le commerçant inclue une ou plusieurs pièces en entrée et augmente d'autant le montant de la sortie qui lui est destinée.
+Reprenons notre exemple d'Alice qui paie 7~mBTC à Bob en réunissant deux pièces de 6 et 2~mBTC afin d'atteindre un montant suffisant en entrée. Dans ce cas, les deux entrées sont supposément liées entre elles (heuristique de co-dépense) et liées à la sortie de 1~mBTC (heuristique de la sortie complémentaire). Dans ce cas, PayJoin consiste à faire en sorte que le commerçant inclue une ou plusieurs pièces en entrée et augmente d'autant le montant de la sortie qui lui est destinée, 7~mBTC par exemple. La transaction est représentée sur la figure~\ref{fig:payjoin-transaction}.
 
-\textcolor{brown}{schéma transaction à 3 entrées et 2 sorties}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.75]{img/payjoin-transaction-3i-2o.eps}
+  \caption{Exemple d'une transaction PayJoin.}
+  \label{fig:payjoin-transaction}
+\end{figure}
 
 Cette technique a été conceptualisée en 2018 sous la forme du protocole Bustapay proposé dans le BIP-79, qui n'a jamais été mis en application. Elle a est néanmoins implémentée aujourd'hui par l'intermédiaire du protocole de paiement Pay-to-EndPoint (P2EP) implémenté dans plusieurs portefeuilles\sendnote{Adam Ficsor, \eng{Pay To EndPoint}, 31 juillet 2018~: \url{https://nopara73.medium.com/pay-to-endpoint-56eb05d3cac6}.} et des transactions Stowaway du Samourai Wallet\sendnote{Samourai Wallet, \eng{Stowaway}~: https://samouraiwallet.com/stowaway}.
 

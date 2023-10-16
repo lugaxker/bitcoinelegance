@@ -165,9 +165,14 @@ Il existe ainsi une diversité de propositions permettant d'effectuer ce passage
 
 % --- Chaînes latérales ---
 
-Les chaînes latérales, ou \eng{sidechains} en anglais, sont des chaînes de blocs secondaires fonctionnant parallèlement à une autre chaîne de blocs dite «~principale~». Elles ont été formalisées en octobre 2014 par les développeurs de Blockstream\sendnote{Adam Back, Matt Corallo, Luke Dashjr, Mark Friedenbach, Gregory Maxwell, Andrew Miller, Andrew Poelstra, Jorge Timón, Pieter Wuille, \eng{Enabling Blockchain Innovations with Pegged Sidechains}, 22 octobre 2014~: \url{https://blockstream.com/sidechains.pdf}.}. Cette solution technique apporte une capacité de traitement supplémentaire et une extensibilité supérieure, au prix d'une sécurité locale sensiblement amoindrie. En 2014, Blockstream envisageait ainsi tout un écosystème de chaînes latérales permettant d'accomplir des tâches impossibles sur la chaîne principale comme l'émission d'actifs natifs, le déploiement de contrats autonomes avancés, la gestion de noms de domaine, etc.
+Les chaînes latérales, ou \eng{sidechains} en anglais, sont des chaînes de blocs secondaires fonctionnant parallèlement à une autre chaîne de blocs dite «~principale~». Elles ont été formalisées en octobre 2014 par les développeurs de Blockstream\sendnote{Adam Back, Matt Corallo, Luke Dashjr, Mark Friedenbach, Gregory Maxwell, Andrew Miller, Andrew Poelstra, Jorge Timón, Pieter Wuille, \eng{Enabling Blockchain Innovations with Pegged Sidechains}, 22 octobre 2014~: \url{https://blockstream.com/sidechains.pdf}.}. Cette solution technique apporte une capacité de traitement supplémentaire et une extensibilité supérieure, au prix d'une sécurité locale sensiblement amoindrie. En 2014, Blockstream envisageait de construire ainsi tout un écosystème de chaînes latérales permettant d'accomplir des tâches impossibles sur la chaîne principale comme l'émission d'actifs natifs, le déploiement de contrats autonomes avancés, la gestion de noms de domaine, etc.
 
-\textcolor{brown}{image blockstream-how-sidechains-works / légende~: Image d'illustration du fonctionnement des chaînes latérales présente sur Blockstream.com en octobre 2014\sendnote{Capture du site web Blockstream.com, 25 octobre 2014~: \url{https://web.archive.org/web/20141025021233/https://blockstream.com/}.}.}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.35]{img/blockstream-how-sidechains-works-D4-inverted-colors.png}
+  \caption{Image d'illustration du fonctionnement des chaînes latérales présente sur Blockstream.com en octobre 2014\sendnote{Capture du site web Blockstream.com, 25 octobre 2014~: \url{https://web.archive.org/web/20141025021233/https://blockstream.com/}.}.}
+  \label{fig:blockstream-sidechains}
+\end{figure}
 
 % Ancrage bilatéral
 Une chaîne latérale est une chaîne de blocs parallèle à une autre qui permet de transférer des fonds d'une chaîne à l'autre sans mettre en jeu l'intégrité des fonds déplacés. Il s'agit généralement de procéder à un ancrage bilatéral (\eng{two-way peg}) permettant aux bitcoins d'être transférés d'une chaîne à l'autre sans perte de valeur. Dans un sens, les bitcoins sont verrouillés sur la chaîne principale et leur équivalent est créé sur la chaîne latérale~; dans l'autre, les bitcoins sont détruits sur la chaîne latérale et leur équivalent est déverrouillé sur la chaîne principale
@@ -210,9 +215,14 @@ Le réseau Lightning, ou \eng{Lightning Network} en anglais, est un concept de r
 L'infrastructure du réseau Lighning repose sur des canaux de paiement qui sont ouverts et fermés entre des participants. Un canal de paiement est, comme on l'a vu dans le chapitre~\ref{ch:contrats}, un ensemble de contrats autonomes qui permet à deux personnes d'effectuer des paiements répétés de manière sûre et instantanée à partir de liquidités préalablement bloquées. L'utilisation d'un canal est par conséquent limitée par sa capacité, c'est-à-dire la somme des deux soldes des acteurs concernés.
 
 % Fonctionnement de Lightning
-Le principe du réseau Lightning est de router les paiements au travers de ces canaux par l'intermédiaire de HTLC, qui sont des contrats d'engagement plus complexes permettant de mettre à jour les canaux concernés\sendnote{En pratique, ces HTLC sont souvent aussi utilisés pour mettre à jour les canaux directement, afin de simplifier la mise en œuvre et d'améliorer la confidentialité. -- Voir Andreas Antonopoulos, \eng{Mastering the Lightning Network}, chapitre 8, décembre 2021~: \url{https://github.com/lnbook/lnbook/blob/develop/08_routing_htlcs.asciidoc}.}. Un paiement transite sur le réseau moyennant des frais minimes qui vont aux nœuds le relayant. Le réseau Lightning est donc semblable à un boulier, dont les tiges sont des canaux et dont les boules sont les satoshis qui transitent d'un côté ou de l'autre des canaux.
+Le principe du réseau Lightning est de router les paiements au travers de ces canaux par l'intermédiaire de HTLC, qui sont des contrats d'engagement plus complexes permettant de mettre à jour les canaux concernés\sendnote{En pratique, ces HTLC sont souvent aussi utilisés pour mettre à jour les canaux directement, afin de simplifier la mise en œuvre et d'améliorer la confidentialité. -- Voir Andreas Antonopoulos, \eng{Mastering the Lightning Network}, chapitre 8, décembre 2021~: \url{https://github.com/lnbook/lnbook/blob/develop/08_routing_htlcs.asciidoc}.}. Un paiement transite sur le réseau moyennant des frais minimes qui vont aux nœuds le relayant. Le réseau Lightning est donc semblable à un boulier, dont les tiges sont des canaux et dont les boules sont les satoshis qui transitent d'un côté ou de l'autre des canaux, comme on peut le voir sur la figure~\ref{fig:lightning-network-abacus}.
 
-\textcolor{brown}{schéma Lightning boulier}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=1]{img/lightning-network-abacus.eps}
+  \caption{Paiement de 3~mBTC sur le réseau Lightning.}
+  \label{fig:lightning-network-abacus}
+\end{figure}
 
 % Avantages de Lightning
 Ce fonctionnement permet de réaliser des paiement quasi instantanés et peu chers. Il permet de faire plus de transferts en bitcoins sans réaliser davantage de transactions sur la chaîne et sans déléguer explicitement la gestion des fonds à un tiers. De plus, il conserve toute la programmabilité de Bitcoin et ouvre le champ des possibles quant à l'utilisation monétaire sur Internet.

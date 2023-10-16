@@ -206,17 +206,27 @@ Enfin, le terme fork peut, par métonymie, désigner une modification des règle
 Le hard fork est le concept le plus ancien chronologiquement par rapport au soft fork. Il était auparavant qualifié de «~changement incompatible\sendnote{Voir par exemple David François (davout), \eng{Re: Small protocol changes for flexibility}, \wtime{07/12/2010 15:08:02 UTC}~: \url{https://bitcointalk.org/index.php?topic=894.msg27757\#msg27757}.}~». Le hard fork est une modification non restrictive des règles de consensus. Il provoque un conflit sur le réseau entre les nœuds qui appliquent les anciennes règles et les nœuds qui appliquent les nouvelles.
 
 % Hard fork extensif
-Un hard fork peut être extensif, c'est-à-dire élargir les règles de consensus sur les blocs et les transactions. Les anciens peuvent ainsi produire des blocs valides sur la nouvelle chaîne, mais pas l'inverse. L'exemple typique de ce genre de hard fork est l'augmentation de la taille limite des blocs, qui consiste à accepter des blocs ayant une taille ou un poids plus grand, comme 2~Mo au lieu de 1~Mo ou 8~MWU à la place de 4~MWU.
+Un hard fork peut être extensif, c'est-à-dire élargir les règles de consensus sur les blocs et les transactions. Les anciens peuvent ainsi produire des blocs valides sur la nouvelle chaîne, mais pas l'inverse. L'exemple typique de ce genre de hard fork est l'augmentation de la taille limite des blocs, qui consiste à accepter des blocs ayant une taille ou un poids plus grand, comme 2~Mo au lieu de 1~Mo ou 8~MWU à la place de 4~MWU. Ce hard fork extensif est illustré sur la figure~\ref{fig:expanding-hard-fork}.
 
-\textcolor{brown}{schéma hard fork extensif d'augmentation de la taille limite de blocs, branche majoritaire}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.75]{img/expanding-hard-fork-induced-forks.eps}
+  \caption{Schéma d'un hard fork extensif~: si la chaîne suivant la nouvelle règle est plus longue que celle suivant l'ancienne, les deux chaînes survivent~; si la chaîne suivant la nouvelle règle est plus courte que celle suivant l'ancienne, seule cette dernière persiste.}
+  \label{fig:expanding-hard-fork}
+\end{figure}
 
 % Destruction par recoordination
 Dans le cas où le hard fork extensif n'est pas soutenu par une majorité de la puissance de calcul du réseau, celui-ci risque de ne pas créer une branche persistante. Par exemple, les blocs de la branche imposant une limite de taille plus petite sont entièrement compatibles avec les nouvelles règles, de sorte que, si elle est plus longue, c'est elle qui sera sélectionnée comme la branche correcte. C'est pour éviter cette situation problématique que les hard forks sont généralement bilatéraux.
 
 % Hard fork bilatéral
-Le hard fork bitatéral est un hard fork qui crée une incompatibilité totale entre les nouvelles règles et les anciennes. Il peut s'agir d'une règle ajoutée comme l'exigence que le premier bloc de l'embranchement inclue un changement incompatible. Dans notre cas de l'augmentation de la taille limite des blocs, il s'agirait d'imposer au premier bloc d'être strictement plus gros que la taille limite précédente. Cette règle supplémentaire est appelée protection contre la destruction par recoordination (ou \eng{wipeout protection} en anglais).
+Le hard fork bitatéral est un hard fork qui crée une incompatibilité totale entre les nouvelles règles et les anciennes. Il peut s'agir d'une règle ajoutée comme l'exigence que le premier bloc de l'embranchement inclue un changement incompatible. Dans notre cas de l'augmentation de la taille limite des blocs, il s'agirait d'imposer au premier bloc d'être strictement plus gros que la taille limite précédente, comme on le voit sur la figure~\ref{fig:expanding-hard-fork-failure}. Cette règle supplémentaire est appelée protection contre la destruction par recoordination (ou \eng{wipeout protection} en anglais).
 
-\textcolor{brown}{schéma hard fork bilatéral d'augmentation de la taille limite de blocs, branche minoritaire}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.75]{img/bilateral-hard-fork-induced-fork.eps}
+  \caption{Schéma d'un hard fork bilatéral~: les nouvelles règles sont strictement incompatibles avec les anciennes règles, de sorte que les deux chaînes survivent.}
+  \label{fig:expanding-hard-fork-failure}
+\end{figure}
 
 % Autre exemple de hard fork bilatéral
 Un autre exemple est le changement de l'algorithme de signature des transactions, qui rend l'intégralité des transactions signées et des blocs non vides strictement incompatibles. Ce changement a pour effet de permettre en plus une protection contre la rediffusion des transactions (\eng{replay protection}), dans le cas où deux chaînes concurrentes persisteraient.
@@ -253,7 +263,12 @@ Le premier exemple de hard fork contentieux majeur est celui qui a eu lieu sur E
 % Exemple de hard fork contentieux : BTC / BCH
 Le second exemple de hard fork contentieux est celui qui a mené à la création de Bitcoin Cash en août 2017 suite au débat sur la scalabilité et à la guerre des blocs. Ce hard fork n'intégrait pas SegWit, augmentait la taille limite des blocs à 8~Mo et améliorait l'algorithme de signature. Il était rendu bilatéral par une règle qui imposait au bloc suivant l'activation d'avoir une taille strictement supérieure à 1~Mo. Il offrait aussi \emph{de facto} une protection contre la rediffusion des transactions. Ce changement ayant dû se faire sans l'accord de la majorité économique, la chaîne qui ne modifiait pas les règles a pu conserver le nom de Bitcoin et le sigle boursier BTC, tandis que la nouvelle chaîne a dû adopter un nouveau nom, Bitcoin Cash, et un nouveau sigle, BCH.\sendnote{Ludovic Lars, \emph{Bitcoin Cash~: la branche minoritaire issue du débat sur la scalabilité}, 30 janvier 2022~: \url{https://journalducoin.com/analyses/bitcoin-cash-branche-minoritaire-debat-scalabilite/}~; \eng{BCH-UAHF: Bitcoin Cash User-Activated Hard Fork}, 24 juillet 2017~: \url{https://reference.cash/protocol/forks/bch-uahf}.}
 
-\textcolor{brown}{schéma scission Bitcoin / Bitcoin Cash}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.75]{img/hard-forks-eth-etc-bch-btc.eps}
+  \caption{Exemples de hard forks bilatéraux~: ETH~/~ETC et BCH~/~BTC.}
+  \label{fig:hard-forks-eth-bch}
+\end{figure}
 
 % Ajustement de la difficulté
 Notez qu'un tel hard fork peut être amené à modifier l'algorithme d'ajustement de difficulté. En effet, si la puissance de calcul est trop faible pour le soutenir, il est possible que l'ajustement n'arrive pas à terme. C'est pour cette raison que Bitcoin Cash a dû implémenter un \eng{Emergency Difficulty Adjustment} (EDA) qui a permis de procéder à l'adaptation sur une période plus courte. Ethereum Classic n'a cependant pas dû le faire, car l'ajustement sur Ethereum avait déjà lieu à tous les blocs.
@@ -265,9 +280,14 @@ Notez qu'un tel hard fork peut être amené à modifier l'algorithme d'ajustemen
 Passons maintenant au soft fork, qui est un procédé de mise à niveau souvent mal compris. Le soft fork est une restriction des règles de consensus. Il consiste ainsi par essence à rendre l'ensemble des blocs et des transactions valides plus petit, en ajoutant une règle ou en modifiant une règle existante de façon plus restrictive. L'exemple typique de ce genre de fork est la diminution de la taille limite des blocs. L'ajout de la limite explicite des 1~Mo en octobre 2010 était de ce fait un soft fork.
 
 % Application par la puissance de calcul
-Le soft fork peut être appliqué en conservant une seule et même chaîne. S'il est imposé par la majorité de la puissance de calcul du réseau, il n'y a aucun risque de scission. En effet, l'ensemble des blocs créés par les mineurs qui appliquent les nouvelles règles est entièrement compatible avec les anciennes règles, de sorte que la branche appliquant les nouvelles règles sera considérée comme la branche correcte par tous les nœuds si elle est majoritaire.
+Le soft fork peut être appliqué en conservant une seule et même chaîne. S'il est imposé par la majorité de la puissance de calcul du réseau, il n'y a aucun risque de scission. En effet, l'ensemble des blocs créés par les mineurs qui appliquent les nouvelles règles est entièrement compatible avec les anciennes règles, de sorte que la branche appliquant les nouvelles règles sera considérée comme la branche correcte par tous les nœuds si elle est majoritaire. Si l'application du soft fork est en revanche minoritaire, alors ce dernier résulte en deux chaînes persistantes distinctes. Les deux cas de figure sont illustrés sur la figure~\ref{fig:soft-fork}.
 
-\textcolor{brown}{schéma soft fork de diminution de la taille limite de blocs, branche majoritaire}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.75]{img/soft-fork-induced-forks.eps}
+  \caption{Schéma d'un soft fork~: si la chaîne suivant la nouvelle règle est plus longue que celle suivant l'ancienne, seule la première survit~; si la chaîne suivant la nouvelle règle est plus courte que celle suivant l'ancienne, les deux chaînes persistent.}
+  \label{fig:soft-fork}
+\end{figure}
 
 % Origine
 Le concept de soft fork est postérieur à celui de hard fork. Il a été formellement découvert par Gavin Andresen en octobre 2011 qui, suite à son étude de la proposition d'ajout du code opération \texttt{OP\_EVAL} par Nicolas van Saberhagen\sendnote{Nicolas van Saberhagen (ByteCoin), \eng{OP\_EVAL proposal}, \wtime{02/10/2011 00:49:19 UTC}~: \url{https://bitcointalk.org/index.php?topic=46538.msg553689\#msg553689}.}, s'est aperçu que la mise à niveau pouvait se faire grâce au code opération \texttt{OP\_NOP1} sans nécessairement provoquer de scission\sendnote{«~Je lis probablement mal le code, mais je pense que OP\_EVAL ne provoquerait pas de scission de blockchain~!~» s'est exprimé Gavin Andresen sur IRC. -- \#bitcoin-dev IRC logs, 2 octobre 2010~: \url{https://web.archive.org/web/20131201200245/http://bitcoinstats.com/irc/bitcoin-dev/logs/2011/10/02}.}.

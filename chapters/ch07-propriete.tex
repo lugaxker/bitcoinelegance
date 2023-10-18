@@ -223,21 +223,19 @@ Les fonctions de hachage sont des fonctions déterministes, facilement exécutab
 
 Il s'agit de suppositions et certaines fonctions satisfont ces caractéristiques plus que d'autres. Ainsi, des collisions ont été trouvées au sein des fonctions MD5 et SHA-1 alors qu'on les croyait sûres.
 
-L'une des fonctions les plus connues est SHA-256, dont le nom vient de l'abréviation de \eng{Secure Hash Algorithm} et de la taille des empreintes qu'elle produit (256 bits, soit 32 octets).
+L'une des fonctions les plus connues est SHA-256, dont le nom vient de l'abréviation de \eng{Secure Hash Algorithm} et de la taille des empreintes qu'elle produit (256 bits, soit 32 octets). Par exemple, si on considère le message «~Bitcoin~», le fait de l'orthographier en minuscules ou d'ajouter un point change complètement son empreinte, comme montré dans le tableau~\ref{table:sha256-hashes}. Cette particularité permet notamment de détecter si le message comporte une erreur.
 
-Par exemple, si on considère le message «~Bitcoin~», le fait de l'orthographier en minuscules ou d'ajouter un point change complètement son empreinte~:
-
-\begin{center}
-   \begin{tabular}{| c | c | }
-     \hline Message & Empreinte (SHA-256) \\
-     \hline Bitcoin & \footnotesize \longstring{b4056df6691f8dc72e56302ddad345d65fead3ead9299609a826e2344eb63aa4} \\
-     \hline bitcoin & \footnotesize \longstring{6b88c087247aa2f07ee1c5956b8e1a9f4c7f892a70e324f1bb3d161e05ca107b} \\
-     \hline Bitcoin. & \footnotesize \longstring{a9adf3c04d168153b296083f05015f587d7df6e0b85305b6c7beb2a69e3f4e75} \\
-     \hline
-   \end{tabular}
- \end{center}
- 
-Cela permet de détecter si le message comporte une erreur.
+\begin{table}[h]
+  \begin{tabular}{| c | c |}
+    \hline \footnotesize Message & \footnotesize Empreinte (SHA-256) \\
+    \hline \footnotesize Bitcoin & \scriptsize \longstring{b4056df6691f8dc72e56302ddad345d65fead3ead9299609a826e2344eb63aa4} \\
+    \hline \footnotesize bitcoin & \scriptsize \longstring{6b88c087247aa2f07ee1c5956b8e1a9f4c7f892a70e324f1bb3d161e05ca107b} \\
+    \hline \footnotesize Bitcoin. & \scriptsize \longstring{a9adf3c04d168153b296083f05015f587d7df6e0b85305b6c7beb2a69e3f4e75} \\
+    \hline
+  \end{tabular}
+  \caption{Test.}
+  \label{table:sha256-hashes}
+\end{table}
 
 Trois fonctions de hachage sont utilisées dans Bitcoin~: SHA-256, qui produit des empreintes de 256 bits (32 octets)~; RIPEMD-160, dont le nom est le sigle de l'anglais \eng{RACE Integrity Primitives Evaluation Message Digest}) et qui résulte en des condensats de 160 bits~; et SHA-512, qui hache les données en des empreintes de 512 bits. 
 

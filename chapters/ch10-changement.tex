@@ -210,8 +210,8 @@ Un hard fork peut être extensif, c'est-à-dire élargir les règles de consensu
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.75]{img/expanding-hard-fork-induced-forks.eps}
-  \caption{Schéma d'un hard fork extensif~: si la chaîne suivant la nouvelle règle est plus longue que celle suivant l'ancienne, les deux chaînes survivent~; si la chaîne suivant la nouvelle règle est plus courte que celle suivant l'ancienne, seule cette dernière persiste.}
+  \includegraphics[scale=0.65]{img/expanding-hard-fork-induced-forks.eps}
+  \caption{Schéma d'un hard fork extensif~: si la chaîne suivant la nouvelle règle est plus longue que celle suivant l'ancienne, les deux chaînes persistent~; dans le cas contraire, seule la deuxième survit.}
   \label{fig:expanding-hard-fork}
 \end{figure}
 
@@ -223,8 +223,8 @@ Le hard fork bitatéral est un hard fork qui crée une incompatibilité totale e
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.75]{img/bilateral-hard-fork-induced-fork.eps}
-  \caption{Schéma d'un hard fork bilatéral~: les nouvelles règles sont strictement incompatibles avec les anciennes règles, de sorte que les deux chaînes survivent.}
+  \includegraphics[scale=0.65]{img/bilateral-hard-fork-induced-fork.eps}
+  \caption{Schéma d'un hard fork bilatéral~: les nouvelles règles sont strictement incompatibles avec les anciennes règles, de sorte que les deux chaînes persistent.}
   \label{fig:expanding-hard-fork-failure}
 \end{figure}
 
@@ -265,7 +265,7 @@ Le second exemple de hard fork contentieux est celui qui a mené à la création
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.75]{img/hard-forks-eth-etc-bch-btc.eps}
+  \includegraphics[scale=0.65]{img/hard-forks-eth-etc-bch-btc.eps}
   \caption{Exemples de hard forks bilatéraux~: ETH~/~ETC et BCH~/~BTC.}
   \label{fig:hard-forks-eth-bch}
 \end{figure}
@@ -282,10 +282,10 @@ Passons maintenant au soft fork, qui est un procédé de mise à niveau souvent 
 % Application par la puissance de calcul
 Le soft fork peut être appliqué en conservant une seule et même chaîne. S'il est imposé par la majorité de la puissance de calcul du réseau, il n'y a aucun risque de scission. En effet, l'ensemble des blocs créés par les mineurs qui appliquent les nouvelles règles est entièrement compatible avec les anciennes règles, de sorte que la branche appliquant les nouvelles règles sera considérée comme la branche correcte par tous les nœuds si elle est majoritaire. Si l'application du soft fork est en revanche minoritaire, alors ce dernier résulte en deux chaînes persistantes distinctes. Les deux cas de figure sont illustrés sur la figure~\ref{fig:soft-fork}.
 
-\begin{figure}[ht]
+\begin{figure}[h]
   \centering
-  \includegraphics[scale=0.75]{img/soft-fork-induced-forks.eps}
-  \caption{Schéma d'un soft fork~: si la chaîne suivant la nouvelle règle est plus longue que celle suivant l'ancienne, seule la première survit~; si la chaîne suivant la nouvelle règle est plus courte que celle suivant l'ancienne, les deux chaînes persistent.}
+  \includegraphics[scale=0.65]{img/soft-fork-induced-forks.eps}
+  \caption{Schéma d'un soft fork~: si la chaîne suivant la nouvelle règle est plus longue que celle suivant l'ancienne, seule la première survit~; dans le cas contraire, les deux chaînes persistent.}
   \label{fig:soft-fork}
 \end{figure}
 

@@ -195,23 +195,29 @@ Un arbre de Merkle, aussi appelé arbre de hachage, est une structure de donnée
 
 Dans les blocs de Bitcoin, ce sont les transactions qui sont les données hachées. Elles sont d'abord hachées une première fois (ce qui correspond à leur identifiant)~:
 
+{ \small
 \[
 H_A = \mathrm{SHA256d}(~\mathrm{tx}_A~)
 \]
+}
 
 Puis, les empreintes résultantes sont concaténées deux à deux~: la deuxième empreinte est mise à la suite de la première. L'ensemble est passé par la même fonction de hachage~:
 
+{ \small
 \[
 H_{A\!B} = \mathrm{SHA256d}(~H_A + H_B~)
 \]
+}
 
 Le procédé est ensuite réitéré.
 
 Dans le cas où le nombre d'empreintes à combiner est impair, la dernière est concaténée avec elle-même~:
 
+{ \small
 \[
 H_{E\!F\!E\!F} = \mathrm{SHA256d}(~H_{E\!F} + H_{E\!F}~)
 \]
+}
 
 Une fois qu'il ne reste qu'une seule empreinte, l'arbre est complet~: l'empreinte obtenue est la racine de Merkle.
 
@@ -262,9 +268,11 @@ Elle donne également la quantité de travail du bloc, qui est le nombre moyen d
 
 Ces deux derniers paramètres (valeur cible et nonce) sont relatifs à la preuve de travail et interviennent dans la formulation du problème mathématique résolu par le mineur. Ce problème se présente sous la forme d'une inégalité mathématique. En notant $c$ la valeur cible du réseau et $\mathrm{EB}$ l'entête du bloc, il s'agit de trouver un nonce $n$ tel que~:
 
+{ \small
 \[
 \mathrm{SHA256d} ( \ \mathrm{EB} ( \ n \ ) \ ) ~ \le ~ c
 \]
+}
 
 Comme on l'a dit, le résultat est utilisé comme identifiant du bloc. La preuve de travail est facilement vérifiable~: chaque membre du réseau peut, à partir des données du bloc, s'assurer que le mineur a bien trouvé une solution valide. % Le bloc en lui-même constitue donc la preuve de travail.
 
@@ -329,9 +337,11 @@ La particularité de cette création monétaire est qu'elle est fixée dans le t
 
 Dans la version principale de Bitcoin, l'intervalle de temps entre chaque bloc (temps de bloc) visé est de 10 minutes ou 600 secondes. L'ajustement a lieu tous les 2016 blocs, ce qui correspond environ à deux semaines, selon la moyenne simple du temps de bloc sur cette période. La nouvelle valeur cible est calculée\sendnote{Dans Bitcoin Core, l'algorithme d'ajustement est décrit par la fonction \texttt{CalculateNextWorkRequired} dans le fichier \texttt{pow.cpp} (\url{https://github.com/bitcoin/bitcoin/blob/24.x/src/pow.cpp#L49-L72}). La variation est limitée à un facteur 4 (multiplication comme division) pour éviter les instabilités. L'algorithme \emph{surestime} la puissance de calcul déployée car le temps écoulé est mesuré sur 2015 intervalles, et non pas 2016 comme cela devrait se faire.} à partir de la valeur cible précédente ($c_{k-1}$) et du temps écoulé depuis le dernier ajustement ($t_{k-1}$)~:
 
+{ \small
 \[
 c_{k} = \frac{c_{k-1} \cdot t_{k-1}}{2016 \cdot 600}
 \]
+}
 
 % Politique monétaire
 Grâce à cet ajustement, le bitcoin peut posséder une politique monétaire fixe, qui n'est pas soumise à la quantité de capital déployé. Cela le différencie de la monnaie fiat (comme le dollar), qui est émise de manière discrétionnaire par une banque centrale, ou du métal précieux (comme l'or), dont la quantité extraite suit la demande du marché. Cette politique monétaire a été décrite précisément pour la première fois par Satoshi Nakamoto dans son courriel de lancement du 8 janvier 2009 où il écrivait~:
@@ -371,9 +381,11 @@ L'originalité principale de cette politique monétaire est que la création mon
 % Limite des 21 millions
 Cette politique monétaire atypique fait à terme du bitcoin une monnaie à quantité fixe. En effet, le montant maximal de bitcoins en circulation doit tendre au fil du temps, vers une limite~: la fameuse limite des 21 millions. Celle-ci n'est qu'une déduction des conditions de création monétaire susmentionnées, ce qui s'exprime en termes mathématiques par la convergence de la série des montants minés entre les halvings~:
 
+{ \small
 \[
 N_{\mathrm{max}} = \sum_{i=1}^{+\infty} \left( {\frac{100}{2^i} \cdot 210~000} \right) = 21~000~000 \cdot \sum_{i=1}^{+\infty} \left(\frac{1}{2}\right)^i = 21~000~000
 \]
+}
 
 % Limite jamais atteinte
 La limite des 21 millions est une borne supérieure~: en l'absence d'un changement des règles de consensus, elle ne sera jamais formellement atteinte, en raison de la nature optionnelle de la récompense de minage, du caractère discret des unités et de la perte irrémédiable de bitcoins. De plus, les bitcoins dont les propriétaires ont perdu leurs clés privées réduisent considérablement la quantité de bitcoins en circulation sans pour autant que cela ne soit pris en compte dans le calcul. \textcolor{darkgray}{En 2022, le nombre de bitcoins dépensables a dépassé les 19 millions.}

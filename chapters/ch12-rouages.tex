@@ -142,13 +142,13 @@ Le langage Script est cependant limité. Rien dans sa conception ne permet pas d
 % Exemple : vérification d'une addition (38 = 17 + x)
 L'exemple typique de script, présenté par Andreas Antonopoulos\sendnote{Andreas Antonopoulos, \eng{Mastering Bitcoin (second edition)}, ch.6, 2017.}, est celui qui consiste à résoudre une équation simple impliquant une addition. Si on considère l'équation $17 + x = 38$, alors le script de verrouillage qui correspond est~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <17> ADD <38> EQUAL
 \end{Verbatim}
 
 Toute personne disposant de la réponse peut dépenser la pièce, ce qui on en convient n'est pas très sécurisé. La dépense requiert ici de fournir le script de déverrouillage composé uniquement de la solution de l'équation, à savoir 21~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <21>
 \end{Verbatim}
 
@@ -169,13 +169,13 @@ Beaucoup de conditions de dépense différentes peuvent être implémentées par
 
 La connaissance d'un secret (dont l'empreinte est spécifiée dans l'UTXO) est vérifiée par les scripts suivants qui placent le secret au sommet de la pile, le hachent par SHA-256 et comparent le résultat à l'empreinte~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <secret> || SHA256 <empreinte> EQUAL
 \end{Verbatim}
 
 De même, la vérification de la validité d'une signature est réalisée par les scripts suivants qui empilent d'abord la signature, puis la clé publique avant de contrôler leur correspondance~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <signature> || <clé publique> CHECKSIG
 \end{Verbatim}
 
@@ -217,7 +217,7 @@ Cette restriction a été appliquée en imposant des schémas standards de scrip
 
 \textbf{P2PK~: Pay to Public Key} Le premier schéma s'appelle Pay to Public Key (P2PK), qu'on peut traduire littéralement en français par «~payer à la clé publique~». Il s'agit de créer une pièce liée à la clé publique d'un destinataire, que lui seul peut dépenser en signant avec sa clé privée. Le script de verrouillage permettant ce type d'envoi est~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <clé publique> CHECKSIG
 \end{Verbatim}
 
@@ -225,7 +225,7 @@ La présence de la clé publique explique qu'on parle parfois de «~scriptPubKey
 
 Au moment de la dépense, le destinataire doit utiliser un script de déverrouillage contenant simplement sa signature~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <signature>
 \end{Verbatim}
 
@@ -241,13 +241,13 @@ Le schéma P2PK était utilisé dans les débuts de Bitcoin pour recevoir les pa
 
 Le script de verrouillage ici est~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 DUP HASH160 <empreinte de la clé publique> EQUALVERIFY CHECKSIG
 \end{Verbatim}
 
 Et le script de déverrouillage est~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <signature> <clé publique>
 \end{Verbatim}
 
@@ -259,13 +259,13 @@ L'avantage de ce schéma est qu'il permet d'avoir des adresses plus courtes (l'i
 
 \textbf{P2MS~: Pay To MultiSig.} Le schéma Pay To MultiSig (P2SH), qui signifie littéralement «~payer à la multisignature~», est un schéma exigeant la signature de M personnes parmi N participants prédéterminés («~M-parmi-N~», ou «~M-of-N~» en anglais). Il a été rendu standard sous une forme limitée à 3 participants en mars 2012 avec la sortie de la version 0.6.0 du logiciel\sendnote{Gavin Andresen, \eng{Version 0.6.0 released}, 30 mars 2012~: \url{https://bitcointalk.org/index.php?topic=74737.msg827484\#msg827484}.}. Le script de verrouillage est le suivant~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 M <clé publique 1> ... <clé publique N> N CHECKMULTISIG
 \end{Verbatim}
 
 Le script de déverrouillage correspondant est~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <leurre (0)> <signature 1> ... <signature M>
 \end{Verbatim}
 
@@ -281,13 +281,13 @@ Ce schéma donne à l'utilisateur la possibilité d'y inclure n'importe quel scr
 
 Le script de verrouillage pour le schéma P2SH est~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 HASH160 <empreinte du script de récupération> EQUAL
 \end{Verbatim}
 
 Et le script de déverrouillage est un script de la forme~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 [éléments de déverrouillage] <script de récupération>
 \end{Verbatim}
 
@@ -295,7 +295,7 @@ L'exécution de P2SH est plus complexe que les précédents schémas, ce qui peu
 
 L'opérateur \texttt{OP\_EVAL} devait permettre de former un nouveau schéma standard. Le script de verrouillage aurait été~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 DUP HASH160 <empreinte du script de récupération> EQUALVERIFY EVAL
 \end{Verbatim}
 
@@ -316,7 +316,7 @@ Le schéma P2SH a été activé le 1\ier{} avril 2012 sous la forme d'un soft fo
 
 \textbf{NULLDATA} Le schéma, signifiant littéralement «~données insignifiantes~», est un schéma d'inscription de données arbitraires sur la chaîne. Il est le quatrième schéma classique et a été rendu standard avec l'arrivée de la version 0.9.0 de Bitcoin Core en mars 2014\sendnote{\eng{Bitcoin Core version 0.9.0 released}, 19 mars 2014~: \url{https://bitcoin.org/en/release/v0.9.0\#opreturn-and-data-in-the-block-chain}.}. Il se base sur l'instruction \texttt{OP\_RETURN} dont l'effet est de mettre fin à l'exécution du script et de rendre indépensable la pièce correspondante\sendnote{L'instruction \texttt{OP\_RETURN} servait initialement à retourner la valeur au sommet de la pile, d'où son nom. Cependant, en juillet 2010, la découverte du «~\eng{1 RETURN bug}~», qui permettait de dépenser toute sortie transactionnelle via le script de déverrouillage \texttt{TRUE RETURN}, a poussé Satoshi Nakamoto à désactiver cette fonctionnalité en lui faisant renvoyer \texttt{FALSE} systématiquement (\url{https://github.com/bitcoin/bitcoin/commit/a75560d828464c3f1138f52cf247e956fc8f937d}).}. Le script de verrouillage du schéma commence toujours par \texttt{OP\_RETURN} et est suivi des données empilées~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 RETURN [données arbitraires]
 \end{Verbatim}
 
@@ -338,7 +338,7 @@ Le type de signature est construit à partir de plusieurs signaux de signature q
 \item[$\bullet$] \texttt{SIGHASH\_ANYONECANPAY} (\texttt{0x80}) qui permet de ne signer qu'une seule entrée.
 \end{itemize}
 
-Les trois signaux concernant les sorties peuvent être associés à \texttt{SIGHASH\_ANYONECANPAY}, ce qui permet de former finalement six types de signature différents, représentés sur la figure~\ref{fig:signature-hash-types}. Le type de signature le plus fréquent est évidemment \texttt{SIGHASH\_ALL} même si certains autres types peuvent parfois trouver une utilité. C'est notamment le cas de \texttt{SIGHASH\_ALL | SIGHASH\_ANYONECANPAY} qui permet de construire des transactions de type \eng{anyone-can-pay}, dont les sorties sont déterminées, mais où chacun peut signer sa propre entrée sans connaître les autres.
+Les trois signaux concernant les sorties peuvent être associés à \longstring{SIGHASH\_ANYONECANPAY}, ce qui permet de former finalement six types de signature différents, représentés sur la figure~\ref{fig:signature-hash-types}. Le type de signature le plus fréquent est évidemment \longstring{SIGHASH\_ALL} même si certains autres types peuvent parfois trouver une utilité. C'est notamment le cas de \longstring{SIGHASH\_ALL | SIGHASH\_ANYONECANPAY} qui permet de construire des transactions de type \eng{anyone-can-pay}, dont les sorties sont déterminées, mais où chacun peut signer sa propre entrée sans connaître les autres.
 
 \begin{figure}[ht]
   \centering
@@ -350,10 +350,10 @@ Les trois signaux concernant les sorties peuvent être associés à \texttt{SIGH
 % Notez que tout ceci était présent dès la création de Bitcoin et que Satoshi Nakamoto avait intégré ce type de signature dans le code d'origine.
 
 % SIGHASH_NOINPUT
-Ces signaux ont été implémentés dès le début par Satoshi Nakamoto au sein du prototype. Il en manquait logiquement un, que Satoshi Nakamoto a probablement jugé inutile~: celui qui ne signait aucune entrée. Toutefois, avec le développement des canaux de paiements pour le réseau Lightning, les développeurs se sont rendus compte qu'il pouvait avoir une utilité. C'est dans cet esprit que le signal de signature \texttt{SIGHASH\_NOINPUT} a été proposé en février 2016 par Joseph Poon\sendnote{Joseph Poon, \eng{[bitcoin-dev] SIGHASH\_NOINPUT in Segregated Witness}, \wtime{26/02/2016 01:07:46 UTC}~: \url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-February/012460.html}.}.
+Ces signaux ont été implémentés dès le début par Satoshi Nakamoto au sein du prototype. Il en manquait logiquement un, que Satoshi Nakamoto a probablement jugé inutile~: celui qui ne signait aucune entrée. Toutefois, avec le développement des canaux de paiements pour le réseau Lightning, les développeurs se sont rendus compte qu'il pouvait avoir une utilité. C'est dans cet esprit que le signal de signature \longstring{SIGHASH\_NOINPUT} a été proposé en février 2016 par Joseph Poon\sendnote{Joseph Poon, \eng{[bitcoin-dev] SIGHASH\_NOINPUT in Segregated Witness}, \wtime{26/02/2016 01:07:46 UTC}~: \url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-February/012460.html}.}.
 
 % BIP-118, SIGHASH_ANYPREVOUT
-Ce type de signal pourrait être implémenté de manière partielle dans BTC au travers du BIP-118, qui prévoit l'implémentation de deux nouveaux signaux -- \texttt{SIGHASH\_ANYPREVOUT} et \texttt{SIGHASH\_ANYPREVOUTANYSCRIPT} -- au sein des scripts de Taproot\sendnote{Christian Decker, Anthony Towns, \eng{BIP-118: SIGHASH\_ANYPREVOUT for Taproot Scripts}, 28 février 2017~: \url{https://github.com/bitcoin/bips/blob/master/bip-0118.mediawiki}.}. Il permettrait d'améliorer le fonctionnement du réseau Lightning par la mise en œuvre du protocole Eltoo qui repose sur la construction de transactions flottantes.
+Ce type de signal pourrait être implémenté de manière partielle dans BTC au travers du BIP-118, qui prévoit l'implémentation de deux nouveaux signaux -- \longstring{SIGHASH\_ANYPREVOUT} et \longstring{SIGHASH\_ANYPREVOUTANYSCRIPT} -- au sein des scripts de Taproot\sendnote{Christian Decker, Anthony Towns, \eng{BIP-118: SIGHASH\_ANYPREVOUT for Taproot Scripts}, 28 février 2017~: \url{https://github.com/bitcoin/bips/blob/master/bip-0118.mediawiki}.}. Il permettrait d'améliorer le fonctionnement du réseau Lightning par la mise en œuvre du protocole Eltoo qui repose sur la construction de transactions flottantes.
 
 \section*{SegWit~: le témoin séparé}
 \addcontentsline{toc}{section}{SegWit~: le témoin séparé}
@@ -395,9 +395,11 @@ SegWit est active depuis le 24 août 2017. L'absence de script de déverrouillag
 % Nouvelle métrique : le poids
 La réponse a été d'inventer une nouvelle métrique pour mesurer l'impact des transactions et des blocs sur le réseau~: le poids, ou \eng{weight} en anglais, qui est une moyenne pondérée de la taille de base et de la taille du témoin. Exprimé en unités de poids (\eng{weight unit}), il est défini comme la somme du quadruple de la taille de base et de la taille du témoin~:
 
+{ \small
 \[
 w = 4 \cdot s_b + s_w
 \]
+}
 
 % Taille virtuelle, poids limite des blocs
 Il en découle une taille virtuelle qui est définie comme la somme de la taille de base et du quart de la taille du témoin, c'est-à-dire~: $s_v = s_b + \frac{s_w}{4}$. La taille limite des blocs est devenue un poids limite des blocs, qui était de 4 millions d'unités au moment de la mise à niveau et qui \textcolor{darkgray}{est toujours la même en 2023}.
@@ -424,7 +426,7 @@ Trois types de sortie existent pour l'instant~: le schéma P2WPKH, le schéma P2
 
 \textbf{P2WPKH~: Pay to Witness Public Key Hash.} Le schéma \eng{Pay to Witness Public Key Hash} (P2WPKH), qui signifie littéralement «~payer à l'empreinte de la clé publique témoin~», est le premier schéma mis en place par SegWit. L'empreinte de la clé publique est obtenue par le hachage standard (SHA-256 + RIPEMD-160). Le script de verrouillage apparent est alors~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <version (0)> <empreinte (hash160) de la clé publique>
 \end{Verbatim}
 
@@ -432,7 +434,7 @@ Ce script est \eng{anyone-can-spend}. Le type de la sortie est détecté par l'i
 
 Le script de déverrouillage est vide. Les données de déverrouillage sont contenues dans le témoin de la transaction. La partie du témoin correspondant à l'entrée est~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <2> <signature> <clé publique>
 \end{Verbatim}
 
@@ -440,7 +442,7 @@ Le script de déverrouillage est vide. Les données de déverrouillage sont cont
 
 L'empreinte du script de récupération est obtenue par SHA-256, par peur d'une collision de RIPEMD-160 dans le cas d'une adresse générée par plusieurs personnes\sendnote{Gavin Andresen, \eng{[bitcoin-dev] Time to worry about 80-bit collision attacks or not?}, \wtime{07/01/2016 19:02:05 UTC}~: \url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-January/012198.html}.}. Le script de verrouillage est le suivant~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <version (0)> <empreinte (sha256) du script de récupération>
 \end{Verbatim}
 
@@ -448,7 +450,7 @@ Ce script est encore une fois \eng{anyone-can-spend} de manière apparente. Le t
 
 Le script de déverrouillage est vide. Les données de déverrouillage sont contenues dans le témoin de la transaction. La partie du témoin correspondant à l'entrée est~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <nombre d'élements + 1> [éléments de déverrouillage] <script de récupération>
 \end{Verbatim}
 
@@ -460,7 +462,7 @@ Ces types imbriqués facilitaient la transition vers SegWit en permettant aux po
 
 \textbf{P2TR~: Pay to Taproot} Le dernier schéma à rentrer en vigueur est le schéma \eng{Pay to Taproot} (P2TR), ce qui peut être traduit par «~payer à Taproot~». Ce schéma permet de recevoir un paiement sur une clé publique externe qui cache une clé privée ou bien la racine pivot d'un arbre syntaxique abstrait merkélisé (ou MAST pour \eng{Merklized Abstract Syntax Trees}) contenant les clauses d'un contrat autonome. Le paiement se fait vers une clé publique~: c'est donc un retour vers le P2PK. Cette clé publique externe cache une clé privée servant à signer les fonds, ou bien la racine pivot d'un arbre syntaxique abstrait merkélisé (ou MAST pour \eng{Merklized Abstract Syntax Trees}) contenant les clauses d'un contrat autonome. Le script de verrouillage présent dans la sortie transactionnelle est~:
 
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize]
 <version (1)> <clé publique Taproot>
 \end{Verbatim}
 

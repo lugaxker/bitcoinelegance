@@ -107,7 +107,7 @@ L'équation de cette courbe est $y^2 = x^3 + 7$ dont les coordonnées $x$ et $y$
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.35]{img/secp256k1-2014.png}
+  \includegraphics[scale=0.3]{img/secp256k1-2014.png}
   \caption{Représentation graphique de la courbe secp256k1 sur les nombres réels (générée sur \texttt{kevinmehall.net}).}
   \label{fig:secp256k1}
 \end{figure}
@@ -126,7 +126,7 @@ Si on prend une clé privée $k$, on peut ainsi calculer la clé publique $K$~: 
 
 Regardons ce que cela donne en pratique. La clé privée est un nombre choisi aléatoirement. Elle doit être comprise entre $1$ et $n - 1$ où $n$ est l'ordre du point $G$ (qui approche $2^{256}$)~: 
 
-{ \footnotesize
+{ \scriptsize
 \[
 n = \mathtt{0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141}
 \]
@@ -134,7 +134,7 @@ n = \mathtt{0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141}
 
 Par exemple, le nombre suivant est tout à fait valide pour servir de clé privée~:
 
-{ \footnotesize
+{ \scriptsize
 \[
 k = \mathtt{0x999bb87eea489b2fc6219226e7b95d9083a3b627246ea852e85567ac4d72444f}
 \]
@@ -147,7 +147,7 @@ k = \mathtt{0x999bb87eea489b2fc6219226e7b95d9083a3b627246ea852e85567ac4d72444f}
 
 La clé publique est un point de la courbe défini par $K = k~G$. Si l'on calcule ce point à partir de la clé privée précédente, on obtient~:
 
-{ \footnotesize
+{ \scriptsize
 \begin{align*}
 K = &~(~\mathtt{0xf6a6c7c39c88b767bfac4ac687c3ff32372e76c9fb633e2278e54472e300b3bd}, \\
     &~\mathtt{0x5822f24e0fdb4e568f97a7fff246c07ba486c1756f82971765cc9cf8e45ff5e6}~)
@@ -156,14 +156,14 @@ K = &~(~\mathtt{0xf6a6c7c39c88b767bfac4ac687c3ff32372e76c9fb633e2278e54472e300b3
 
 Dans Bitcoin, cette clé publique est représentée de manière sérialisée. Elle peut l'être sous forme non compressée, auquel cas elle est précédée par le préfixe \texttt{0x04}. Dans notre cas~:
 
-\begin{Verbatim}[fontsize=\footnotesize]
+\begin{Verbatim}[fontsize=\scriptsize]
 04 f6a6c7c39c88b767bfac4ac687c3ff32372e76c9fb633e2278e54472e300b3bd
 5822f24e0fdb4e568f97a7fff246c07ba486c1756f82971765cc9cf8e45ff5e6
 \end{Verbatim}
 
 Il existe également une représentation compressée de la clé publique. Celle-ci est rendu possible par la symétrie de la courbe par rapport à l'axe des abscisses~: si le point $(x, y)$ est sur la courbe, alors le point $(x, - y)$ l'est aussi. Pour compresser l'information, il suffit ainsi de donner l'abcisse $x$ et un préfixe qui vaut \texttt{0x02} si $y$ est pair ou \texttt{0x03} si $y$ est impair\sendnote{Dans le corps fini $\mathbb{F}_p$, prendre l'opposé d'un élément non nul $y$ inverse sa polarité. En effet, si $y \in [\![ 1, p - 1 ]\!]$, alors $-y + p \in [\![ 1, p - 1 ]\!]$.}. On peut ensuite retrouver grâce à l'équation de la courbe. Dans note cas, le clé publique compressée est~:
 
-\begin{Verbatim}[fontsize=\footnotesize]
+\begin{Verbatim}[fontsize=\scriptsize]
 02 f6a6c7c39c88b767bfac4ac687c3ff32372e76c9fb633e2278e54472e300b3bd
 \end{Verbatim}
 
@@ -175,7 +175,7 @@ Dans Bitcoin, la clé publique servait initialement à recevoir les fonds direct
 
 Si on se contentait de révéler un secret pour effectuer une dépense alors tout le monde sur le réseau pourrait tenter de dépenser les mêmes fonds instantanément. Non seulement la signature permet de prouver la connaissance de la clé privée sans la révéler, mais elle permet d'authentifier la provenance d'un message. Dans Bitcoin, le message c'est la transaction elle-même.
 
-L'algorithme de signature ECDSA s'applique à un message $m$ qui est précédemment haché. En notant $H(m)$ l'empreinte cryptographique du message à signer, Le signature est obtenue en appliquant les étapes suivantes~:
+L'algorithme de signature ECDSA s'applique à un message $m$ qui est précédemment haché. En notant $H(m)$ l'empreinte cryptographique du message à signer, la signature est obtenue en appliquant les étapes suivantes~:
 
 \begin{itemize}
   \item[$\bullet$] Choisir aléatoirement une clé éphémère $l$ inférieure à $n-1$~;
@@ -199,7 +199,7 @@ L'algorithme de vérification ne nécessite pas de connaître la clé éphémèr
 
 Un exemple de signature correspondant à notre clé publique\sendnote{Il s'agit de la signature de la transaction \longstring{08e5ce0783ab6d5534e234136df02e0e240f76108eb6af04b8b624646b66f5eb}. Sous forme sérialisée (DER), cette signature est \longstring{3044022019b83a5e354ef62e98413e6ef3f37ad0c69f75cea7daa6a352cf66f4668a9a0b02204c13f9b6f2c8ea7af224b3f6a3d9cfdfe5085bbafa150fb1aa72a20ce7cac6b001}.} est~:
 
-{ \footnotesize
+{ \scriptsize
 \begin{align*}
 (r, s) = &~(~\mathtt{0x19b83a5e354ef62e98413e6ef3f37ad0c69f75cea7daa6a352cf66f4668a9a0b}, \\
     &~\mathtt{0x4c13f9b6f2c8ea7af224b3f6a3d9cfdfe5085bbafa150fb1aa72a20ce7cac6b0}~)
@@ -268,7 +268,7 @@ Une fois générées, les clés privées doivent être encodées, afin de pouvoi
 
 L'encodage d'une clé suit une série d'étapes simples. Tout d'abord, la clé est préfixée par l'octet de version \texttt{0x80} qui indique qu'il s'agit d'une clé privée. Puis, un suffixe \texttt{0x01} est ajouté (ou non) pour indiquer si l'on souhaite en dériver une clé publique compressée (ou non compressée). Dans le cas de notre clé-exemple, on obtient les octets suivants~:
 
-\begin{Verbatim}[fontsize=\footnotesize]
+\begin{Verbatim}[fontsize=\scriptsize]
 80 999bb87eea489b2fc6219226e7b95d9083a3b627246ea852e85567ac4d72444f 01
 \end{Verbatim}
 
@@ -276,20 +276,20 @@ Ensuite, la somme de contrôle est calculée en prenant les 4 premiers octets de
 
 % 80 999bb87eea489b2fc6219226e7b95d9083a3b627246ea852e85567ac4d72444f 416ec36d
 
-\begin{Verbatim}[fontsize=\footnotesize]
+\begin{Verbatim}[fontsize=\scriptsize]
 80 999bb87eea489b2fc6219226e7b95d9083a3b627246ea852e85567ac4d72444f 01
 1dd28791
 \end{Verbatim}
 
 Enfin, le tout est encodé en base 58. Dans le cas «~compressé~», la clé commence toujours par un K ou un L. Ici, notre clé privée s'écrit~:
 
-\begin{Verbatim}[fontsize=\footnotesize]
+\begin{Verbatim}[fontsize=\small]
 L2NJfKog9SEdoAkAkm8ZNYDcpWQop95orPepbhsTE2t5Bf1yFmYk
 \end{Verbatim}
 
 Dans le cas «~non compressé~» (de moins en moins utilisé), la clé commence toujours par un 5. Ici, notre clé privée devient~:
 
-\begin{Verbatim}[fontsize=\footnotesize]
+\begin{Verbatim}[fontsize=\small]
 5JywJHwyuD4YSsErniGJkrDNi87kggSZNADCEkhRyRScqfMMTEt
 \end{Verbatim}
 
@@ -304,9 +304,11 @@ Une adresse simple est obtenue par les hachages successifs de la clé publique s
 
 Si on note $A$ l'adresse, on a ainsi~:
 
+{ \small
 \[
 A = \mathrm{HASH160}(~K~) = \mathrm{RIPEMD160}(~\mathrm{SHA256}( K )~)
 \]
+}
 
 Puisque cette composée est elle-même une fonction de hachage, elle a pour particularité d'être à sens unique. Il est de ce fait virtuellement impossible de retrouver la clé publique à partir de l'adresse.
 
@@ -322,7 +324,7 @@ On peut dériver trois adresses de type différent de cette empreinte~: une adre
 
 L'adresse traditionnelle est obtenue grâce un encodage de l'empreinte en Base58Check avec l'octet de version \texttt{0x00}. À cause de cet octet de version, les adresses traditionnelles simples commencent toujours par un 1, qui est purement symbolique car il vaut 0 en base 58. Notre adresse est~:
 
-\begin{Verbatim}[fontsize=\footnotesize]
+\begin{Verbatim}[fontsize=\small]
 1FjBKPQ7MTiPSDkJ2ZwPgAXUKQ8yoGbVJX
 \end{Verbatim}
 
@@ -330,7 +332,7 @@ Ce type d'adresse est appelé P2PKH (\eng{Pay to Public Key Hash}) et a été le
 
 L'adresse SegWit native est encodée grâce au format Bech32. Celui-ci inclut un préfixe indiquant le réseau (\texttt{bc} pour BTC) et un séparateur (\texttt{1}). De manière similaire à l'encodage des adresses traditonnelles, il s'agit de prendre l'information brute, de la préfixer avec l'octet de version (\texttt{0x00}), de calculer une somme de contrôle et d'exprimer le tout dans la base appropriée, à savoir la base 32. L'adresse résultante commencera toujours par \texttt{bc1q}. Pour notre empreinte de clé publique, on obtient~:
 
-\begin{Verbatim}[fontsize=\footnotesize]
+\begin{Verbatim}[fontsize=\small]
 bc1q5x9a0aqmgtrucm4l5n0y8e4kxfy9xm4udhygr2
 \end{Verbatim}
 
@@ -338,7 +340,7 @@ Ce type d'adresse est appelé P2WPKH (\eng{Pay to Witness Public Key Hash}).
 
 Enfin, on peut également inclure cette donnée sous la forme d'un script dans une adresse P2SH, créant une adresse SegWit dite «~imbriquée~». Le script, composé de l'octet de version de SegWit (\texttt{0x00}) et de l'empreinte, est haché pour constituer la nouvelle adresse. Comme dans le cas de toutes les adresses P2SH, l'empreinte résultante est encodée en Base58Check avec l'octet de version \texttt{0x05}. Cet octet de version a pour conséquence de faire commencer l'adresse par un 3. Notre empreinte devient ici~:
 
-\begin{Verbatim}[fontsize=\footnotesize]
+\begin{Verbatim}[fontsize=\small]
 3JqPHkGuvW7nsUJDgm5CPSNUb47WczCC5e
 \end{Verbatim}
 

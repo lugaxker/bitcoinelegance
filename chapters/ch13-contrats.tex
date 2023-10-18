@@ -215,7 +215,7 @@ Une transaction supplémentaire est ajoutée à la chaîne de transactions pour 
 
 Ce fonctionnement permet d'obtenir un protocole simple de mise à jour du canal, peu contraignant pour les nœuds, sans mécanisme de punition, et permettant de ne pas à avoir à décider les frais à l'avance. Cette facilité d'implémentation pourrait rendre plus aisée la création de contrats plus complexes sur Lightning, comme les canaux de paiement à 3 participants ou plus. En outre, leur implémentation ne doit en aucun remplacer celle des canaux de Poon-Dryja~: les deux modèles peuvent coexister au sein d'un seul et même réseau de canaux de paiement.
 
-Les transactions flottantes sont implémentées à l'aide de \texttt{SIGHASH\_ALL | SIGHASH\_ANYPREVOUT}. \textcolor{darkgray}{La mise en œuvre de Eltoo repose donc sur l'intégration du BIP-118 à Bitcoin.}
+Les transactions flottantes sont implémentées à l'aide de \longstring{SIGHASH\_ALL | SIGHASH\_ANYPREVOUT}. \textcolor{darkgray}{La mise en œuvre de Eltoo repose donc sur l'intégration du BIP-118 à Bitcoin.}
 
 \section*{L'inscription de données arbitraires}
 \addcontentsline{toc}{section}{L'inscription de données arbitraires}
@@ -232,7 +232,7 @@ Il existe diverses méthodes d'inscription, qui ont chacune leurs qualités et l
 % Inscription dans la base de pièce par les mineurs
 D'une part, l'écriture de données arbitraires peut être réalisée par les mineurs au sein de la base de pièce, l'entrée de transaction de récompense. C'est cette méthode dont Satoshi Nakamoto a fait usage pour inscrire le désormais célèbre titre de une du Times du 3 janvier 2009 dans le bloc de genèse~:
 
-\begin{Verbatim}[fontsize=\footnotesize]
+\begin{Verbatim}[fontsize=\scriptsize]
 The Times 03/Jan/2009 Chancellor on brink of second bailout for banks
 \end{Verbatim}
 
@@ -269,7 +269,7 @@ Cet usage peut aussi être exploité par les systèmes décentralisés d'héberg
 Ensuite, on peut inscrire un texte, qui est généralement encodé en ASCII~/~UTF-8. Par exemple, la phrase «~Il est possible d'écrire des données arbitraires sur toutes les chaînes.~» a été inscrite sur la chaîne de BTC le 3 décembre 2019\sendnote{Transaction d'identifiant \longstring{9f4482bf9a8ac9233eef676e7746787cc420620f855f97643ea812a53ca561a3}.}. L'inscription de textes permet aussi de dessiner des images en art ASCII. C'est le cas de l'hommage à Len Sassaman (voir figure~\ref{fig:sassaman-tribute}), décédé en juillet 2011, qui a été inscrit sur la chaîne par les développeurs Dan Kaminsky et Travis Goodspeed par le biais de sorties P2PKH, et qui contient notamment une représentation du président de la Fed d'alors, Ben Bernanke\sendnote{Cet hommage peut être retrouvé dans la transaction d'identifiant \longstring{930a2114cdaa86e1fac46d15c74e81c09eee1d4150ff9d48e76cb0697d8e1d72} confirmée le 30 juillet 2011.}.
 
 \begin{figure}[h]
-  \begin{Verbatim}[fontsize=\small]
+  \begin{Verbatim}[fontsize=\footnotesize]
 ---BEGIN TRIBUTE---  =-=-=-=-=-=-=-=-=-=     ASCII BERNANKE
 #./BitLen            LEN "rabbi" SASSAMA  :'::.:::::.:::.::.:
 :::::::::::::::::::       1980-2011       : :.: ' ' ' ' : :':
@@ -413,7 +413,7 @@ Un arbre syntaxique abstrait merkélisé (aussi appelés MAST pour \eng{Merklize
 \end{figure}
 
 % Historique
-L'implémentation des MAST au sein de Bitcoin avait déjà été proposée par le passé, que ce soit sous la forme d'une nouvelle version de SegWit (BIP-114), ou bien d'un nouvel code opération \texttt{OP\_MERKLEBRANCHVERIFY} (BIP-116, BIP-117). Mais Taproot a constitué une proposition supérieure en permettant de ne pas révéler l'existence du MAST lui-même.
+L'implémentation des MAST au sein de Bitcoin avait déjà été proposée par le passé, que ce soit sous la forme d'une nouvelle version de SegWit (BIP-114), ou bien d'un nouvel code opération \longstring{OP\_MERKLEBRANCHVERIFY} (BIP-116, BIP-117). Mais Taproot a constitué une proposition supérieure en permettant de ne pas révéler l'existence du MAST lui-même.
 
 % Racine pivot
 Taproot autorise la dépense coopérative par la modification légère (\eng{tweaking}) de la clé publique agrégée interne à l'aide de la racine du MAST. La clé obtenue est celle inscrite dans le script de verrouillage de la pièce, de sorte qu'elle est indiscernable des autres sorties P2TR. De même, la signature agrégée est indiscernable d'une signature classique. Taproot constitue ainsi une façon de régler les contrats en dehors de la chaîne, tant qu'il n'y a pas de litige.

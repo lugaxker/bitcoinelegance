@@ -117,24 +117,34 @@ L'algorithme principal utilisé dans Bitcoin est ECDSA (\eng{Elliptic Curve Digi
 % secp256k1
 La variante d'ECDSA utilisée dans Bitcoin se base sur la courbe elliptique secp256k1\sendnote{Le nom secp256k1 est un peu barbare, mais chaque lettre à une importance. Le sigle SEC désigne \eng{Standards for Efficient Cryptography}, l'ouvrage dont elle est issue (\url{https://www.secg.org/SEC2-Ver-1.0.pdf}). Le P-256 indique que le nombre premier $p$ utilisé est encodé sur 256 bits. Le k indique qu'il s'agit d'une courbe de Koblitz~: les paramètres sont choisis pour rendre les opérations plus efficaces, et n'ont donc pas été sélectionnés aléatoirement (r). Le 1 désigne l'index de la courbe par rapport aux autres courbes similaires.}, qui sert à dériver la clé publique de la clé privée, à signer les transaction grâce à la clé privée et à vérifier les signatures à l'aide de la clé publique. L'équation mathématique de cette courbe est $y^2 = x^3 + 7$ dont les coordonnées $x$ et $y$ évoluent dans le corps fini des nombres entiers modulo $p$, où $p$ est un nombre premier spécifique\sendnote{Le nombre premier choisi pour secp256k1 est~: $p = 2^{256} - 2^{32} - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1$.} inférieur à $2^{256}$.
 
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[scale=0.3]{img/secp256k1-2014.png}
+%   \caption{Représentation graphique de la courbe secp256k1 sur les nombres réels (générée sur \texttt{kevinmehall.net}).}
+%   \label{fig:secp256k1}
+% \end{figure}
+
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.3]{img/secp256k1-2014.png}
-  \caption{Représentation graphique de la courbe secp256k1 sur les nombres réels (générée sur \texttt{kevinmehall.net}).}
+  \includegraphics[scale=0.4]{img/secp256k1-curve.png}
+  \caption{Représentation graphique de la courbe secp256k1 sur les nombres réels (source~: Loïc Morel, \emph{Bitcoin démocratisé}, 2022).}
   \label{fig:secp256k1}
 \end{figure}
 
 % Addition, multiplication par un scalaire, point de base
-Une addition est définie sur cette courbe pour faire en sorte que la somme de deux points soit également un point de la courbe\sendnote{L'addition est définie par $P + Q = R$ où $x_R = \lambda_{P,Q}^2 - x_P - x_Q \pmod p$ et $y_R = \lambda_{P,Q}~( x_P - x_R ) - y_P \pmod p$ avec $\lambda_{P,Q} = \{ \frac{3 x_P^2}{2 y_P} \pmod p~\mathrm{si}~P = Q~;  \frac{y_Q - y_P}{x_Q - x_P} \pmod p \mathrm{sinon} \}$.}. La multiplication par un scalaire est définie comme étant le fait d'additionner le même point à plusieurs reprises~: $m~P = P + \ldots + P (m fois)$. En fixant un point sur la courbe, appelé point de base et noté $G$\sendnote{Le point de base de secp256k1 est~: \begin{align*} G = &~(~\mathtt{0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798}, \\&~\mathtt{0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8}~)~. \end{align*} Il a pour ordre le nombre premier \[n = \mathtt{0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141}~,\] de sorte que $n~G = 0$.}, on peut ainsi définir une opération transformant un entier $d$ en un point de la courbe $Q$~:
+Une addition est définie sur cette courbe pour faire en sorte que la somme de deux points soit également un point de la courbe\sendnote{L'addition est définie par $P + Q = R$ où $x_R = \lambda_{P,Q}^2 - x_P - x_Q \pmod p$ et $y_R = \lambda_{P,Q}~( x_P - x_R ) - y_P \pmod p$ avec $\lambda_{P,Q} = \{ \frac{3 x_P^2}{2 y_P} \pmod p~\mathrm{si}~P = Q~;  \frac{y_Q - y_P}{x_Q - x_P} \pmod p~\mathrm{sinon} \}$.}. La multiplication par un scalaire est définie comme étant le fait d'additionner le même point à plusieurs reprises~: $m~P = P + \ldots + P~(m~\mathrm{fois})$. En fixant un point sur la courbe, appelé point de base et noté $G$\sendnote{Le point de base de secp256k1 est~: {\scriptsize \begin{align*} G = &~(~\mathtt{0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798}, \\&~\mathtt{0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8}~)~. \end{align*}} Il a pour ordre le nombre premier {\scriptsize\[n = \mathtt{0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141}~,\]} de sorte que $n~G = 0$.}, on peut définir une opération transformant un entier $d$ en un point de la courbe~: $Q = d~G$.
 
-{ \small
-\[
-Q = d~G
-\]
-}
+Ces opérations peuvent être représentées géométriquement sur la courbe. Par exemple, l'équivalent géométrique du doublement du point $G$ (addition avec lui-même) consiste à tracer la tangente du point, à considérer l'intersection de cette tangente avec la courbe et à en prendre l'opposé, comme représenté sur la figure~\ref{fig:secp256k1-multiplication}. Toutes ces opérations sont non réversibles.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.4]{img/secp256k1-multiplication.png}
+  \caption{Représentation géométrique du doublement du point G sur secp256k1 (source~: Loïc Morel, \emph{Bitcoin démocratisé}, 2022).}
+  \label{fig:secp256k1-multiplication}
+\end{figure}
 
 % Clé privée et clé publique.
-En choisissant une clé privée $k$, on peut ainsi calculer la clé publique $K$~: $K = k~G$. Cette opération est une fonction à sens unique, c'est-à-dire qu'on ne peut théoriquement pas retrouver la clé publique à partir de la clé privée.
+En choisissant une clé privée $k$, on peut ainsi calculer la clé publique $K$ qui est $K = k~G$. Puisque la multiplication par un scalaire est non réversible, le passage de la clé privée à la clé publique constitue une fonction à sens unique. En d'autres termes, il est théoriquement impossible de retrouver la clé publique à partir de la clé privée sans essayer chaque possibilité une à une.
 
 % --- Clé privée ---
 

@@ -42,7 +42,7 @@ De ce fait, Bitcoin met en œuvre le concept de pièce de monnaie numérique qui
 Dans Bitcoin, les pièces existantes sont donc les sorties transactionnelles non dépensées, aussi abrégées en UTXO pour \eng{Unspent Transaction Outputs} en anglais, à savoir les sorties transactionnelles qui n'ont pas été utilisée comme entrée dans une autre transaction. L'ensemble de ces pièces, l'\eng{UTXO set}, constitue le registre de propriété. C'est l'état du système, qui peut être récupéré à partir de son historique, la chaîne de blocs.
 
 % Pièce
-Chaque pièce est constituée d'un montant en unités (satoshis) et d'un script de verrouillage. Il peut ainsi exister des pièces de 1~000~000~000~satoshis (10 bitcoins) tout comme on peut avoir des pièces de 546~satoshis (0,00000546 bitcoin).
+Chaque pièce est constituée d'un montant en unités (satoshis) et d'un script de verrouillage. Il peut ainsi exister des pièces d'un milliard de satoshis (10 bitcoins) tout comme on peut avoir des pièces de 546~satoshis (0,00000546 bitcoin).
 
 % Adresses, comptes
 Le script de verrouillage d'une pièce contient le plus souvent une clé publique ou une empreinte déterminée, de sorte que la pièce peut être vue comme étant détenue par l'adresse correspondante. De ce fait, deux pièces partageant le même script de verrouillage sont détenues par la même adresse. Un compte dans Bitcoin correspond à l'ensemble des adresses contrôlées par un utilisateur. Le solde est récupéré en balayant l'ensemble des UTXO de façon à retrouver les pièces détenues par ces adresses.
@@ -408,7 +408,7 @@ Il en découle une taille virtuelle qui est définie comme la somme de la taille
 De ce fait, les frais qui étaient initialement calculés en satoshis par octet (sat/o), sont, depuis SegWit, mesurés en satoshis par octet virtuel (sat/ov). Les mineurs sélectionnent les transactions en fonction de ce taux afin d'être les plus rentables possibles par rapport à cette limite. Cet effet n'est valable que si la limite est atteinte.
 
 % Meilleure pondération par rapport à l'ensemble des UTXO
-Avec SegWit, il s'agissait donc de pondérer l'impact des entrées par rapport à celle des sorties sur le calcul des frais. Si la limite de capacité était atteinte, alors les sorties étaient quatre fois plus chères à inscrire sur la chaîne que les scripts de déverrouillage contenus dans les entrées. La mise à niveau, en plus d'installer une remise qui incite à son usage, a créé une dissuasion à alourdir l'ensemble des UTXO. Le facteur 4 se rapprochait de la pondération matérielle\sendnote{SegWit Resources, \eng{Why a discount factor of 4? Why not 2 or 8?}, 13 janvier 2017~: \url{https://medium.com/segwit-co/why-a-discount-factor-of-4-why-not-2-or-8-bbcebe91721e}.}.
+Avec SegWit, il s'agissait donc de pondérer l'impact des entrées par rapport à celui des sorties sur le calcul des frais. Si la limite de capacité était atteinte, alors les sorties étaient quatre fois plus chères à inscrire sur la chaîne que les scripts de déverrouillage contenus dans les entrées. La mise à niveau, en plus d'installer une remise qui incite à son usage, a créé une dissuasion à alourdir l'ensemble des UTXO. Le facteur 4 se rapprochait de la pondération matérielle\sendnote{SegWit Resources, \eng{Why a discount factor of 4? Why not 2 or 8?}, 13 janvier 2017~: \url{https://medium.com/segwit-co/why-a-discount-factor-of-4-why-not-2-or-8-bbcebe91721e}.}.
 
 % Taille réelle des blocs
 Cette limite de 4 millions d'unités de poids est indicative. La taille réelle des blocs n'atteint généralement pas 4~Mo en raison de la forme des transactions. Les données contenues dans une transaction normale ne sont en effet pas regroupées dans le témoin, de sorte qu'elle ne remplissent pas entièrement l'espace de bloc autorisé. Par exemple, si nous prenons un bloc constitué uniquement de transactions à 2 entrées et 2 sorties utilisant SegWit, alors sa taille réelle sera de 1,784~Mo\sendnote{Une transaction à 2 entrées et 2 sorties de type P2WPKH mesure 372~o et pèse 834~wu au maximum. De ce fait, il est possible d'inclure 4796~transactions dans un bloc, ce qui nous permet de calculer sa taille réelle.}.
@@ -451,7 +451,8 @@ Ce script est encore une fois \eng{anyone-can-spend} de manière apparente. Le t
 Le script de déverrouillage est vide. Les données de déverrouillage sont contenues dans le témoin de la transaction. La partie du témoin correspondant à l'entrée est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
-<nombre d'élements + 1> [éléments de déverrouillage] <script de récupération>
+<nombre d'élements + 1> [éléments de déverrouillage] <script de
+récupération>
 \end{Verbatim}
 
 Dans les deux cas, l'empreinte est aussi appelée «~programme du témoin~».
@@ -532,7 +533,7 @@ Reprenons notre exemple d'Alice qui paie 7~mBTC à Bob en réunissant deux pièc
 Cette technique a été conceptualisée en 2018 de plusieurs manières indépendantes, au travers du protocole de paiement Pay-to-EndPoint (P2EP) et des transactions Stowaway du Samourai Wallet\sendnote{Adam Ficsor, \eng{Pay To EndPoint}, 31 juillet 2018~: \url{https://nopara73.medium.com/pay-to-endpoint-56eb05d3cac6}~; Samourai Wallet, \eng{Stowaway}~: \url{https://samouraiwallet.com/stowaway}. -- Il y a également protocole Bustapay qui a été proposé dans le BIP-79 en août 2018.}. Leur implémentation s'est faite respectivement en 2019 pour les transactions Stowaway\sendnote{Samourai Wallet, \eng{Collaborative Transactions - "Cahoots"}, 11 mars 2019~: \url{https://blog.samouraiwallet.com/post/183378923792/collaborative-transactions-cahoots}.} et en 2020 pour P2EP\sendnote{Samson Mow, Daniel Williams, \eng{Bitcoin Privacy Improves With BTCPay Server's P2EP Implementation}, 16 avril 2020~: \url{https://blog.blockstream.com/en-bitcoin-privacy-improves-with-btcpay-servers-p2ep-implementation/}.}.
 
 % CoinSwap
-Enfin une dernière méthode est Coinswap, qui est un procédé développé par Chris Belcher, permettant à deux utilisateurs ou plus d'échanger leurs pièces sans qu'ils aient besoin de se faire confiance et sans que cette opération laisse une trace particulière sur la chaîne\sendnote{Chris Belcher, \eng{Design for a CoinSwap Implementation for Massively Improving Bitcoin Privacy and Fungibility}, 25 mai 2020~: \url{https://gist.github.com/chris-belcher/9144bd57a91c194e332fb5ca371d0964}.}. Cette technique comporte cependant un inconvénient supplémentaire dans le sens où l'une des parties récupère l'historique entier de la pièce de l'autre, et doit en assumer la potentielle responsabilité.
+Enfin une dernière méthode est Coinswap, qui est un procédé développé par Chris Belcher, permettant à deux utilisateurs ou plus d'échanger leurs pièces sans qu'ils aient besoin de se faire confiance et sans que cette opération laisse une trace particulière sur la chaîne\sendnote{Chris Belcher, \eng{Design for a CoinSwap Implementation for Massively Improving Bitcoin Privacy and Fungibility}, 25 mai 2020~: \url{https://gist.github.com/chris-belcher/9144bd57a91c194e332fb5ca371d0964}.}. Cette technique comporte cependant un inconvénient supplémentaire dans le sens où l'une des parties récupère l'historique entier de la pièce de l'autre, et doit en assumer l'éventuelle responsabilité.
 
 \section*{D'autres techniques de confidentialité}
 \addcontentsline{toc}{section}{D'autres techniques de confidentialité}

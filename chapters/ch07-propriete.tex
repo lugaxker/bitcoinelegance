@@ -4,7 +4,7 @@
 \chapter{La valeur de l'information}
 \label{ch:propriete}
 
-Bitcoin est un concept de monnaie numérique libre. En tant que tel, il doit garantir la propriété des unités de compte sans nécessiter d'identification auprès d'un tiers de confiance. Il repose pour cela sur un algorithme de signature numérique qui permet d'autoriser une transaction grâce à la connaissance d'une information, la clé privée.
+Bitcoin est un concept de monnaie numérique libre. En tant que tel, il doit garantir la propriété des unités de compte sans nécessiter d'identification auprès d'un tiers de confiance. Il repose pour cela sur un algorithme de¨ signature numérique qui permet d'autoriser une transaction grâce à la connaissance d'une information, la clé privée.
 
 Pour la première fois dans l'histoire de l'humanité, Bitcoin rend ainsi possible la possession souveraine d'un bien numérique rival, c'est-à-dire de quelque chose qui ne puisse pas simplement être copiée. Puisque cette possession est exercée par la connaissance exclusive des clés privées, l'information possède plus que jamais de la valeur. Il en découle un certain nombre de conséquences qui diffère du modèle traditionnel de la propriété.
 
@@ -24,7 +24,7 @@ Dans ce contexte, l'information est essentiellement un nombre. Même si elle pre
 % Base 10
 Dans notre monde moderne occidental, nous avons pour habitude de représenter les nombres au travers d'un système de numération à 10 chiffres, fondé sur la base 10. Il s'agit d'une convention, liée au fait que nous avons longtemps compté avec nos 10 doigts. Mais ce système décimal n'est pas le seul qui existe, et l'informatique fait usage de plusieurs autres bases.
 
-Tout d'abord, comme on l'a dit, les ordinateurs sont basés sur un système binaire, composé de deux chiffres (le 0 et le 1). Ces deux chiffres sont donc utilisés pour écrire les nombres~: 0, 1, 10, 11, 100,~etc. Dans ce système, le nombre 42 (base 10) s'exprime comme suit~:
+Tout d'abord, comme on l'a dit, les ordinateurs sont basés sur un système binaire, composé de deux chiffres (le 0 et le 1). Ces deux chiffres sont donc utilisés pour écrire les nombres~: 0, 1, 10, 11, 100,~etc. Dans ce système, le nombre 21 (base 10) s'exprime comme suit~:
 
 { \small
 \[
@@ -85,7 +85,7 @@ Les deux autres ont vu le jour en 2017 et en 2021 (respectivement). Ils font int
 La cryptographie est la discipline mathématique qui a pour but la sécurisation de la communication en présence de tiers malveillants. Elle avait pour rôle initial de dissimuler de l'information grâce au chiffrement, mais s'est par la suite étendue à l'authentification de l'auteur d'un message (grâce à la cryptographie asymétrique) et à la vérification de données (grâce aux fonctions à sens unique). Aujourd'hui, la cryptographie permet donc d'assurer la confidentialité (chiffrement), l'authenticité (signature) et l'intégrité (hachage) de l'information transmise.
 
 % Bitcoin et cryptographie
-Bitcoin est un produit cryptographique. D'un point de vue technique, il repose sur des techniques développées dans les dernières décennies du \textsc{xx}\ieme{}~siècle, comme les arbres de Merkle ou la preuve de travail. D'un point de vue idéologique, il est issu du mouvement cypherpunk, qui préconisait une utilisation proactive de la cryptographie pour sauvegarder la confidentialité et la liberté des individus sur Internet. C'est dans ce double sens qu'on le désigne comme une cryptomonnaie.
+Bitcoin est un produit cryptographique. D'un point de vue technique, il repose sur des méthodes développées dans les dernières décennies du \textsc{xx}\ieme{}~siècle, comme les arbres de Merkle ou la preuve de travail. D'un point de vue idéologique, il est issu du mouvement cypherpunk, qui préconisait une utilisation proactive de la cryptographie pour sauvegarder la confidentialité et la liberté des individus sur Internet. C'est dans ce double sens qu'on le désigne comme une cryptomonnaie.
 
 % Chiffrement dans le contexte de Bitcoin
 Dans le contexte de Bitcoin, le chiffrement peut être utile pour protéger les clés privées ou pour envoyer des messages à d'autres utilisateurs. Dans de nombreux portefeuilles, il est courant que les clés privées soient chiffrées à l'aide d'un mot de passe (clé secrète) pour éviter qu'une personne malveillante ayant accès à l'appareil puisse dépenser les fonds. Dans Electrum par exemple, les clés privées sont chiffrées par le biais de l'algorithme symétrique AES-256-CBC\sendnote{Electrum Documentation, \eng{Frequently Asked Questions}, 3 octobre 2021~: \url{https://electrum.readthedocs.io/en/latest/faq.html\#how-is-the-wallet-encrypted}.}.
@@ -140,7 +140,7 @@ Ces opérations peuvent être représentées géométriquement sur la courbe. Pa
 \end{figure}
 
 % Clé privée et clé publique.
-En choisissant une clé privée $k$, on peut ainsi calculer la clé publique $K$ qui est $K = k~G$. Puisque la multiplication par un scalaire est non réversible, le passage de la clé privée à la clé publique constitue une fonction à sens unique. En d'autres termes, il est théoriquement impossible de retrouver la clé publique à partir de la clé privée sans essayer chaque possibilité une à une.
+En choisissant une clé privée $k$, on peut ainsi calculer la clé publique $K$ qui est $K = k~G$. Puisque la multiplication par un scalaire est non réversible, le passage de la clé privée à la clé publique constitue une fonction à sens unique. En d'autres termes, il est en pratique impossible de retrouver la clé publique à partir de la clé privée sans essayer chaque possibilité une à une.
 
 % --- Clé privée ---
 
@@ -182,7 +182,7 @@ Dans Bitcoin, cette clé publique est représentée de manière sérialisée. El
 \end{Verbatim}
 
 % Représentation compressée
-Il existe également une représentation compressée de la clé publique. Celle-ci est rendu possible par la symétrie de la courbe par rapport à l'axe des abscisses~: car en effet, le fait que le point $(x, y)$ appartienne à la courbe implique que le point $(x, - y)$ y soit aussi. Pour compresser l'information, il suffit ainsi de donner l'abcisse $x$ et un préfixe qui vaut \texttt{0x02} si $y$ est pair ou \texttt{0x03} si $y$ est impair\sendnote{Dans le corps fini $\mathbb{F}_p$, prendre l'opposé d'un élément non nul $y$ inverse sa polarité. En effet, si $y \in [\![ 1, p - 1 ]\!]$, alors $-y + p \in [\![ 1, p - 1 ]\!]$.}. On peut ensuite retrouver grâce à l'équation de la courbe. Dans note cas, la clé publique compressée est~:
+Il existe également une représentation compressée de la clé publique. Celle-ci est rendu possible par la symétrie de la courbe par rapport à l'axe des abscisses~: car en effet, le fait que le point $(x, y)$ appartienne à la courbe implique que le point $(x, - y)$ y soit aussi. Pour compresser l'information, il suffit ainsi de donner l'abcisse $x$ et un préfixe qui vaut \texttt{0x02} si $y$ est pair ou \texttt{0x03} si $y$ est impair\sendnote{Dans le corps fini $\mathbb{F}_p$, prendre l'opposé d'un élément non nul $y$ inverse sa polarité. En effet, si $y \in [\![ 1, p - 1 ]\!]$, alors $-y + p \in [\![ 1, p - 1 ]\!]$.}. On peut ensuite retrouver grâce à l'équation de la courbe. Dans notre cas, la clé publique compressée est~:
 
 \begin{Verbatim}[fontsize=\scriptsize]
 02 f6a6c7c39c88b767bfac4ac687c3ff32372e76c9fb633e2278e54472e300b3bd
@@ -258,7 +258,7 @@ Le hachage intervient à de multiples endroits dans Bitcoin~: dans l'algorithme 
 
 Trois fonctions de hachage sont utilisées~: SHA-256, qui produit des empreintes de 256 bits (32 octets)~; RIPEMD-160, dont le nom est le sigle de l'anglais \eng{RACE Integrity Primitives Evaluation Message Digest}) et qui résulte en des condensats de 160 bits~; et SHA-512, qui hache les données en des empreintes de 512 bits.
 
-La fonction la plus présente est le double SHA-256 (noté SHA-256d ou HASH-256), qui intervient presque partout. Il est supposé que ce doublement mis en place par Satoshi avait pour rôle la protection contre les attaques par extension de longueur\sendnote{\url{https://bitcoin.stackexchange.com/questions/6037/why-are-hashes-in-the-bitcoin-protocol-typically-computed-twice-double-computed/6042\#6042}}. La composée de RIPEMD-160 et de SHA-256 est utilisée pour la calcul des adresses. C'est le seul endroit où RIPEMD-160 intervient\sendnote{«~Les adresses Bitcoin sont le seul endroit où le hachage de 160 bits est utilisé.~» (Satoshi Nakamoto, \eng{Re: Stealing Coins}, \wtime{25/07/2010 20:48:01 UTC}~: \url{https://bitcointalk.org/index.php?topic=571.msg5754\#msg5754}.}. Enfin, SHA-512 intervient dans l'algorithme de dérivation des clés mis en place dans les portefeuilles.
+La fonction la plus présente est le double SHA-256 (noté SHA-256d ou HASH-256), qui intervient presque partout. Il est supposé que ce doublement mis en place par Satoshi avait pour rôle la protection contre les attaques par extension de longueur\sendnote{\url{https://bitcoin.stackexchange.com/questions/6037/why-are-hashes-in-the-bitcoin-protocol-typically-computed-twice-double-computed/6042\#6042}}. La composée de SHA-256 par RIPEMD-160 est utilisée pour la calcul des adresses. C'est le seul endroit où RIPEMD-160 intervient de manière substantielle\sendnote{«~Les adresses Bitcoin sont le seul endroit où le hachage de 160 bits est utilisé.~» -- Satoshi Nakamoto, \eng{Re: Stealing Coins}, \wtime{25/07/2010 20:48:01 UTC}~: \url{https://bitcointalk.org/index.php?topic=571.msg5754\#msg5754}.}. Enfin, SHA-512 intervient dans l'algorithme de dérivation des clés mis en place dans les portefeuilles.
 
 \section*{Les clés privées}
 \addcontentsline{toc}{section}{Les clés privées}
@@ -270,7 +270,7 @@ Par essence, la clé privée est une information numérique, c'est-à-dire un no
 La clé privée est créée au hasard, la plupart du temps grâce à des algorithmes générateurs de nombres pseudo-aléatoires permettant de reproduire le hasard de la manière la plus fidèle possible en informatique. Cette génération repose sur l'entropie informatique issue de l'appareil, c'est-à-dire la quantité d'aléatoire qu'il collecte par le biais de sources matérielles (variance du bruit du ventilateur ou du disque dur) ou de sources extérieures (mouvement de la souris, signaux du clavier, etc.) Les outils utilisés pour générer des clés privées sont le plus souvent considérés comme cryptographiquement fiables (CSPRNG). % Entropie de Shannon (théorie de l'information) = mesure de l'incertitude
 
 % Importance du hasard
-La caractère aléatoire du procédé est fondamental, constituant la base de la sécurité du modèle. Par exemple, une personne qui choisirait nombre 1 comme clé privée ne pourrait jamais utiliser l'adresse correspondante, car la sécurité liée à cette clé est nulle. Tous les bitcoins qui seraient déposés sur cette adresse seraient instantanément débités par un programme spécialisé\sendnote{On peut observer l'adresse \longstring{1EHNa6Q4Jz2uvNExL497mE43ikXhwF6kZm} pour s'en convaincre.}.
+La caractère aléatoire du procédé est fondamental, constituant la base de la sécurité du modèle. Par exemple, une personne qui choisirait le nombre 1 comme clé privée ne pourrait jamais utiliser l'adresse correspondante, car la sécurité liée à cette clé est nulle. Tous les bitcoins qui seraient déposés sur cette adresse seraient instantanément débités par un programme spécialisé\sendnote{On peut observer l'adresse \longstring{1EHNa6Q4Jz2uvNExL497mE43ikXhwF6kZm} pour s'en convaincre.}.
 
 % Brain wallets
 Il est en de même des \eng{brain wallets}, portefeuilles «~cérébraux~» reposant sur la mémorisation d'une information, qui sont souvent créés de manière non sécurisée. Les gens partent le plus souvent d'une phrase cohérente (comme une citation tirée d'un livre ou d'une chanson) de sorte à pourvoir la retenir facilement, puis la hachent et utilisent l'empreinte résultante en tant que clé privée. Cette manière de faire est hautement risquée en raison de la forte prévisibilité du langage humain et les adresses créées comme cela ont de bonnes chances d'être vidées, comme l'a montré une enquête de BitMEX Research\sendnote{BitMEX Research, \eng{Call me Ishmael}, 13 octobre 2020~: \url{https://blog.bitmex.com/call-me-ishmael/}.}.
@@ -348,7 +348,7 @@ L'adresse traditionnelle est obtenue grâce un encodage de l'empreinte en Base58
 
 Ce type d'adresse est appelé P2PKH (\eng{Pay to Public Key Hash}) et a été le premier type d'adresse dans Bitcoin.
 
-L'adresse SegWit native est encodée grâce au format Bech32. Celui-ci inclut un préfixe indiquant le réseau (\texttt{bc} pour BTC) et un séparateur (\texttt{1}). De manière similaire à l'encodage des adresses traditonnelles, il s'agit de prendre l'information brute (la «~charge utile~»), de la préfixer avec l'octet de version (\texttt{0x00}), de calculer une somme de contrôle et d'exprimer le tout dans la base appropriée, à savoir la base 32. Ce procédé fait que l'adresse résultante commencera toujours par \texttt{bc1q}. Dans le cas de notre empreinte de clé publique, on obtient~:
+L'adresse SegWit native est encodée grâce au format Bech32. Celui-ci inclut un préfixe indiquant le réseau (\texttt{bc} pour BTC) et un séparateur (\texttt{1}). De manière similaire à l'encodage des adresses traditonnelles, il s'agit de prendre l'information brute (la «~charge utile~»), de la préfixer avec l'octet de version (\texttt{0x00} pour la première version de SegWit), de calculer une somme de contrôle et d'exprimer le tout dans la base appropriée, à savoir la base 32. Ce procédé fait que l'adresse résultante commencera toujours par \texttt{bc1q}. Dans le cas de notre empreinte de clé publique, on obtient~:
 
 \begin{Verbatim}[fontsize=\small]
 bc1q5x9a0aqmgtrucm4l5n0y8e4kxfy9xm4udhygr2
@@ -364,7 +364,7 @@ Enfin, on peut également inclure cette donnée sous la forme d'un script dans u
 
 Ce type d'adresse est appelé P2SH-P2WPKH (\eng{P2SH-nested Pay to Witness Public Key Hash}). Nous aborderons plus en détails les différents schémas de script qui sous-tendent ces types d'adresse dans le chapitre~\ref{ch:rouages}.
 
-Une fois qu'elles ont été encodées, les adresses peuvent être partagées facilement d'une personne à une autre. Grâce à la somme de contrôle, faire une faute de frappe ne crée théoriquement pas de risque, car le logiciel la détectera te refusera de procéder au paiement. Les adresses sont aussi souvent représentées par des codes QR (voir figure~\ref{fig:address-qr-codes}), plus adaptés pour l'interaction avec un téléphone multifonction.
+Une fois qu'elles ont été encodées, les adresses peuvent être partagées facilement d'une personne à une autre. Grâce à la somme de contrôle, faire une faute de frappe ne crée théoriquement pas de risque, car le logiciel la détectera et refusera de procéder au paiement. Les adresses sont aussi souvent représentées par des codes QR (voir figure~\ref{fig:address-qr-codes}), plus adaptés pour l'interaction avec un téléphone multifonction.
 
 \begin{figure}[h]
   \centering
@@ -479,9 +479,9 @@ La dérivation des clés se fait grâce à la fonction HMAC-SHA512. Tout d'abord
 
 % --- Clés étendues ---
 
-Ces deux informations permettent de réaliser toutes les dérivation suivantes. Le code de chaîne intervient dans la chaîne de dérivation des clés, de sorte qu'il est impossible de procéder à la dérivation sans lui.
+Ces deux informations permettent de réaliser toutes les dérivations suivantes. Le code de chaîne intervient dans la chaîne de dérivation des clés, de sorte qu'il est impossible de procéder à la dérivation sans lui.
 
-Plutôt que de gérer ces deux informations indépendemment, on préfère faire appel aux clés privées étendues (\eng{extended private keys}), qui incluent la clé privée et le code de chaîne, ainsi que d'autres informations comme la profondeur et l'indice de la clé enfant. La clé privée étendue est encodée en Base58Check avec un préfixe spécial qui dépend du type d'adresse dérivé, faisant que le résultat commence par \texttt{xprv} (adresses traditionnelles), par \texttt{yprv} (adresses SegWit imbriquées) ou par \texttt{zprv} (adresses SegWit natives). Dans notre cas, clé privée étendue issue de la clé privée maîtresse et du code de chaîne maître est~:
+Plutôt que de gérer ces deux informations indépendemment, on préfère faire appel aux clés privées étendues (\eng{extended private keys}), qui incluent la clé privée et le code de chaîne, ainsi que d'autres informations comme la profondeur et l'indice de la clé enfant. La clé privée étendue est encodée en Base58Check avec un préfixe spécial qui dépend du type d'adresse dérivé, faisant que le résultat commence par \texttt{xprv} (adresses traditionnelles et clés Taproot), par \texttt{yprv} (adresses SegWit imbriquées) ou par \texttt{zprv} (adresses SegWit natives). Dans notre cas, la clé privée étendue issue de la clé privée maîtresse et du code de chaîne maître est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 xprv9s21ZrQH143K3KSN1mSK8myNuDcXNvNoCDcU4KBxMTuj1Wo83zNn
@@ -508,7 +508,7 @@ La dérivation normale fait intervenir la clé publique étendue dans le process
   \label{fig:normal-child-key-derivation}
 \end{figure}
 
-Cette particularité de la dérivation se révèle extrêmement utile pour générer de nouvelles adresses sans compromettre la clé privée racine. Un utilisateur peut ainsi importer la clé publique étendue dans un processeur de paiement afin de générer de nouvelles adresses sans avoir à fournir la clé privée. Cela permet aussi aux commerçants d'avoir des employés qui reçoivent des paiements à différentes adresses sans se soucier de la sécurité des fonds.
+Cette particularité de la dérivation se révèle extrêmement utile pour générer de nouvelles adresses sans compromettre la clé privée racine. Un utilisateur peut ainsi importer la clé publique étendue dans un processeur de paiement afin de vérifier son solde et générer de nouvelles adresses sans avoir à fournir la clé privée. Cela permet aussi aux commerçants d'avoir des employés qui reçoivent des paiements à différentes adresses sans se soucier de la sécurité des fonds.
 
 Cependant, cette particularité comporte un risque potentiel~: si une clé privée enfant est divulguée, alors la connaissance de la clé publique étendue parente (et donc du code de chaîne correspondant) permet d'obtenir toutes les clés privées enfant ainsi que la clé privée parent.
 
@@ -525,7 +525,7 @@ C'est pour cela qu'il existe un deuxième type de dérivation, la dérivation en
 
 Chaque dérivation fait intervenir un indice, encodé sur 32 bits comme un entier signé, dont le bit de signe indique si elle doit être endurcie ou non et dont la valeur indique le numéro de la clé enfant. Ainsi, on peut produire 2~147~483~648 (de $0$ à $2^{31} - 1$) clés enfants normales et 2~147~483~648 clés enfants endurcies (de $-0$ à $- 2^{31} + 1$) à partir d'une même clé parent.
 
-L'usage veut qu'on utilise une apostrophe pour désigner ce signe. L'indice \texttt{2} indique qu'il s'agit de la troisième clé enfant normale. L'indice \texttt{44'} indique qu'il s'agit de la 45\ieme{} clé enfant endurcie.
+L'usage veut qu'on utilise une apostrophe pour désigner ce signe\footnote{On utilise aussi parfois la lettre \texttt{h} (pour \eng{hardened}).}. L'indice \texttt{2} indique qu'il s'agit de la troisième clé enfant normale. L'indice \texttt{44'} indique qu'il s'agit de la 45\ieme{} clé enfant endurcie.
 
 % --- Chemins de dérivation ---
 
@@ -539,7 +539,7 @@ Dans ce standard, on procède à trois dérivations endurcies puis à deux déri
   \item[$\bullet$] La première dérivation (endurcie) sert à définir le but du portefeuille~: le 44 (qui fait référence au BIP-44) permet de dériver un compte utilisant des adresses traditionnelles, le 49 (BIP-49) pour les adresses SegWit imbriquées, le 84 (BIP-84) pour les adresses SegWit natives, le 48 ou le 45 (BIP-45) pour les adresses multisignatures, le 86 (BIP-86) pour dériver les clés publiques liées à Taproot,~etc.
   \item[$\bullet$] La deuxième dérivation (endurcie) indique le protocole cryptoéconomique et a fortiori les jetons liés~: le chiffre 0 est utilisé pour BTC, le 1 pour le testnet, le 2 pour LTC, le 60 pour ETH, le 128 pour XMR, le 145 pour BCH,~etc.
   \item[$\bullet$] La troisième dérivation (endurcie) donne l'indice du compte~: 0, 1, 2,~etc.
-  \item[$\bullet$] La quatrième dérivation (normale) indique le rôle des adresses~: le 0 signale qu'il s'agit d'une adresse externe, dont le rôle est de réceptionner des bitcoins, le 1 d'une adresse externe, utilisée pour accueillir la sortie complémentaire lors d'un envoi de bitcoins (phénomène que nous décrirons dans le chapitre~\ref{ch:rouages})~;
+  \item[$\bullet$] La quatrième dérivation (normale) indique le rôle des adresses~: le 0 signale qu'il s'agit d'une adresse externe, dont le rôle est de réceptionner des bitcoins, le 1 d'une adresse interne, utilisée pour accueillir la sortie complémentaire lors d'un envoi de bitcoins (phénomène que nous décrirons dans le chapitre~\ref{ch:rouages})~;
   \item[$\bullet$] La cinquième dérivation (normale) donne de l'indice de la clé et de l'adresse considérée~: 0, 1, 2,~etc.
 \end{itemize}
 
@@ -573,7 +573,7 @@ Un utilisateur peut recevoir des bitcoins en générant une nouvelle clé privé
 \section*{Le risque de garde}
 \addcontentsline{toc}{section}{Le risque de garde}
 
-Même si Bitcoin permet l'échange libre au travers du cyberespace, il n'a pas fait disparaître les tiers de confiance pour autant. En effet, beaucoup de gens sont peu confiants dans leur capacité à conserver eux-mêmes leurs bitcoins, et préèrent déléguer cette responsabilité à des services dépositaires, comme les services de garde spécialisés, les places de marché en ligne ou les applications de paiement. Il est aussi plus pratique de passer par une banque pour prêter son argent et le faire fructifier, ce qui profite aux plateformes de prêt en ligne.
+Même si Bitcoin permet l'échange libre au travers du cyberespace, il n'a pas fait disparaître les tiers de confiance pour autant. En effet, beaucoup de gens sont peu confiants dans leur capacité à conserver eux-mêmes leurs bitcoins, et préfèrent déléguer cette responsabilité à des services dépositaires, comme les services de garde spécialisés, les places de marché en ligne ou les applications de paiement. Il est aussi plus pratique de passer par une banque pour prêter son argent et le faire fructifier, ce qui profite aux plateformes de prêt en ligne.
 
 % Pas vos clés, pas vos bitcoins
 Bien que ce comportement se comprenne, il faut insister sur le fait que ceux qui épargnent des bitcoins par l'intermédiaire d'un dépositaire ne possèdent pas réellement ces bitcoins. La créance qu'ils possèdent sur le tiers de confiance n'est pas la propriété des bitcoins, puisque c'est le tiers en question qui les garde en son pouvoir. La loi étatique peut intervenir, mais cela n'empêche pas ce contrôle réel de s'exprimer dans une multitude de cas. C'est le sens de l'adage «~pas vos clés, pas vos bitcoins~» («~\eng{not your keys, not your coins}~»), popularisé par Andreas Antonopoulos\sendnote{Andreas Antonopoulos, \eng{Bitcoin Q\&A: How Do I Secure My Bitcoin?}, 7 juillet 2017~: \url{https://www.youtube.com/watch?v=vt-zXEsJ61U}.}, qui rappelle que celui qui ne gère pas lui-même ses clés privées, ne possède pas réellement les bitcoins qu'il estime détenir. % En effet, si la délégation de la propriété donne certains avantages, elle a aussi ses inconvénients et fait courir des risques à ceux qui y ont recours. % Cela fait que de nombreuses personnes ne profitent pas des avantages de Bitcoin, qui est un «~argent liquide électronique~» dont le rôle est de permettre «~aux paiements en ligne d'être envoyés directement d'une partie à l'autre sans passer par une institution financière\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}~».
@@ -594,12 +594,12 @@ Enfin, un autre inconvénient lié à l'utilisation d'un dépositaire est le cas
 
 La non-distribution des fruits des scissions et des \emph{airdrops} représente ainsi un manque à gagner, voire une perte sèche pour le client, surtout s'il s'agit d'une scission entre deux économies de taille équivalente. Toutefois, rien ne peut forcer en soi un dépositaire à proposer le retrait de ces gains, car la mise en œuvre technique a un coût non négligeable. Dans le cas contraire, les plateformes seraient contraintes de soutenir toutes les créations de ce type, y compris les plus fantaisistes, commes les scissions opportunistes de BTC qui ont eu lieu en 2017--2018 (Bitcoin Gold, Bitcoin Diamond, Bitcoin Private, etc.) % Ce refus peut s'apparenter à un vol si la plateforme bouge les pièces pour les revendre à son profit, mais tant qu'il n'y a aucun mouvement, on ne peut pas le déclarer.
 
-D'une manière générale, le recours à un dépositaire comporte des inconvénients majeurs qui font qu'un utilisateur ne bénéficie pas la résistance à la censure et de la résistance à l'inflation de Bitcoin. Conserver du bitcoin sur des plateformes réglementées permet à l'utilisateur de profiter vaguement de l'indulgence temporaire de l'État vis-à-vis des transferts et des plus-values réalisés. En outre, la généralisation de la garde de fonds présente un risque systémique comme nous le verrons. C'est pourquoi le recours aux dépositaires doit être considérée comme une exception, et non la règle, en ce qui concerne la conservation des bitcoins.
+D'une manière générale, le recours à un dépositaire comporte des inconvénients majeurs qui font qu'un utilisateur ne bénéficie pas de la résistance à la censure et de la résistance à l'inflation de Bitcoin. Conserver du bitcoin sur des plateformes réglementées permet à l'utilisateur de profiter vaguement de l'indulgence temporaire de l'État vis-à-vis des transferts et des plus-values réalisés. En outre, la généralisation de la garde de fonds présente un risque systémique comme nous le verrons. C'est pourquoi le recours aux dépositaires doit être considérée comme une exception, et non la règle, en ce qui concerne la conservation des bitcoins.
 
 \section*{Propriété et responsabilité}
 \addcontentsline{toc}{section}{Propriété et responsabilité}
 
-Si Bitcoin permet à l'utilisateur de posséder son argent de manière souveraine, cette propriété s'accompagne d'une responsabilité. Cet utilisateur doit comprendre comment le système fonctionne, au moins de manière rudimentaire. Il doit choisir quels logiciels et quel matériel utiliser. Il doit manipuler les fonds, vérifier les adresses, rester vigilant à tout instant. Dans le cas d'une scission sans protection contre la rediffusion des transactions, il doit procéder lui-même à la séparation des pièces d'un côté et de l'autre. Il est seul face à l'incertitude, et surtout, face à lui-même. Cette responsabilité constitue le prix à payer pour liberté monétaire.
+Si Bitcoin permet à l'utilisateur de posséder son argent de manière souveraine, cette propriété s'accompagne d'une responsabilité. Cet utilisateur doit comprendre comment le système fonctionne, au moins de manière rudimentaire. Il doit choisir quels logiciels et quel matériel utiliser. Il doit manipuler les fonds, vérifier les adresses, rester vigilant à tout instant. Dans le cas d'une scission sans protection contre la rediffusion des transactions, il doit procéder lui-même à la séparation des pièces d'un côté et de l'autre. Il est seul face à l'incertitude, et surtout, face à lui-même. Cette responsabilité constitue le prix à payer pour la liberté monétaire.
 
 Il est donc compréhensible que certaines personnes manquant de connaissances techniques, finissent par déléguer cette gestion, notamment dans le but de spéculer. Cependant, l'intérêt primordial de Bitcoin n'est pas de revenir à un système bancaire~: c'est de posséder pleinement ses fonds, sans que ceux-ci puissent être gelés par un tiers de confiance ou dilués par l'inflation monétaire. 
 
@@ -631,7 +631,7 @@ La première mesure à mettre en place pour éviter la perte est la mise en plac
 
 L'utilisateur peut même, pour ses portefeuilles les moins fournis, conserver une sauvegarde numérique sur son ordinateur (si possible en la chiffrant) ou sur le \eng{cloud}, ce qui augmente sensiblement le risque de vol mais permet d'être sûr de pouvoir accéder aux bitcoins. Cet usage est généralement déconseillé, mais c'est à l'individu d'arbitrer la situation.
 
-L'aspect programmable de Bitcoin peut également être mis à profit contre la perte. On peut ainsi mettre en place des systèmes de récupération de fonds, comme ce qui est fait par exemple dans le portefeuille Liana\sendnote{Jean-Luc (Bitcoin.fr), \eng{Sortie de la version 1.0 de Liana}, 12 mai 2023~: \url{https://bitcoin.fr/sortie-de-la-version-1-0-de-liana/}.}. Cependant aucun standard de contrat de ce type n'a pour l'instant émergé, si bien que cette pratique est pour l'instant hautement déconseillée. % Ludovic Lars, \eng{Wallet Recovery by a Third Party}, 25 août 2020~: \url{https://read.cash/@lugaxker/wallet-recovery-by-a-third-party-3693cfd9}.
+L'aspect programmable de Bitcoin peut également être mis à profit contre la perte. On peut ainsi mettre en place des systèmes de récupération de fonds, comme ce qui est fait par exemple dans le portefeuille Liana\sendnote{Jean-Luc (Bitcoin.fr), \eng{Sortie de la version 1.0 de Liana}, 12 mai 2023~: \url{https://bitcoin.fr/sortie-de-la-version-1-0-de-liana/}.}. Cependant aucun standard de contrat de ce type n'a pour l'instant émergé, si bien que cette pratique est \textcolor{darkgray}{pour l'instant} déconseillée. % Ludovic Lars, \eng{Wallet Recovery by a Third Party}, 25 août 2020~: \url{https://read.cash/@lugaxker/wallet-recovery-by-a-third-party-3693cfd9}.
 
 Il peut être profitable pour l'utilisateur de tenir un ou plusieurs registres listant ses différents portefeuilles, même les plus anciens, afin de ne pas oublier où sont ses fonds. Cependant, encore une fois, il ne faut pas que ce registre soit trouvé, auquel cas les fonds pourraient être retrouvés plus facilement.
 

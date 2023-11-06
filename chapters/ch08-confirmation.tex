@@ -226,7 +226,7 @@ Puis les empreintes résultantes sont concaténées deux à deux~: la deuxième 
 
 { \small
 \[
-H_{A\!B} = \mathrm{SHA256d}(~H_A || H_B~)
+H_{A\!B} = \mathrm{SHA256d}(~H_A \parallel H_B~)
 \]
 }
 
@@ -236,7 +236,7 @@ Dans le cas où le nombre d'empreintes à combiner est impair, la dernière est 
 
 { \small
 \[
-H_{E\!F\!E\!F} = \mathrm{SHA256d}(~H_{E\!F} || H_{E\!F}~)
+H_{E\!F\!E\!F} = \mathrm{SHA256d}(~H_{E\!F} \parallel H_{E\!F}~)
 \]
 }
 
@@ -540,7 +540,14 @@ La première étape est l'achat d'un bien ou d'un service auprès d'un commerça
 La deuxième étape est le minage d'une chaîne parallèle. Une fois que la transaction légitime a été confirmée au sein d'un bloc, l'attaquant mine une chaîne parallèle en secret à partir du bloc précédent, qu'il prend soin de ne pas dévoiler au reste du réseau. Dans le même temps, il construit et signe une autre transaction (dite «~frauduleuse~») qui dépense les mêmes bitcoins que la première et qui les renvoie vers une adresse en son contrôle. Il inclut cette transaction frauduleuse dans sa chaîne parallèle. Puisque l'attaquant dispose de la majorité de la puissance de calcul du réseau, il est sûr qu'à un moment ou à un autre, cette chaîne sera plus longue que l'autre.
 
 % Recoordination
-La troisième étape est la recoordination de chaîne. L'attaquant continue de miner sa chaîne parallèle jusqu'à la livraison du bien économique acheté. À ce moment-là, il dévoile sa chaîne au reste du réseau, qui doit accepter celle-ci en vertu du principe de la chaîne la plus longue. Les nœuds procèdent alors à une recoordination~: les blocs de l'ancienne chaîne sont écartés (rendus orphelins), leurs transactions sont remises dans la mempool et les nouveaux blocs sont vérifiés et ajoutés à la chaîne.
+La troisième étape est la recoordination de chaîne, représentée sur la figure~\ref{fig:doublespending-attack}. L'attaquant continue de miner sa chaîne parallèle jusqu'à la livraison du bien économique acheté. À ce moment-là, il dévoile sa chaîne au reste du réseau, qui doit accepter celle-ci en vertu du principe de la chaîne la plus longue. Les nœuds procèdent alors à une recoordination~: les blocs de l'ancienne chaîne sont écartés (rendus orphelins), leurs transactions sont remises dans la mempool et les nouveaux blocs sont vérifiés et ajoutés à la chaîne.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.7]{img/mining-attack-doublespending.eps}
+  \caption{Attaque de double dépense par recoordination de chaîne.}
+  \label{fig:doublespending-attack}
+\end{figure}
 
 Comme la transaction légitime dépense les mêmes fonds que la transaction frauduleuse, qui est incluse dans la nouvelle chaîne, cette transaction légitime est invalidée en tant que double dépense. Le commerçant ne possède plus les bitcoins, qui reviennent à l'attaquant.
 

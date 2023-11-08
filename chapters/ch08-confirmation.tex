@@ -25,7 +25,14 @@ Le problème est énoncé sous la forme d'une métaphore faisant intervenir des 
 
 % La situation est la suivante. Des généraux de l'armée byzantine campent autour d'une cité ennemie avec leurs troupes et souhaitent l'attaquer. Ils ne peuvent communiquer qu'à l'aide de messagers oraux et doivent établir un plan de bataille commun. Pour prendre un exemple simple, les généraux peuvent chercher à coordonner une attaque à l'aube, et partagent leurs intentions entre eux en envoyant le message «~attaque~» pour confirmer l'assaut, et «~retraite~» pour l'annuler.
 
-Cependant, un petit nombre de ces généraux s'avèrent être des traîtres au service de l'ennemi qui essaient de semer la confusion au sein de l'armée. Ces traîtres envoient ainsi des messages contradictoires à leurs interlocuteurs, pour faire en sorte que certains généraux loyaux attaquent, et que d'autres battent en retraite au moment de l'assaut, causant par là une défaite certaine.
+Cependant, un petit nombre de ces généraux s'avèrent être des traîtres au service de l'ennemi qui essaient de semer la confusion au sein de l'armée. Ces traîtres envoient ainsi des messages contradictoires à leurs interlocuteurs, pour faire en sorte que certains généraux loyaux attaquent, et que d'autres battent en retraite au moment de l'assaut, causant par là une défaite certaine, comme illustré sur la figure~\ref{fig:byzantine-generals-attack}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.7]{img/byzantine-generals-attack.eps}
+  \caption{Attaque des généraux byzantins contre la ville~: succès et échec.}
+  \label{fig:byzantine-generals-attack}
+\end{figure}
 
 Le problème est de trouver une stratégie (c'est-à-dire un algorithme) permettant de s'assurer que tous les généraux loyaux se mettront d'accord sur le plan de bataille. Les traîtres battront alors en retraite, mais puisque leur nombre est supposément restreint, l'attaque sera quand même un succès.
 

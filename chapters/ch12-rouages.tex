@@ -322,8 +322,8 @@ RETURN [données arbitraires]
 
 La sortie contenant ce script est exempt de la limite standarde de poussière, qui est \textcolor{darkgray}{actuellement de 546 satoshis pour les sorties P2PKH}, de sorte qu'elle peut être de 0 satoshis. La taille maximale des données pouvant être inscrites est de \textcolor{darkgray}{80~octets par transaction} sur BTC. De plus, en raison de leur caractère assurément indépensable, les sorties peuvent être retranchées de l'ensemble des UTXO des nœuds. Tout ceci fait de ce schéma le moyen normal d'inscrire des informations sur le registre.
 
-\section*{Les types de signature}
-\addcontentsline{toc}{section}{Les types de signature}
+\section*{Les types de signatures}
+\addcontentsline{toc}{section}{Les types de signatures}
 
 % --- Types de signature ---
 
@@ -338,12 +338,12 @@ Le type de signature est construit à partir de plusieurs signaux de signature q
 \item[$\bullet$] \texttt{SIGHASH\_ANYONECANPAY} (\texttt{0x80}) qui permet de ne signer qu'une seule entrée.
 \end{itemize}
 
-Les trois signaux concernant les sorties peuvent être associés à \longstring{SIGHASH\_ANYONECANPAY}, ce qui permet de former finalement six types de signature différents, représentés sur la figure~\ref{fig:signature-hash-types}. Le type de signature le plus fréquent est évidemment \longstring{SIGHASH\_ALL} même si certains autres types peuvent parfois trouver une utilité. C'est notamment le cas de \longstring{SIGHASH\_ALL | SIGHASH\_ANYONECANPAY} qui permet de construire des transactions de type \eng{anyone-can-pay}, dont les sorties sont déterminées, mais où chacun peut signer sa propre entrée sans connaître les autres.
+Les trois signaux concernant les sorties peuvent être associés à \longstring{SIGHASH\_ANYONECANPAY}, ce qui permet de former finalement six types de signatures différents, représentés sur la figure~\ref{fig:signature-hash-types}. Le type de signature le plus fréquent est évidemment \longstring{SIGHASH\_ALL} même si certains autres types peuvent parfois trouver une utilité. C'est notamment le cas de \longstring{SIGHASH\_ALL | SIGHASH\_ANYONECANPAY} qui permet de construire des transactions de type \eng{anyone-can-pay}, dont les sorties sont déterminées, mais où chacun peut signer sa propre entrée sans connaître les autres.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[scale=0.45]{img/signature-hash-types.eps}
-  \caption{Les différents types de signature dans Bitcoin.}
+  \caption{Les différents types de signatures dans Bitcoin.}
   \label{fig:signature-hash-types}
 \end{figure}
 

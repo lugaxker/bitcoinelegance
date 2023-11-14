@@ -75,7 +75,7 @@ Progression
 |        2 | Une croissance conflictuelle       | Première relecture &#x2705; &#x2705;  |
 |        3 | Des racines monétaires             | Première relecture &#x2705; &#x2705;  |
 |        4 | La nécessité de décentralisation   | Première relecture &#x2705; &#x2705;  |
-|        5 | Une résistance technologique       | Première ébauche &#x2705;             |
+|        5 | Une résistance technologique       | Première relecture &#x2705; &#x2705;  |
 |        6 | La cybermonnaie avant Nakamoto     | Première ébauche &#x2705;             |
 |        7 | La valeur de l'information         | Première relecture &#x2705; &#x2705;  |
 |        8 | Le consensus par le minage         | Première ébauche &#x2705;             |

@@ -14,3 +14,6 @@
 *.nav
 *.snm
 *.vrb
+*.bcf
+*.xml
+*.ent

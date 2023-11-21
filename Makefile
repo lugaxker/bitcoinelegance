@@ -6,8 +6,9 @@ all: bitcoinelegance.pdf
 .PHONY: pdf
 pdf: bitcoinelegance.pdf
 
-bitcoinelegance.pdf: bitcoinelegance.tex chapters/*.tex front/*.tex
+bitcoinelegance.pdf: bitcoinelegance.tex chapters/*.tex front/*.tex back/bibliography.bib
 	pdflatex $(MODE) $<
+	biber bitcoinelegance
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
@@ -77,8 +78,8 @@ beappendix.pdf: beappendix.tex appendix/appendix.tex
 
 .PHONY: clean
 clean:
-	$(RM) *.ps *.dvi *.aux *.toc *.idx *.ind *.ilg *.log *.out *.brf *.blg *.bbl *.nav *.snm *.vrb
-	$(RM) */*.ps */*.dvi */*.aux */*.toc */*.idx */*.ind */*.ilg */*.log */*.out */*.brf */*.blg */*.bbl */*.nav */*.snm */*.vrb
+	$(RM) *.ps *.dvi *.aux *.toc *.idx *.ind *.ilg *.log *.out *.brf *.blg *.bbl *.nav *.snm *.vrb *.bcf *.xml *.ent
+	$(RM) */*.ps */*.dvi */*.aux */*.toc */*.idx */*.ind */*.ilg */*.log */*.out */*.brf */*.blg */*.bbl */*.nav */*.snm */*.vrb */*.bcf */*.xml */*.ent
 
 .PHONY: distclean
 distclean: clean

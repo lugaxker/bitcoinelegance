@@ -78,7 +78,7 @@ Progression
 |        5 | Une résistance technologique       | Première relecture &#x2705; &#x2705;  |
 |        6 | La cybermonnaie avant Nakamoto     | Première relecture &#x2705; &#x2705;  |
 |        7 | La valeur de l'information         | Première relecture &#x2705; &#x2705;  |
-|        8 | Le consensus par le minage         | Première ébauche &#x2705;             |
+|        8 | Le consensus par le minage         | Première relecture &#x2705; &#x2705;  |
 |        9 | La résistance à la censure         | Première relecture &#x2705; &#x2705;  |
 |       10 | Le changement de la monnaie        | Première relecture &#x2705; &#x2705;  |
 |       11 | La détermination du protocole      | Première relecture &#x2705; &#x2705;  |

@@ -96,7 +96,7 @@ L'algorithme de preuve de travail de Hashcash consiste à trouver une collision 
 
 La preuve de travail est réalisée par le calcul successif d'empreintes d'une chaîne de caractères, composée d'une information de base, et d'un nombre qu'on fait varier, appelé le compteur ou le nonce. L'information de base comporte généralement des indications sur le contexte dans lequel la preuve de travail a été produite (identifiant, date, heure, protocole,~etc.) pour démontrer que cette preuve de travail n'a pas déjà été utilisée.
 
-Prenons un exemple pour illustrer le propos. D'abord, on choisit une information de base propre au contexte~: pour produire une preuve de travail liée à cet ouvrage et à sa date d'écriture, on peut opter pour l'information de base \longstring{20231031181000:BitcoinElegance:}. Puis on détermine le degré de la preuve de travail, c'est-à-dire le nombre de zéros binaires par lequel doit commencer l'empreinte, ici 16. On procède ensuite à la recherche du résultat voulu en incrémentant le nonce~: à chaque itération, on le concatène avec l'information de base et on vérifie si l'empreinte de l'ensemble est satisfaisante. Le travail s'arrête enfin lorsque l'empreinte commence avec un nombre suffisant de zéros~: ici 95~690 tentatives. Notre preuve de travail est donc~:
+Prenons un exemple pour illustrer le propos. D'abord, on choisit une information de base propre au contexte~: pour produire une preuve de travail liée à cet ouvrage et à sa date d'écriture, on peut opter pour l'information de base \longstring{20231031181000:BitcoinElegance:}. Puis on détermine le degré de la preuve de travail, c'est-à-dire le nombre de zéros binaires par lequel doit commencer l'empreinte, ici 16. On procède ensuite à la recherche du résultat voulu en incrémentant le nonce~: à chaque itération, on le met bout à bout avec l'information de base et on vérifie si l'empreinte de l'ensemble est satisfaisante. Le travail s'arrête enfin lorsque l'empreinte commence avec un nombre suffisant de zéros~: ici 95~690 tentatives. Notre preuve de travail est donc~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 20231031181000:BitcoinElegance:95690
@@ -231,7 +231,7 @@ H_A = \mathrm{SHA256d}(~\mathrm{tx}_A~)
 \]
 }
 
-Puis les empreintes résultantes sont concaténées deux à deux~: la deuxième empreinte est mise à la suite de la première. L'ensemble est passé par la même fonction de hachage~:
+Puis les empreintes résultantes sont concaténées deux à deux (la deuxième empreinte est placée à la suite de la première) et l'ensemble est passé par la même fonction de hachage~:
 
 { \small
 \[

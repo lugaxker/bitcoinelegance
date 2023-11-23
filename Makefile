@@ -12,6 +12,9 @@ bitcoinelegance.pdf: bitcoinelegance.tex chapters/*.tex front/*.tex back/bibliog
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<
 
+backcover.pdf: appendix/backcover.tex
+	pdflatex $(MODE) $<
+
 bech01.pdf: bech01.tex chapters/ch01-mythe.tex
 	pdflatex $(MODE) $<
 	pdflatex $(MODE) $<

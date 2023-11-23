@@ -36,6 +36,8 @@
 \makepagenote
 \renewcommand{\notenumintext}[1]{} % no mark for pagenotes
 \renewcommand{\notenuminnotes}[1]{} % no number in pagenotes
+\renewcommand{\notesname}{Notes supplémentaires} % pagenote chapter title
+\renewcommand{\notedivision}{\chapter*{\notesname}} % remove pagenote chapter from toc
 
 % Custom commands
 \newcommand{\eng}[1]{{\NoAutoSpaceBeforeFDP\emph{#1}}}  % english

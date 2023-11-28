@@ -529,7 +529,7 @@ L'usage veut qu'on utilise une apostrophe pour désigner ce signe\sendnote{On ut
 
 % --- Chemins de dérivation ---
 
-Les dérivations successives permettent de créer des arbres de dérivation, dont la position de chaque clé peut être retrouvée grâce à un chemin, le chemin de dérivation. Ce dernier est composé des indices successifs des clés, qui sont séparés par des barres obliques (\texttt{/}). On le fait généralement commencer par la lettre \texttt{m} pour indiquer qu'on part de la clé privée maîtresse. Un exemple de chemin de dérivation est \texttt{m/84'/0'/0'/1/17}.
+Les dérivations successives permettent de créer des arbres de dérivation, dont la position de chaque clé peut être retrouvée grâce à un chemin, le chemin de dérivation. Ce dernier est composé des indices successifs des clés, qui sont séparés par des barres obliques (\texttt{/}). On le fait généralement commencer par la lettre \texttt{m} pour indiquer qu'on part de la clé privée maîtresse. Un exemple de chemin de dérivation est \longstring{m/84'/0'/0'/1/17}.
 
 Chaque portefeuille peut utiliser son propre chemin de dérivation. Néanmoins, un standard a émergé, le BIP-44. Celui-ci simplifie la construction de portefeuilles à usages multiples, supportant plusieurs cryptomonnaies et donnant la possibilité de créer plusieurs comptes pour chacune d'entre elles\sendnote{Tous les portefeuilles ne respectent néanmoins pas ce standard. Le BRD wallet (ex Bread Wallet) utilise ainsi le chemin \texttt{m/0'} pour dériver le compte principal, conformément aux recommandations initiales du BIP-32.}.
 
@@ -549,7 +549,7 @@ De ce fait, le chemin de dérivation ressemble à ceci~:
 m / but' / protocole' / compte' / rôle_adresse / indice_adresse
 \end{Verbatim}
 
-Par exemple, la clé \texttt{m/44'/0'/0'/0/0} correspond à la première adresse de réception d'un compte Bitcoin utilisant les adresses traditionnelles. De même, la clé \texttt{m/84'/0'/0'/1/17} correspond à la 18\ieme{} adresse de reste du premier compte Bitcoin utilisant les adresses SegWit natives.
+Par exemple, la clé \longstring{m/44'/0'/0'/0/0} correspond à la première adresse de réception d'un compte Bitcoin utilisant les adresses traditionnelles. De même, la clé \longstring{m/84'/0'/0'/1/17} correspond à la 18\ieme{} adresse de reste du premier compte Bitcoin utilisant les adresses SegWit natives.
 
 Toutes les adresses d'un portefeuille restent valides même si elles ont été utilisées. Même si l'on peut générer des adresses à l'infini, le portefeuille balaie usuellement 20 adresses à partir de la dernière adresse active.
 

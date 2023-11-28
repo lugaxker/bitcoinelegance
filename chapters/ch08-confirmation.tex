@@ -189,9 +189,9 @@ Comme son nom l'indique, la chaîne de blocs est une structure constituée de bl
 % Identifiant, entête, chaîne des entêtes, preuve de travail
 Chaque bloc possède un identifiant unique qui le démarque des autres. Celui-ci est obtenu par hachage de l'entête du bloc (les données placées avant les transactions) par le double SHA-256. Chaque bloc contient l'identifiant du bloc précédent de sorte que l'ensemble forme une chaîne. Puisque seul l'entête est impliqué dans le calcul de l'identifiant, la chaîne de blocs peut en réalité être réduite à une chaîne d'entêtes, auxquels les transactions sont liées cryptographiquement. L'identifiant commence par un certain nombre de zéros témoignant du fait qu'un travail a été demandé. Ainsi, le bloc lui-même constitue la preuve de travail. % (en représentation petit-boutiste)
 
-Les blocs sont tous organisés de la même façon, si bien qu'il suffit d'en examiner un seul en détails pour comprendre comment la chaîne se structure. Étudions donc un bloc de la version principale de Bitcoin (BTC) en prenant pour exemple le bloc de hauteur 751~005 miné le 25 août 2022, qui contient 6 transactions.
+Les blocs sont tous organisés de la même façon, si bien qu'il suffit d'en examiner un seul en détail pour comprendre comment la chaîne se structure. Étudions donc un bloc de la version principale de Bitcoin (BTC) en prenant pour exemple le bloc de hauteur 751~005 miné le 25 août 2022, qui contient 6 transactions.
 
-% La meilleure façon de comprendre comment est organisée la chaîne de blocs, c'est de l'examiner en détails et en particulier d'étudier comment un bloc se structure.
+% La meilleure façon de comprendre comment est organisée la chaîne de blocs, c'est de l'examiner en détail et en particulier d'étudier comment un bloc se structure.
 
 % --- Bloc ---
 

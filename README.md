@@ -84,7 +84,7 @@ Progression
 |       11 | La détermination du protocole      | Première relecture &#x2705; &#x2705;  |
 |       12 | Les rouages de la machine          | Première relecture &#x2705; &#x2705;  |
 |       13 | Les contrats autonomes             | Première relecture &#x2705; &#x2705;  |
-|       14 | Le passage à l'échelle             | Première ébauche &#x2705;             |
+|       14 | Le passage à l'échelle             | Première relecture &#x2705; &#x2705;  |
 |       15 | L'avenir de Bitcoin                | Première relecture &#x2705; &#x2705;  |
 
 Plan initial (mars 2022)

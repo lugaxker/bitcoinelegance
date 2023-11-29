@@ -22,7 +22,7 @@ Plan actualisé (octobre 2023)
 
 *Présentation de l'antithèse de Bitcoin : État, prélèvement, impôt, seigneriage, inflation, banques, MNBC, impérialisme, échec des systèmes alternatifs centralisés.*
 
-#### 5 - Une résistance technologique
+#### 5 - Un mouvement technologique
 
 *Présentation de l'évolution technique qui a mené à Bitcoin : cryptographie, ordinateur, Internet, libristes, extropiens, cypherpunks.*
 
@@ -75,7 +75,7 @@ Progression
 |        2 | Une croissance conflictuelle       | Première relecture &#x2705; &#x2705;  |
 |        3 | Des racines monétaires             | Première relecture &#x2705; &#x2705;  |
 |        4 | La nécessité de décentralisation   | Première relecture &#x2705; &#x2705;  |
-|        5 | Une résistance technologique       | Première relecture &#x2705; &#x2705;  |
+|        5 | Un mouvement technologique         | Première relecture &#x2705; &#x2705;  |
 |        6 | La cybermonnaie avant Nakamoto     | Première relecture &#x2705; &#x2705;  |
 |        7 | La valeur de l'information         | Première relecture &#x2705; &#x2705;  |
 |        8 | Le consensus par le minage         | Première relecture &#x2705; &#x2705;  |

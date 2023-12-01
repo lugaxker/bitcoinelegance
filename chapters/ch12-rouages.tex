@@ -458,7 +458,7 @@ Ces types imbriqués ont permis de faciliter la transition vers SegWit en rendan
 <version (1)> <clé publique Taproot>
 \end{Verbatim}
 
-La clé publique en question mesure 32 octets. La version et la clé publique constituent les éléments constitutifs de l'adresse, qui est encodée grâce au format Bech32m et qui commence par \texttt{bc1p} comme par exemple \longstring{bc1pqlqqhzrg60v5h87r8lugusrddgz0j306shcupthy0tdqaqurwn8qr8qsej}. Le déverrouillage de la sortie se fait avec une signature simple, ou bien avec l'exécution du MAST.
+La clé publique en question mesure 32 octets. La version et la clé publique constituent les éléments constitutifs de l'adresse. Cette dernière est encodée grâce au format Bech32m, qui est une variante de l'encodage Bech32 ayant corrigé un petit bug dans le calcul de la somme de contrôle. L'adresse résultante commence toujours par \texttt{bc1p} comme par exemple \longstring{bc1pqlqqhzrg60v5h87r8lugusrddgz0j306shcupthy0tdqaqurwn8qr8qsej}. Le déverrouillage de la sortie se fait avec une signature simple, ou bien avec l'exécution du MAST.
 
 % tr(f6a6c7c39c88b767bfac4ac687c3ff32372e76c9fb633e2278e54472e300b3bd)
 

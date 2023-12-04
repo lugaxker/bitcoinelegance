@@ -1,9 +1,58 @@
 % Copyright (c) 2023 Ludovic Lars
 % This work is licensed under the CC BY-NC-SA 4.0 International License
 
+\documentclass[a4paper,notitlepage]{article}
+
+% Basic packages
+\usepackage[polutonikogreek, french]{babel} % language
+\usepackage[utf8]{inputenc}                 % accents
+\usepackage[T1]{fontenc}                    % french characters
+\usepackage[margin=2cm]{geometry}           % margin
+\usepackage{setspace}                       % spacing
+\usepackage{graphicx}                       % images
+\usepackage{verbatim}                       % preformatted text
+\usepackage{enumerate}                      % lists
+\usepackage{hyperref}                       % cross-referencing
+\usepackage{xurl}
+
+% Custom packages
+\usepackage{newtxtext}                      % Times New Roman font
+\usepackage{eurosym}                        % euro symbol
+\usepackage{amsfonts,amsmath,amssymb,amsthm}    % math
+\usepackage{xcolor}
+\usepackage{fancyvrb}                       % fancy verbatim
+\usepackage{seqsplit}
+
+\usepackage[type={CC}, modifier={by-nc-sa}, version={4.0}]{doclicense} % license
+
+% Custom settings
+\setlength{\parskip}{1ex}                   % paragraph spacing
+\renewenvironment{quote}{\small\list{}{\topsep=0.5\baselineskip}\item\relax}{\endlist} % quote spacing
+\renewcommand{\arraystretch}{1.3}           % tabular spacing
+
+% Custom commands
+\newcommand{\eng}[1]{{\NoAutoSpaceBeforeFDP\emph{#1}}}  % english
+\newcommand{\wtime}[1]{{\NoAutoSpaceBeforeFDP#1}}       % datetime
+\newcommand{\longstring}[1]{{\NoAutoSpaceBeforeFDP\seqsplit{#1}}}
+\newcommand{\sfootnote}{\,\footnote}
+
+\title{L'Élégance de Bitcoin (annexe)}     % title
+\author{Ludovic Lars}                       % author
+\date{\today}                               % date
+
+\hypersetup{
+    pdftitle={\csname @title\endcsname},
+    pdfauthor={\csname @author\endcsname}
+}
+
+\begin{document}
+
+% Specific parameters
+\setlength\parindent{0pt} % No alinea
+
 \maketitle
 
-Cette annexe regroupe certains passages délaissés du livre.
+Cette annexe regroupe certains passages supprimés du livre.
 
 \section{La production, la spoliation et l'État}
 
@@ -12,8 +61,6 @@ Bitcoin donne aux individus la propriété entière sur leur argent, en leur per
 En tant qu'organisation politique, l'État est l'incarnation du transfert de richesse non consenti, transfert qui a principalement lieu au travers de l'impôt, prélevé directement sur le contribuable, et du seigneuriage, prélevé indirectement sur l'épargnant. Les moyens de prélèvement de l'État reposent tous deux sur le contrôle de la monnaie~: l'impôt par la surveillance et la censure des transactions~; le seigneuriage par la maîtrise de l'unité de compte. En offrant un accès à la liberté monétaire, Bitcoin remet ce contrôle en question et constitue en ceci une menace du point de vue étatique.
 
 Ce rapport antagoniste entretenu avec l'État est la raison pour laquelle le caractère décentralisé de Bitcoin est une nécessité, en dépit de son manque d'efficacité technique. L'État a fait de la monnaie sa prérogative et ne tolère pas de concurrence en la matière. D'où le recours à des architectures distribuées plutôt qu'à des acteurs centralisés.
-
----
 
 % Deux moyens d'obtenir de la richesse
 Pour l'être humain, il n'existe que deux moyens de se procurer les choses auxquelles il accorde de la valeur~: la production et la spoliation, ou pour le dire autrement, le travail et le vol. Le premier moyen implique un effort personnel~; le second consiste à s'approprier l'effort d'autrui. Le premier moyen est volontaire~; le second forcé. Le premier moyen crée de la richesse~; le second en détruit. Ces deux moyens s'opposent diamétralement depuis la nuit des temps.
@@ -514,3 +561,5 @@ Bitcoin n'est pas un «~cheval de Troie\sfootnote{\url{https://bitcoinmagazine.c
 
 % Monnaie de réserve
 Bitcoin constitue un piètre système de monnaie de réserve\sfootnote{\url{https://journalducoin.com/analyses/bitcoin-pas-monnaie-reserve/}}. L'auditabilité de la chaîne n'empêche pas les banques de créer plus de certificats qu'elles n'ont de bitcoins. L'idée d'un étalon-bitcoin basé sur le modèle de l'étalon-or est complètement trompeuse. La banque libre n'est possible que de manière locale et limitée.
+
+\end{document}

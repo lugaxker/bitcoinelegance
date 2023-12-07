@@ -17,3 +17,5 @@
 *.bcf
 *.xml
 *.ent
+
+!img/matt-whitlock-bitcoin-inflation-log.pdf

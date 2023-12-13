@@ -212,7 +212,7 @@ Cette restriction a été appliquée en imposant des schémas standards de scrip
 
 % --- Pay to Public Key ---
 
-\textbf{P2PK~: Pay to Public Key.} Le premier schéma s'appelle Pay to Public Key (P2PK), qu'on peut traduire littéralement en français par «~payer à la clé publique~». Il s'agit de créer une pièce liée à la clé publique d'un destinataire, que lui seul peut dépenser en signant avec sa clé privée. Le script de verrouillage permettant ce type d'envoi est~:
+\subsubsection*{P2PK~: Pay to Public Key} Le premier schéma s'appelle Pay to Public Key (P2PK), qu'on peut traduire littéralement en français par «~payer à la clé publique~». Il s'agit de créer une pièce liée à la clé publique d'un destinataire, que lui seul peut dépenser en signant avec sa clé privée. Le script de verrouillage permettant ce type d'envoi est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 <clé publique> CHECKSIG
@@ -232,7 +232,7 @@ Le schéma P2PK était utilisé dans les débuts de Bitcoin pour recevoir les pa
 
 % --- Pay to Public Key Hash --
 
-\textbf{P2PKH~: Pay to Public Key Hash.} Le schéma Pay to Public Key Hash (P2PKH), qui est traduit littéralement par «~payer à l'empreinte de la clé publique~», est le deuxième type de format de réception apparu dans Bitcoin dès le début du fait de la conception de Satoshi Nakamoto. Ce schéma permet non pas de réaliser un paiement vers une clé publique, mais vers l'empreinte d'une clé publique, tout en faisant en sorte que l'interpréteur vérifie quand même la validité de la signature vis-à-vis de la clé publique lors de la dépense des fonds. L'empreinte de la clé publique est alors considérée comme la donnée essentielle («~charge utile~») de l'adresse, qui dans ce cas commence toujours par un 1, comme par exemple \longstring{1FjBKPQ7MTiPSDkJ2ZwPgAXUKQ8yoGbVJX}. Le script de verrouillage ici est~:
+\subsubsection*{P2PKH~: Pay to Public Key Hash} Le schéma Pay to Public Key Hash (P2PKH), qui est traduit littéralement par «~payer à l'empreinte de la clé publique~», est le deuxième type de format de réception apparu dans Bitcoin dès le début du fait de la conception de Satoshi Nakamoto. Ce schéma permet non pas de réaliser un paiement vers une clé publique, mais vers l'empreinte d'une clé publique, tout en faisant en sorte que l'interpréteur vérifie quand même la validité de la signature vis-à-vis de la clé publique lors de la dépense des fonds. L'empreinte de la clé publique est alors considérée comme la donnée essentielle («~charge utile~») de l'adresse, qui dans ce cas commence toujours par un 1, comme par exemple \longstring{1FjBKPQ7MTiPSDkJ2ZwPgAXUKQ8yoGbVJX}. Le script de verrouillage ici est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 DUP HASH160 <empreinte de la clé publique> EQUALVERIFY CHECKSIG
@@ -250,7 +250,7 @@ L'avantage de ce schéma est qu'il permet d'avoir des adresses plus courtes (l'i
 
 % --- Pay To MultiSig ---
 
-\textbf{P2MS~: Pay To MultiSig.} Le schéma Pay To MultiSig (P2SH), qui signifie littéralement «~payer à la multisignature~», est un schéma exigeant la signature de M personnes parmi N participants prédéterminés («~M-parmi-N~», ou «~M-of-N~» en anglais). Il a été rendu standard sous une forme limitée à 3 participants en mars 2012 avec la sortie de la version 0.6.0 du logiciel\pagenote{«~la sortie de la version 0.6.0 du logiciel~»~: Gavin Andresen, \eng{Version 0.6.0 released}, 30 mars 2012~: \url{https://bitcointalk.org/index.php?topic=74737.msg827484\#msg827484}.}. Le script de verrouillage est le suivant~:
+\subsubsection*{P2MS~: Pay To MultiSig} Le schéma Pay To MultiSig (P2SH), qui signifie littéralement «~payer à la multisignature~», est un schéma exigeant la signature de M personnes parmi N participants prédéterminés («~M-parmi-N~», ou «~M-of-N~» en anglais). Il a été rendu standard sous une forme limitée à 3 participants en mars 2012 avec la sortie de la version 0.6.0 du logiciel\pagenote{«~la sortie de la version 0.6.0 du logiciel~»~: Gavin Andresen, \eng{Version 0.6.0 released}, 30 mars 2012~: \url{https://bitcointalk.org/index.php?topic=74737.msg827484\#msg827484}.}. Le script de verrouillage est le suivant~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 M <clé publique 1> ... <clé publique N> N CHECKMULTISIG
@@ -266,7 +266,7 @@ La présence du leurre (généralement 0) est dû à un défaut dans l'implémen
 
 C'est ce schéma, particulièrement exigeant au niveau de la mise en place, qui a motivé la création du schéma P2SH.
 
-\textbf{P2SH : Pay to Script Hash.} Le schéma Pay to Script Hash (P2SH), pouvant être traduit littéralement par «~payer à l'empreinte du script~», reprend l'idée derrière P2PKH, à la seule différence que la donnée hachée n'est pas une clé publique, mais le script lui-même~! Le script en question est alors appelé script de récupération (\eng{redeem script}) pour le différencier du script de déverrouillage. Son empreinte est la donnée constituante de l'adresse, cette dernière commençant toujours par un 3 à l'instar de \longstring{3K8Ps6Ayw5ZaKDaLZjfGo3mTgDsc1VXZ8d}.
+\subsubsection*{P2SH : Pay to Script Hash} Le schéma Pay to Script Hash (P2SH), pouvant être traduit littéralement par «~payer à l'empreinte du script~», reprend l'idée derrière P2PKH, à la seule différence que la donnée hachée n'est pas une clé publique, mais le script lui-même~! Le script en question est alors appelé script de récupération (\eng{redeem script}) pour le différencier du script de déverrouillage. Son empreinte est la donnée constituante de l'adresse, cette dernière commençant toujours par un 3 à l'instar de \longstring{3K8Ps6Ayw5ZaKDaLZjfGo3mTgDsc1VXZ8d}.
 
 % \sendnote{Ludovic Lars, \emph{Pay to Script Hash (P2SH) pleinement expliqué}, 14 juillet 2020~: \url{https://viresinnumeris.fr/pay-to-script-hash-p2sh-pleinement-explique/}.}
 
@@ -305,7 +305,7 @@ La proposition a été codifiée dans le BIP-16. Si cette solution est pratique,
 
 Le schéma P2SH a fini par être activé le 1\ier{} avril 2012 sous la forme d'un soft fork, en dépit de l'opposition notable de luke-jr qui proposait un opérateur alternatif, \longstring{OP\_CHECKHASHVERIFY}, décrit dans le BIP-17\pagenote{«~l'opposition notable de luke-jr~»~: Amir Taaki, \eng{The Truth behind BIP 16 and 17}, 29 janvier 2012~: \url{http://bitcoinmedia.com/the-truth-behind-bip-16-and-17/}~; archive~: \url{https://web.archive.org/web/20120202032835/http://bitcoinmedia.com/the-truth-behind-bip-16-and-17/}.}.
 
-\textbf{NULLDATA.} Le schéma NULLDATA, signifiant littéralement «~données insignifiantes~», est un schéma d'inscription de données arbitraires sur la chaîne. Il est le quatrième schéma classique et a été rendu standard avec l'arrivée de la version 0.9.0 de Bitcoin Core en mars 2014\pagenote{«~l'arrivée de la version 0.9.0 de Bitcoin Core en mars 2014~»~: Bitcoin Core, \eng{Bitcoin Core version 0.9.0 released}, 19 mars 2014~: \url{https://bitcoin.org/en/release/v0.9.0\#opreturn-and-data-in-the-block-chain}.}. Il se base sur l'instruction \texttt{OP\_RETURN} dont l'effet est de mettre fin à l'exécution du script et de rendre indépensable la pièce correspondante\sendnote{L'instruction \texttt{OP\_RETURN} servait initialement à retourner la valeur au sommet de la pile, d'où son nom. Cependant, en juillet 2010, la découverte du «~\eng{1 RETURN bug}~», qui permettait de dépenser toute sortie transactionnelle \emph{via} le script de déverrouillage \longstring{TRUE RETURN}, a poussé Satoshi Nakamoto à désactiver cette fonctionnalité en lui faisant renvoyer \texttt{FALSE} systématiquement. Voir Satoshi Nakamoto, \eng{reverted makefile.unix wx-config -- version 0.3.6 (git commit)}, \wtime{29/07/2010 18:27:12 UTC}~: \url{https://sourceforge.net/p/bitcoin/code/119/}.}. Le script de verrouillage du schéma commence toujours par \texttt{OP\_RETURN} et est suivi des données empilées~:
+\subsubsection{NULLDATA} Le schéma NULLDATA, signifiant littéralement «~données insignifiantes~», est un schéma d'inscription de données arbitraires sur la chaîne. Il est le quatrième schéma classique et a été rendu standard avec l'arrivée de la version 0.9.0 de Bitcoin Core en mars 2014\pagenote{«~l'arrivée de la version 0.9.0 de Bitcoin Core en mars 2014~»~: Bitcoin Core, \eng{Bitcoin Core version 0.9.0 released}, 19 mars 2014~: \url{https://bitcoin.org/en/release/v0.9.0\#opreturn-and-data-in-the-block-chain}.}. Il se base sur l'instruction \texttt{OP\_RETURN} dont l'effet est de mettre fin à l'exécution du script et de rendre indépensable la pièce correspondante\sendnote{L'instruction \texttt{OP\_RETURN} servait initialement à retourner la valeur au sommet de la pile, d'où son nom. Cependant, en juillet 2010, la découverte du «~\eng{1 RETURN bug}~», qui permettait de dépenser toute sortie transactionnelle \emph{via} le script de déverrouillage \longstring{TRUE RETURN}, a poussé Satoshi Nakamoto à désactiver cette fonctionnalité en lui faisant renvoyer \texttt{FALSE} systématiquement. Voir Satoshi Nakamoto, \eng{reverted makefile.unix wx-config -- version 0.3.6 (git commit)}, \wtime{29/07/2010 18:27:12 UTC}~: \url{https://sourceforge.net/p/bitcoin/code/119/}.}. Le script de verrouillage du schéma commence toujours par \texttt{OP\_RETURN} et est suivi des données empilées~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 RETURN [données arbitraires]
@@ -357,7 +357,7 @@ Outre la correction de la malléabilité, SegWit a apporté une augmentation de 
 
 % --- Malléabilité ---
 
-\textbf{Malléabilité.} SegWit tire son origine du problème de la malléabilité des transactions, un problème identifié depuis janvier 2012\pagenote{«~problème identifié depuis janvier 2012~»~: Gavin Andresen, \eng{[Bitcoin-development] Extending IsStandard() to transaction scriptSigs}, \wtime{19/1/2012 16:29:29}, \url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2012-January/001066.html}.}. Dans Bitcoin, les transactions sont malléables dans le sens où elles peuvent être modifiées légèrement après leur diffusion sans devenir invalides aux yeux du réseau. Cette propriété vient du fait qu'une signature ne peut pas se prendre en compte elle-même et que, par conséquent, le script de déverrouillage n'est pas signé avec le reste de la transaction. La malléabilité peut ainsi prendre deux formes~: la malléabilité intrinsèque à l'algorithme ECDSA, qui se base sur un nombre aléatoire pour produire une signature (malléabilité par le signataire)~; la malléabilité provenant de la forme des signatures et des scripts de déverrouillage des entrées (malléabilité par un tiers).
+\subsubsection*{La malléabilité} SegWit tire son origine du problème de la malléabilité des transactions, un problème identifié depuis janvier 2012\pagenote{«~problème identifié depuis janvier 2012~»~: Gavin Andresen, \eng{[Bitcoin-development] Extending IsStandard() to transaction scriptSigs}, \wtime{19/1/2012 16:29:29}, \url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2012-January/001066.html}.}. Dans Bitcoin, les transactions sont malléables dans le sens où elles peuvent être modifiées légèrement après leur diffusion sans devenir invalides aux yeux du réseau. Cette propriété vient du fait qu'une signature ne peut pas se prendre en compte elle-même et que, par conséquent, le script de déverrouillage n'est pas signé avec le reste de la transaction. La malléabilité peut ainsi prendre deux formes~: la malléabilité intrinsèque à l'algorithme ECDSA, qui se base sur un nombre aléatoire pour produire une signature (malléabilité par le signataire)~; la malléabilité provenant de la forme des signatures et des scripts de déverrouillage des entrées (malléabilité par un tiers).
 
 % Problèmes
 La malléabilité n'est pas rédhibitoire pour la sécurité des fonds, mais elle permet de modifier l'identifiant de la transaction après sa publication, ce qui peut se révéler problématique dans certaines situations. Ainsi, entre le 9 et le 11 février 2014, Mt. Gox et d'autres plateformes de change ont subi des attaques exploitant cette malléabilité des transactions. Les transactions de retrait ont été modifiées par les attaquants, faisant croire aux plateformes, dont l'infrastructure logicielle était mal configurée, que ces transactions n'avaient pas été confirmées. Les pirates ont vu leurs comptes être recrédités tout en conservant dans le même temps les bitcoins retirés. Ces attaques ont mené à une perte totale de 64~564 bitcoins\sendnote{Sur l'attaque de méalléabilité contre Mt. Gox, voir Ken Shirriff, \eng{The Bitcoin malleability attack graphed hour by hour}, 15 février 2014~: \url{https://www.righto.com/2014/02/the-bitcoin-malleability-attack-hour-by.html}. Voir aussi Christian Decker, Roger Wattenhofer, \eng{Bitcoin Transaction Malleability and MtGox}, 26 mars 2014~: \url{https://arxiv.org/pdf/1403.6676.pdf}.}. % page=8
@@ -381,7 +381,7 @@ Cette solution a été adaptée pour Bitcoin au cours de l'automne 2015, pour ê
 SegWit est active depuis le 24 août 2017. L'absence de script de déverrouillage dans le calcul de l'identifiant classique permet de ne plus avoir de malléabilité du tout, ni des signataires, ni d'un tiers extérieur.
 
 % Augmentation de la capacité transactionnelle
-\textbf{Augmentation de la capacité transactionnelle.} SegWit a aussi eu pour effet indirect de créer un bloc d'extension et d'augmenter la capacité transactionnelle. En effet, les nœuds suivant les anciennes règles ne voyaient pas le témoin, de sorte qu'ils ne le comptabilisaient pas dans la taille du bloc. La question était alors de savoir quelle limite mettre sur le témoin.
+\subsubsection*{L'augmentation de la capacité transactionnelle} SegWit a aussi eu pour effet indirect de créer un bloc d'extension et d'augmenter la capacité transactionnelle. En effet, les nœuds suivant les anciennes règles ne voyaient pas le témoin, de sorte qu'ils ne le comptabilisaient pas dans la taille du bloc. La question était alors de savoir quelle limite mettre sur le témoin.
 
 % Nouvelle métrique : le poids
 La réponse a été d'inventer une nouvelle métrique pour mesurer l'impact des transactions et des blocs sur le réseau~: le poids (\eng{weight}), qui est une moyenne pondérée de la taille de base et de la taille du témoin. Exprimé en unités de poids (\eng{weight unit}), il est défini comme la somme du quadruple de la taille de base ($s_b$) et de la taille du témoin ($s_w$)~:
@@ -409,13 +409,13 @@ Les transactions dont les données de déverrouillage sont plus grandes profiten
 
 % --- Versionnage des scripts ---
 
-\textbf{Versionnage des scripts.} Enfin, la mise à niveau SegWit a apporté un versionnage des scripts, qui permettait le déploiement de futures mises à niveau. La version permettait ainsi d'indiquer quelles règles étaient appliquées. La première version de SegWit en 2017 utilisait la version 0, et le déploiement de Taproot en 2021 a été fait au moyen de la version 1.
+\subsubsection*{Le versionnage des scripts} Enfin, la mise à niveau SegWit a apporté un versionnage des scripts, qui permettait le déploiement de futures mises à niveau. La version permettait ainsi d'indiquer quelles règles étaient appliquées. La première version de SegWit en 2017 utilisait la version 0, et le déploiement de Taproot en 2021 a été fait au moyen de la version 1.
 
 % --- Types de sortie ---
 
 Trois types de sortie natifs liés à SegWit existent pour l'instant~: le schéma P2WPKH, le schéma P2WSH et le schéma P2TR.
 
-\textbf{P2WPKH~: Pay to Witness Public Key Hash.} Le schéma \eng{Pay to Witness Public Key Hash} (P2WPKH), qui signifie littéralement «~payer à l'empreinte de la clé publique témoin~», est le premier schéma mis en place par SegWit. L'empreinte de la clé publique est obtenue par le hachage standard (SHA-256 suivi de RIPEMD-160). Le script de verrouillage apparent est alors~:
+\subsubsection*{P2WPKH~: Pay to Witness Public Key Hash} Le schéma \eng{Pay to Witness Public Key Hash} (P2WPKH), qui signifie littéralement «~payer à l'empreinte de la clé publique témoin~», est le premier schéma mis en place par SegWit. L'empreinte de la clé publique est obtenue par le hachage standard (SHA-256 suivi de RIPEMD-160). Le script de verrouillage apparent est alors~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 <version (0)> <empreinte (hash160) de la clé publique>
@@ -429,7 +429,7 @@ Le script de déverrouillage est vide. Les données de déverrouillage sont cont
 <2> <signature> <clé publique>
 \end{Verbatim}
 
-\textbf{P2WSH~: Pay to Witness Script Hash.} Le schéma \eng{Pay to Witness Script Hash} (P2WSH), dont la traduction littérale est «~payer à l'empreinte du script témoin~», est la retranscription de P2SH pour SegWit. L'empreinte du script de récupération est obtenue par SHA-256, par peur d'une collision de RIPEMD-160 dans le cas d'une adresse générée par plusieurs personnes\sendnote{Gavin Andresen, \eng{[bitcoin-dev] Time to worry about 80-bit collision attacks or not?}, \wtime{07/01/2016 19:02:05 UTC}~: \url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-January/012198.html}.}. Le script de verrouillage est le suivant~:
+\subsubsection*{P2WSH~: Pay to Witness Script Hash} Le schéma \eng{Pay to Witness Script Hash} (P2WSH), dont la traduction littérale est «~payer à l'empreinte du script témoin~», est la retranscription de P2SH pour SegWit. L'empreinte du script de récupération est obtenue par SHA-256, par peur d'une collision de RIPEMD-160 dans le cas d'une adresse générée par plusieurs personnes\sendnote{Gavin Andresen, \eng{[bitcoin-dev] Time to worry about 80-bit collision attacks or not?}, \wtime{07/01/2016 19:02:05 UTC}~: \url{https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-January/012198.html}.}. Le script de verrouillage est le suivant~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 <version (0)> <empreinte (sha256) du script de récupération>
@@ -446,11 +446,11 @@ récupération>
 
 Dans les deux cas, l'empreinte est aussi appelée «~programme du témoin~».
 
-\textbf{Types imbriqués (P2SH-P2WPKH, P2SH-P2WSH).} SegWit a aussi modifié le format P2SH pour inclure de nouvelles exceptions. Ces exceptions correspondent aux types imbriqués (\eng{nested}) P2SH-P2WPKH et P2SH-P2WSH. Leur fonctionnement consiste à inclure les scripts de verrouillages précédents (version + empreinte) dans une sortie P2SH en tant que scripts de récupération. Le script de récupération est alors exécuté différemment pour faire appel aux données contenues dans le témoin.
+\subsubsection*{Les types imbriqués (P2SH-P2WPKH, P2SH-P2WSH)} SegWit a aussi modifié le format P2SH pour inclure de nouvelles exceptions. Ces exceptions correspondent aux types imbriqués (\eng{nested}) P2SH-P2WPKH et P2SH-P2WSH. Leur fonctionnement consiste à inclure les scripts de verrouillages précédents (version + empreinte) dans une sortie P2SH en tant que scripts de récupération. Le script de récupération est alors exécuté différemment pour faire appel aux données contenues dans le témoin.
 
 Ces types imbriqués ont permis de faciliter la transition vers SegWit en rendant les portefeuilles non mis à jour capables d'envoyer des fonds vers ces adresses. L'utilisation d'adresses SegWit natives reste néanmoins plus avantageuse.
 
-\textbf{P2TR~: Pay to Taproot.} Le dernier schéma à entrer en vigueur est le schéma \eng{Pay to Taproot} (P2TR), dont le nom peut être traduit par «~payer à Taproot~». Ce schéma permet de recevoir un paiement sur une clé publique externe qui cache une clé privée servant à signer les transferts de fonds, ou bien la racine pivot d'un arbre de Merkle contenant les clauses d'un contrat autonome (MAST). Puisque la destination du paiement est une clé publique, il s'agit en quelque sorte d'un retour au P2PK. Le script de verrouillage présent dans la sortie transactionnelle est~:
+\subsubsection*{P2TR~: Pay to Taproot} Le dernier schéma à entrer en vigueur est le schéma \eng{Pay to Taproot} (P2TR), dont le nom peut être traduit par «~payer à Taproot~». Ce schéma permet de recevoir un paiement sur une clé publique externe qui cache une clé privée servant à signer les transferts de fonds, ou bien la racine pivot d'un arbre de Merkle contenant les clauses d'un contrat autonome (MAST). Puisque la destination du paiement est une clé publique, il s'agit en quelque sorte d'un retour au P2PK. Le script de verrouillage présent dans la sortie transactionnelle est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 <version (1)> <clé publique Taproot>

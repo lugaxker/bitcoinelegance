@@ -203,7 +203,7 @@ L'entête est, lui, divisé en six éléments~: la version du bloc, l'identifian
 
 % --- Version ---
 
-\textbf{La version du bloc.} La version du bloc indique l'ensemble des règles respectées par le bloc. Historiquement, la version 1 marquait un respect des règles du protocole originellement défini par Satoshi. Les versions 2 à 4 ont servi à imposer l'application de certains changements du protocole entre 2013 et 2015. Depuis 2016, ce champ de version est utilisé pour le signalement des mineurs dans le cadre de l'application d'un soft fork par l'exécution du BIP-9 ou par un mécanisme équivalent. Le champ de version de notre bloc est~:
+\subsubsection*{La version du bloc} La version du bloc indique l'ensemble des règles respectées par le bloc. Historiquement, la version 1 marquait un respect des règles du protocole originellement défini par Satoshi. Les versions 2 à 4 ont servi à imposer l'application de certains changements du protocole entre 2013 et 2015. Depuis 2016, ce champ de version est utilisé pour le signalement des mineurs dans le cadre de l'application d'un soft fork par l'exécution du BIP-9 ou par un mécanisme équivalent. Le champ de version de notre bloc est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 0b00100000000000000000000000000100
@@ -211,7 +211,7 @@ L'entête est, lui, divisé en six éléments~: la version du bloc, l'identifian
 
 % --- Identifiant du bloc précédent ---
 
-\textbf{L'identifiant du bloc précédent.} L'identifiant du bloc précédent sert à lier l'entête du bloc présent à l'entête du bloc précédent. Dans le cas du bloc de genèse, ce champ est fixé à zéro par convention. Dans notre bloc, il constitue l'identifiant du bloc 751~004, qui est~:
+\subsubsection*{L'identifiant du bloc précédent} L'identifiant du bloc précédent sert à lier l'entête du bloc présent à l'entête du bloc précédent. Dans le cas du bloc de genèse, ce champ est fixé à zéro par convention. Dans notre bloc, il constitue l'identifiant du bloc 751~004, qui est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 000000000000000000073ad6c18c81f2f67b2ca5b5ace8d23cce95812af8c7b6
@@ -219,7 +219,7 @@ L'entête est, lui, divisé en six éléments~: la version du bloc, l'identifian
 
 % --- Racine de Merkle ---
 
-\textbf{La racine de Merkle.} Le troisième élément de l'entête est la racine de Merkle, qui correspond à l'empreinte finale de l'agencement des transactions en arbre de Merkle.
+\subsubsection*{La racine de Merkle} Le troisième élément de l'entête est la racine de Merkle, qui correspond à l'empreinte finale de l'agencement des transactions en arbre de Merkle.
 
 Un arbre de Merkle, aussi appelé arbre de hachage, est une structure de données conceptualisée en 1979 par le cryptographe Ralph Merkle permettant de vérifier le contenu d'un volume de données sans avoir besoin de toutes les inspecter. Dans une telle structure, les données (constituant alors les feuilles de l'arbre) sont rangées dans un certain ordre et hachées respectivement. Puis leurs empreintes sont combinées deux à deux pour être hachées à leur tour, et ceci jusqu'à ce qu'il ne reste plus qu'une seule empreinte, qu'on appelle la racine. Les chaînes de hachages qui relient les feuilles à la racine sont appelées les branches.
 
@@ -272,13 +272,13 @@ Depuis l'activation de SegWit le 24 août 2017, chaque bloc contient un arbre de
 
 % --- Horodatage ---
 
-\textbf{L'horodatage.} L'horodatage indique la date et l'heure de construction du bloc qui sont déclarées par le mineur. D'un point de vue technique, il est donné par l'heure Unix, c'est-à-dire le nombre de secondes écoulées depuis le 1\ier{} janvier 1970 \wtime{00:00:00 UTC}. Pour notre bloc, l'horodatage est de $1661407005$ ce qui correspond à la date du 25 août 2022 à 5 heures 56 minutes et 45 secondes (UTC).
+\subsubsection*{L'horodatage} L'horodatage indique la date et l'heure de construction du bloc qui sont déclarées par le mineur. D'un point de vue technique, il est donné par l'heure Unix, c'est-à-dire le nombre de secondes écoulées depuis le 1\ier{} janvier 1970 \wtime{00:00:00 UTC}. Pour notre bloc, l'horodatage est de $1661407005$ ce qui correspond à la date du 25 août 2022 à 5 heures 56 minutes et 45 secondes (UTC).
 
 Le mineur ne peut pas choisir cet horodatage au hasard. L'heure déclarée doit se situer dans le futur par rapport au temps médian passé (MTP) -- la médiane des horodatages des 11 derniers blocs, qui retarde généralement d'une heure sur le temps réel -- et ne doit pas dépasser l'horloge des nœuds récepteurs de deux heures\pagenote{«~ne doit pas dépasser l'horloge des nœuds récepteurs de deux heures~»~: \url{https://github.com/bitcoin/bitcoin/blob/24.x/src/validation.cpp\#L3483-L3490}.}. Cette contrainte relativement permissive permet au temps réseau de rester relativement cohérent avec la réalité.
 
 % --- Valeur cible ---
 
-\textbf{La valeur cible.} La valeur cible est la valeur minimale que l'identifiant du bloc peut prendre pour que ce bloc constitue une preuve de travail. Plus cette valeur cible est petite, plus il est facile de trouver une solution et de miner un bloc. Elle est déterminée par le réseau selon les règles de l'algorithme d'ajustement de la difficulté.
+\subsubsection*{La valeur cible} La valeur cible est la valeur minimale que l'identifiant du bloc peut prendre pour que ce bloc constitue une preuve de travail. Plus cette valeur cible est petite, plus il est facile de trouver une solution et de miner un bloc. Elle est déterminée par le réseau selon les règles de l'algorithme d'ajustement de la difficulté.
 
 La valeur cible est encodée comme un nombre flottant où le premier octet représente un exposant particulier et où la mantisse est déterminée par les 3 octets suivants. Ici, elle est égale à $\mathtt{0x09ed88} \times 256^{(\mathtt{0x17} - 3)}$ c'est-à-dire~:
 
@@ -290,7 +290,7 @@ Cette information donne aussi la difficulté de minage du bloc, qui est inversem
 
 % --- Nonce ---
 
-\textbf{Le nonce.} Le nonce désigne le nombre que le mineur fait varier pour produire la preuve de travail. Ce mot provient de l'expression anglaise «~\eng{for the nonce}~» signifiant «~pour la circonstance, pour l'occasion~», ce qui indique la spécificité de son rôle\sendnote{Une étymologie populaire prétend qu'il serait une contraction de l'expression «~\eng{number used once}~», mais celle-ci est incorrecte.}. Le mineur fait également varier un nonce supplémentaire au sein de la transaction de récompense, le champ du nonce étant trop petit (8 octets) pour la difficulté de minage actuelle. Le nonce de notre bloc est $4~224~551~499$.
+\subsubsection*{Le nonce} Le nonce désigne le nombre que le mineur fait varier pour produire la preuve de travail. Ce mot provient de l'expression anglaise «~\eng{for the nonce}~» signifiant «~pour la circonstance, pour l'occasion~», ce qui indique la spécificité de son rôle\sendnote{Une étymologie populaire prétend qu'il serait une contraction de l'expression «~\eng{number used once}~», mais celle-ci est incorrecte.}. Le mineur fait également varier un nonce supplémentaire au sein de la transaction de récompense, le champ du nonce étant trop petit (8 octets) pour la difficulté de minage actuelle. Le nonce de notre bloc est $4~224~551~499$.
 
 Ces deux derniers paramètres (valeur cible et nonce) sont relatifs à la preuve de travail et interviennent dans la formulation du problème mathématique résolu par le mineur. Ce problème se présente sous la forme d'une inégalité mathématique. En notant $c$ la valeur cible du réseau et $\mathrm{EB}$ l'entête du bloc, il s'agit de trouver un nonce $n$ tel que~:
 

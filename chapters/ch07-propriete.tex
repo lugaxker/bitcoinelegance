@@ -197,21 +197,21 @@ Dans Bitcoin, la clé publique servait initialement à recevoir les fonds direct
 L'algorithme de signature ECDSA s'applique à un message $m$ qui est précédemment haché et produit une signature $(r, s)$. Il est ensuite possible de faire correspondre la signature avec la clé publique $K$ grâce à un algorithme de vérification qui ne nécessite pas de connaître la clé $k$\sendnote{L'algorithme de signature ECDSA est le suivant. En notant $H(m)$ l'empreinte cryptographique du message à signer, la signature est obtenue en appliquant les étapes suivantes~:
 
 \begin{itemize}
-  \item[$\bullet$] Choisir aléatoirement une clé éphémère $l$ inférieure à $n-1$~;
-  \item[$\bullet$] Calculer les coordonnées $(i,j)$ du point $l~G$~;
-  \item[$\bullet$] Calculer $r = i \mod n$~; si $r = 0$, choisir un autre $l$~;
-  \item[$\bullet$] Calculer $s = l^{-1} ( H(m) + k r ) \mod n$~; si $s = 0$, choisir un autre $l$~;
-  \item[$\bullet$] La signature est $( r, s )$.
+  \item Choisir aléatoirement une clé éphémère $l$ inférieure à $n-1$~;
+  \item Calculer les coordonnées $(i,j)$ du point $l~G$~;
+  \item Calculer $r = i \mod n$~; si $r = 0$, choisir un autre $l$~;
+  \item Calculer $s = l^{-1} ( H(m) + k r ) \mod n$~; si $s = 0$, choisir un autre $l$~;
+  \item La signature est $( r, s )$.
 \end{itemize}
 
 L'algorithme de vérification est le suivant~:
 
 \begin{itemize}
-  \item[$\bullet$] Vérifier que $K \ne 0$ et que $K$ appartient à la courbe~;
-  \item[$\bullet$] Vérifier que $n~K = 0$~;
-  \item[$\bullet$] Vérifier que $1 \leq r \leq n - 1$ et $1 \leq s \leq n - 1$~;
-  \item[$\bullet$] Calculer $(i, j) = ( H(m) s^{-1} \mod n )~G + ( r s^{-1} \mod n  )~K$~;
-  \item[$\bullet$] Vérifier que $r = i \mod n$.
+  \item Vérifier que $K \ne 0$ et que $K$ appartient à la courbe~;
+  \item Vérifier que $n~K = 0$~;
+  \item Vérifier que $1 \leq r \leq n - 1$ et $1 \leq s \leq n - 1$~;
+  \item Calculer $(i, j) = ( H(m) s^{-1} \mod n )~G + ( r s^{-1} \mod n  )~K$~;
+  \item Vérifier que $r = i \mod n$.
 \end{itemize}}.
 
 % Transaction et signature
@@ -235,9 +235,9 @@ Bitcoin fait également usage du hachage. Le hachage est un procédé cryptograp
 Les fonctions de hachage sont des fonctions déterministes, facilement exécutables, qui possèdent en théorie trois caractéristiques\sendnote{Il s'agit de suppositions et certaines fonctions satisfont ces caractéristiques plus que d'autres. Ainsi, des collisions ont été trouvées au sein des fonctions MD5 et SHA-1 alors qu'on les croyait sûres.}~:
 
 \begin{itemize}
-  \item[$\bullet$] Elles sont irréversibles~: ce sont des fonctions à sens unique construites de telle sorte qu'il est difficile de retrouver le message à partir d'une empreinte donnée (résistance à la préimage)~;
-  \item[$\bullet$] Elles sont imprédictibles~: toute modification du message initial résulte en une empreinte profondément différente, si bien qu'il est difficile de trouver une empreinte similaire~;
-  \item[$\bullet$] Elles sont résistantes aux collisions~: il est difficile de trouver deux messages dont l'empreinte résultante soit la même. 
+  \item Elles sont irréversibles~: ce sont des fonctions à sens unique construites de telle sorte qu'il est difficile de retrouver le message à partir d'une empreinte donnée (résistance à la préimage)~;
+  \item Elles sont imprédictibles~: toute modification du message initial résulte en une empreinte profondément différente, si bien qu'il est difficile de trouver une empreinte similaire~;
+  \item Elles sont résistantes aux collisions~: il est difficile de trouver deux messages dont l'empreinte résultante soit la même.
 \end{itemize}
 
 L'une des fonctions les plus connues est SHA-256, dont le nom vient de l'abréviation de \eng{Secure Hash Algorithm} et de la taille des empreintes qu'elle produit (256 bits, soit 32 octets). Par exemple, si on considère le message «~Bitcoin~», le fait de l'orthographier en minuscules ou d'ajouter un point change complètement son empreinte, comme montré dans le tableau~\ref{table:sha256-hashes}. Cette particularité permet notamment de détecter si le message comporte une erreur.
@@ -536,11 +536,11 @@ Chaque portefeuille peut utiliser son propre chemin de dérivation. Néanmoins, 
 Dans ce standard, on procède à trois dérivations endurcies puis à deux dérivations normales pour arriver à une clé privée et à l'adresse correspondante. Chaque dérivation apporte une information~:
 
 \begin{itemize}
-  \item[$\bullet$] La première dérivation (endurcie) sert à définir le but du portefeuille~: le 44 (qui fait référence au BIP-44) permet de dériver un compte utilisant des adresses traditionnelles, le 49 (BIP-49) pour les adresses SegWit imbriquées, le 84 (BIP-84) pour les adresses SegWit natives, le 48 ou le 45 (BIP-45) pour les adresses multisignatures, le 86 (BIP-86) pour dériver les clés publiques liées à Taproot,~etc.~;
-  \item[$\bullet$] La deuxième dérivation (endurcie) indique le protocole cryptoéconomique et a fortiori les jetons liés~: le chiffre 0 est utilisé pour BTC, le 1 pour le testnet, le 2 pour LTC, le 60 pour ETH, le 128 pour XMR, le 145 pour BCH,~etc.~;
-  \item[$\bullet$] La troisième dérivation (endurcie) donne l'indice du compte~: 0, 1, 2,~etc.~;
-  \item[$\bullet$] La quatrième dérivation (normale) indique le rôle des adresses~: le 0 signale qu'il s'agit d'une adresse externe, dont le rôle est de réceptionner des bitcoins, le 1 d'une adresse interne, utilisée pour accueillir la sortie complémentaire lors d'un envoi de bitcoins (phénomène que nous décrirons dans le chapitre~\ref{ch:rouages})~;
-  \item[$\bullet$] La cinquième dérivation (normale) donne l'indice de la clé et de l'adresse considérée~: 0, 1, 2,~etc.
+  \item La première dérivation (endurcie) sert à définir le but du portefeuille~: le 44 (qui fait référence au BIP-44) permet de dériver un compte utilisant des adresses traditionnelles, le 49 (BIP-49) pour les adresses SegWit imbriquées, le 84 (BIP-84) pour les adresses SegWit natives, le 48 ou le 45 (BIP-45) pour les adresses multisignatures, le 86 (BIP-86) pour dériver les clés publiques liées à Taproot,~etc.~;
+  \item La deuxième dérivation (endurcie) indique le protocole cryptoéconomique et a fortiori les jetons liés~: le chiffre 0 est utilisé pour BTC, le 1 pour le testnet, le 2 pour LTC, le 60 pour ETH, le 128 pour XMR, le 145 pour BCH,~etc.~;
+  \item La troisième dérivation (endurcie) donne l'indice du compte~: 0, 1, 2,~etc.~;
+  \item La quatrième dérivation (normale) indique le rôle des adresses~: le 0 signale qu'il s'agit d'une adresse externe, dont le rôle est de réceptionner des bitcoins, le 1 d'une adresse interne, utilisée pour accueillir la sortie complémentaire lors d'un envoi de bitcoins (phénomène que nous décrirons dans le chapitre~\ref{ch:rouages})~;
+  \item La cinquième dérivation (normale) donne l'indice de la clé et de l'adresse considérée~: 0, 1, 2,~etc.
 \end{itemize}
 
 De ce fait, le chemin de dérivation ressemble à ceci~:

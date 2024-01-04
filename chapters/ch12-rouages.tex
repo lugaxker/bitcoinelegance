@@ -323,10 +323,10 @@ La programmabilité de Bitcoin n'est pas seulement issue de son langage de progr
 Le type de signature est construit à partir de plusieurs signaux de signature qui peuvent être combinés. Les quatre signaux de signature qui existent sont~:
 
 \begin{itemize}
-\item[$\bullet$] \longstring{SIGHASH\_ALL} (\texttt{0x01}) qui indique que toutes les sorties sont signées~;
-\item[$\bullet$] \longstring{SIGHASH\_SINGLE} (\texttt{0x03}) qui permet de ne signer qu'une seule sortie~;
-\item[$\bullet$] \longstring{SIGHASH\_NONE} (\texttt{0x02}) qui indique qu'aucune sortie n'est signée~;
-\item[$\bullet$] \longstring{SIGHASH\_ANYONECANPAY} (\texttt{0x80}) qui permet de ne signer qu'une seule entrée.
+\item \longstring{SIGHASH\_ALL} (\texttt{0x01}) qui indique que toutes les sorties sont signées~;
+\item \longstring{SIGHASH\_SINGLE} (\texttt{0x03}) qui permet de ne signer qu'une seule sortie~;
+\item \longstring{SIGHASH\_NONE} (\texttt{0x02}) qui indique qu'aucune sortie n'est signée~;
+\item \longstring{SIGHASH\_ANYONECANPAY} (\texttt{0x80}) qui permet de ne signer qu'une seule entrée.
 \end{itemize}
 
 Les trois signaux concernant les sorties peuvent être associés à \longstring{SIGHASH\_ANYONECANPAY}, ce qui permet de former finalement six types de signatures différents, représentés sur la figure~\ref{fig:signature-hash-types}. Le type de signature le plus fréquent est évidemment \longstring{SIGHASH\_ALL} même si certains autres types peuvent parfois trouver une utilité. C'est notamment le cas de \longstring{SIGHASH\_ALL | SIGHASH\_ANYONECANPAY} qui permet de construire des transactions de type \eng{anyone-can-pay}, dont les sorties sont déterminées, mais où chacun peut signer sa propre entrée sans connaître les autres.

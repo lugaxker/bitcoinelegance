@@ -36,13 +36,13 @@ Les règles de consensus sont les règles de construction et d'organisation des 
 Les règles de consensus sont nombreuses. Certaines d'entre elles sont largement connues et explicites. En voici quelques-unes ici~:
 
 \begin{itemize}
-\item[$\bullet$] Le montant en entrée d'une transaction doit être supérieur (ou égal) au montant en sortie, la différence représentant les frais collectés par le mineur~;
-\item[$\bullet$] Chaque entrée doit contenir un script de déverrouillage (contenant la ou les signatures) qui correspond au script de verrouillage (l'adresse d'envoi) de la sortie dépensée~;
-\item[$\bullet$] Une sortie transactionnelle ne peut être dépensée qu'une seule fois, en raison de l'interdiction de double dépense~;
-\item[$\bullet$] Chaque bloc doit comporter une preuve de travail, produite par hachages répétés de l'entête par la fonction SHA-256, de degré supérieur à la difficulté du réseau~;
-\item[$\bullet$] La subvention dans chaque bloc doit être inférieure à une limite, qui est divisée par deux tous les 210~000 blocs (4 ans environ)~;
-\item[$\bullet$] La difficulté du minage est ajustée tous les 2016 blocs (2 semaines environ), de sorte à garantir un temps moyen de 10 minutes entre chaque bloc~;
-\item[$\bullet$] Le poids des blocs est limité à 4 millions d'unités de poids (telles que définies par SegWit), ce qui restreint la capacité transactionnelle du système.
+\item Le montant en entrée d'une transaction doit être supérieur (ou égal) au montant en sortie, la différence représentant les frais collectés par le mineur~;
+\item Chaque entrée doit contenir un script de déverrouillage (contenant la ou les signatures) qui correspond au script de verrouillage (l'adresse d'envoi) de la sortie dépensée~;
+\item Une sortie transactionnelle ne peut être dépensée qu'une seule fois, en raison de l'interdiction de double dépense~;
+\item Chaque bloc doit comporter une preuve de travail, produite par hachages répétés de l'entête par la fonction SHA-256, de degré supérieur à la difficulté du réseau~;
+\item La subvention dans chaque bloc doit être inférieure à une limite, qui est divisée par deux tous les 210~000 blocs (4 ans environ)~;
+\item La difficulté du minage est ajustée tous les 2016 blocs (2 semaines environ), de sorte à garantir un temps moyen de 10 minutes entre chaque bloc~;
+\item Le poids des blocs est limité à 4 millions d'unités de poids (telles que définies par SegWit), ce qui restreint la capacité transactionnelle du système.
 \end{itemize}
 
 Les règles de consensus sont trop nombreuses pour être toutes explicitées. Quand elles ne le sont pas, ces règles sont implicitement définies dans l'implémentation logicielle de référence, qui est Bitcoin Core dans le cas de BTC.

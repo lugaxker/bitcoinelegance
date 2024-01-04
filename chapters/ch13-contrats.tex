@@ -36,8 +36,8 @@ Ce type de contrat est utile pour avoir un compte joint entre époux (2 parmi 2)
 Prenons l'exemple de deux personnes qui ne se connaissent pas, Alice et Bob, et qui veulent réaliser une transaction en ligne\pagenote{«~l'exemple de deux personnes qui ne se connaissent pas, Alice et Bob, et qui veulent réaliser une transaction en ligne~»~: Une description de ce contrat est faite dans le BIP-65~: \url{https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki}.}~: Alice est l'acheteuse, Bob le vendeur. Les deux parties font appel à un intermédiaire de confiance, Lenny, avec qui elles créent le contrat de dépôt fiduciaire. Alice y envoie les fonds et attend de recevoir le bien. Deux clauses peuvent alors être activées~:
 
 \begin{itemize}
-\item[$\bullet$] Le règlement à l'amiable~: le contrat est déverrouillé par les signatures des deux parties, qui peuvent choisir d'envoyer les fonds vers Bob (réussite de l'échange) ou bien de rembourser Alice (échec de l'échange)~;
-\item[$\bullet$] Le litige~: après une période prédéterminée (par exemple 30 jours), le contrat est déverrouillé par la signature de Lenny et celle de l'une des deux parties~; dans ce cas, Lenny se charge de déterminer qui est la partie honnête et de lui envoyer les fonds.
+\item Le règlement à l'amiable~: le contrat est déverrouillé par les signatures des deux parties, qui peuvent choisir d'envoyer les fonds vers Bob (réussite de l'échange) ou bien de rembourser Alice (échec de l'échange)~;
+\item Le litige~: après une période prédéterminée (par exemple 30 jours), le contrat est déverrouillé par la signature de Lenny et celle de l'une des deux parties~; dans ce cas, Lenny se charge de déterminer qui est la partie honnête et de lui envoyer les fonds.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -78,8 +78,8 @@ Dans le monde du logiciel libre, ce type de financement participatif est particu
 L'échange atomique repose sur le concept de contrat verrouillé par une empreinte et par un temps, appelé HTLC par abréviation du terme anglais \eng{Hash Time Locked Contract}. Celui-ci est un contrat à deux clauses, c'est-à-dire que les fonds peuvent être déverrouillés à deux conditions\sendnote{Pour assurer la bonne exécution du contrat (éviter le remplacement de la transaction durant l'attente de confirmation), des clés publiques sont assignées à chacune de ces conditions de sorte qu'une signature est systématiquement demandée au destinataire des fonds.}~:
 
 \begin{itemize}
-\item[$\bullet$] L'accord mutuel~: la révélation d'un secret qui est haché par une fonction de hachage et comparé à l'empreinte (\eng{hash}) inscrite dans le contrat~;
-\item[$\bullet$] Le litige~: l'attente d'un certain temps (\eng{time}) de verrouillage déterminé dans le contrat.
+\item L'accord mutuel~: la révélation d'un secret qui est haché par une fonction de hachage et comparé à l'empreinte (\eng{hash}) inscrite dans le contrat~;
+\item Le litige~: l'attente d'un certain temps (\eng{time}) de verrouillage déterminé dans le contrat.
 \end{itemize}
 
 % Atomic Swap HTLC (AtomicDEX, 2019, BCH side)
@@ -131,9 +131,9 @@ Meni Rosenfeld, \eng{Trustless, instant, off-the-chain Bitcoin payments}, \wtime
 Un canal traverse trois phases au cours de son existence~:
 
 \begin{itemize}
-\item[$\bullet$] La phase d'ouverture ou d'installation, lors de laquelle les fonds sont bloqués par les participants sur un contrat autonome de multisignature 2-parmi-2~;
-\item[$\bullet$] La phase de négociation ou de mise à jour, durant laquelle la répartition des fonds au sein du canal est ajustée~;
-\item[$\bullet$] La phase de fermeture ou de règlement, au cours de laquelle les fonds sont distribués aux participants sur la chaîne, généralement de manière coopérative selon le dernier état du canal.
+\item La phase d'ouverture ou d'installation, lors de laquelle les fonds sont bloqués par les participants sur un contrat autonome de multisignature 2-parmi-2~;
+\item La phase de négociation ou de mise à jour, durant laquelle la répartition des fonds au sein du canal est ajustée~;
+\item La phase de fermeture ou de règlement, au cours de laquelle les fonds sont distribués aux participants sur la chaîne, généralement de manière coopérative selon le dernier état du canal.
 \end{itemize}
 
 % to_local Output
@@ -157,8 +157,8 @@ La répartition initiale et la mise à jour du canal se font par l'intermédiair
 Supposons qu'Alice et Bob possèdent un canal, tel qu'illustré sur la figure~\ref{fig:poon-dryja-contracts}. Dans ce cas, la dernière transaction d'engagement d'Alice, qui peut uniquement être finalisée et diffusée par Bob, prend en compte l'état actualisé du canal et répartit les fonds entre l'adresse d'Alice et un contrat de réclamation. Ce contrat de réclamation contient deux clauses~:
 
 \begin{itemize}
-\item[$\bullet$] La récupération des fonds par Bob au terme d'un temps de verrouillage, ce qui répartit les fonds selon les soldes indiqués dans le canal~;
-\item[$\bullet$] La récupération des fonds par Alice à l'aide d'une clé de révocation qui est révélée plus tard lorsque le canal est de nouveau mis à jour.
+\item La récupération des fonds par Bob au terme d'un temps de verrouillage, ce qui répartit les fonds selon les soldes indiqués dans le canal~;
+\item La récupération des fonds par Alice à l'aide d'une clé de révocation qui est révélée plus tard lorsque le canal est de nouveau mis à jour.
 \end{itemize}
 
 % Actualisation suite à un paiement
@@ -188,9 +188,9 @@ Ce fonctionnement des canaux de Poon-Dryja fait aussi que toute erreur est très
 Le fonctionnement des canaux de Decker-Russel-Osuntokun se base sur une chaîne de transactions, qui ne sont pas censées être diffusées sur la chaîne, sauf celles d'ouverture et de fermeture (cf. figure~\ref{fig:eltoo}). Le principe est le suivant~:
 
 \begin{itemize}
-\item[$\bullet$] Le canal est ouvert par une transaction d'ouverture ($T_{u,0}$), préalablement garantie par une transaction de règlement ($T_{s,0}$) qui rembourse les participants en cas de litige~;
-\item[$\bullet$] Le canal est mis à jour par des transactions de mise à jour ($T_{u,i}$) qui invalident les transactions de règlement précédentes ($T_{s,i-1}$)~;
-\item[$\bullet$] La fermeture du canal peut se faire après un certain délai d'expiration par la diffusion de la dernière transaction de règlement ($T_{s,i}$).
+\item Le canal est ouvert par une transaction d'ouverture ($T_{u,0}$), préalablement garantie par une transaction de règlement ($T_{s,0}$) qui rembourse les participants en cas de litige~;
+\item Le canal est mis à jour par des transactions de mise à jour ($T_{u,i}$) qui invalident les transactions de règlement précédentes ($T_{s,i-1}$)~;
+\item La fermeture du canal peut se faire après un certain délai d'expiration par la diffusion de la dernière transaction de règlement ($T_{s,i}$).
 \end{itemize}
 
 Ici il n'y a plus besoin de recourir à des clés de révocation pour rendre les anciens états du canal inexploitables~: ce sont les transactions elles-mêmes qui ont ce rôle. Eltoo fait intervenir ce qu'on appelle des transactions flottantes, qui peuvent dépenser les fonds issus de n'importe quelle transaction de mise à jour précédente. De cette manière, chaque transaction de mise à jour est flottante, ainsi que chaque transaction de règlement, ce qui permet d'omettre toutes les mises à jour précédentes. De plus, un numéro d'état est inscrit dans chaque transaction pour ordonner les transactions et ainsi éviter la diffusion d'un état antérieur. % un numéro d'état est inscrit dans chaque transaction grâce à une utilisation astucieuse du code opération OP\_CHECKLOCKTIMEVERIFY

@@ -70,7 +70,7 @@ Puisque le rôle principal de Bitcoin est le transfert de valeur, l'objectif est
 Les nouveaux blocs sont ajoutés à la chaîne de manière régulière grâce à la production d'une preuve de travail. Les acteurs réalisant cette opération sont appelés des mineurs. Les nœuds du réseau arrivent à un consensus en considérant que la chaîne la plus longue est la chaîne correcte. Ainsi, comme l'a écrit Satoshi Nakamoto~:
 
 \begin{quote}
-«~La chaîne de preuves de travail est une solution au problème des généraux byzantins.\sendnote{Satoshi Nakamoto, \eng{Re: Bitcoin P2P e-cash paper}, \wtime{13/11/2008, 22:56:55 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014849.html}.}~»
+«~La chaîne de preuves de travail est une solution au problème des généraux byzantins\sendnote{Satoshi Nakamoto, \eng{Re: Bitcoin P2P e-cash paper}, \wtime{13/11/2008, 22:56:55 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014849.html}.}.~»
 \end{quote}
 
 La spécificité novatrice de cet algorithme est qu'il résout le problème de manière probabiliste plutôt que de manière absolue\sendnote{Plus précisément, il s'agit de sacrifier un peu de la propriété de sécurité au sens de Lamport pour améliorer la tolérance aux pannes byzantines.}. Par conséquent, les transactions incluses dans le registre ne sont jamais strictement finales, mais sont (probabilistiquement parlant) considérées comme telles au bout d'un temps. Ce fonctionnement permet de n'avoir besoin que de 51~\% de validateurs honnêtes, au lieu des 67~\% requis par les algorithmes classiques.
@@ -166,7 +166,7 @@ Le principe derrière la chaîne de blocs est de lier les blocs les uns aux autr
 La particularité de cette structure est qu'elle fait reposer la sécurité des maillons précédents sur les nouveaux maillons. Comme l'écrivait Satoshi Nakamoto dans le livre blanc~: 
 
 \begin{quote}
-«~Chaque horodatage inclut l'horodatage précédent dans son empreinte, formant ainsi une chaîne, au sein de laquelle chaque horodatage supplémentaire renforce le précédent.\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}~»
+«~Chaque horodatage inclut l'horodatage précédent dans son empreinte, formant ainsi une chaîne, au sein de laquelle chaque horodatage supplémentaire renforce le précédent\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}.~»
 \end{quote}
 
 En 2008, l'idée n'était pas nouvelle car elle avait déjà été appliquée en 1995 par les mêmes Haber et Stornetta, qui avaient publié chaque semaine une empreinte cryptographique dans les petites annonces du \emph{New York Times} afin d'authentifier les documents des clients de leur société\pagenote{«~Haber et Stornetta, qui avaient publié chaque semaine une empreinte cryptographique dans les petites annonces du \emph{New York Times}~»~: Daniel Oberhaus, \eng{The World's Oldest Blockchain Has Been Hiding in the New York Times Since 1995}, 27 août 2018~: \url{https://www.vice.com/en/article/j5nzx4/what-was-the-first-blockchain}.}. C'était alors la manière la plus sûre de garantir l'intégrité des empreintes, le journal étant distribué quotidiennement à plus d'un million de personnes.
@@ -327,7 +327,7 @@ L'une des innovations de Bitcoin est de récompenser la confirmation des transac
 La récompense liée à l'ajout d'un bloc à la chaîne provient en partie de la création monétaire du protocole, d'où le nom de minage employé pour désigner cette activité. Le procédé est en effet analogue à l'extraction minière de l'or dans le monde réel~: les mineurs déploient du capital et dépensent de l'énergie pour obtenir les nouveaux bitcoins. Comme expliqué par Satoshi dans le livre blanc~:
 
 \begin{quote}
-«~L'ajout régulier d'une quantité constante de nouvelles pièces est analogue aux mineurs d'or qui dépensent des ressources pour ajouter de l'or à la circulation.\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}~»
+«~L'ajout régulier d'une quantité constante de nouvelles pièces est analogue aux mineurs d'or qui dépensent des ressources pour ajouter de l'or à la circulation\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}.~»
 \end{quote}
 
 La deuxième partie de la récompense provient des frais de transaction payés par les utilisateurs, qui sont collectés sur les transactions incluses dans le bloc. Le tout est reversé au mineur lorsque le bloc est vérifié et accepté par le réseau. % Le tout est reversé au mineurs lors de la publication d'un bloc valide accepté par le réseau.
@@ -355,7 +355,7 @@ La création monétaire se fait intégralement par le biais de la transaction de
 La particularité de cette création monétaire est qu'elle est fixée dans le temps et qu'elle n'est pas proportionnelle à la puissance de calcul déployée. Cela est rendu possible par l'algorithme d'ajustement de la difficulté, qui dérive du fait que le système constitue un serveur d'horodatage distribué. En effet, les blocs étant horodatés, il est possible de mesurer leur rythme de production passé et d'ajuster la difficulté de minage en conséquence. Ainsi, comme l'écrivait Satoshi~:
 
 \begin{quote}
-«~Afin de compenser l'augmentation de la vitesse du matériel et la variation de l'intérêt des nœuds actifs au fil du temps, la difficulté de la preuve de travail est déterminée par une moyenne mobile visant un nombre moyen de blocs par heure. Si ces blocs sont générés trop rapidement, la difficulté augmente.\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}~»
+«~Afin de compenser l'augmentation de la vitesse du matériel et la variation de l'intérêt des nœuds actifs au fil du temps, la difficulté de la preuve de travail est déterminée par une moyenne mobile visant un nombre moyen de blocs par heure. Si ces blocs sont générés trop rapidement, la difficulté augmente\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}.~»
 \end{quote}
 
 Dans la version principale de Bitcoin, l'intervalle de temps entre chaque bloc (temps de bloc) visé est de 10 minutes ou 600 secondes. L'ajustement a lieu tous les 2016 blocs, ce qui correspond environ à deux semaines, selon la moyenne simple du temps de bloc sur cette période. La nouvelle valeur cible est calculée\sendnote{Dans Bitcoin Core, l'algorithme d'ajustement est décrit par la fonction \longstring{CalculateNextWorkRequired} dans le fichier \texttt{pow.cpp}. La variation est limitée à un facteur 4 (multiplication comme division) pour éviter les instabilités. L'algorithme \emph{surestime} la puissance de calcul déployée car le temps écoulé est mesuré sur 2~015 intervalles, et non pas 2~016 comme cela devrait se faire.}\pagenote{«~la fonction CalculateNextWorkRequired dans le fichier pow.cpp~»~: \url{https://github.com/bitcoin/bitcoin/blob/24.x/src/pow.cpp\#L49-L72}.} à partir de la valeur cible précédente ($c_{k-1}$) et du temps écoulé depuis le dernier ajustement ($t_{k-1}$)~:
@@ -378,7 +378,7 @@ les quatre années suivantes : 2~625~000 pièces\\
 les quatre années suivantes : 1~312~500 pièces\\
 etc...
 
-Lorsque cela est épuisé, le système peut prendre en charge les frais de transaction si nécessaire. Il est basé sur la concurrence du marché ouvert, et il y aura probablement toujours des nœuds prêts à traiter les transactions gratuitement.\sendnote{Satoshi Nakamoto, \eng{Bitcoin v0.1 released}, \wtime{08/01/2009 19:27:40 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html}.}~»
+Lorsque cela est épuisé, le système peut prendre en charge les frais de transaction si nécessaire. Il est basé sur la concurrence du marché ouvert, et il y aura probablement toujours des nœuds prêts à traiter les transactions gratuitement\sendnote{Satoshi Nakamoto, \eng{Bitcoin v0.1 released}, \wtime{08/01/2009 19:27:40 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html}.}.~»
 \end{quote}
 
 Elle est bien évidemment inscrite dans le code\pagenote{«~Elle est bien évidemment inscrite dans le code~»~: \url{https://github.com/bitcoin/bitcoin/blob/24.x/src/validation.cpp\#L1473-L1484}}, où elle est appelée subvention ou \eng{subsidy} en anglais.
@@ -452,7 +452,7 @@ Néanmoins, les nœuds byzantins peuvent semer la discorde dans le respect des r
 Ce problème est résolu par le biais d'un principe simple mais efficace~: le principe de la chaîne la plus longue. Celui-ci a été décrit par Satoshi dans le livre blanc~: 
 
 \begin{quote}
-«~La décision majoritaire est représentée par la chaîne la plus longue, sur laquelle le plus grand effort de preuve de travail a été investi.\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}~»
+«~La décision majoritaire est représentée par la chaîne la plus longue, sur laquelle le plus grand effort de preuve de travail a été investi\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}.~»
 \end{quote}
 
 Les nœuds du réseau se mettent d'accord en sélectionnant la chaîne possédant le plus de travail accumulé\pagenote{«~la chaîne possédant le plus de travail accumulé~»~: Ce principe a été redéfini le 25 juillet 2010 au sein de la version 0.3.3 du logiciel~: \url{https://github.com/bitcoin/bitcoin/commit/3b7cd5d89a226426df9c723d1f9ddfe08b7d1def}.}, ce qui se matérialise généralement par une chaîne plus longue en nombre de blocs\sendnote{En réalité, au début c'était bel et bien la chaîne possédant le plus de blocs qui était sélectionnée. Mais ce principe a été redéfini le 25 juillet 2010 au sein de la version 0.3.3 du logiciel pour prendre en compte la notion de travail.}. Lorsqu'une chaîne possédant une quantité strictement plus grande de travail est publiée, les nœuds suivent cette chaîne, que celle-ci soit dans la continuité de la dernière ou qu'elle fasse référence à une branche plus ancienne. Cette règle fait en sorte que les nœuds suivent toujours la chaîne sur laquelle un montant supérieur d'énergie a été investi. L'algorithme de consensus résultant de l'application de ce principe est appelé l'algorithme de consensus de Nakamoto par preuve de travail, en hommage à son concepteur.
@@ -464,7 +464,7 @@ La meilleure manière d'appréhender le fonctionnement de cet algorithme est de 
 Cette situation et sa résolution ont été décrites par Satoshi dans le livre blanc~:
 
 \begin{quote}
-«~Si deux nœuds transmettent simultanément des versions différentes du bloc suivant, certains nœuds peuvent recevoir l'une ou l'autre version en premier. Dans ce cas, ils travaillent sur la première version qu'ils ont reçue, mais conservent l'autre branche au cas où elle deviendrait plus longue. L'égalité est rompue lorsque la preuve de travail suivante est trouvée et qu'une branche devient plus longue~; les nœuds qui travaillaient sur l'autre branche passent alors sur la chaîne la plus longue.\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}~»
+«~Si deux nœuds transmettent simultanément des versions différentes du bloc suivant, certains nœuds peuvent recevoir l'une ou l'autre version en premier. Dans ce cas, ils travaillent sur la première version qu'ils ont reçue, mais conservent l'autre branche au cas où elle deviendrait plus longue. L'égalité est rompue lorsque la preuve de travail suivante est trouvée et qu'une branche devient plus longue~; les nœuds qui travaillaient sur l'autre branche passent alors sur la chaîne la plus longue\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}.~»
 \end{quote}
 
 Le réseau passe par trois étapes. Tout d'abord, il se comporte de manière attendue~: les mineurs prolongent la chaîne la plus longue, sur laquelle le reste des nœuds se coordonnent. Puis, le conflit a lieu~: deux branches correctes coexistent et les mineurs travaillent pour prolonger la chaîne à partir du bloc reçu en premier. Enfin, l'embranchement est résolu~: un mineur trouve un nouveau bloc et sa chaîne, qui devient plus longue, est acceptée par le réseau.
@@ -488,7 +488,7 @@ Tout conflit sur le réseau est résolu de la sorte, ce qui a pour conséquence 
 Ce fonctionnement impose tout d'abord deux contraintes majeures sur la sécurité. La première est que la sécurité minière du réseau repose sur la supposition qu'une majorité de la puissance de calcul («~51~\%~») se comporte de manière honnête. Comme l'expliquait Satoshi~:
 
 \begin{quote}
-«~Le système est sécurisé tant que les nœuds honnêtes contrôlent collectivement plus de puissance de calcul qu'un groupe de nœuds qui coopéreraient pour réaliser une attaque.\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}~»
+«~Le système est sécurisé tant que les nœuds honnêtes contrôlent collectivement plus de puissance de calcul qu'un groupe de nœuds qui coopéreraient pour réaliser une attaque\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}.~»
 \end{quote}
 
 % Sécurité probabiliste
@@ -554,7 +554,7 @@ Comme souligné par Satoshi, le système est sécurisé tant que la majorité de
 Cette barrière n'est pas construite de manière bénévole mais repose sur la récompense du protocole, faisant du minage un procédé essentiellement \emph{économique}. En particulier, la résistance à la double dépense -- à savoir la difficulté à effectuer une attaque de double dépense -- dérive directement du revenu minier total, qui incite les nœuds à rester honnêtes. Tel que l'écrivait Satoshi dans le livre blanc~:
 
 \begin{quote}
-«~L'incitation peut contribuer à encourager les nœuds à rester honnêtes. Si un attaquant cupide est capable de réunir plus de puissance de calcul que l'ensemble des nœuds honnêtes, il aura à choisir entre l'utiliser pour escroquer des gens en leur récupérant ses paiements, ou l'utiliser pour générer de nouvelles pièces. Il devrait trouver plus rentable de respecter les règles du jeu, celles-ci lui permettant d'obtenir plus de nouvelles pièces que tous les autres réunis, plutôt que de saper le système et la validité de sa propre richesse.\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}~»
+«~L'incitation peut contribuer à encourager les nœuds à rester honnêtes. Si un attaquant cupide est capable de réunir plus de puissance de calcul que l'ensemble des nœuds honnêtes, il aura à choisir entre l'utiliser pour escroquer des gens en leur récupérant ses paiements, ou l'utiliser pour générer de nouvelles pièces. Il devrait trouver plus rentable de respecter les règles du jeu, celles-ci lui permettant d'obtenir plus de nouvelles pièces que tous les autres réunis, plutôt que de saper le système et la validité de sa propre richesse\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}.~»
 \end{quote}
 
 Non seulement la récompense peut être supérieure au gain d'une attaque de double dépense, mais la valeur des bitcoins servant à réaliser la transaction peut aussi être réduite par ladite attaque. En effet, si l'attaque était amenée à être couronnée de succès, on peut imaginer que les différents acteurs diminueraient leur confiance dans le système, arrêteraient de l'utiliser pour le commerce et cèderaient une partie de leur épargne, faisant baisser le revenu de minage et la valeur d'échange du bitcoin. De plus, la spécialisation du matériel de minage (quand elle existe) alourdit le coût de l'attaque, car ce matériel perd dans ce cas en utilité. D'un point de vue purement opportuniste, il est donc la plupart du temps bien plus rentable d'utiliser son capital de manière honnête.
@@ -562,7 +562,7 @@ Non seulement la récompense peut être supérieure au gain d'une attaque de dou
 Il est ainsi arrivé que des agrégats de mineurs rassemblent plus de 51~\% de la puissance de calcul, comme la coopérative GHash.io en juillet 2014, sans qu'aucune attaque ne se produise. Et même si une telle attaque avait lieu, celle-ci ne serait pas forcément fatale pour le système à long terme. Comme l'écrivait Satoshi~:
 
 \begin{quote}
-«~Même en cas de réussite, cela n'expose pas le système à des modifications arbitraires, comme la création de valeur \emph{ex nihilo} ou l'appropriation d'argent n'ayant jamais appartenu à l'attaquant. Les nœuds ne vont pas accepter une transaction invalide comme paiement, et les nœuds honnêtes n'accepteront jamais un bloc les contenant.\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}~»
+«~Même en cas de réussite, cela n'expose pas le système à des modifications arbitraires, comme la création de valeur \emph{ex nihilo} ou l'appropriation d'argent n'ayant jamais appartenu à l'attaquant. Les nœuds ne vont pas accepter une transaction invalide comme paiement, et les nœuds honnêtes n'accepteront jamais un bloc les contenant\sendnote{Satoshi Nakamoto, \eng{Bitcoin: A Peer-to-Peer Electronic Cash System}, 31 octobre 2008.}.~»
 \end{quote}
 
 Ainsi de nombreuses attaques de ce type ont déjà eu lieu sur certaines variantes de Bitcoin au fil des années, réduisant leur réputation au passage, mais sans qu'elles ne soient pour autant anéanties. On peut notamment citer Ethereum Classic qui a subi plusieurs recoordinations agressives entre 2019 et 2020\pagenote{«~Ethereum Classic qui a subi plusieurs recoordinations agressives entre 2019 et 2020~»~: Plus précisément~: le 7 janvier 2019, le 31 juillet 2020, le 6 août 2020 et le 29 août 2020.}.
@@ -592,7 +592,7 @@ L'amélioration de la machine pour procéder au hachage illustre bien cette indu
 Certains acteurs se sont mis à miner de manière industrielle en entassant cette puissance de hachage dans des grands entrepôts spécialisés contenant des centaines de machines, appelés des fermes de minage. Ces fermes ont été installées dans des endroits suivant des facteurs spécifiques dont notamment le coût de l'électricité, la température (coût du refroidissement), la bande passante et l'instabilité politique. Cette émergence de fermes de minage composées d'appareils spécialisés avait été prévue par Satoshi qui écrivait dès novembre 2008~:
 
 \begin{quote}
-«~Au début, la plupart des utilisateurs feront fonctionner des nœuds de réseau, mais à mesure que le réseau grandira, au-delà d'un certain point, cette tâche sera de plus en plus déléguée à des spécialistes possédant des fermes de serveurs composées de matériel spécialisé. Une ferme de serveurs n'aura besoin que d'un seul nœud sur le réseau et le reste du réseau local sera connecté à ce nœud.\sendnote{Satoshi Nakamoto, \eng{Re: Bitcoin P2P e-cash paper}, \wtime{03/11/2008, 01:37:43 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014815.html}.}~»
+«~Au début, la plupart des utilisateurs feront fonctionner des nœuds de réseau, mais à mesure que le réseau grandira, au-delà d'un certain point, cette tâche sera de plus en plus déléguée à des spécialistes possédant des fermes de serveurs composées de matériel spécialisé. Une ferme de serveurs n'aura besoin que d'un seul nœud sur le réseau et le reste du réseau local sera connecté à ce nœud\sendnote{Satoshi Nakamoto, \eng{Re: Bitcoin P2P e-cash paper}, \wtime{03/11/2008, 01:37:43 UTC}~: \url{https://www.metzdowd.com/pipermail/cryptography/2008-November/014815.html}.}.~»
 \end{quote}
 
 % At first, most users would run network nodes, but as the network grows beyond a certain point, it would be left more and more to specialists with server farms of specialized hardware. A server farm would only need to have one node on the network and the rest of the LAN connects with that one node.

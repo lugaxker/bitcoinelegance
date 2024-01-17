@@ -50,7 +50,8 @@
 
 \addbibresource{back/bibliography.bib}
 
-\setenotez{list-name=Notes, backref=true, totoc=chapter, reset=true, split=chapter, split-title={\chaptername\ <ref>}}
+\NewSplitTitleTag{title}{\nameref{enotezch:<split-level-id>}}
+\setenotez{list-name=Notes, backref=true, totoc=chapter, reset=true, split=chapter, split-title={\chaptername\ <ref> -- <title>}}
 
 \title{L'Élégance de Bitcoin (v\versionNumber)}     % title
 \author{Ludovic Lars}                       % author

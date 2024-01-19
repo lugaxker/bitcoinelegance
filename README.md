@@ -1,18 +1,18 @@
 L'Élégance de Bitcoin
 =====================
 
-Un livre sur Bitcoin.
+*L'Élégance de Bitcoin* est un ouvrage complet sur Bitcoin rédigé en français entre mars 2022 et novembre 2023.
 
-Plan actualisé (octobre 2023)
+Plan actualisé (novembre 2023)
 -----------------------------
 
-#### 1 - Les débuts de Bitcoin (2009 -- 2012)
+#### 1 - Les débuts de Bitcoin
 
-*Histoire de Bitcoin de sa création à ses premiers succès.*
+*Histoire de Bitcoin de sa création à ses premiers succès (2007-2012).*
 
-#### 2 - Une croissance conflictuelle (2012 -- 2023)
+#### 2 - Une croissance conflictuelle
 
-*Récit des conflits qui ont structuré l'évolution de Bitcoin après le départ de Satoshi.*
+*Récit des conflits qui ont structuré l'évolution de Bitcoin après le départ de Satoshi (2012-2023).*
 
 #### 3 - Des racines monétaires
 
@@ -69,23 +69,23 @@ Plan actualisé (octobre 2023)
 Progression
 -----------
 
-| Chapitre | Titre actuel                       | Progression                           |
-|----------|------------------------------------|---------------------------------------|
-|        1 | Les débuts de Bitcoin              | Première relecture &#x2705; &#x2705;  |
-|        2 | Une croissance conflictuelle       | Première relecture &#x2705; &#x2705;  |
-|        3 | Des racines monétaires             | Première relecture &#x2705; &#x2705;  |
-|        4 | La nécessité de décentralisation   | Première relecture &#x2705; &#x2705;  |
-|        5 | Un mouvement technologique         | Première relecture &#x2705; &#x2705;  |
-|        6 | La cybermonnaie avant Nakamoto     | Première relecture &#x2705; &#x2705;  |
-|        7 | La valeur de l'information         | Première relecture &#x2705; &#x2705;  |
-|        8 | Le consensus par le minage         | Première relecture &#x2705; &#x2705;  |
-|        9 | La résistance à la censure         | Première relecture &#x2705; &#x2705;  |
-|       10 | Le changement de la monnaie        | Première relecture &#x2705; &#x2705;  |
-|       11 | La détermination du protocole      | Première relecture &#x2705; &#x2705;  |
-|       12 | Les rouages de la machine          | Première relecture &#x2705; &#x2705;  |
-|       13 | Les contrats autonomes             | Première relecture &#x2705; &#x2705;  |
-|       14 | Le passage à l'échelle             | Première relecture &#x2705; &#x2705;  |
-|       15 | L'avenir de Bitcoin                | Première relecture &#x2705; &#x2705;  |
+| Chapitre | Titre actuel                       | Progression                                  |
+|----------|------------------------------------|----------------------------------------------|
+|        1 | Les débuts de Bitcoin              | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|        2 | Une croissance conflictuelle       | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|        3 | Des racines monétaires             | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|        4 | La nécessité de décentralisation   | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|        5 | Un mouvement technologique         | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|        6 | La cybermonnaie avant Nakamoto     | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|        7 | La valeur de l'information         | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|        8 | Le consensus par le minage         | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|        9 | La résistance à la censure         | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|       10 | Le changement de la monnaie        | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|       11 | La détermination du protocole      | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|       12 | Les rouages de la machine          | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|       13 | Les contrats autonomes             | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|       14 | Le passage à l'échelle             | Seconde relecture &#x2705; &#x2705; &#x2705; |
+|       15 | L'avenir de Bitcoin                | Seconde relecture &#x2705; &#x2705; &#x2705; |
 
 Plan initial (mars 2022)
 ------------------------

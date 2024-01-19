@@ -2,7 +2,7 @@
 % This work is licensed under the CC BY-NC-SA 4.0 International License
 
 \chapter{Le consensus par le minage}
-\label{ch:confirmation} \label{enotezch:8}
+\label{ch:8}
 
 Bitcoin est un modèle décentralisé de monnaie numérique issu de l'informatique distribuée, une discipline développée au moment de l'émergence d'Internet. Il se fonde plus précisément sur un réseau pair à pair d'ordinateurs, dans lequel les participants possèdent tous les mêmes responsabilités. En tant que tel, il constitue un \emph{système d'argent liquide électronique pair à pair}.
 
@@ -55,7 +55,7 @@ Le problème a été initialement décrit pour les systèmes informatiques repos
 
 Avant Bitcoin, le problème était résolu par des algorithmes dits «~classiques~» basés sur les idées de Lamport, Shostak et Pease. Le plus connu est probablement l'algorithme de consensus PBFT (pour \eng{Practical Byzantine Fault Tolerance}), mis au point par Miguel Castro et Barbara Liskov en 1999\pagenote{«~l'algorithme de consensus PBFT [...] mis au point par Miguel Castro et Barbara Liskov en 1999~»~: Miguel Castro, Barbara Liskov, \eng{Practical Byzantine Fault Tolerance}, février 1999.}, qui permettait à un nombre donné de participants de se mettre d'accord en gérant des milliers de requêtes par seconde avec une latence de moins d'une milliseconde.
 
-Bien avant Bitcoin, Wei Dai et Nick Szabo envisageaient d'utiliser ce type d'algorithme pour leurs systèmes de monnaie électronique, b-money et bit gold. De même, de nombreux systèmes cryptoéconomiques en font encore aujourd'hui usage pour des raisons de performance, à l'instar d'Ethereum dont le consensus est basé sur l'algorithme Casper FFG. % comme nous l'avons vu dans le chapitre~\ref{ch:cybermonnaie}
+Bien avant Bitcoin, Wei Dai et Nick Szabo envisageaient d'utiliser ce type d'algorithme pour leurs systèmes de monnaie électronique, b-money et bit gold. De même, de nombreux systèmes cryptoéconomiques en font encore aujourd'hui usage pour des raisons de performance, à l'instar d'Ethereum dont le consensus est basé sur l'algorithme Casper FFG. % comme nous l'avons vu dans le chapitre~\ref{ch:6}
 
 Cependant, ces algorithmes impliquent des contraintes fortes~: les nœuds doivent connaître l'ensemble des autres nœuds et ils doivent communiquer avec tous les autres. De ce fait, il faut sélectionner les nœuds ayant le droit de participer au consensus avant de lancer l'algorithme, ce qui se fait généralement par preuve d'autorité (\eng{proof of authority}), via une liste blanche de nœuds, ou par preuve d'enjeu (\eng{proof of stake}), via un montant de jetons possédés ou délégués. Cela implique une moins bonne robustesse du système, car les validateurs sont alors connus de tous et donc davantage exposés aux attaques.
 
@@ -443,7 +443,7 @@ La deuxième méthode de financement proposée est le demeurage, ou coût de dé
 Venons-en maintenant au sujet central de ce chapitre~: l'atteinte du consensus par le minage. Comme nous l'avons expliqué ci-dessus, le minage est le procédé permettant aux mineurs d'ajouter des blocs à la chaîne, chose pour laquelle ils sont rémunérés. Mais nous n'avons pas exposé comment il permettait d'arriver à un accord dans un contexte antagoniste, en présence d'acteurs malveillants «~byzantins~».
 
 % Communication
-Les nœuds suivent un protocole composé des règles de réseau, qui leur permettent de rentrer en communication, et des règles de consensus, qui concernent la forme des transactions et des blocs, que nous détaillerons dans le chapitre~\ref{ch:changement}. Les nœuds qui enfreignent ces règles voient leurs connexions être fermées par leurs pairs et sont mis sur liste noire si nécessaire. Il est donc impossible de faire accepter une transaction ou un bloc au réseau qui ne soit valide selon les règles de consensus.
+Les nœuds suivent un protocole composé des règles de réseau, qui leur permettent de rentrer en communication, et des règles de consensus, qui concernent la forme des transactions et des blocs, que nous détaillerons dans le chapitre~\ref{ch:10}. Les nœuds qui enfreignent ces règles voient leurs connexions être fermées par leurs pairs et sont mis sur liste noire si nécessaire. Il est donc impossible de faire accepter une transaction ou un bloc au réseau qui ne soit valide selon les règles de consensus.
 
 Néanmoins, les nœuds byzantins peuvent semer la discorde dans le respect des règles de consensus, en produisant des blocs concurrents. En effet, rien n'empêche \emph{a priori} un attaquant de produire des blocs de transactions qui soient valides mais qui ne soient pas rattachés à la branche principale et de les soumettre au réseau.
 
@@ -544,7 +544,7 @@ La troisième étape est la recoordination de chaîne, représentée sur la figu
 
 Il s'agit d'une attaque opportuniste~: elle est motivée par un gain, c'est-à-dire le bien économique obtenu, qui doit être supérieur au coût (matériel, logistique, électrique et logiciel) nécessaire pour y procéder. Sur le réseau Bitcoin principal, ce coût se chiffre aujourd'hui en milliards de dollars\sendnote{Braiins, \eng{How Much Would it Cost to 51\% Attack Bitcoin?}, 11 janvier 2021~: \url{https://braiins.com/blog/how-much-would-it-cost-to-51-attack-bitcoin}.}.
 
-Cette attaque doit être distinguée de la censure, que nous décrirons dans le chapitre~\ref{ch:censure}, et qui consiste à refuser de confirmer des transactions selon un critère arbitraire. Cette dernière repose en effet sur des incitations \emph{extérieures} à l'économie de Bitcoin, le mineur rationnel n'ayant, au sein du système, aucun intérêt économique à ne pas inclure les transactions payant un taux de frais suffisant dans ses blocs.
+Cette attaque doit être distinguée de la censure, que nous décrirons dans le chapitre~\ref{ch:9}, et qui consiste à refuser de confirmer des transactions selon un critère arbitraire. Cette dernière repose en effet sur des incitations \emph{extérieures} à l'économie de Bitcoin, le mineur rationnel n'ayant, au sein du système, aucun intérêt économique à ne pas inclure les transactions payant un taux de frais suffisant dans ses blocs.
 
 % --- Incitation ---
 

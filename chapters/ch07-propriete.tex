@@ -2,7 +2,7 @@
 % This work is licensed under the CC BY-NC-SA 4.0 International License
 
 \chapter{La valeur de l'information}
-\label{ch:propriete} \label{enotezch:7}
+\label{ch:7}
 
 Bitcoin est un concept de monnaie numérique libre. En tant que tel, il doit garantir la propriété des unités de compte sans nécessiter d'identification auprès d'un tiers de confiance. Il repose pour cela sur un algorithme de signature numérique qui permet d'autoriser une transaction grâce à la connaissance d'une information, la clé privée.
 
@@ -101,10 +101,10 @@ Néanmoins, contrairement à ce qu'on imagine parfois, aucun chiffrement n'est i
 % L'algorithme RSA peut être utilisé pour générer des signatures numériques de cette manière. Il existe aussi l'algorithme DSA (\eng{Digital Signature Algorithm}), qui se base sur l'exponentiation modulaire.
 
 % Transactions
-Bitcoin étant conçu pour l'échange de valeur, il repose de manière centrale sur les transactions. Celles-ci sont dans la plupart des cas des transferts d'unités entre deux propriétaires, même si elles peuvent prendre des formes beaucoup plus complexes comme nous le verrons dans le chapitre~\ref{ch:rouages}. L'unité transférée est usuellement le satoshi, qui forme la plus petite unité (indivisible) gérée par le protocole et qui correspond à un cent-millionième de bitcoin~: 1 satoshi = 0,00000001 bitcoin. Elle a été nommée comme telle en hommage au créateur de Bitcoin, Satoshi Nakamoto\sendnote{Le terme satoshi a été initialement proposé par ribuck sur le forum de Bitcoin, d'abord en novembre 2010 pour désigner 0,01 bitcoin, puis en février 2011 pour nommer la plus petite unité. L'appellation a ensuite été adoptée par la communauté. -- ribuck, \eng{Re: How did “satoshi” become the name of the base unit?}, \wtime{09/01/2014 20:49:00 UTC}~: \url{https://bitcointalk.org/index.php?topic=407442.msg4415850\#msg4415850}.}.
+Bitcoin étant conçu pour l'échange de valeur, il repose de manière centrale sur les transactions. Celles-ci sont dans la plupart des cas des transferts d'unités entre deux propriétaires, même si elles peuvent prendre des formes beaucoup plus complexes comme nous le verrons dans le chapitre~\ref{ch:12}. L'unité transférée est usuellement le satoshi, qui forme la plus petite unité (indivisible) gérée par le protocole et qui correspond à un cent-millionième de bitcoin~: 1 satoshi = 0,00000001 bitcoin. Elle a été nommée comme telle en hommage au créateur de Bitcoin, Satoshi Nakamoto\sendnote{Le terme satoshi a été initialement proposé par ribuck sur le forum de Bitcoin, d'abord en novembre 2010 pour désigner 0,01 bitcoin, puis en février 2011 pour nommer la plus petite unité. L'appellation a ensuite été adoptée par la communauté. -- ribuck, \eng{Re: How did “satoshi” become the name of the base unit?}, \wtime{09/01/2014 20:49:00 UTC}~: \url{https://bitcointalk.org/index.php?topic=407442.msg4415850\#msg4415850}.}.
 
 % Signature numérique dans Bitcoin
-Dans le protocole, la signature numérique est utilisée pour autoriser ces mouvements de fonds. Comme nous l'avons décrit dans le chapitre~\ref{ch:cypherpunks}, ce procédé se base sur une paire de clés~: une clé privée, secrète, qui \emph{signe} le message, et une clé publique, connue de tous, qui permet de \emph{vérifier} la signature produite. Dans le cas d'un transfert simple, le message à signer est la transaction et le signataire du message est le propriétaire des satoshis à envoyer.
+Dans le protocole, la signature numérique est utilisée pour autoriser ces mouvements de fonds. Comme nous l'avons décrit dans le chapitre~\ref{ch:5}, ce procédé se base sur une paire de clés~: une clé privée, secrète, qui \emph{signe} le message, et une clé publique, connue de tous, qui permet de \emph{vérifier} la signature produite. Dans le cas d'un transfert simple, le message à signer est la transaction et le signataire du message est le propriétaire des satoshis à envoyer.
 
 % Signature différente pour chaque transaction
 L'algorithme de signature produit une signature différente pour chaque  transaction. Il ne s'agit pas de se contenter de révéler un secret pour effectuer une dépense, auquel cas tout le monde sur le réseau pourrait tenter de dépenser les fonds, mais bien de produire une donnée qui puisse ensuite être vérifiée par le réseau conformément à ce qui est attendu.
@@ -362,7 +362,7 @@ Enfin, on peut également inclure cette donnée sous la forme d'un script dans u
 3JqPHkGuvW7nsUJDgm5CPSNUb47WczCC5e
 \end{Verbatim}
 
-Ce type d'adresse est appelé P2SH-P2WPKH (\eng{P2SH-nested Pay to Witness Public Key Hash}). Nous aborderons plus en détail les différents schémas de script qui sous-tendent ces types d'adresse dans le chapitre~\ref{ch:rouages}.
+Ce type d'adresse est appelé P2SH-P2WPKH (\eng{P2SH-nested Pay to Witness Public Key Hash}). Nous aborderons plus en détail les différents schémas de script qui sous-tendent ces types d'adresse dans le chapitre~\ref{ch:12}.
 
 Une fois qu'elles ont été encodées, les adresses peuvent être partagées facilement d'une personne à une autre. Grâce à la somme de contrôle, faire une faute de frappe ne crée théoriquement pas de risque, car le logiciel la détectera et refusera de procéder au paiement. Les adresses sont aussi souvent représentées par des codes QR (voir figure~\ref{fig:address-qr-codes}), plus adaptés pour l'interaction avec un téléphone multifonction.
 
@@ -539,7 +539,7 @@ Dans ce standard, on procède à trois dérivations endurcies puis à deux déri
   \item La première dérivation (endurcie) sert à définir le but du portefeuille~: le 44 (qui fait référence au BIP-44) permet de dériver un compte utilisant des adresses traditionnelles, le 49 (BIP-49) pour les adresses SegWit imbriquées, le 84 (BIP-84) pour les adresses SegWit natives, le 48 ou le 45 (BIP-45) pour les adresses multisignatures, le 86 (BIP-86) pour dériver les clés publiques liées à Taproot,~etc.~;
   \item La deuxième dérivation (endurcie) indique le protocole cryptoéconomique et a fortiori les jetons liés~: le chiffre 0 est utilisé pour BTC, le 1 pour le testnet, le 2 pour LTC, le 60 pour ETH, le 128 pour XMR, le 145 pour BCH,~etc.~;
   \item La troisième dérivation (endurcie) donne l'indice du compte~: 0, 1, 2,~etc.~;
-  \item La quatrième dérivation (normale) indique le rôle des adresses~: le 0 signale qu'il s'agit d'une adresse externe, dont le rôle est de réceptionner des bitcoins, le 1 d'une adresse interne, utilisée pour accueillir la sortie complémentaire lors d'un envoi de bitcoins (phénomène que nous décrirons dans le chapitre~\ref{ch:rouages})~;
+  \item La quatrième dérivation (normale) indique le rôle des adresses~: le 0 signale qu'il s'agit d'une adresse externe, dont le rôle est de réceptionner des bitcoins, le 1 d'une adresse interne, utilisée pour accueillir la sortie complémentaire lors d'un envoi de bitcoins (phénomène que nous décrirons dans le chapitre~\ref{ch:12})~;
   \item La cinquième dérivation (normale) donne l'indice de la clé et de l'adresse considérée~: 0, 1, 2,~etc.
 \end{itemize}
 

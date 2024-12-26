@@ -537,7 +537,7 @@ Dans ce standard, on procède à trois dérivations endurcies puis à deux déri
 
 \begin{itemize}
   \item La première dérivation (endurcie) sert à définir le but du portefeuille~: le 44 (qui fait référence au BIP-44) permet de dériver un compte utilisant des adresses traditionnelles, le 49 (BIP-49) pour les adresses SegWit imbriquées, le 84 (BIP-84) pour les adresses SegWit natives, le 48 ou le 45 (BIP-45) pour les adresses multisignatures, le 86 (BIP-86) pour dériver les clés publiques liées à Taproot,~etc.~;
-  \item La deuxième dérivation (endurcie) indique le protocole cryptoéconomique et a fortiori les jetons liés~: le chiffre 0 est utilisé pour BTC, le 1 pour le testnet, le 2 pour LTC, le 60 pour ETH, le 128 pour XMR, le 145 pour BCH,~etc.~;
+  \item La deuxième dérivation (endurcie) indique le protocole cryptoéconomique et \emph{a fortiori} l'unité de compte liée~: le chiffre 0 est utilisé pour BTC, le 1 pour le testnet, le 2 pour LTC, le 60 pour ETH, le 128 pour XMR, le 145 pour BCH,~etc.~;
   \item La troisième dérivation (endurcie) donne l'indice du compte~: 0, 1, 2,~etc.~;
   \item La quatrième dérivation (normale) indique le rôle des adresses~: le 0 signale qu'il s'agit d'une adresse externe, dont le rôle est de réceptionner des bitcoins, le 1 d'une adresse interne, utilisée pour accueillir la sortie complémentaire lors d'un envoi de bitcoins (phénomène que nous décrirons dans le chapitre~\ref{ch:12})~;
   \item La cinquième dérivation (normale) donne l'indice de la clé et de l'adresse considérée~: 0, 1, 2,~etc.

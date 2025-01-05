@@ -139,7 +139,7 @@ La valeur retournée à la fin de l'exécution des scripts est un booléen, de s
 Le langage Script est cependant limité. Rien dans sa conception de base ne permet de faire de boucles, ni d'accéder à des données extérieures à celles de la transaction, contrairement au langage d'Ethereum qui est quasi Turing-complet. Cette particularité fait qu'il est moins flexible, mais qu'il a l'avantage d'être plus simple à appréhender et donc plus sûr.
 
 % Exemple : vérification d'une addition (38 = 17 + x)
-L'exemple typique de script, présenté par Andreas Antonopoulos\sendnote{Andreas M. Antonopoulos, «~\eng{Transactions}~», in \eng{Mastering Bitcoin: Programming the Open Blockchain}, 2\ieme{} édition, 2017, pp.~117-148.}, est celui qui consiste à résoudre une équation simple impliquant une addition. Si on considère l'équation $17 + x = 38$, alors le script de verrouillage qui correspond est~:
+L'exemple typique de script, présenté par Andreas Antonopoulos\sendnote{Andreas M. Antonopoulos, «~\eng{Transactions}~», in \eng{Mastering Bitcoin: Programming the Open Blockchain}, 2\ieme{} édition, 2017, pp.~117--148.}, est celui qui consiste à résoudre une équation simple impliquant une addition. Si on considère l'équation $17 + x = 38$, alors le script de verrouillage qui correspond est~:
 
 \begin{Verbatim}[fontsize=\footnotesize]
 <17> ADD <38> EQUAL
